@@ -1,0 +1,11 @@
+config/*
+deps/*
+www/*
+*.xml
+home-assistant.db
+home-assistant.log
+OZW_Log.txt
+*.conf
+*.sqlite
+.HA_VERSION
+known_devices.yaml

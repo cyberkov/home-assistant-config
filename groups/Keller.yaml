@@ -1,0 +1,6 @@
+view: yes
+entities:
+  - group.hannes
+  - group.sauna
+  - group.wirtschaftsraum
+

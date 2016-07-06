@@ -1,0 +1,10 @@
+- platform: ubus
+  host: 192.168.1.1
+  username: !env_var HA_ROUTER_USER
+  password: !env_var HA_ROUTER_PASSWORD
+  track_new_devices: yes
+  consider_home: 180
+  interval_seconds: 12
+- platform: owntracks
+  max_gps_accuracy: 200
+#- platform: bluetooth_tracker

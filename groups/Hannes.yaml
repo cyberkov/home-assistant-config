@@ -1,0 +1,8 @@
+entities:
+  - binary_sensor.hannesbewegungsmelder_motion
+  - binary_sensor.hannesfenster_state
+  - binary_sensor.hannestuer_state
+  - media_player.raspi
+  - sensor.hannesbewegungsmelder_brightness
+  - thermostat.hannesheizung
+  - sensor.lastfm_cyberkov

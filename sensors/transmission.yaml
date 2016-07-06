@@ -1,0 +1,10 @@
+- platform: transmission
+  host: 192.168.1.4
+  port: 9091
+  name: Transmission
+  username: transmission
+  password: transmission
+  monitored_variables:
+    - 'current_status'
+    - 'download_speed'
+    - 'upload_speed'

@@ -1,0 +1,9 @@
+entities:
+  - name: Router Admin
+    url: http://192.168.1.1/
+  - name: Modem
+    url: http://192.168.0.1/
+  - name: Sonarr
+    url: http://192.168.1.4:8989/
+  - name: CCU
+    url: http://192.168.1.6/

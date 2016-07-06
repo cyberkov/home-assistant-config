@@ -1,0 +1,7 @@
+view: yes
+entities:
+  - group.schlafzimmer
+  - group.gang
+  - group.barbara
+  - group.dominik
+  - group.bad

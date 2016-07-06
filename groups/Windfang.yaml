@@ -1,0 +1,3 @@
+entities:
+  - thermostat.windfangheizung
+  - binary_sensor.windfangtuer_state

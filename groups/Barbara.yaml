@@ -1,0 +1,4 @@
+entities:
+  - binary_sensor.barbarafenster_state
+  - thermostat.barbaraheizung
+

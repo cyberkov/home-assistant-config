@@ -1,0 +1,4 @@
+- platform: lastfm
+  api_key: !env_var HA_LASTFM_APIKEY
+  users:
+    - cyberkov

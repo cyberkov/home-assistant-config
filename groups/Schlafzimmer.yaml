@@ -1,0 +1,8 @@
+entities:
+  - binary_sensor.schlafzimmer_links_state
+  - binary_sensor.schlafzimmer_rechts_state
+  - sensor.mold_schlafzimmer
+  - sensor.schlafzimmertemperatur_humidity
+  - sensor.schlafzimmertemperatur_temperature
+  - thermostat.schlafzimmerheizunglinks
+  - thermostat.schlafzimmerheizungrechts

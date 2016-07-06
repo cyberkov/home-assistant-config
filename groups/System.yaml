@@ -1,0 +1,4 @@
+entities:
+  - sensor.cpu_use
+  - sensor.ram_free
+

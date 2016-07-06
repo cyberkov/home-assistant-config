@@ -1,0 +1,69 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: !env_var HA_HOME_LATITUDE
+  longitude: !env_var HA_HOME_LONGITUDE
+  # Impacts weather/sunrise data
+  elevation: 169
+  # C for Celsius, F for Fahrenheit
+  temperature_unit: C
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: Europe/Vienna
+  customize: !include_dir_merge_named customizations
+
+#conversation:
+discovery:
+frontend:
+history:
+http:
+  api_password: !env_var HA_HTTP_LOGIN
+logbook:
+sun:
+updater:
+zeroconf:
+
+#scene: !include_dir_merge_list scenes
+alarm_control_panel: !include alarm_control_panel.yaml
+automation: !include_dir_list automation
+device_tracker: !include device_tracker.yaml
+group: !include_dir_named groups
+light: !include_dir_merge_list lights
+media_player: !include media_player.yaml
+notify: !include notify.yaml
+sensor: !include_dir_merge_list sensors
+switch: !include_dir_merge_list switches
+weblink: !include weblink.yaml
+zone: !include_dir_merge_list zones
+
+
+rfxtrx:
+  device: '/dev/ttyUSB0'
+  debug: true
+
+mqtt:
+  client_id: home-assistant
+  broker: m21.cloudmqtt.com
+  port: 27670
+  username: !env_var HA_MQTT_LOGIN
+  password: !env_var HA_MQTT_PASSWORD
+
+homematic:
+  local_ip: '192.168.1.4'
+  local_port: 8943
+  remote_ip: '192.168.1.6'
+  remote_port: 2001
+  resolvenames: json
+  username: !env_var HA_HOMEMATIC_LOGIN
+  password: !env_var HA_HOMEMATIC_PASSWORD
+
+influxdb:
+  host: 192.168.1.4
+  database: openhab
+  username: !env_var HA_INFLUXDB_USER
+  password: !env_var HA_INFLUXDB_PASSWORD
+
+zwave:
+    usb_path: /dev/ttyACM0
+    autoheal: false
+#    polling_interval: 2000

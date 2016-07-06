@@ -1,0 +1,13 @@
+entities:
+  - sensor.geschirrspler_current
+  - sensor.geschirrspler_energy_counter
+  - sensor.geschirrspler_power
+  - sensor.geschirrspler_voltage
+  - switch.geschirrspler
+  - binary_sensor.kuechefenster_state
+  - thermostat.kuecheheizung
+  - sensor.kuechetemperatur_humidity
+  - sensor.kuechetemperatur_temperature
+  - media_player.kche
+  - sensor.mold_kueche
+

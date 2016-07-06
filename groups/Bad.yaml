@@ -1,0 +1,6 @@
+entities:
+  - thermostat.badheizung
+  - sensor.badtemperatur_humidity
+  - sensor.badtemperatur_temperature
+  - media_player.bad
+  - sensor.mold_bad

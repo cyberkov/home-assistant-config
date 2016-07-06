@@ -1,0 +1,5 @@
+entities:
+  - binary_sensor.esszimmerbewegungsmelder_motion
+  - sensor.esszimmerbewegungsmelder_brightness
+  - thermostat.esszimmerheizung
+

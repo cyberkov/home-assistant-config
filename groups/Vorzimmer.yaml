@@ -1,0 +1,9 @@
+entities:
+  - thermostat.vorzimmerheizung
+  - sensor.petsi_battery
+  - sensor.petsi_capacity
+  - sensor.petsi_state
+  - device_tracker.petsi
+  - switch.petsi_clean
+  - switch.petsi_dock
+  - switch.petsi_find

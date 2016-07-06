@@ -1,0 +1,11 @@
+entities:
+  - sensor.luftentfeuchter_current
+  - sensor.luftentfeuchter_energy_counter
+  - sensor.luftentfeuchter_power
+  - sensor.luftentfeuchter_voltage
+  - switch.luftentfeuchter
+  - thermostat.sauna_heizung
+  - sensor.sauna_temperatur_humidity
+  - sensor.sauna_temperatur_temperature
+  - media_player.sauna
+  - sensor.mold_sauna

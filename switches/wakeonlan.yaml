@@ -1,0 +1,8 @@
+- platform: wake_on_lan
+  mac_address: "00-11-32-0a-56-bd"
+  name: "NAS"
+  host: "192.168.1.5"
+- platform: wake_on_lan
+  mac_address: "00-1a-22-04-99-4b"
+  name: "CCU"
+  host: "192.168.1.6"

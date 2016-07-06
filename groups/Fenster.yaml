@@ -1,0 +1,11 @@
+entities:
+  - binary_sensor.barbarafenster_state
+  - binary_sensor.dominikfenster_state
+  - binary_sensor.hannesfenster_state
+  - binary_sensor.hannestuer_state
+  - binary_sensor.kuechefenster_state
+  - binary_sensor.schlafzimmer_links_state
+  - binary_sensor.schlafzimmer_rechts_state
+  - binary_sensor.vorzimmerogfenster_state
+  - binary_sensor.windfangtuer_state
+  - binary_sensor.wohnzimmertuer_state

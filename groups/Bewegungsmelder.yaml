@@ -1,0 +1,4 @@
+entities:
+  - binary_sensor.esszimmerbewegungsmelder_motion
+  - binary_sensor.hannesbewegungsmelder_motion
+  - binary_sensor.vorzimmerogbewegungsmelder_motion

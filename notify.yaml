@@ -1,0 +1,12 @@
+- platform: pushover
+  name: hannes
+  api_key: !env_var HA_PUSHOVER_TOKEN
+  user_key: !env_var HA_PUSHOVER_HANNES
+- platform: pushover
+  name: barbara
+  api_key: !env_var HA_PUSHOVER_TOKEN
+  user_key: !env_var HA_PUSHOVER_BARBARA
+- platform: pushover
+  name: both
+  api_key: !env_var HA_PUSHOVER_TOKEN
+  user_key: !env_var HA_PUSHOVER_BOTH

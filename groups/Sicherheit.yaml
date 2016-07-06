@@ -1,0 +1,6 @@
+view: yes
+entities:
+  - group.alarmanlage
+  - group.fenster
+  - group.bewegungsmelder
+

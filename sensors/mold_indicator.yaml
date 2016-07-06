@@ -1,0 +1,38 @@
+# Sauna
+- platform: mold_indicator
+  name: mold_sauna
+  indoor_temp_sensor: sensor.sauna_temperatur_temperature
+  indoor_humidity_sensor: sensor.sauna_temperatur_humidity
+  outdoor_temp_sensor: sensor.gartentemperatur_temperature
+  calibration_factor: 3.375
+
+# Schlafzimmer
+- platform: mold_indicator
+  name: mold_schlafzimmer
+  indoor_temp_sensor: sensor.schlafzimmertemperatur_temperature
+  indoor_humidity_sensor: sensor.schlafzimmertemperatur_humidity
+  outdoor_temp_sensor: sensor.gartentemperatur_temperature
+  calibration_factor: 2.0
+
+# Bad
+- platform: mold_indicator
+  name: mold_bad
+  indoor_temp_sensor: sensor.badtemperatur_temperature
+  indoor_humidity_sensor: sensor.badtemperatur_humidity
+  outdoor_temp_sensor: sensor.gartentemperatur_temperature
+  calibration_factor: 2.0
+
+# Wohnzimmer
+- platform: mold_indicator
+  name: mold_wohnzimmer
+  indoor_temp_sensor: sensor.wohnzimmertemperatur_temperature
+  indoor_humidity_sensor: sensor.wohnzimmertemperatur_humidity
+  outdoor_temp_sensor: sensor.gartentemperatur_temperature
+  calibration_factor: 2.0
+
+- platform: mold_indicator
+  name: mold_kueche
+  indoor_temp_sensor: sensor.kuechetemperatur_temperature
+  indoor_humidity_sensor: sensor.kuechetemperatur_humidity
+  outdoor_temp_sensor: sensor.gartentemperatur_temperature
+  calibration_factor: 2.0

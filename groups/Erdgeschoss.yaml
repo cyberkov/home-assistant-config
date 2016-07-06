@@ -1,0 +1,7 @@
+view: yes
+entities:
+  - group.esszimmer
+  - group.wohnzimmer
+  - group.kueche
+  - group.windfang
+  - group.vorzimmer

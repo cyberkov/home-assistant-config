@@ -1,0 +1,8 @@
+entities:
+  - sensor.waschmaschine_current
+  - sensor.waschmaschine_energy_counter
+  - sensor.waschmaschine_power
+  - sensor.waschmaschine_voltage
+  - switch.waschmaschine
+  - switch.wirtschaftsraumtherme
+
