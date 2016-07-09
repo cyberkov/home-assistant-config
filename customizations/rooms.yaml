@@ -1,0 +1,79 @@
+### OG ###
+# Bad
+sensor.badtemperatur_humidity:
+  icon: mdi:water-percent
+  friendly_name: Bad Luftfeuchte
+sensor.badtemperatur_temperature:
+  icon: mdi:thermometer
+  friendly_name: Bad Temperatur
+# Barbara
+
+# Dominik
+
+# Gang
+binary_sensor.vorzimmerogbewegungsmelder_motion:
+  friendly_name: OG Bewegungsmelder
+
+binary_sensor.vorzimmerogbewegungsmelder_brightness:
+  friendly_name: OG Helligkeit
+  icon: mdi:brightness-6
+
+# Schlafzimmer
+sensor.schlafzimmertemperatur_humidity:
+  icon: mdi:water-percent
+  friendly_name: Schlafzimmer Luftfeuchte
+sensor.schlafzimmertemperatur_temperature:
+  icon: mdi:thermometer
+  friendly_name: Schlafzimmer Temperatur
+
+### EG ###
+# Esszimmer
+binary_sensor.esszimmerbewegungsmelder_motion:
+  friendly_name: Esszimmer Bewegungsmelder
+binary_sensor.esszimmerbewegungsmelder_brightness:
+  friendly_name: Esszimmer Helligkeit
+  icon: mdi:brightness-6
+
+# Kueche
+sensor.kuechetemperatur_humidity:
+  icon: mdi:water-percent
+  friendly_name: 'Küche Luftfeuchte'
+sensor.kuechetemperatur_temperature:
+  icon: mdi:thermometer
+  friendly_name: 'Küche Temperatur'
+
+switch.geschirrspler:
+  icon: mdi:silverware-variant
+  friendly_name: 'Geschirrspüler'
+
+# Vorzimmer
+
+# Windfang
+
+# Wohnzimmer
+sensor.wohnzimmertemperatur_humidity:
+  icon: mdi:water-percent
+  friendly_name: Wohnzimmer Luftfeuchte
+sensor.wohnzimmertemperatur_temperature:
+  icon: mdi:thermometer
+  friendly_name: Wohnzimmer Temperatur
+
+### UG ###
+# Hannes
+binary_sensor.hannesbewegungsmelder_motion:
+  friendly_name: Hannes Bewegungsmelder
+binary_sensor.hannesbewegungsmelder_brightness:
+  friendly_name: Hannes Helligkeit
+  icon: mdi:brightness-6
+
+# Sauna
+sensor.sauna_temperatur_humidity:
+  icon: mdi:water-percent
+  friendly_name: Sauna Luftfeuchte
+sensor.sauna_temperatur_temperature:
+  icon: mdi:thermometer
+  friendly_name: Sauna Temperatur
+switch.luftentfeuchter:
+  icon: mdi:air-conditioner
+
+# Wirtschaftsraum

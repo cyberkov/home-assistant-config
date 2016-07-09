@@ -1,0 +1,10 @@
+sensor.mold_bad:
+  friendly_name: 'Lueftungseffizienz'
+sensor.mold_schlafzimmer:
+  friendly_name: 'Lueftungseffizienz'
+sensor.mold_sauna:
+  friendly_name: 'Lueftungseffizienz'
+sensor.mold_kueche:
+  friendly_name: 'Lueftungseffizienz'
+sensor.mold_wohnzimmer:
+  friendly_name: 'Lueftungseffizienz'

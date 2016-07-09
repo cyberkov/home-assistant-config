@@ -1,0 +1,27 @@
+switch.it_stecker_1:
+  friendly_name: Internet
+  icon: mdi:earth
+switch.sleeping:
+  icon: mdi:sleep
+  friendly_name: schlafen
+switch.vacation:
+  icon: mdi:airplane
+  friendly_name: Urlaub
+switch.guests:
+  icon: mdi:human-male-female
+  friendly_name: 'Gaeste anwesend'
+switch.presence:
+  icon: mdi:account-multiple
+  friendly_name: Detect Presence
+switch.detect_motion:
+  icon: mdi:walk
+switch.nightlights:
+  icon: mdi:weather-night
+  friendly_name: Nachtlicht
+switch.alert_motion:
+  icon: mdi:walk
+  friendly_name: 'Alarmautomatik'
+switch.nas:
+  icon: mdi:harddisk
+switch.ccu:
+  icon: mdi:radar

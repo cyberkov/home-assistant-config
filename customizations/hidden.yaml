@@ -1,0 +1,13 @@
+# Hidden Items
+sensor.geschirrspler_energy_counter:
+  hidden: true
+sensor.luftentfeuchter_energy_counter:
+  hidden: true
+sensor.waschmaschine_energy_counter:
+  hidden: true
+sensor.geschirrspler_voltage:
+  hidden: true
+sensor.luftentfeuchter_voltage:
+  hidden: true
+sensor.waschmaschine_voltage:
+  hidden: true
