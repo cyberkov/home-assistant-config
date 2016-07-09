@@ -1,0 +1,8 @@
+entities:
+  - switch.alert_motion
+  - switch.detect_motion
+  - switch.guests
+  - switch.nightlights
+  - switch.presence
+  - switch.sleeping
+  - switch.vacation

@@ -1,0 +1,8 @@
+default: info
+logs:
+  requests.packages.urllib3.connectionpool: warn
+  homeassistant.components.device_tracker.ubus: warn
+  homeassistant.components.media_player: warn
+  homeassistant.components.sensor: warn
+  homeassistant.components.http: warn
+  pyhomematic.devicetypes.generic: warn

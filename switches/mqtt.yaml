@@ -1,0 +1,104 @@
+#  Virtual MQTT switches maintain state
+#  over Home Assistant restarts. These switches
+#  mainly enable or disable automations. All
+#  switches have QOS = 1, which is guaranteed delivery
+#  at least once. It is important that switch state
+#  changes always are delivered.
+
+#  Sleeping turns on when my phone plugs in
+#  after a certain hour (via Tasker). It turns
+#  off when an alarm goes off (also via Tasker).
+#  Many automations depend on the state of this
+#  switch in order to not interrupt sleep.
+
+- platform: mqtt
+  name: "Sleeping"
+  state_topic: "nfc/sleeping"
+  command_topic: "nfc/sleeping"
+  qos: 1
+  payload_on: "yes"
+  payload_off: "no"
+  retain: true
+
+#  Vacation is manually switched to enabled or
+#  disable automations that might otherwise
+#  automatically trigger based on time of day,
+#  or other events that are only relevant when
+#  someone is home or will be home soon.
+
+- platform: mqtt
+  name: "Vacation"
+  state_topic: "nfc/vacation"
+  command_topic: "nfc/vacation"
+  qos: 1
+  payload_on: "yes"
+  payload_off: "no"
+  retain: true
+
+#  Toggle if guests are present. They aren't device-tracked,
+#  and may reside in areas that normally see other uses,
+#  so the smart home should act accordingly.
+
+- platform: mqtt
+  name: "Guests"
+  state_topic: "nfc/guests"
+  command_topic: "nfc/guests"
+  qos: 1
+  payload_on: "yes"
+  payload_off: "no"
+  retain: true
+
+#  Control whether motion detection should
+#  trigger lights. This may be undesirable in certain
+#  conditions, for example if guests are sleeping
+#  in a common area, the detector sensitivity is
+#  too high/low, or rooms are occupied by stationary
+#  people for whom the light timeout is too short.
+
+- platform: mqtt
+  name: "Detect Motion"
+  state_topic: "nfc/detect_motion"
+  command_topic: "nfc/detect_motion"
+  qos: 1
+  payload_on: "yes"
+  payload_off: "no"
+  retain: true
+
+#  Control motion alerts when no tracked devices
+#  are home. May be undesirable if visitors are present
+#  or the detector sensitivity is too high/low.
+
+- platform: mqtt
+  name: "Alert Motion"
+  state_topic: "nfc/alert_motion"
+  command_topic: "nfc/alert_motion"
+  qos: 1
+  payload_on: "yes"
+  payload_off: "no"
+  retain: true
+
+#  Enable or disable presence-based automations. Presence
+#  doesn't always work perfectly, so provie a means to disable
+#  automations that rely on it.
+
+- platform: mqtt
+  name: "Presence"
+  state_topic: "nfc/presence"
+  command_topic: "nfc/presence"
+  qos: 1
+  payload_on: "yes"
+  payload_off: "no"
+  retain: true
+
+#  Nightlights turn on to a dim red if motion is
+#  detected, to provide some visibility but not harm
+#  night vision.
+
+- platform: mqtt
+  name: "Nightlights"
+  state_topic: "nfc/nightlights"
+  command_topic: "nfc/nightlights"
+  qos: 1
+  payload_on: "yes"
+  payload_off: "no"
+  retain: true

@@ -1,9 +1,12 @@
 entities:
   - name: Router Admin
     url: http://192.168.1.1/
+    icon: mdi:router-wireless
   - name: Modem
     url: http://192.168.0.1/
+    icon: mdi:earth
   - name: Sonarr
     url: http://192.168.1.4:8989/
+    icon: mdi:cloud-download
   - name: CCU
     url: http://192.168.1.6/

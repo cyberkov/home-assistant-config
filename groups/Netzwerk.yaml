@@ -2,4 +2,5 @@ view: yes
 entities:
   - group.internet
   - group.system
+  - group.automatik
 

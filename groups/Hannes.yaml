@@ -5,4 +5,5 @@ entities:
   - media_player.raspi
   - sensor.hannesbewegungsmelder_brightness
   - thermostat.hannesheizung
-  - sensor.lastfm_cyberkov
+  - switch.nas
+  - switch.ccu
