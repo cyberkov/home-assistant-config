@@ -1,10 +1,7 @@
 entities:
-  - sensor.gartentemperatur_humidity
   - sensor.gartentemperatur_temperature
-  - sun.sun
-  - sensor.weather_apparent_temperature
-  - sensor.weather_humidity
-  - sensor.weather_precip_probability
   - sensor.weather_summary
-  - sensor.weather_temperature
+  - sensor.weather_precip_probability
+  - sensor.gartentemperatur_humidity
   - sensor.weather_wind_speed
+  - sun.sun

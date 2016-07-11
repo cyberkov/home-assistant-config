@@ -3,7 +3,4 @@
   monitored_conditions:
     - summary
     - precip_probability
-    - temperature
-    - apparent_temperature
     - wind_speed
-    - humidity

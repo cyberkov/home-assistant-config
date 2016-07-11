@@ -1,8 +1,16 @@
-default: info
+default: warn
 logs:
+  homeassistant.core: critical
   requests.packages.urllib3.connectionpool: warn
+  homeassistant.bootstrap: info
+  homeassistant.loader: info
+  homeassistant.components: info
   homeassistant.components.device_tracker.ubus: warn
-  homeassistant.components.media_player: warn
-  homeassistant.components.sensor: warn
+  homeassistant.components.homematic: warn
   homeassistant.components.http: warn
+  homeassistant.components.media_player: warn
+  homeassistant.components.rfxtrx: warn
+  homeassistant.components.sensor: warn
   pyhomematic.devicetypes.generic: warn
+  openzwave: info
+  homeassistant.components.mqtt: debug

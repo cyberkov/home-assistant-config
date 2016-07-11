@@ -30,6 +30,7 @@
   outdoor_temp_sensor: sensor.gartentemperatur_temperature
   calibration_factor: 2.0
 
+# Kueche
 - platform: mold_indicator
   name: mold_kueche
   indoor_temp_sensor: sensor.kuechetemperatur_temperature

@@ -1,4 +1,5 @@
 entities:
   - sensor.cpu_use
   - sensor.ram_free
+  - sensor.battery_lg_g3
 

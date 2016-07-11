@@ -1,0 +1,19 @@
+# Funktionstest
+- !include automation/automation_test.yaml
+# Alarmanlage
+- !include automation/alarm_away_trigger.yaml
+- !include automation/alarm_home_trigger.yaml
+- !include automation/alarm_set_away.yaml
+- !include automation/alarm_set_sleeping.yaml
+- !include automation/motion_notify.yaml
+
+# Notifications
+- !include automation/waschmaschine_fertig_notify.yaml
+
+# Sensor based
+- !include automation/internet_on.yaml
+- !include automation/luftentfeuchter_off.yaml
+- !include automation/luftentfeuchter_on.yaml
+
+# Update check
+- !include automation/home_assistant_update.yaml

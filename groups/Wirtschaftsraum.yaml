@@ -5,4 +5,6 @@ entities:
   - sensor.waschmaschine_voltage
   - switch.waschmaschine
   - switch.wirtschaftsraumtherme
+  - sensor.gas_power
+  - sensor.strom_power
 

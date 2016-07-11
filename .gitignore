@@ -4,8 +4,10 @@ www/*
 *.xml
 home-assistant.db
 home-assistant.log
+home-assistant.log*
 OZW_Log.txt
 *.conf
 *.sqlite
 .HA_VERSION
 known_devices.yaml
+docker-compose.yml

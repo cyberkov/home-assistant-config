@@ -6,3 +6,4 @@ entities:
   - media_player.cybmc
   - media_player.wohnzimmer
   - sensor.mold_wohnzimmer
+  - switch.it_stecker_1

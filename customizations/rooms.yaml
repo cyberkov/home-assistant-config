@@ -77,3 +77,10 @@ switch.luftentfeuchter:
   icon: mdi:air-conditioner
 
 # Wirtschaftsraum
+sensor.gas_power:
+  icon: mdi:counter
+  friendly_name: 'Gas akt. Verbrauch'
+sensor.strom_power:
+  icon: mdi:car-battery
+  friendly_name: 'Strom akt. Verbrauch'
+

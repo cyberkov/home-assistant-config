@@ -1,0 +1,9 @@
+# Set the Internet switch to on upon startup
+alias: 'Internet_on'
+trigger:
+  - platform: event
+    event_type: homeassistant_start
+action:
+  - service: homeassistant.turn_on
+    data:
+      entity_id: switch.it_stecker_1

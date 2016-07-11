@@ -19,14 +19,18 @@ history:
 http:
   api_password: !env_var HA_HTTP_LOGIN
 logbook:
+recorder:
+  purge_days: 3
 sun:
 updater:
 zeroconf:
 
 #scene: !include_dir_merge_list scenes
 alarm_control_panel: !include alarm_control_panel.yaml
-automation: !include_dir_list automation
+#automation: !include_dir_list automation
+automation: !include automation.yaml
 #binary_sensor: !include_dir_merge_list binary_sensors
+script: !include_dir_named scripts
 device_tracker: !include device_tracker.yaml
 group: !include_dir_named groups
 light: !include_dir_merge_list lights
@@ -45,10 +49,12 @@ rfxtrx:
 
 mqtt:
   client_id: home-assistant
-  broker: m21.cloudmqtt.com
-  port: 27670
-  username: !env_var HA_MQTT_LOGIN
-  password: !env_var HA_MQTT_PASSWORD
+  broker: 192.168.1.4
+  port: 1883
+#  broker: m21.cloudmqtt.com
+#  port: 27670
+#  username: !env_var HA_MQTT_LOGIN
+#  password: !env_var HA_MQTT_PASSWORD
 
 homematic:
   local_ip: '192.168.1.4'
@@ -66,6 +72,6 @@ influxdb:
   password: !env_var HA_INFLUXDB_PASSWORD
 
 zwave:
-    usb_path: /dev/ttyACM0
-    autoheal: false
-#    polling_interval: 2000
+  usb_path: /dev/ttyACM0
+#  autoheal: false
+# polling_interval: 2000
