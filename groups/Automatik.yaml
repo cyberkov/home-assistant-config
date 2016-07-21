@@ -1,4 +1,5 @@
 entities:
+  - switch.alert_lueftung
   - switch.alert_motion
   - switch.detect_motion
   - switch.guests

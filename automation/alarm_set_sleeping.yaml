@@ -1,0 +1,16 @@
+alias: "Alarm Set Sleeping"
+trigger:
+  - platform: state
+    entity_id: switch.sleeping
+    state: 'on'
+condition:
+  - condition: state
+    entity_id: switch.guests
+    state: "off"
+  - condition: state
+    entity_id: switch.alert_motion
+    state: "on"
+action:
+  service: script.alarm_home
+  data:
+    code: !env_var HA_ALARM_CODE

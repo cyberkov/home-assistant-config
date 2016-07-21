@@ -2,5 +2,9 @@
   api_key: !env_var HA_FORECAST_API
   monitored_conditions:
     - summary
+    - precip_intensity
     - precip_probability
+    - precip_type
+    - hourly_summary
     - wind_speed
+    - daily_summary

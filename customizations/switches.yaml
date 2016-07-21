@@ -13,6 +13,9 @@ switch.guests:
 switch.presence:
   icon: mdi:account-multiple
   friendly_name: Detect Presence
+switch.alert_lueftung:
+  icon: mdi:fan
+  friendly_name: Lüftungsbenachrichtigung
 switch.detect_motion:
   icon: mdi:walk
 switch.nightlights:

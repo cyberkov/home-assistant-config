@@ -6,5 +6,6 @@ entities:
   - switch.waschmaschine
   - switch.wirtschaftsraumtherme
   - sensor.gas_power
+  - sensor.gas_energy_counter
   - sensor.strom_power
 

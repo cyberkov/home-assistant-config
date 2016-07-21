@@ -1,0 +1,13 @@
+#mysensors/out/20/1/1/0/0 22.0
+#mysensors/out/20/0/1/0/1 58.0
+- platform: mqtt
+  state_topic: "mysensors/out/20/1/1/0/0"
+  name: "mysensors_20_temperature"
+  unit_of_measurement: "°C"
+  value_template: "{{ value }}"
+- platform: mqtt
+  state_topic: "mysensors/out/20/0/1/0/1"
+  name: "mysensors_20_humidity"
+  unit_of_measurement: "%"
+  value_template: "{{ value }}"
+

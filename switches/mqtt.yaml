@@ -102,3 +102,13 @@
   payload_on: "yes"
   payload_off: "no"
   retain: true
+
+# Send a notification if it makes sense to open a window
+- platform: mqtt
+  name: "Alert Lueftung"
+  state_topic: "nfc/alert_lueftung"
+  command_topic: "nfc/alert_lueftung"
+  qos: 1
+  payload_on: "yes"
+  payload_off: "no"
+  retain: true

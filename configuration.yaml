@@ -27,8 +27,8 @@ zeroconf:
 
 #scene: !include_dir_merge_list scenes
 alarm_control_panel: !include alarm_control_panel.yaml
-#automation: !include_dir_list automation
-automation: !include automation.yaml
+automation: !include_dir_list automation
+#automation: !include automation.yaml
 #binary_sensor: !include_dir_merge_list binary_sensors
 script: !include_dir_named scripts
 device_tracker: !include device_tracker.yaml

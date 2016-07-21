@@ -1,9 +1,9 @@
 - platform: kodi
-  host: http://192.168.0.10
+  host: http://192.168.1.10
   port: 80
   name: raspi
 - platform: kodi
-  host: http://192.168.0.12
+  host: http://192.168.1.12
   port: 80
   name: cybmc
 - platform: sonos
