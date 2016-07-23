@@ -6,3 +6,5 @@ entities:
   - sensor.schlafzimmertemperatur_temperature
   - thermostat.schlafzimmerheizunglinks
   - thermostat.schlafzimmerheizungrechts
+  - switch.it_stecker_2
+  - light.nachtkasterl_lampe

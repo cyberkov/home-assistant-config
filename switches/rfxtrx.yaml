@@ -16,3 +16,6 @@
     0b11000000f2704201510f60:
       name: 'IT Stecker 1'
       fire_event: True
+    0b11000300f2704202510f50:
+      name: 'IT Stecker 2'
+      fire_event: True

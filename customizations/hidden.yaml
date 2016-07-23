@@ -11,3 +11,9 @@ sensor.luftentfeuchter_voltage:
   hidden: true
 sensor.waschmaschine_voltage:
   hidden: true
+script.alarm_away:
+  hidden: true
+script.alarm_home:
+  hidden: true
+script.alarm_triggered:
+  hidden: true

@@ -3,16 +3,16 @@ trigger:
   - platform: state
     entity_id: binary_sensor.hannesbewegungsmelder_motion
     state: 'on'
-condition:
-  - condition: state
-    entity_id: switch.detect_motion
-    state: 'on'
+#condition:
+#  - condition: state
+#    entity_id: switch.detect_motion
+#    state: 'on'
 action:
   - service: homeassistant.turn_on
     data:
-      entity_id: light.it_stecker_2
+      entity_id: light.it_stecker_3
   - delay:
       seconds: 3
   - service: homeassistant.turn_off
     data:
-      entity_id: light.it_stecker_2
+      entity_id: light.it_stecker_3

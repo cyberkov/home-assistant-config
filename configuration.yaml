@@ -21,15 +21,23 @@ http:
 logbook:
 recorder:
   purge_days: 3
+#  db_url: !env_var HA_RECORDER_DB
 sun:
 updater:
-zeroconf:
+#zeroconf:
 
-#scene: !include_dir_merge_list scenes
+homematic:
+  local_ip: '192.168.1.4'
+  local_port: 8943
+  remote_ip: '192.168.1.6'
+  remote_port: 2001
+  resolvenames: json
+  username: !env_var HA_HOMEMATIC_LOGIN
+  password: !env_var HA_HOMEMATIC_PASSWORD
+  delay: 1
+
 alarm_control_panel: !include alarm_control_panel.yaml
 automation: !include_dir_list automation
-#automation: !include automation.yaml
-#binary_sensor: !include_dir_merge_list binary_sensors
 script: !include_dir_named scripts
 device_tracker: !include device_tracker.yaml
 group: !include_dir_named groups
@@ -42,28 +50,21 @@ switch: !include_dir_merge_list switches
 weblink: !include weblink.yaml
 zone: !include_dir_merge_list zones
 
+#scene: !include_dir_merge_list scenes
+#automation: !include automation.yaml
 
 rfxtrx:
   device: '/dev/ttyUSB0'
   debug: true
 
 mqtt:
-  client_id: home-assistant
   broker: 192.168.1.4
   port: 1883
+#  client_id: home-assistant
 #  broker: m21.cloudmqtt.com
 #  port: 27670
 #  username: !env_var HA_MQTT_LOGIN
 #  password: !env_var HA_MQTT_PASSWORD
-
-homematic:
-  local_ip: '192.168.1.4'
-  local_port: 8943
-  remote_ip: '192.168.1.6'
-  remote_port: 2001
-  resolvenames: json
-  username: !env_var HA_HOMEMATIC_LOGIN
-  password: !env_var HA_HOMEMATIC_PASSWORD
 
 influxdb:
   host: 192.168.1.4

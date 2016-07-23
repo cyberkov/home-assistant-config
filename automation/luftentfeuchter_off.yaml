@@ -1,0 +1,22 @@
+alias: 'Deaktiviere Luftentfeuchter'
+trigger:
+  - platform: numeric_state
+    entity_id: sensor.mold_sauna
+    below: 66
+  - platform: numeric_state
+    entity_id: sensor.sauna_temperatur_humidity
+    below: 57
+condition:
+  - condition: state
+    entity_id: switch.luftentfeuchter
+    state: "on"
+  - platform: numeric_state
+    entity_id: sensor.sauna_temperatur_humidity
+    below: 62
+action:
+  - service: homeassistant.turn_off
+    entity_id: switch.luftentfeuchter
+#  - service: 
+#    entity_id: notify.event
+#    data:
+#      message: 'Deaktiviere Luftentfeuchter - Luftfeuchte: {{ states.sensor.sauna_temperatur_humidity.state }}, Effizienz: {{ states.sensor.mold_sauna.state }}'

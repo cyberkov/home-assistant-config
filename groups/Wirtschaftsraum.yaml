@@ -8,4 +8,14 @@ entities:
   - sensor.gas_power
   - sensor.gas_energy_counter
   - sensor.strom_power
+  - sensor.gaszaehler_energy_counter
+  - sensor.gaszaehler_gas_energy_counter
+  - sensor.gaszaehler_gas_power
+  - sensor.gaszaehler_power
+  - sensor.stromzaehler_energy_counter
+  - sensor.stromzaehler_gas_energy_counter
+  - sensor.stromzaehler_gas_power
+  - sensor.stromzaehler_power
+  - sensor.mysensors_20_humidity
+  - sensor.mysensors_20_temperature
 

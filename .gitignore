@@ -3,6 +3,7 @@ deps/*
 www/*
 *.xml
 home-assistant.db
+home-assistant_v2.db
 home-assistant.log
 home-assistant.log*
 OZW_Log.txt

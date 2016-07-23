@@ -112,3 +112,13 @@
   payload_on: "yes"
   payload_off: "no"
   retain: true
+
+# Displays wether the homematic mqtt service is connected to the bus
+- platform: mqtt
+  name: "hm connected"
+  state_topic: "hm/connected"
+  command_topic: "hm/connected"
+  qos: 1
+  payload_on: "2"
+  payload_off: "0"
+  retain: true
