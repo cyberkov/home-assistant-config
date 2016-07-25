@@ -1,0 +1,8 @@
+icon: mdi:home-variant
+view: yes
+entities:
+  - group.alarmanlage
+  - group.all_devices
+  - group.fenster
+  - group.internet
+

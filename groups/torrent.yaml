@@ -1,0 +1,5 @@
+icon: mdi:magnet-on
+entities:
+  - sensor.transmission_down_speed
+  - sensor.transmission_status
+  - sensor.transmission_up_speed

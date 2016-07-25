@@ -17,14 +17,14 @@ discovery:
 frontend:
 history:
 http:
-  api_password: !env_var HA_HTTP_LOGIN
+#  api_password: !env_var HA_HTTP_LOGIN
 logbook:
 recorder:
   purge_days: 3
 #  db_url: !env_var HA_RECORDER_DB
 sun:
 updater:
-#zeroconf:
+zeroconf:
 
 homematic:
   local_ip: '192.168.1.4'
@@ -34,7 +34,7 @@ homematic:
   resolvenames: json
   username: !env_var HA_HOMEMATIC_LOGIN
   password: !env_var HA_HOMEMATIC_PASSWORD
-  delay: 1
+#  delay: 1
 
 alarm_control_panel: !include alarm_control_panel.yaml
 automation: !include_dir_list automation
@@ -74,5 +74,6 @@ influxdb:
 
 zwave:
   usb_path: /dev/ttyACM0
+  config_path: /usr/local/share/python-openzwave/config
 #  autoheal: false
 # polling_interval: 2000

@@ -2,6 +2,3 @@ entities:
   - sensor.speedtest_download
   - sensor.speedtest_ping
   - sensor.speedtest_upload
-  - sensor.transmission_down_speed
-  - sensor.transmission_status
-  - sensor.transmission_up_speed

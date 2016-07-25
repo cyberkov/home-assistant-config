@@ -4,6 +4,11 @@
   unit_of_measurement: "m3"
   value_template: '{{ value_json.val }}'
 - platform: mqtt
+  state_topic: "hm/status/Gaszaehler/GAS_ENERGY_COUNTER"
+  name: "gas_energy_counter"
+  unit_of_measurement: "m3"
+  value_template: '{{ value_json.val }}'
+- platform: mqtt
   state_topic: "hm/status/Stromzaehler/POWER"
   name: "strom_power"
   unit_of_measurement: "W"
@@ -13,3 +18,4 @@
   name: "Battery LG G3"
   unit_of_measurement: "%"
   value_template: '{{ value_json.batt }}'
+

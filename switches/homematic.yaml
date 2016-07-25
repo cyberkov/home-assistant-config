@@ -1,0 +1,18 @@
+- platform: mqtt
+  name: "sirene_Sirene"
+  state_topic: "hm/status/Sirene/STATE"
+  command_topic: "hm/status/Sirene/STATE"
+  qos: 1
+  payload_on: "1"
+  payload_off: "0"
+  retain: false
+  value_template: "{{ value_json.val }}"
+- platform: mqtt
+  name: "sirene_Blitz"
+  state_topic: "hm/status/Blitz/STATE"
+  command_topic: "hm/set/Blitz/STATE"
+  qos: 1
+  payload_on: "1"
+  payload_off: "0"
+  retain: false
+  value_template: "{{ value_json.val }}"

@@ -83,4 +83,11 @@ sensor.gas_power:
 sensor.strom_power:
   icon: mdi:car-battery
   friendly_name: 'Strom akt. Verbrauch'
-
+sensor.mysensors_20_humidity:
+  icon: mdi:water-percent
+  friendly_name: Wirtschaftsraum Luftfeuchte
+sensor.mysensors_20_temperature:
+  icon: mdi:thermometer
+  friendly_name: Wirtschaftsraum Temperatur
+switch.waschmaschine:
+  icon: mdi:stove

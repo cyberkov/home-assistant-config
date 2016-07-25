@@ -1,6 +1,8 @@
+icon: mdi:lan-connect
 view: yes
 entities:
   - group.internet
+  - group.torrent
   - group.system
   - group.automatik
 

@@ -1,6 +1,9 @@
 switch.it_stecker_1:
   friendly_name: Internet
   icon: mdi:earth
+switch.it_stecker_2:
+  friendly_name: Gelsenstecker
+  icon: mdi:bug
 switch.sleeping:
   icon: mdi:sleep
   friendly_name: schlafen

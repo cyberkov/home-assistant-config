@@ -17,3 +17,5 @@ script.alarm_home:
   hidden: true
 script.alarm_triggered:
   hidden: true
+group.all_devices:
+  hidden: false
