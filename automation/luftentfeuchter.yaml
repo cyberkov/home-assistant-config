@@ -1,0 +1,18 @@
+alias: 'Luftentfeuchter'
+trigger:
+  - platform: numeric_state
+    entity_id: sensor.sauna_temperatur_humidity
+    above: 62
+    below: 57
+condition:
+  - condition: numeric_state
+    entity_id: sensor.sauna_temperatur_humidity
+    above: 55
+action:
+  service_template: >
+    {% if states.sensor.sauna_temperatur_humidity|float >= 62 and is_state('switch.luftentfeuchter', 'off') %}
+      switch.turn_on
+    {% elif states.sensor.sauna_temperatur_humidity|float <= 57 and is_state('switch.luftentfeuchter', 'on') %}
+      switch.turn_off
+    {% endif %}
+  entity_id: switch.luftentfeuchter
