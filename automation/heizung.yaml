@@ -57,7 +57,7 @@ trigger:
     above: 15
 action:
   service_template: >
-    {% if states.climate|sum(attribute="attributes.Valve")|float >= (15*2) and is_state('switch.wirtschaftsraumtherme', 'off') %}
+    {% if states.climate|sum(attribute="attributes.Valve")|float >= (20*3) and is_state('switch.wirtschaftsraumtherme', 'off') %}
       switch.turn_on
     {% else %}
       switch.turn_off

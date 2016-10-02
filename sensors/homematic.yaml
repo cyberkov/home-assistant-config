@@ -19,9 +19,9 @@
   unit_of_measurement: "%"
   value_template: '{{ value_json.batt }}'
 
-- platform: template
-  sensors:
-    sauna_heizung_valve:
-      entity_id: climate.sauna_heizung
-      value_template: '{{ states.climate.sauna_heizung.attributes.Valve }}'
-      unit_of_measurement: '%'
+#- platform: template
+#  sensors:
+#    sauna_heizung_valve:
+#      entity_id: climate.sauna_heizung
+#      value_template: '{{ states.climate.sauna_heizung.attributes.Valve }}'
+#      unit_of_measurement: '%'

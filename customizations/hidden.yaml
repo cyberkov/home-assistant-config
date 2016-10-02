@@ -11,6 +11,16 @@ sensor.luftentfeuchter_voltage:
   hidden: true
 sensor.waschmaschine_voltage:
   hidden: true
+
+sensor.gaszaehler_energy_counter:
+  hidden: true
+sensor.gaszaehler_power:
+  hidden: true
+sensor.stromzaehler_gas_energy_counter:
+  hidden: true
+sensor.stromzaehler_gas_power:
+  hidden: true
+
 script.alarm_away:
   hidden: true
 script.alarm_home:

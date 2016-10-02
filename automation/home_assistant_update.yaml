@@ -1,4 +1,4 @@
-alias: "Home Asssistant Update"
+alias: "Home Assistant Update"
 trigger:
   - platform: state
     entity_id: updater.updater
