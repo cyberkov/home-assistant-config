@@ -1,0 +1,60 @@
+alias: "Alarm Away Trigger"
+trigger:
+  - platform: state
+    entity_id: binary_sensor.vorzimmerogbewegungsmelder_motion
+    from: "off"
+    to: "on"
+  - platform: state
+    entity_id: binary_sensor.esszimmerbewegungsmelder_motion
+    from: "off"
+    to: "on"
+  - platform: state
+    entity_id: binary_sensor.hannesbewegungsmelder_motion
+    from: "off"
+    to: "on"
+  - platform: state
+    entity_id: binary_sensor.barbarafenster_state
+    from: "off"
+    to: "on"
+  - platform: state
+    entity_id: binary_sensor.dominikfenster_state
+    from: "off"
+    to: "on"
+  - platform: state
+    entity_id: binary_sensor.hannesfenster_state
+    from: "off"
+    to: "on"
+  - platform: state
+    entity_id: binary_sensor.hannestuer_state
+    from: "off"
+    to: "on"
+  - platform: state
+    entity_id: binary_sensor.kuechefenster_state
+    from: "off"
+    to: "on"
+  - platform: state
+    entity_id: binary_sensor.schlafzimmer_links_state
+    from: "off"
+    to: "on"
+  - platform: state
+    entity_id: binary_sensor.schlafzimmer_rechts_state
+    from: "off"
+    to: "on"
+  - platform: state
+    entity_id: binary_sensor.vorzimmerogfenster_state
+    from: "off"
+    to: "on"
+  - platform: state
+    entity_id: binary_sensor.windfangtuer_state
+    from: "off"
+    to: "on"
+  - platform: state
+    entity_id: binary_sensor.wohnzimmertuer_state
+    from: "off"
+    to: "on"
+condition:
+  - condition: state
+    entity_id: alarm_control_panel.alarm
+    state: "armed_away"
+action:
+  service: script.alarm_triggered

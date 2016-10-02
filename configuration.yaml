@@ -7,7 +7,7 @@ homeassistant:
   # Impacts weather/sunrise data
   elevation: 169
   # C for Celsius, F for Fahrenheit
-  temperature_unit: C
+  unit_system: metric
   # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: Europe/Vienna
   customize: !include_dir_merge_named customizations
@@ -21,7 +21,7 @@ http:
 logbook:
 recorder:
   purge_days: 3
-#  db_url: !env_var HA_RECORDER_DB
+  db_url: !env_var HA_RECORDER_DB
 sun:
 updater:
 zeroconf:
@@ -65,6 +65,10 @@ mqtt:
 #  port: 27670
 #  username: !env_var HA_MQTT_LOGIN
 #  password: !env_var HA_MQTT_PASSWORD
+
+mqtt_eventstream:
+  publish_topic: homeassistant/events/master
+  subscribe_topic: homeassistant/events/slave
 
 influxdb:
   host: 192.168.1.4

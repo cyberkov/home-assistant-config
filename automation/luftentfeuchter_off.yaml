@@ -10,13 +10,12 @@ condition:
   - condition: state
     entity_id: switch.luftentfeuchter
     state: "on"
-  - platform: numeric_state
+  - condition: numeric_state
     entity_id: sensor.sauna_temperatur_humidity
     below: 62
 action:
   - service: homeassistant.turn_off
     entity_id: switch.luftentfeuchter
-#  - service: 
-#    entity_id: notify.event
-#    data:
+#  - service: notify.event
+#    data_template:
 #      message: 'Deaktiviere Luftentfeuchter - Luftfeuchte: {{ states.sensor.sauna_temperatur_humidity.state }}, Effizienz: {{ states.sensor.mold_sauna.state }}'

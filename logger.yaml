@@ -11,7 +11,7 @@ logs:
   homeassistant.components.sensor.mold_indicator: fatal
   homeassistant.components.sensor: warn
   homeassistant.components: info
-  homeassistant.core: critical
+  homeassistant.core: warn
   homeassistant.loader: warn
   openzwave: info
   pyhomematic: warn

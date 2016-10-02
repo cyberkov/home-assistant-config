@@ -1,0 +1,17 @@
+alias: "Alarm Disarm"
+trigger:
+  - platform: state
+    entity_id: group.all_devices
+    from: "not_home"
+    to: "home"
+condition:
+  - condition: state
+    entity_id: switch.presence
+    state: "on"
+  - condition: state
+    entity_id: switch.vacation
+    state: "off"
+action:
+  service: alarm_control_panel.alarm_disarm
+  data:
+    code: !env_var HA_ALARM_CODE

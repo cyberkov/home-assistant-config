@@ -3,3 +3,6 @@
   code: !env_var HA_ALARM_CODE
   pending_time: 60
   trigger_time: 120
+#- platform: mqtt
+#  name: Alarmanlage
+#  code: !env_var HA_ALARM_CODE

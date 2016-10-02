@@ -1,0 +1,19 @@
+alias: 'Tuerklingel'
+trigger:
+  - platform: event
+    event_type: homematic.keypress
+    event_data:
+      name: Tuerklingel
+      channel: 4
+      param: PRESS_SHORT
+  - platform: event
+    event_type: homematic.keypress
+    event_data:
+      name: Tuerklingel
+      channel: 4
+      param: PRESS_LONG
+action:
+  - service: notify.hannes
+    data_template:
+      message: >
+        Es hat geklingelt.

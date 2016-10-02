@@ -10,13 +10,18 @@ condition:
   - condition: state
     entity_id: switch.luftentfeuchter
     state: "off"
+  - condition: state
+    entity_id: binary_sensor.hannestuer_state
+    state: "off"
+  - condition: state
+    entity_id: binary_sensor.hannesfenster_state
+    state: "off"
   - condition: numeric_state
     entity_id: sensor.sauna_temperatur_humidity
     above: 55
 action:
   - service: homeassistant.turn_on
     entity_id: switch.luftentfeuchter
-#  - service: 
-#    entity_id: notify.event
-#    data:
-#      message: 'Aktiviere Luftentfeuchter - Luftfeuchte: {{ states.sensor.sauna_temperatur_humidity.state }}, Effizienz: {{ states.sensor.mold_sauna.state }}'
+#  - service: notify.event
+#    data_template:
+#      message: Aktiviere Luftentfeuchter - Luftfeuchte: {{ states.sensor.sauna_temperatur_humidity.state }}, Effizienz: {{ states.sensor.mold_sauna.state }}
