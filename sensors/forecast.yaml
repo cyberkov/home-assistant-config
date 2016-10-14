@@ -9,3 +9,8 @@
     - hourly_summary
     - wind_speed
     - daily_summary
+    - temperature
+    - humidity
+    - pressure
+    - wind_bearing
+    - apparent_temperature

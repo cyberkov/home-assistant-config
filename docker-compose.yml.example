@@ -1,0 +1,61 @@
+homeassistant:
+  image: homeassistant/home-assistant:latest
+  restart: always
+  net: host
+  privileged: true
+  command: [ "python", "-m", "homeassistant", "--config", "/config", "--log-rotate-days", '3' ]
+  ports:
+    - '8123:8123'
+    - '8943:8943'
+  volumes:
+    - './config:/config'
+    - '/etc/localtime:/etc/localtime:ro'
+    - '/etc/timezone:/etc/timezone:ro'
+  devices:
+    - '/dev/ttyUSB0'
+    - '/dev/ttyACM0'
+  environment:
+    - 'TZ=Europe/Vienna'
+    - 'HA_HTTP_LOGIN='
+    - 'HA_ALARM_CODE='
+    - 'HA_HOME_LATITUDE='
+    - 'HA_HOME_LONGITUDE='
+    - 'HA_HOME_LATLON='
+    - 'HA_HANNES_WORK_LATITUDE='
+    - 'HA_HANNES_WORK_LONGITUDE='
+    - 'HA_HANNES_WORK_LATLON='
+    - 'HA_FORECAST_API='
+
+    - 'HA_PUSHOVER_TOKEN='
+    - 'HA_PUSHOVER_HANNES='
+    - 'HA_PUSHOVER_BARBARA='
+    - 'HA_PUSHOVER_BOTH='
+    - 'HA_SLACK_APIKEY='
+
+    - 'HA_ROUTER_USER='
+    - 'HA_ROUTER_PASSWORD='
+
+    - 'HA_LASTFM_APIKEY='
+    - 'HA_HOMEMATIC_LOGIN='
+    - 'HA_HOMEMATIC_PASSWORD='
+
+    - 'HA_MQTT_LOGIN='
+    - 'HA_MQTT_PASSWORD='
+
+    - 'HA_RECORDER_DB='
+    - 'HA_INFLUXDB_USER='
+    - 'HA_INFLUXDB_PASSWORD='
+
+    - 'HA_GOOGLE_API_KEY='
+hadash:
+  build: 'hadashboard/'
+  ports:
+    - '3030:3030'
+  environment:
+    - 'TZ=Europe/Vienna'
+    - '/etc/localtime:/etc/localtime:ro'
+    - '/etc/timezone:/etc/timezone:ro'
+  volumes:
+    - './config/hadash/dashboards:/app/dashboards'
+    - './config/hadash/ha_conf.rb:/app/lib/ha_conf.rb'
+    - './config/hadash/hapush.cfg:/app/hapush/hapush.cfg'
