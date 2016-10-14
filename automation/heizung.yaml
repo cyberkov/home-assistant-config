@@ -52,6 +52,9 @@ trigger:
     entity_id: climate.wohnzimmerheizung
     value_template: '{{ state.attributes.Valve }}'
     above: 15
+  - platform: time
+    minutes: '/15'
+    seconds: 0
 action:
   service_template: >
     {% if states.climate|sum(attribute="attributes.Valve")|float >= (20*3) %}
