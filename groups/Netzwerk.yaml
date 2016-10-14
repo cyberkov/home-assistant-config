@@ -5,4 +5,5 @@ entities:
   - group.torrent
   - group.system
   - group.automatik
+  - group.valves
 

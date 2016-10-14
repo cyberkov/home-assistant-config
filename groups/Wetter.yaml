@@ -1,11 +1,14 @@
 entities:
   - sensor.gartentemperatur_temperature
-  - sensor.weather_summary
-  - sensor.weather_daily_summary
-  - sensor.weather_hourly_summary
-  - sensor.weather_precip_probability
-  - sensor.weather_precip
-  - sensor.weather_precip_intensity
   - sensor.gartentemperatur_humidity
+  - sensor.dark_sky_summary
   - sensor.weather_wind_speed
   - sun.sun
+  - sensor.dark_sky_daily_summary
+  - sensor.dark_sky_hourly_summary
+  - sensor.dark_sky_icon
+  - sensor.dark_sky_precip
+  - sensor.dark_sky_precip_intensity
+  - sensor.dark_sky_precip_probability
+  - sensor.dark_sky_wind_speed
+

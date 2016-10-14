@@ -4,6 +4,7 @@ entities:
   - sensor.luftentfeuchter_power
   - sensor.luftentfeuchter_voltage
   - switch.luftentfeuchter
+  - sensor.stats_sauna_humidity_mean
   - climate.sauna_heizung
   - sensor.sauna_temperatur_humidity
   - sensor.sauna_temperatur_temperature

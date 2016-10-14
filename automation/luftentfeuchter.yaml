@@ -8,6 +8,13 @@ trigger:
     entity_id: sensor.mold_sauna
     above: 80
     below: 70
+  - platform: template
+    value_template: >
+      {% if states.sensor.sauna_temperatur_humidity.state|float <= 57
+      or states.sensor.sauna_temperatur_humidity.state|float >= 62
+      or states.sensor.mold_sauna.state|float <= 70
+      or states.sensor.mold_sauna.state|float >= 80
+       %}true{% endif %}
 action:
   - service_template: >
       {% set high_hum = 62 %}

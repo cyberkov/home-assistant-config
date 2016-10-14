@@ -6,4 +6,5 @@ entities:
   - sensor.hannesbewegungsmelder_brightness
   - climate.hannesheizung
   - switch.nas
+  - switch.pangea
   - switch.ccu

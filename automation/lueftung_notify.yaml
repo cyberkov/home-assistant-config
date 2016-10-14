@@ -7,7 +7,7 @@ trigger:
     - sensor.mold_kueche
     - sensor.mold_schlafzimmer
     - sensor.mold_wohnzimmer
-  above: 70
+  above: 80
 condition:
   - condition: state
     entity_id: device_tracker.cyberkov_lgg3

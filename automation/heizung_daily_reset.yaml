@@ -1,0 +1,16 @@
+alias: 'Heizung bei Abwesenheit aus'
+trigger:
+  - platform: time
+    after: '19:00:00'
+condition:
+  - condition: state
+    entity_id: switch.guests
+    state: "off"
+action:
+  - service: climate.set_operation_mode
+    data:
+      operation_mode: "auto"
+  - service: notify.slack
+    data_template:
+      message: >
+        Setze Heizungen auf Automatik zurueck.

@@ -6,3 +6,7 @@
   mac_address: "00-1a-22-04-99-4b"
   name: "CCU"
   host: "192.168.1.6"
+- platform: wake_on_lan
+  mac_address: "00-1e-8c-45-8b-40"
+  name: "pangea"
+  host: "192.168.1.9"

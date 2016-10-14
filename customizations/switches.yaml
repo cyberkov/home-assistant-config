@@ -31,3 +31,5 @@ switch.nas:
   icon: mdi:harddisk
 switch.ccu:
   icon: mdi:radar
+switch.pangea:
+  icon: mdi:desktop-tower
