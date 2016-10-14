@@ -12,3 +12,4 @@ OZW_Log.txt
 .HA_VERSION
 known_devices.yaml
 docker-compose.yml
+/old

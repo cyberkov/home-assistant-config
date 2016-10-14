@@ -1,5 +1,5 @@
 entities:
-  - thermostat.vorzimmerheizung
+  - climate.vorzimmerheizung
   - sensor.petsi_battery
   - sensor.petsi_capacity
   - sensor.petsi_state

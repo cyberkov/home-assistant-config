@@ -2,7 +2,7 @@ entities:
   - sensor.wohnzimmertemperatur_humidity
   - sensor.wohnzimmertemperatur_temperature
   - binary_sensor.wohnzimmertuer_state
-  - thermostat.wohnzimmerheizung
+  - climate.wohnzimmerheizung
   - media_player.cybmc
   - media_player.wohnzimmer
   - sensor.mold_wohnzimmer

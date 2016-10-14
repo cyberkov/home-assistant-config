@@ -1,7 +1,8 @@
-- platform: forecast
+- platform: darksky
   api_key: !env_var HA_FORECAST_API
   monitored_conditions:
     - summary
+    - icon
     - precip_intensity
     - precip_probability
     - precip_type

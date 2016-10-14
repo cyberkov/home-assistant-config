@@ -1,0 +1,14 @@
+entities:
+  - climate.badheizung
+  - climate.barbaraheizung
+  - climate.dominikheizung
+  - climate.esszimmerheizung
+  - climate.vorzimmerogheizung
+  - climate.hannesheizung
+  - climate.kuecheheizung
+  - climate.sauna_heizung
+  - climate.schlafzimmerheizunglinks
+  - climate.schlafzimmerheizungrechts
+  - climate.vorzimmerheizung
+  - climate.windfangheizung
+  - climate.wohnzimmerheizung

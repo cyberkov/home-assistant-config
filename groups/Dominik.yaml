@@ -1,4 +1,4 @@
 entities:
   - binary_sensor.dominikfenster_state
-  - thermostat.dominikheizung
+  - climate.dominikheizung
 

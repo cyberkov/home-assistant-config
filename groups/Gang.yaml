@@ -2,5 +2,5 @@ entities:
   - binary_sensor.vorzimmerogbewegungsmelder_motion
   - sensor.vorzimmerogbewegungsmelder_brightness
   - binary_sensor.vorzimmerogfenster_state
-  - thermostat.vorzimmerogheizung
+  - climate.vorzimmerogheizung
 

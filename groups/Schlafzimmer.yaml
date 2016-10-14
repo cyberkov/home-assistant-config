@@ -4,7 +4,7 @@ entities:
   - sensor.mold_schlafzimmer
   - sensor.schlafzimmertemperatur_humidity
   - sensor.schlafzimmertemperatur_temperature
-  - thermostat.schlafzimmerheizunglinks
-  - thermostat.schlafzimmerheizungrechts
+  - climate.schlafzimmerheizunglinks
+  - climate.schlafzimmerheizungrechts
   - switch.it_stecker_2
   - light.nachtkasterl_lampe

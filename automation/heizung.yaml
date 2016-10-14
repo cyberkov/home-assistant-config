@@ -1,8 +1,5 @@
 alias: 'Heizungssteuerung'
 trigger:
-  - platform: time
-    minutes: '/5'
-    seconds: 0
   - platform: numeric_state
     entity_id: climate.badheizung
     value_template: '{{ state.attributes.Valve }}'
@@ -57,7 +54,7 @@ trigger:
     above: 15
 action:
   service_template: >
-    {% if states.climate|sum(attribute="attributes.Valve")|float >= (20*3) and is_state('switch.wirtschaftsraumtherme', 'off') %}
+    {% if states.climate|sum(attribute="attributes.Valve")|float >= (20*3) %}
       switch.turn_on
     {% else %}
       switch.turn_off

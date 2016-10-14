@@ -1,5 +1,5 @@
 entities:
-  - thermostat.badheizung
+  - climate.badheizung
   - sensor.badtemperatur_humidity
   - sensor.badtemperatur_temperature
   - media_player.bad

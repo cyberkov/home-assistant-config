@@ -5,4 +5,5 @@ entities:
   - group.all_devices
   - group.fenster
   - group.internet
+  - group.climate
 

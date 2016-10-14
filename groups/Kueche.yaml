@@ -5,7 +5,7 @@ entities:
   - sensor.geschirrspler_voltage
   - switch.geschirrspler
   - binary_sensor.kuechefenster_state
-  - thermostat.kuecheheizung
+  - climate.kuecheheizung
   - sensor.kuechetemperatur_humidity
   - sensor.kuechetemperatur_temperature
   - media_player.kche

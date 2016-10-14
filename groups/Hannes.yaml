@@ -4,6 +4,6 @@ entities:
   - binary_sensor.hannestuer_state
   - media_player.raspi
   - sensor.hannesbewegungsmelder_brightness
-  - thermostat.hannesheizung
+  - climate.hannesheizung
   - switch.nas
   - switch.ccu
