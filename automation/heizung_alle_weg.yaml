@@ -1,11 +1,11 @@
-alias: 'Heizung bei Anwesenheit an'
+alias: 'Heizung bei Abwesenheit aus'
 trigger:
   - platform: state
     entity_id: group.all_devices
-    state: 'home'
-  - platform: numeric_state
-    entity_id: sensor.wohnzimmertemperatur_temperature
-    below: 21
+    from: 'home'
+    to: 'not_home'
+    for:
+      minutes: 20
 condition:
   condition: time
   after: '09:00:00'
@@ -17,17 +17,15 @@ condition:
     - thu
     - fri
 action:
-  - service: climate.set_temperature
+  - service: climate.set_operation_mode
     data:
       entity_id: climate.wohnzimmerheizung
-      temperature: 21
-      operation_mode: "manual"
-  - service: climate.set_temperature
+      operation_mode: "auto"
+  - service: climate.set_operation_mode
     data:
       entity_id: climate.esszimmerheizung
-      temperature: 21
-      operation_mode: "manual"
+      operation_mode: "auto"
   - service: notify.slack
     data_template:
       message: >
-        Aktiviere Heizung untertags.
+        Alle Weg. Setze Heizung auf Automatik.

@@ -8,6 +8,10 @@ trigger:
 #    entity_id: switch.detect_motion
 #    state: 'on'
 action:
+  - service: notify.slack
+    data_template:
+      message: >
+        Hannes Zimmer Bewegung erkannt.
   - service: homeassistant.turn_on
     data:
       entity_id: light.it_stecker_3
