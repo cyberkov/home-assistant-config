@@ -6,6 +6,13 @@ condition:
   - condition: state
     entity_id: switch.guests
     state: "off"
+  - condition: template
+    value_template: >
+      {% for state in states.climate if is_state(state.entity_id, 'manual') -%}
+      {{state.entity_id}}
+      {% else -%}
+      False
+      {% endfor -%}
 action:
   - service: climate.set_operation_mode
     data:

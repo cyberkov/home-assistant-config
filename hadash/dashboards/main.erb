@@ -1,0 +1,216 @@
+<% content_for :title do %>Schallerburg<% end %>
+
+<div class="gridster"> <!-- Main Panel - PAGE 1 -->
+  <ul>
+    <li data-row="1" data-col="1" data-sizex="2" data-sizey="1">
+      <div data-id="clock" data-view="Clock" data-color="#FF0000"></div>
+    </li>
+
+    <li data-row="1" data-col="3" data-sizex="2" data-sizey="2">
+      <div data-id="weather" data-view="Haweather" data-unit="&deg;C" data-color="#FF0000"></div>
+    </li>
+
+    <li data-row="1" data-col="5" data-sizex="1" data-sizey="1">
+      <div data-id="gartentemperatur_temperature" data-view="Hasensor" data-title="Temperature" data-unit="&deg;C" data-color="#FF0000"></div>
+    </li>
+
+    <li data-row="1" data-col="6" data-sizex="1" data-sizey="1">
+      <div data-id="gartentemperatur_humidity" data-view="Hameter" data-title="Humidity" data-unit="%" data-color="#FF0000"></div>
+    </li>
+
+    <li data-row="1" data-col="7" data-sizex="1" data-sizey="1">
+      <div data-id="cyberkov_lgg3" data-view="Hadevicetracker" data-icon="male" data-title="Hannes" data-color="#FF0000"></div>
+    </li>
+
+    <li data-row="2" data-col="2" data-sizex="1" data-sizey="1">
+      <div data-id="windfangtuer_state" data-view="Habinary" data-iconoff="lock" data-iconon="unlock" data-title="Eingangst&uuml;r" data-color="#FF0000"></div>
+    </li>
+    <li data-row="2" data-col="5" data-sizex="2" data-sizey="2">
+      <div data-id="News" data-view="News" data-title="News" data-interval="10" data-color="#FF0000">
+    </li>
+
+    <li data-row="2" data-col="7" data-sizex="1" data-sizey="1">
+      <div data-id="barbara" data-view="Hadevicetracker" data-icon="female" data-title="Barbara" data-color="#FF0000"></div>
+    </li>
+
+    <li data-row="3" data-col="2" data-sizex="3" data-sizey="1">
+      <div data-id="alarmanlage" data-view="Haalarmstatus" data-title="Presence" data-color="#FF0000"></div>
+    </li>
+
+    <li data-row="3" data-col="7" data-sizex="1" data-sizey="1">
+      <div data-id="guests" data-view="Haswitch" data-iconon="users" data-iconoff="users" data-title="G&auml;ste" data-color="#FF0000"></div>
+    </li>
+
+    <li data-row="4" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="wirtschaftsraumtherme" data-view="Haswitch" data-iconon="fire" data-title="Therme" data-color="#FF0000"></div>
+    </li>
+
+    <li data-row="4" data-col="3" data-sizex="1" data-sizey="1">
+      <div data-id="gaszaehler_gas_power" data-view="Hasensor" data-title="Gasverbrauch" data-unit="m3" data-color="#FF0000"></div>
+    </li>
+    <li data-row="4" data-col="4" data-sizex="1" data-sizey="1">
+      <div data-id="stromzaehler_power" data-view="Hasensor" data-title="Gasverbrauch" data-unit="W" data-color="#FF0000"></div>
+    </li>
+
+    <li data-row="5" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="cpage1" data-view="ChangePage" data-icon="cogs" data-title="Main Panel" style="color:#aaff00;" data-page="1" data-stagger="false" data-fasttransition="true" data-event-click="onClick" data-color="#FF0000"></div>
+    </li>
+
+    <li data-row="5" data-col="2" data-sizex="1" data-sizey="1">
+      <div data-id="cpage1" data-view="ChangePage" data-icon="cogs" data-title="Status" data-page="2" data-stagger="false" data-fasttransition="true" data-event-click="onClick"></div>
+    </li>
+
+    <li data-row="5" data-col="3" data-sizex="1" data-sizey="1">
+      <div data-id="cpage1" data-view="ChangePage" data-icon="cogs" data-title="Alarm" data-page="3" data-stagger="false" data-fasttransition="true" data-event-click="onClick"></div>
+    </li>
+    
+    <li data-row="5" data-col="7" data-sizex="1" data-sizey="1">
+      <div data-id="reload" data-view="Reload"></div>
+    </li>
+
+  </ul>
+</div>
+
+<div class="gridster"> <!-- Status - PAGE 2 -->
+  <ul>
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="barbarafenster_state" data-view="Habinary" data-title="Barbara" data-color="#FF0000"></div>
+    </li>
+    <li data-row="1" data-col="2" data-sizex="1" data-sizey="1">
+      <div data-id="dominikfenster_state" data-view="Habinary" data-title="Dominik" data-color="#FF0000"></div>
+    </li>
+    <li data-row="1" data-col="3" data-sizex="1" data-sizey="1">
+      <div data-id="schlafzimmer_links_state" data-view="Habinary" data-title="Schlafzimmer links" data-color="#FF0000"></div>
+    </li>
+    <li data-row="1" data-col="4" data-sizex="1" data-sizey="1">
+      <div data-id="schlafzimmer_rechts_state" data-view="Habinary" data-title="Schlafzimmer rechts" data-color="#FF0000"></div>
+    </li>
+    <li data-row="1" data-col="5" data-sizex="1" data-sizey="1">
+      <div data-id="vorzimmerogfenster_state" data-view="Habinary" data-title="Vorzimmer OG" data-color="#FF0000"></div>
+    </li>
+    <li data-row="1" data-col="6" data-sizex="1" data-sizey="1">
+      <div data-id="badtemperatur_temperature" data-view="Hatemp" data-title="Bad" data-unit="&deg;C"></div>
+    </li>
+
+
+    <li data-row="2" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="kuechefenster_state" data-view="Habinary" data-title="K&uuml;che" data-color="#FF0000"></div>
+    </li>
+    <li data-row="2" data-col="2" data-sizex="1" data-sizey="1">
+      <div data-id="windfangtuer_state" data-view="Habinary" data-title="Eingangst&uuml;r" data-color="#FF0000"></div>
+    </li>
+    <li data-row="2" data-col="3" data-sizex="1" data-sizey="1">
+      <div data-id="wohnzimmertuer_state" data-view="Habinary" data-title="Wohnzimmer" data-color="#FF0000"></div>
+    </li>
+    <li data-row="2" data-col="6" data-sizex="1" data-sizey="1">
+      <div data-id="wohnzimmertemperatur_temperature" data-view="Hatemp" data-title="Wohnzimmer" data-unit="&deg;C"></div>
+    </li>
+
+    <li data-row="2" data-col="7" data-sizex="1" data-sizey="1">
+      <div data-id="kuechetemperatur_temperature" data-view="Hatemp" data-title="K&uuml;che" data-unit="&deg;C"></div>
+    </li>
+
+    <li data-row="3" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="hannesfenster_state" data-view="Habinary" data-title="Hannes Fenster" data-color="#FF0000"></div>
+    </li>
+    <li data-row="3" data-col="2" data-sizex="1" data-sizey="1">
+      <div data-id="hannestuer_state" data-view="Habinary" data-title="Hannes T&uuml;r" data-color="#FF0000"></div>
+    </li>
+
+    <li data-row="3" data-col="7" data-sizex="1" data-sizey="1">
+      <div data-id="sauna_temperatur_temperature" data-view="Hatemp" data-title="Sauna" data-unit="&deg;C"></div>
+    </li>
+
+    <li data-row="1" data-col="5" data-sizex="1" data-sizey="1">
+      <div data-id="schlafzimmertemperatur_temperature" data-view="Hatemp" data-title="Schlafzimmer" data-unit="&deg;C"></div>
+    </li>
+
+    <li data-row="5" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="cpage1" data-view="ChangePage" data-icon="cogs" data-title="Main Panel" style="color:#aaff00;" data-page="1" data-stagger="false" data-fasttransition="true" data-event-click="onClick"></div>
+    </li>
+
+
+    <li data-row="5" data-col="2" data-sizex="1" data-sizey="1">
+      <div data-id="cpage1" data-view="ChangePage" data-icon="cogs" data-title="Status" data-page="2" data-stagger="false" data-fasttransition="true" data-event-click="onClick"></div>
+    </li>
+
+    <li data-row="5" data-col="3" data-sizex="1" data-sizey="1">
+      <div data-id="cpage1" data-view="ChangePage" data-icon="cogs" data-title="Alarm" data-page="3" data-stagger="false" data-fasttransition="true" data-event-click="onClick"></div>
+    </li>
+	
+  <li data-row="5" data-col="7" data-sizex="1" data-sizey="1">
+      <div data-id="reload" data-view="Reload"></div>
+    </li>
+
+ </ul>
+</div>
+
+<div class="gridster"> <!-- Alarm - PAGE 3 -->
+  <ul>
+    <li data-row="1" data-col="1" data-sizex="5" data-sizey="1">
+      <div data-id="alarmanlage" data-view="Haalarmstatus" data-title="" data-color="#FF0000"></div>
+    </li>
+    <li data-row="2" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="1" data-view="Haalarmdigit" data-title="1" data-digit="1" data-alarmentity="alarmanlage" data-color="#FF0000"></div>
+    </li>
+    <li data-row="2" data-col="2" data-sizex="1" data-sizey="1">
+      <div data-id="2" data-view="Haalarmdigit" data-title="2" data-digit="2" data-alarmentity="alarmanlage" data-color="#FF0000"></div>
+    </li>
+    <li data-row="2" data-col="3" data-sizex="1" data-sizey="1">
+      <div data-id="3" data-view="Haalarmdigit" data-title="3" data-digit="3" data-alarmentity="alarmanlage"></div>
+    </li>
+    <li data-row="3" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="4" data-view="Haalarmdigit" data-title="4" data-digit="4" data-alarmentity="alarmanlage"></div>
+    </li>
+    <li data-row="3" data-col="2" data-sizex="1" data-sizey="1">
+      <div data-id="5" data-view="Haalarmdigit" data-title="5" data-digit="5" data-alarmentity="alarmanlage"></div>
+    </li>
+    <li data-row="3" data-col="3" data-sizex="1" data-sizey="1">
+      <div data-id="6" data-view="Haalarmdigit" data-title="6" data-digit="6" data-alarmentity="alarmanlage"></div>
+    </li>
+    <li data-row="4" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="7" data-view="Haalarmdigit" data-title="7" data-digit="7" data-alarmentity="alarmanlage"></div>
+    </li>
+    <li data-row="4" data-col="2" data-sizex="1" data-sizey="1">
+      <div data-id="8" data-view="Haalarmdigit" data-title="8" data-digit="8" data-alarmentity="alarmanlage"></div>
+    </li>
+    <li data-row="4" data-col="3" data-sizex="1" data-sizey="1">
+      <div data-id="9" data-view="Haalarmdigit" data-title="9" data-digit="9" data-alarmentity="alarmanlage"></div>
+    </li>
+    <li data-row="5" data-col="2" data-sizex="1" data-sizey="1">
+      <div data-id="0" data-view="Haalarmdigit" data-title="0" data-digit="0" data-alarmentity="alarmanlage"></div>
+    </li>
+    <li data-row="5" data-col="3" data-sizex="1" data-sizey="1">
+      <div data-id="-" data-view="Haalarmdigit" data-title="CLR" data-digit="-" data-alarmentity="alarmanlage"></div>
+    </li>
+    <li data-row="2" data-col="4" data-sizex="2" data-sizey="1">
+      <div data-id="arm_home" data-view="Haalarmaction" data-title="HOME" data-action="arm_home" data-icon="bell-o" data-color="#FF0000"></div>
+    </li>
+    <li data-row="3" data-col="4" data-sizex="2" data-sizey="1">
+      <div data-id="arm_away" data-view="Haalarmaction" data-title="AWAY" data-action="arm_away" data-icon="bell"></div>
+    </li>
+    <li data-row="1" data-col="7" data-sizex="1" data-sizey="1">
+      <div data-id="trigger" data-view="Haalarmaction" data-title="TRIGGER" data-action="trigger" data-icon="exclamation-triangle"></div>
+    </li>
+    <li data-row="4" data-col="4" data-sizex="2" data-sizey="1">
+      <div data-id="disarm" data-view="Haalarmaction" data-title="DISARM" data-action="disarm" data-icon="home"></div>
+    </li>
+
+    <li data-row="5" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="cpage1" data-view="ChangePage" data-icon="cogs" data-title="Main Panel" style="color:#aaff00;" data-page="1" data-stagger="false" data-fasttransition="true" data-event-click="onClick"></div>
+    </li>
+
+    <li data-row="5" data-col="4" data-sizex="1" data-sizey="1">
+      <div data-id="cpage1" data-view="ChangePage" data-icon="cogs" data-title="Status" data-page="2" data-stagger="false" data-fasttransition="true" data-event-click="onClick"></div>
+    </li>
+
+    <li data-row="5" data-col="5" data-sizex="1" data-sizey="1">
+      <div data-id="cpage1" data-view="ChangePage" data-icon="cogs" data-title="Alarm" data-page="3" data-stagger="false" data-fasttransition="true" data-event-click="onClick"></div>
+    </li>
+
+  <li data-row="5" data-col="7" data-sizex="1" data-sizey="1">
+      <div data-id="reload" data-view="Reload"></div>
+    </li>
+
+ </ul>
+</div>

@@ -42,6 +42,7 @@ homematic:
 
 alarm_control_panel: !include alarm_control_panel.yaml
 automation: !include_dir_list automation
+input_select: !include input_select.yaml
 script: !include_dir_named scripts
 device_tracker: !include device_tracker.yaml
 group: !include_dir_named groups
@@ -49,6 +50,7 @@ light: !include_dir_merge_list lights
 logger: !include logger.yaml
 media_player: !include media_player.yaml
 notify: !include notify.yaml
+binary_sensor: !include_dir_merge_list binary_sensors
 sensor: !include_dir_merge_list sensors
 switch: !include_dir_merge_list switches
 weblink: !include weblink.yaml
@@ -70,9 +72,9 @@ mqtt:
 #  username: !env_var HA_MQTT_LOGIN
 #  password: !env_var HA_MQTT_PASSWORD
 
-mqtt_eventstream:
-  publish_topic: homeassistant/events/master
-  subscribe_topic: homeassistant/events/slave
+#mqtt_eventstream:
+#  publish_topic: homeassistant/events/master
+#  subscribe_topic: homeassistant/events/slave
 
 influxdb:
   host: 192.168.1.4

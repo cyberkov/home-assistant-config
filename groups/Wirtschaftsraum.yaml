@@ -18,4 +18,4 @@ entities:
   - sensor.stromzaehler_power
   - sensor.mysensors_20_humidity
   - sensor.mysensors_20_temperature
-
+  - switch.mqtt_wirtschaftsraum_therme

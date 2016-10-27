@@ -10,3 +10,4 @@ entities:
   - sensor.sauna_temperatur_temperature
   - media_player.sauna
   - sensor.mold_sauna
+  - switch.mqtt_sauna_luftentfeuchter

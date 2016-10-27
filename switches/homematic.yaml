@@ -16,3 +16,22 @@
   payload_off: "0"
   retain: false
   value_template: "{{ value_json.val }}"
+- platform: mqtt
+  name: "mqtt_wirtschaftsraum_therme"
+  state_topic: "hm/status/HM-LC-Sw1-FM MEQ0712568:1/STATE"
+  command_topic: "hm/set/MEQ0712568:1/STATE"
+  qos: 1
+  payload_on: "1"
+  payload_off: "0"
+  retain: false
+#  value_template: "{{ value_json.val }}"
+  value_template: '{{ value_json["val"] }}'
+- platform: mqtt
+  name: "mqtt_sauna_luftentfeuchter"
+  state_topic: "hm/status/HM-ES-PMSw1-Pl LEQ0531146:1/STATE"
+  command_topic: "hm/set/LEQ0531146:1/STATE"
+  qos: 1
+  payload_on: "1"
+  payload_off: "0"
+  retain: false
+  value_template: '{{ value_json["val"] }}'

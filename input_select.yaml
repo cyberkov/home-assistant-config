@@ -1,0 +1,15 @@
+who_cooks:
+  name: Who cooks today
+  options:
+    - Hannes
+    - Barbara
+  initial: Hannes
+  icon: mdi:panda
+waschmaschine:
+  name: Waschmaschine
+  options:
+    - Aktiv
+    - Standby
+    - Aus
+  initial: Aus
+  icon: mdi:stove
