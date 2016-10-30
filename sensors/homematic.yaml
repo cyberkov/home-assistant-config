@@ -73,3 +73,16 @@
       entity_id: climate.wohnzimmerheizung
       value_template: '{{ states.climate.wohnzimmerheizung.attributes.Valve }}'
       unit_of_measurement: '%'
+- platform: template
+  sensors:
+    waschmaschine_status:
+      entity_id: sensor.waschmaschine_power
+      friendly_name: Waschmaschine
+      value_template: >
+        {%- if states.sensor.waschmaschine_power.state|float > 5 -%}
+        Aktiv
+        {%- elif states.sensor.waschmaschine_power.state|float >= 1 -%}
+        Standby
+        {%- else -%}
+        Aus
+        {%- endif -%}

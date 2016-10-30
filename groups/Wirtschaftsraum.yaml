@@ -19,3 +19,4 @@ entities:
   - sensor.mysensors_20_humidity
   - sensor.mysensors_20_temperature
   - switch.mqtt_wirtschaftsraum_therme
+  - sensor.waschmaschine_status

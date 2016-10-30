@@ -1,13 +1,13 @@
 # If current between 30 and 45, washing mashine is in standby
 alias: Waschmaschine fertig notify
 trigger:
-- platform: numeric_state
-  entity_id: sensor.waschmaschine_current
-  below: 45
+- platform: state
+  entity_id: sensor.waschmaschine_status
+  from: 'Aktiv'
+  to: 'Standby'
+  for:
+    minutes: 3
 condition:
-  - condition: numeric_state
-    entity_id: sensor.waschmaschine_current
-    above: 30
   - condition: state
     entity_id: device_tracker.cyberkov_lgg3
     state: 'home'
