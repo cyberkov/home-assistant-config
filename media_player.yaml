@@ -1,11 +1,11 @@
 - platform: kodi
-  host: http://192.168.1.10
-  port: 80
-  name: raspi
+  host: http://192.168.1.11
+  port: 8080
+  name: kodi_wohnzimmer
 - platform: kodi
-  host: http://192.168.1.12
-  port: 80
-  name: cybmc
+  host: http://192.168.1.10
+  port: 8080
+  name: kodi_hannes
 - platform: sonos
   name: wohnzimmer
   hosts: 192.168.1.86

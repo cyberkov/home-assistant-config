@@ -66,7 +66,8 @@ rfxtrx:
 mqtt:
   broker: 192.168.1.4
   port: 1883
-#  client_id: home-assistant
+  client_id: home-assistant
+  protocol: 3.1
 #  broker: m21.cloudmqtt.com
 #  port: 27670
 #  username: !env_var HA_MQTT_LOGIN

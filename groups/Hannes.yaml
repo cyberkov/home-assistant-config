@@ -2,9 +2,11 @@ entities:
   - binary_sensor.hannesbewegungsmelder_motion
   - binary_sensor.hannesfenster_state
   - binary_sensor.hannestuer_state
-  - media_player.raspi
+  - media_player.kodi_hannes
   - sensor.hannesbewegungsmelder_brightness
   - climate.hannesheizung
   - switch.nas
   - switch.pangea
   - switch.ccu
+  - binary_sensor.sco_spare
+  - binary_sensor.sparesco_state

@@ -3,7 +3,7 @@ entities:
   - sensor.wohnzimmertemperatur_temperature
   - binary_sensor.wohnzimmertuer_state
   - climate.wohnzimmerheizung
-  - media_player.cybmc
+  - media_player.kodi_wohnzimmer
   - media_player.wohnzimmer
   - sensor.mold_wohnzimmer
   - switch.it_stecker_1

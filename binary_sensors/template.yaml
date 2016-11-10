@@ -1,0 +1,14 @@
+- platform: template
+  sensors:
+    luftentfeuchter_status:
+      friendly_name: 'Luftentfeuchtung notwendig'
+      entity_id:
+        - sensor.sauna_temperatur_humidity
+      value_template: >
+        {% set high_hum = 62 -%}
+        {% set low_hum = 57  -%}
+        {% if states.sensor.sauna_temperatur_humidity.state|float <= low_hum -%}
+        On
+        {% elif states.sensor.sauna_temperatur_humidity.state|float >= high_hum -%}
+        Off
+        {% endif -%}
