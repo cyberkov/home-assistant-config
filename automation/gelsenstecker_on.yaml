@@ -1,28 +1,28 @@
-alias: 'Gelsenstecker on'
-trigger:
-  - platform: state
-    entity_id: binary_sensor.schlafzimmer_links_state
-    state: 'on'
-  - platform: state
-    entity_id: binary_sensor.schlafzimmer_rechts_state
-    state: 'on'
-  - platform: state
-    entity_id: sun.sun
-    state: 'below_horizon'
-condition:
-  - condition: state
-    entity_id: switch.it_stecker_2
-    state: "off"
-  - condition: numeric_state
-    entity_id: sensor.gartentemperatur_temperature
-    above: 16
-  - condition: state
-    entity_id: binary_sensor.schlafzimmer_links_state
-    state: 'on'
-  - condition: state
-    entity_id: binary_sensor.schlafzimmer_rechts_state
-    state: 'on'
-action:
-  - service: homeassistant.turn_on
-    entity_id: light.it_stecker_2
-
+- alias: 'Gelsenstecker on'
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.schlafzimmer_links_state
+      state: 'on'
+    - platform: state
+      entity_id: binary_sensor.schlafzimmer_rechts_state
+      state: 'on'
+    - platform: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+  condition:
+    - condition: state
+      entity_id: switch.it_stecker_2
+      state: "off"
+    - condition: numeric_state
+      entity_id: sensor.gartentemperatur_temperature
+      above: 16
+    - condition: state
+      entity_id: binary_sensor.schlafzimmer_links_state
+      state: 'on'
+    - condition: state
+      entity_id: binary_sensor.schlafzimmer_rechts_state
+      state: 'on'
+  action:
+    - service: homeassistant.turn_on
+      entity_id: light.it_stecker_2
+  

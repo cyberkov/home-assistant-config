@@ -1,33 +1,33 @@
-alias: 'Heizung bei Anwesenheit an'
-trigger:
-  - platform: state
-    entity_id: group.all_devices
-    state: 'home'
-  - platform: numeric_state
-    entity_id: sensor.wohnzimmertemperatur_temperature
-    below: 21
-condition:
-  condition: time
-  after: '09:00:00'
-  before: '16:00:00'
-  weekday:
-    - mon
-    - tue
-    - wed
-    - thu
-    - fri
-action:
-  - service: climate.set_temperature
-    data:
-      entity_id: climate.wohnzimmerheizung
-      temperature: 21
-      operation_mode: "manual"
-  - service: climate.set_temperature
-    data:
-      entity_id: climate.esszimmerheizung
-      temperature: 21
-      operation_mode: "manual"
-  - service: notify.slack
-    data_template:
-      message: >
-        Aktiviere Heizung untertags.
+- alias: 'Heizung bei Anwesenheit an'
+  trigger:
+    - platform: state
+      entity_id: group.all_devices
+      state: 'home'
+    - platform: numeric_state
+      entity_id: sensor.wohnzimmertemperatur_temperature
+      below: 21
+  condition:
+    condition: time
+    after: '09:00:00'
+    before: '16:00:00'
+    weekday:
+      - mon
+      - tue
+      - wed
+      - thu
+      - fri
+  action:
+    - service: climate.set_temperature
+      data:
+        entity_id: climate.wohnzimmerheizung
+        temperature: 21
+        operation_mode: "manual"
+    - service: climate.set_temperature
+      data:
+        entity_id: climate.esszimmerheizung
+        temperature: 21
+        operation_mode: "manual"
+    - service: notify.slack
+      data_template:
+        message: >
+          Aktiviere Heizung untertags.

@@ -1,17 +1,17 @@
-alias: "Alarm Set Away"
-trigger:
-  - platform: state
-    entity_id: group.all_devices
-    from: "home"
-    to: "not_home"
-condition:
-  - condition: state
-    entity_id: switch.guests
-    state: "off"
-  - condition: state
-    entity_id: switch.alert_motion
-    state: "on"
-action:
-  service: alarm_control_panel.alarm_arm_away
-  data:
-    code: !env_var HA_ALARM_CODE
+- alias: "Alarm Set Away"
+  trigger:
+    - platform: state
+      entity_id: group.all_devices
+      from: "home"
+      to: "not_home"
+  condition:
+    - condition: state
+      entity_id: switch.guests
+      state: "off"
+    - condition: state
+      entity_id: switch.alert_motion
+      state: "on"
+  action:
+    service: alarm_control_panel.alarm_arm_away
+    data:
+      code: !env_var HA_ALARM_CODE

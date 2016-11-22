@@ -1,11 +1,11 @@
-alias: 'Gaestezimmer Heizung aus'
-trigger:
-  - platform: state
-    entity_id: switch.guests
-    from: 'on'
-    to: 'off'
-action:
-  - service: climate.set_operation_mode
-    data:
-      entity_id: climate.barbaraheizung
-      operation_mode: "auto"
+- alias: 'Gaestezimmer Heizung aus'
+  trigger:
+    - platform: state
+      entity_id: switch.guests
+      from: 'on'
+      to: 'off'
+  action:
+    - service: climate.set_operation_mode
+      data:
+        entity_id: climate.barbaraheizung
+        operation_mode: "auto"

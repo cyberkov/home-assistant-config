@@ -1,0 +1,10 @@
+- alias: notify if sensor state unchanged
+  trigger:
+    platform: template
+    value_template: "{% if relative_time(states.sensor.sauna_temperatur_humidity.last_updated) == '20 minutes' %}true{% endif %}"
+  action:
+    service: persistent_notification.create
+    data:
+      notification_id: "1234"
+      message: "Sensor Sauna is Down"
+      title: "Test"

@@ -1,65 +1,65 @@
-alias: 'Heizungssteuerung'
-trigger:
-  - platform: numeric_state
-    entity_id: climate.badheizung
-    value_template: '{{ state.attributes.Valve }}'
-    above: 15
-  - platform: numeric_state
-    entity_id: climate.barbaraheizung
-    value_template: '{{ state.attributes.Valve }}'
-    above: 15
-  - platform: numeric_state
-    entity_id: climate.dominikheizung
-    value_template: '{{ state.attributes.Valve }}'
-    above: 15
-  - platform: numeric_state
-    entity_id: climate.esszimmerheizung
-    value_template: '{{ state.attributes.Valve }}'
-    above: 15
-  - platform: numeric_state
-    entity_id: climate.hannesheizung
-    value_template: '{{ state.attributes.Valve }}'
-    above: 15
-  - platform: numeric_state
-    entity_id: climate.kuecheheizung
-    value_template: '{{ state.attributes.Valve }}'
-    above: 15
-  - platform: numeric_state
-    entity_id: climate.sauna_heizung
-    value_template: '{{ state.attributes.Valve }}'
-    above: 15
-  - platform: numeric_state
-    entity_id: climate.schlafzimmerheizunglinks
-    value_template: '{{ state.attributes.Valve }}'
-    above: 15
-  - platform: numeric_state
-    entity_id: climate.schlafzimmerheizungrechts
-    value_template: '{{ state.attributes.Valve }}'
-    above: 15
-  - platform: numeric_state
-    entity_id: climate.vorzimmerheizung
-    value_template: '{{ state.attributes.Valve }}'
-    above: 15
-  - platform: numeric_state
-    entity_id: climate.vorzimmerogheizung
-    value_template: '{{ state.attributes.Valve }}'
-    above: 15
-  - platform: numeric_state
-    entity_id: climate.windfangheizung
-    value_template: '{{ state.attributes.Valve }}'
-    above: 15
-  - platform: numeric_state
-    entity_id: climate.wohnzimmerheizung
-    value_template: '{{ state.attributes.Valve }}'
-    above: 15
-  - platform: time
-    minutes: '/15'
-    seconds: 0
-action:
-  service_template: >
-    {% if states.climate|sum(attribute="attributes.Valve")|float >= (20*3) %}
-      switch.turn_on
-    {% else %}
-      switch.turn_off
-    {% endif %}
-  entity_id: switch.wirtschaftsraumtherme
+- alias: 'Heizungssteuerung'
+  trigger:
+    - platform: numeric_state
+      entity_id: climate.badheizung
+      value_template: '{{ state.attributes.Valve }}'
+      above: 15
+    - platform: numeric_state
+      entity_id: climate.barbaraheizung
+      value_template: '{{ state.attributes.Valve }}'
+      above: 15
+    - platform: numeric_state
+      entity_id: climate.dominikheizung
+      value_template: '{{ state.attributes.Valve }}'
+      above: 15
+    - platform: numeric_state
+      entity_id: climate.esszimmerheizung
+      value_template: '{{ state.attributes.Valve }}'
+      above: 15
+    - platform: numeric_state
+      entity_id: climate.hannesheizung
+      value_template: '{{ state.attributes.Valve }}'
+      above: 15
+    - platform: numeric_state
+      entity_id: climate.kuecheheizung
+      value_template: '{{ state.attributes.Valve }}'
+      above: 15
+    - platform: numeric_state
+      entity_id: climate.sauna_heizung
+      value_template: '{{ state.attributes.Valve }}'
+      above: 15
+    - platform: numeric_state
+      entity_id: climate.schlafzimmerheizunglinks
+      value_template: '{{ state.attributes.Valve }}'
+      above: 15
+    - platform: numeric_state
+      entity_id: climate.schlafzimmerheizungrechts
+      value_template: '{{ state.attributes.Valve }}'
+      above: 15
+    - platform: numeric_state
+      entity_id: climate.vorzimmerheizung
+      value_template: '{{ state.attributes.Valve }}'
+      above: 15
+    - platform: numeric_state
+      entity_id: climate.vorzimmerogheizung
+      value_template: '{{ state.attributes.Valve }}'
+      above: 15
+    - platform: numeric_state
+      entity_id: climate.windfangheizung
+      value_template: '{{ state.attributes.Valve }}'
+      above: 15
+    - platform: numeric_state
+      entity_id: climate.wohnzimmerheizung
+      value_template: '{{ state.attributes.Valve }}'
+      above: 15
+    - platform: time
+      minutes: '/15'
+      seconds: 0
+  action:
+    service_template: >
+      {% if states.climate|sum(attribute="attributes.Valve")|float >= (20*3) %}
+        switch.turn_on
+      {% else %}
+        switch.turn_off
+      {% endif %}
+    entity_id: switch.wirtschaftsraumtherme

@@ -1,25 +1,25 @@
-# Notify me if it makes sense to open a window
-alias: Lueftung notify
-trigger:
-- platform: numeric_state
-  entity_id:
-    - sensor.mold_bad
-    - sensor.mold_kueche
-    - sensor.mold_schlafzimmer
-    - sensor.mold_wohnzimmer
-  above: 80
-condition:
-  - condition: state
-    entity_id: device_tracker.cyberkov_lgg3
-    state: 'home'
-  - condition: state
-    entity_id: switch.sleeping
-    state: 'off'
-  - condition: state
-    entity_id: switch.alert_lueftung
-    state: 'on'
-action:
-  service: notify.hannes
-  data_template:
-    message: >
-      Du koenntest ein Fenster im {{ trigger.entity_id.split('.')[1].replace('mold_', '') }} oeffnen. Die Lueftungseffizienz betraegt derzeit {{ trigger.to_state.state }}%.
+  # Notify me if it makes sense to open a window
+- alias: Lueftung notify
+  trigger:
+  - platform: numeric_state
+    entity_id:
+      - sensor.mold_bad
+      - sensor.mold_kueche
+      - sensor.mold_schlafzimmer
+      - sensor.mold_wohnzimmer
+    above: 80
+  condition:
+    - condition: state
+      entity_id: device_tracker.cyberkov_lgg3
+      state: 'home'
+    - condition: state
+      entity_id: switch.sleeping
+      state: 'off'
+    - condition: state
+      entity_id: switch.alert_lueftung
+      state: 'on'
+  action:
+    service: notify.hannes
+    data_template:
+      message: >
+        Du koenntest ein Fenster im {{ trigger.entity_id.split('.')[1].replace('mold_', '') }} oeffnen. Die Lueftungseffizienz betraegt derzeit {{ trigger.to_state.state }}%.

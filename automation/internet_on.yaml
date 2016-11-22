@@ -1,13 +1,13 @@
 # Set the Internet switch to on upon startup
-alias: 'HomeAssistant Startup'
-trigger:
-  - platform: event
-    event_type: homeassistant_start
-action:
-  - service: homeassistant.turn_on
-    data:
-      entity_id: switch.it_stecker_1
-  - service: notify.slack
-    data_template:
-      message: >
-        Home Assistant starting up.
+- alias: 'HomeAssistant Startup'
+  trigger:
+    - platform: event
+      event_type: homeassistant_start
+  action:
+    - service: homeassistant.turn_on
+      data:
+        entity_id: switch.it_stecker_1
+    - service: notify.slack
+      data_template:
+        message: >
+          Home Assistant starting up.

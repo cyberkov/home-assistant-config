@@ -1,12 +1,12 @@
-alias: 'Gaestezimmer Heizung an'
-trigger:
-  - platform: state
-    entity_id: switch.guests
-    from: 'off'
-    to: 'on'
-action:
-  - service: climate.set_temperature
-    data:
-      entity_id: climate.barbaraheizung
-      temperature: 19
-      operation_mode: "manual"
+- alias: 'Gaestezimmer Heizung an'
+  trigger:
+    - platform: state
+      entity_id: switch.guests
+      from: 'off'
+      to: 'on'
+  action:
+    - service: climate.set_temperature
+      data:
+        entity_id: climate.barbaraheizung
+        temperature: 19
+        operation_mode: "manual"

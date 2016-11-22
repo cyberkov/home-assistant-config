@@ -1,31 +1,31 @@
-alias: 'Heizung bei Abwesenheit aus'
-trigger:
-  - platform: state
-    entity_id: group.all_devices
-    from: 'home'
-    to: 'not_home'
-    for:
-      minutes: 20
-condition:
-  condition: time
-  after: '09:00:00'
-  before: '16:00:00'
-  weekday:
-    - mon
-    - tue
-    - wed
-    - thu
-    - fri
-action:
-  - service: climate.set_operation_mode
-    data:
-      entity_id: climate.wohnzimmerheizung
-      operation_mode: "auto"
-  - service: climate.set_operation_mode
-    data:
-      entity_id: climate.esszimmerheizung
-      operation_mode: "auto"
-  - service: notify.slack
-    data_template:
-      message: >
-        Alle Weg. Setze Heizung auf Automatik.
+- alias: 'Heizung bei Abwesenheit aus'
+  trigger:
+    - platform: state
+      entity_id: group.all_devices
+      from: 'home'
+      to: 'not_home'
+      for:
+        minutes: 20
+  condition:
+    condition: time
+    after: '09:00:00'
+    before: '16:00:00'
+    weekday:
+      - mon
+      - tue
+      - wed
+      - thu
+      - fri
+  action:
+    - service: climate.set_operation_mode
+      data:
+        entity_id: climate.wohnzimmerheizung
+        operation_mode: "auto"
+    - service: climate.set_operation_mode
+      data:
+        entity_id: climate.esszimmerheizung
+        operation_mode: "auto"
+    - service: notify.slack
+      data_template:
+        message: >
+          Alle Weg. Setze Heizung auf Automatik.

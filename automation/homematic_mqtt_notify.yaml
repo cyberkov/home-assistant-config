@@ -1,11 +1,11 @@
 # Notify if mqtt connection to Homematic CCU is lost
-alias: Homematic MQTT Notification
-trigger:
-- platform: state
-  entity_id: switch.hm_connected
-  from: 'on'
-  to: 'off'
-action:
-  service: notify.hannes
-  data_template:
-    message: MQTT Connection to Homematic CCU has been lost.
+- alias: Homematic MQTT Notification
+  trigger:
+  - platform: state
+    entity_id: switch.hm_connected
+    from: 'on'
+    to: 'off'
+  action:
+    service: notify.hannes
+    data_template:
+      message: MQTT Connection to Homematic CCU has been lost.

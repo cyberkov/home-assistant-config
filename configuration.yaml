@@ -41,7 +41,7 @@ homematic:
 #  delay: 1
 
 alarm_control_panel: !include alarm_control_panel.yaml
-automation: !include_dir_list automation
+automation: !include_dir_merge_list automation
 input_select: !include input_select.yaml
 script: !include_dir_named scripts
 device_tracker: !include device_tracker.yaml

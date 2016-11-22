@@ -1,22 +1,21 @@
-
-alias: Waschmaschine status
-trigger:
-- platform: numeric_state
-  entity_id: sensor.waschmaschine_power
-  above: 0
-#condition:
-#  - condition: numeric_state
-#    entity_id: sensor.waschmaschine_current
-#    above: 30
-action:
-  service: input_select.select_option
-  data_template:
-    entity_id: input_select.waschmaschine
-    option: >
-      {%- if states.sensor.waschmaschine_power.state|float > 5 -%}
-      Aktiv
-      {%- elif states.sensor.waschmaschine_power.state|float >= 1 -%}
-      Standby
-      {%- else -%}
-      Aus
-      {%- endif -%}
+- alias: Waschmaschine status
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.waschmaschine_power
+    above: 0
+  #condition:
+  #  - condition: numeric_state
+  #    entity_id: sensor.waschmaschine_current
+  #    above: 30
+  action:
+    service: input_select.select_option
+    data_template:
+      entity_id: input_select.waschmaschine
+      option: >
+        {%- if states.sensor.waschmaschine_power.state|float > 5 -%}
+        Aktiv
+        {%- elif states.sensor.waschmaschine_power.state|float >= 1 -%}
+        Standby
+        {%- else -%}
+        Aus
+        {%- endif -%}
