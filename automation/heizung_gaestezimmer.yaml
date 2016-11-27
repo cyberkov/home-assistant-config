@@ -10,3 +10,14 @@
         entity_id: climate.barbaraheizung
         temperature: 19
         operation_mode: "manual"
+- alias: 'Gaestezimmer Heizung aus'
+  trigger:
+    - platform: state
+      entity_id: switch.guests
+      from: 'on'
+      to: 'off'
+  action:
+    - service: climate.set_operation_mode
+      data:
+        entity_id: climate.barbaraheizung
+        operation_mode: "auto"
