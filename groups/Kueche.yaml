@@ -8,6 +8,6 @@ entities:
   - climate.kuecheheizung
   - sensor.kuechetemperatur_humidity
   - sensor.kuechetemperatur_temperature
-  - media_player.kche
+  - media_player.kuche
   - sensor.mold_kueche
 

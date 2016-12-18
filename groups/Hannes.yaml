@@ -10,3 +10,4 @@ entities:
   - switch.ccu
   - binary_sensor.sco_spare
   - binary_sensor.sparesco_state
+  - light.it_stecker_3

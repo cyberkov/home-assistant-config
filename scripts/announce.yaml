@@ -1,0 +1,16 @@
+sequence:
+  - service: media_player.sonos_snapshot
+  - service: media_player.sonos_group_players
+    data:
+      entity_id: media_player.wohnzimmer
+  - service: media_player.volume_set
+    data:
+      entity_id: media_player.wohnzimmer
+      volume_level: "60"
+  - service: tts.google_say
+    data_template:
+      entity_id: media_player.wohnzimmer
+      message: "{{ message }}"
+  - delay:
+      seconds: 10
+  - service: media_player.sonos_restore

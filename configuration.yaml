@@ -29,20 +29,31 @@ recorder:
 sun:
 updater:
 zeroconf:
+tts:
+  - platform: google
+    language: 'de'
+    cache: true
+    cache_dir: 'tts'
+#  - platform: voicerss
+#    api_key: !env_var HA_VOICERSS
+#    language: 'de-de'
 
 homematic:
+  hosts:
+    rf:
+      ip: '192.168.1.6'
+      port: 2001
+      resolvenames: json
+      username: !env_var HA_HOMEMATIC_LOGIN
+      password: !env_var HA_HOMEMATIC_PASSWORD
+      primary: true
+      variables: true
   local_ip: '192.168.1.4'
   local_port: 8943
-  remote_ip: '192.168.1.6'
-  remote_port: 2001
-  resolvenames: json
-  username: !env_var HA_HOMEMATIC_LOGIN
-  password: !env_var HA_HOMEMATIC_PASSWORD
-#  delay: 1
 
 alarm_control_panel: !include alarm_control_panel.yaml
 automation: !include_dir_merge_list automation
-input_select: !include input_select.yaml
+#input_select: !include input_select.yaml
 script: !include_dir_named scripts
 device_tracker: !include device_tracker.yaml
 group: !include_dir_named groups
@@ -53,7 +64,7 @@ notify: !include notify.yaml
 binary_sensor: !include_dir_merge_list binary_sensors
 sensor: !include_dir_merge_list sensors
 switch: !include_dir_merge_list switches
-weblink: !include weblink.yaml
+#weblink: !include weblink.yaml
 zone: !include_dir_merge_list zones
 
 #scene: !include_dir_merge_list scenes

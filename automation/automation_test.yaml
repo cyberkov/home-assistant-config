@@ -3,10 +3,10 @@
     - platform: state
       entity_id: binary_sensor.hannesbewegungsmelder_motion
       state: 'on'
-  #condition:
-  #  - condition: state
-  #    entity_id: switch.detect_motion
-  #    state: 'on'
+  condition:
+    - condition: state
+      entity_id: light.it_stecker_3
+      state: 'off'
   action:
     - service: homeassistant.turn_on
       data:

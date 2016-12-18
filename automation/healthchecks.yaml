@@ -1,0 +1,18 @@
+- alias: 'Homematic Switches died'
+  trigger:
+    - platform: state
+      entity_id: switch.wirtschaftsraumtherme
+      state: 'unavailable'
+      for:
+        minutes: 5
+    - platform: state
+      entity_id: switch.luftentfeuchter
+      state: 'unavailable'
+      for:
+        minutes: 5
+  action:
+    - service: notify.slack
+      data_template:
+        message: >
+          Homematic {{ trigger.entity_id }} is {{ trigger.to_state.state }}. Restarting HASS.
+    - service: homeassistant.restart

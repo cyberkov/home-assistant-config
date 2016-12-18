@@ -65,6 +65,8 @@ binary_sensor.hannesbewegungsmelder_motion:
 binary_sensor.hannesbewegungsmelder_brightness:
   friendly_name: Hannes Helligkeit
   icon: mdi:brightness-6
+light.it_stecker_3:
+  friendly_name: Lavalampe
 
 # Sauna
 sensor.sauna_temperatur_humidity:
