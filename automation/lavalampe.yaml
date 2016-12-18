@@ -1,0 +1,19 @@
+- alias: 'Lavalampe'
+  trigger:
+    - platform: event
+      event_type: homematic.keypress
+      event_data:
+        name: Hannes.Taster
+        channel: 2
+        param: PRESS_SHORT
+    - platform: event
+      event_type: homematic.keypress
+      event_data:
+        name: Hannes.Taster
+        channel: 2
+        param: PRESS_LONG
+  action:
+    - service: homeassistant.toggle
+      data:
+        entity_id: light.it_stecker_3
+
