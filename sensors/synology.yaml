@@ -1,0 +1,11 @@
+- platform: synologydsm
+  host: 192.168.1.5
+  username: !env_var HA_SYNOLOGY_LOGIN
+  password: !env_var HA_SYNOLOGY_PASSWORD
+  monitored_conditions:
+    - cpu_total_load
+    - memory_real_usage
+    - network_up
+    - disk_smart_status
+    - disk_status
+    - volume_status

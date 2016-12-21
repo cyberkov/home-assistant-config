@@ -16,6 +16,11 @@ homeassistant:
 discovery:
 frontend:
 history:
+  include:
+    domains:
+      - climate
+      - switch
+      - binary_sensor
 http:
 #  api_password: !env_var HA_HTTP_LOGIN
 logbook:
@@ -72,7 +77,7 @@ zone: !include_dir_merge_list zones
 
 rfxtrx:
   device: '/dev/ttyUSB0'
-  debug: true
+  debug: false
 
 mqtt:
   broker: 192.168.1.4

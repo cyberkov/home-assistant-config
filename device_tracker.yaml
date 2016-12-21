@@ -2,13 +2,15 @@
   host: 192.168.1.1
   community: !env_var HA_ROUTER_SNMPPWD
   baseoid: 1.3.6.1.2.1.4.22.1.2
+  interval_seconds: 12
   track_new_devices: no
   consider_home: 180
-  interval_seconds: 12
 - platform: owntracks
   max_gps_accuracy: 200
-- platform: bluetooth_tracker
-#- platform: ubus
+  waypoint_whitelist:
+    - cyberkov
+#- platform: bluetooth_le_tracker
+#- platform: luci
 #  host: 192.168.1.1
 #  username: !env_var HA_ROUTER_USER
 #  password: !env_var HA_ROUTER_PASSWORD

@@ -1,9 +1,9 @@
 entities:
-  - sensor.geschirrspler_current
-  - sensor.geschirrspler_energy_counter
-  - sensor.geschirrspler_power
-  - sensor.geschirrspler_voltage
-  - switch.geschirrspler
+  - sensor.geschirrspuler_current
+  - sensor.geschirrspuler_energy_counter
+  - sensor.geschirrspuler_power
+  - sensor.geschirrspuler_voltage
+  - switch.geschirrspuler
   - binary_sensor.kuechefenster_state
   - climate.kuecheheizung
   - sensor.kuechetemperatur_humidity

@@ -12,3 +12,47 @@
         {% elif states.sensor.sauna_temperatur_humidity.state|float >= high_hum -%}
         Off
         {% endif -%}
+- platform: template
+  sensors:
+# OG
+    barbara_fenster_sabotage:
+      entity_id: binary_sensor.barbarafenster_state
+      value_template: '{{ states.binary_sensor.barbarafenster_state.attributes.Sabotage }}'
+    dominik_fenster_sabotage:
+      entity_id: binary_sensor.dominikfenster_state
+      value_template: '{{ states.binary_sensor.dominikfenster_state.attributes.Sabotage }}'
+    schlafzimmer_links_sabotage:
+      entity_id: binary_sensor.schlafzimmer_links_state
+      value_template: '{{ states.binary_sensor.schlafzimmer_links_state.attributes.Sabotage }}'
+    schlafzimmer_rechts_sabotage:
+      entity_id: binary_sensor.schlafzimmer_rechts_state
+      value_template: '{{ states.binary_sensor.schlafzimmer_rechts_state.attributes.Sabotage }}'
+    og_bewegungsmelder_sabotage:
+      entity_id: binary_sensor.vorzimmerogbewegungsmelder_motion
+      value_template: '{{ states.binary_sensor.vorzimmerogbewegungsmelder_motion.attributes.Sabotage }}'
+    og_fenster_sabotage:
+      entity_id: binary_sensor.vorzimmerogfenster_state
+      value_template: '{{ states.binary_sensor.vorzimmerogfenster_state.attributes.Sabotage }}'
+# EG
+    esszimmer_bewegungsmelder_sabotage:
+      entity_id: binary_sensor.esszimmerbewegungsmelder_motion
+      value_template: '{{ states.binary_sensor.esszimmerbewegungsmelder_motion.attributes.Sabotage }}'
+    kueche_fenster_sabotage:
+      entity_id: binary_sensor.kuechefenster_state
+      value_template: '{{ states.binary_sensor.kuechefenster_state.attributes.Sabotage }}'
+    windfang_tuer_sabotage:
+      entity_id: binary_sensor.windfangtuer_state
+      value_template: '{{ states.binary_sensor.windfangtuer_state.attributes.Sabotage }}'
+    wohnzimmer_tuer_sabotage:
+      entity_id: binary_sensor.wohnzimmertuer_state
+      value_template: '{{ states.binary_sensor.wohnzimmertuer_state.attributes.Sabotage }}'
+# UG
+    hannes_bewegungsmelder_sabotage:
+      entity_id: binary_sensor.hannesbewegungsmelder_motion
+      value_template: '{{ states.binary_sensor.hannesbewegungsmelder_motion.attributes.Sabotage }}'
+    hannes_fenster_sabotage:
+      entity_id: binary_sensor.hannesfenster_state
+      value_template: '{{ states.binary_sensor.hannesfenster_state.attributes.Sabotage }}'
+    hannes_tuer_sabotage:
+      entity_id: binary_sensor.hannestuer_state
+      value_template: '{{ states.binary_sensor.hannestuer_state.attributes.Sabotage }}'
