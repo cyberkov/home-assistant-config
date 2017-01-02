@@ -16,8 +16,8 @@
   state_topic: "nfc/sleeping"
   command_topic: "nfc/sleeping"
   qos: 1
-  payload_on: "yes"
-  payload_off: "no"
+  payload_on: "ON"
+  payload_off: "OFF"
   retain: true
 
 #  Vacation is manually switched to enabled or
@@ -31,8 +31,8 @@
   state_topic: "nfc/vacation"
   command_topic: "nfc/vacation"
   qos: 1
-  payload_on: "yes"
-  payload_off: "no"
+  payload_on: "ON"
+  payload_off: "OFF"
   retain: true
 
 #  Toggle if guests are present. They aren't device-tracked,
@@ -44,9 +44,10 @@
   state_topic: "nfc/guests"
   command_topic: "nfc/guests"
   qos: 1
-  payload_on: "yes"
-  payload_off: "no"
+  payload_on: "ON"
+  payload_off: "OFF"
   retain: true
+  optimistic: false
 
 #  Control whether motion detection should
 #  trigger lights. This may be undesirable in certain
@@ -60,8 +61,8 @@
   state_topic: "nfc/detect_motion"
   command_topic: "nfc/detect_motion"
   qos: 1
-  payload_on: "yes"
-  payload_off: "no"
+  payload_on: "ON"
+  payload_off: "OFF"
   retain: true
 
 #  Control motion alerts when no tracked devices
@@ -73,8 +74,8 @@
   state_topic: "nfc/alert_motion"
   command_topic: "nfc/alert_motion"
   qos: 1
-  payload_on: "yes"
-  payload_off: "no"
+  payload_on: "ON"
+  payload_off: "OFF"
   retain: true
 
 #  Enable or disable presence-based automations. Presence
@@ -86,8 +87,8 @@
   state_topic: "nfc/presence"
   command_topic: "nfc/presence"
   qos: 1
-  payload_on: "yes"
-  payload_off: "no"
+  payload_on: "ON"
+  payload_off: "OFF"
   retain: true
 
 #  Nightlights turn on to a dim red if motion is
@@ -99,8 +100,8 @@
   state_topic: "nfc/nightlights"
   command_topic: "nfc/nightlights"
   qos: 1
-  payload_on: "yes"
-  payload_off: "no"
+  payload_on: "ON"
+  payload_off: "OFF"
   retain: true
 
 # Send a notification if it makes sense to open a window
@@ -109,8 +110,8 @@
   state_topic: "nfc/alert_lueftung"
   command_topic: "nfc/alert_lueftung"
   qos: 1
-  payload_on: "yes"
-  payload_off: "no"
+  payload_on: "ON"
+  payload_off: "OFF"
   retain: true
 
 # Displays wether the homematic mqtt service is connected to the bus
