@@ -1,5 +1,5 @@
 # Set the Internet switch to on upon startup
-- alias: 'HomeAssistant Startup'
+- alias: 'HA Startup'
   trigger:
     - platform: event
       event_type: homeassistant_start

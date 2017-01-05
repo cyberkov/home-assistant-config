@@ -1,7 +1,7 @@
 - alias: 'Heizung bei Abwesenheit aus'
   trigger:
     - platform: state
-      entity_id: group.all_devices
+      entity_id: group.personen
       from: 'home'
       to: 'not_home'
       for:

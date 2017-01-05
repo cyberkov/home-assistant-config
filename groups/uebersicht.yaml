@@ -2,7 +2,7 @@ icon: mdi:home-variant
 view: yes
 entities:
   - group.alarmanlage
-  - group.all_devices
+  - group.personen
   - group.fenster
   - group.internet
   - group.climate

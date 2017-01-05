@@ -1,7 +1,7 @@
 - alias: 'Heizung bei Anwesenheit an'
   trigger:
     - platform: state
-      entity_id: group.all_devices
+      entity_id: group.personen
       state: 'home'
     - platform: numeric_state
       entity_id: sensor.wohnzimmertemperatur_temperature

@@ -21,7 +21,7 @@
     entity_id: switch.guests
     state: 'off'
   - condition: state
-    entity_id: group.all_devices
+    entity_id: group.personen
     state: 'not_home'
   action:
     service: notify.hannes

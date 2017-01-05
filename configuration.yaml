@@ -22,7 +22,13 @@ history:
       - switch
       - binary_sensor
 http:
-#  api_password: !env_var HA_HTTP_LOGIN
+  trusted_networks:
+    - 127.0.0.1
+    - ::1
+    - 192.168.1.0/24
+    - 172.17.0.0/24
+  api_password: !env_var HA_HTTP_LOGIN
+  use_x_forwarded_for: true
 logbook:
   exclude:
     domains:
