@@ -1,26 +1,26 @@
 - platform: kodi
-  host: http://192.168.1.11
+  host: 192.168.1.11
   port: 8080
   name: kodi_wohnzimmer
 - platform: kodi
-  host: http://192.168.1.10
+  host: 192.168.1.10
   port: 8080
   name: kodi_hannes
 - platform: sonos
   hosts:
-    - 192.168.1.19
     - 192.168.1.120
-    - 192.168.1.130
-    - 192.168.1.131
-#- platform: sonos
-#  name: sonos_wohnzimmer
-#  hosts: 192.168.1.131
+    - 192.168.1.121
+    - 192.168.1.122
+    - 192.168.1.123
 #- platform: sonos
 #  name: sonos_bad
 #  hosts: 192.168.1.120
 #- platform: sonos
-#  name: sonos_sauna
-#  hosts: 192.168.1.19
-#- platform: sonos
 #  name: sonos_kueche
-#  hosts: 192.168.1.130
+#  hosts: 192.168.1.121
+#- platform: sonos
+#  name: sonos_sauna
+#  hosts: 192.168.1.122
+#- platform: sonos
+#  name: sonos_wohnzimmer
+#  hosts: 192.168.1.123

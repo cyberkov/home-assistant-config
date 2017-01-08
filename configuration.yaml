@@ -22,13 +22,19 @@ history:
       - switch
       - binary_sensor
 http:
+  cors_allowed_origins:
+    - https://haus.cyberkov.at
+    - https://haus.cyberkov.lan
+  ssl_certificate: /etc/letsencrypt/live/graph.cyberkov.at/fullchain.pem
+  ssl_key: /etc/letsencrypt/live/graph.cyberkov.at/privkey.pem
+  base_url: haus.cyberkov.at
+  use_x_forwarded_for: true
+  api_password: !env_var HA_HTTP_LOGIN
   trusted_networks:
     - 127.0.0.1
     - ::1
-    - 192.168.1.0/24
     - 172.17.0.0/24
-  api_password: !env_var HA_HTTP_LOGIN
-  use_x_forwarded_for: true
+#    - 192.168.1.0/24
 logbook:
   exclude:
     domains:
@@ -80,6 +86,13 @@ zone: !include_dir_merge_list zones
 
 #scene: !include_dir_merge_list scenes
 #automation: !include automation.yaml
+
+panel_custom:
+    - name: alarm
+      sidebar_title: Alarm
+      sidebar_icon: mdi:security-home
+      config:
+          alarmid: alarm_control_panel.house
 
 rfxtrx:
   device: '/dev/ttyUSB0'
