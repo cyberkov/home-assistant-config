@@ -123,3 +123,21 @@
   payload_on: "2"
   payload_off: "0"
   retain: true
+
+- platform: mqtt
+  name: "Alarm"
+  state_topic: "nfc/alarm"
+  command_topic: "nfc/alarm"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: true
+
+- platform: mqtt
+  name: "Warning"
+  state_topic: "nfc/alarm_warning"
+  command_topic: "nfc/alarm_warning"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: true

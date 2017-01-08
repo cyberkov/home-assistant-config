@@ -1,5 +1,5 @@
 entities:
-  - alarm_control_panel.alarmanlage
+  - alarm_control_panel.house
   - switch.sirene_blitz
   - switch.sirene_sirene
 
