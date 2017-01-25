@@ -1,6 +1,8 @@
 entities:
   - sensor.gartentemperatur_temperature
   - sensor.gartentemperatur_humidity
+  - sensor.wetter_heute
+  - sensor.wetter_morgen
   - sensor.dark_sky_summary
   - sensor.weather_wind_speed
   - sun.sun

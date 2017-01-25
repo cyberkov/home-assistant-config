@@ -15,12 +15,12 @@ homeassistant:
 #conversation:
 discovery:
 frontend:
-history:
-  include:
-    domains:
-      - climate
-      - switch
-      - binary_sensor
+#history:
+#  include:
+#    domains:
+#      - climate
+#      - switch
+#      - binary_sensor
 http:
   cors_allowed_origins:
     - https://haus.cyberkov.at
@@ -30,19 +30,21 @@ http:
   base_url: haus.cyberkov.at
   use_x_forwarded_for: true
   api_password: !env_var HA_HTTP_LOGIN
+  ip_ban_enabled: true
+  login_attempts_threshold: 3
   trusted_networks:
     - 127.0.0.1
     - ::1
     - 172.17.0.0/24
-#    - 192.168.1.0/24
-logbook:
-  exclude:
-    domains:
-      - sun
-      - weblink
-recorder:
-  purge_days: 3
-  db_url: !env_var HA_RECORDER_DB
+    - 192.168.1.0/25
+#logbook:
+#  exclude:
+#    domains:
+#      - sun
+#      - weblink
+#recorder:
+#  purge_days: 3
+#  db_url: !env_var HA_RECORDER_DB
 sun:
 updater:
 zeroconf:
@@ -60,9 +62,10 @@ homematic:
     rf:
       ip: '192.168.1.6'
       port: 2001
-      resolvenames: json
-      username: !env_var HA_HOMEMATIC_LOGIN
-      password: !env_var HA_HOMEMATIC_PASSWORD
+      resolvenames: xml
+#      resolvenames: json
+#      username: !env_var HA_HOMEMATIC_LOGIN
+#      password: !env_var HA_HOMEMATIC_PASSWORD
       primary: true
       variables: true
   local_ip: '192.168.1.4'
@@ -79,20 +82,14 @@ logger: !include logger.yaml
 media_player: !include media_player.yaml
 notify: !include notify.yaml
 binary_sensor: !include_dir_merge_list binary_sensors
+panel_iframe: !include panel_iframe.yaml
 sensor: !include_dir_merge_list sensors
 switch: !include_dir_merge_list switches
 #weblink: !include weblink.yaml
 zone: !include_dir_merge_list zones
+proximity: !include proximity.yaml
 
 #scene: !include_dir_merge_list scenes
-#automation: !include automation.yaml
-
-panel_custom:
-    - name: alarm
-      sidebar_title: Alarm
-      sidebar_icon: mdi:security-home
-      config:
-          alarmid: alarm_control_panel.house
 
 rfxtrx:
   device: '/dev/ttyUSB0'
@@ -113,10 +110,19 @@ mqtt:
 #  subscribe_topic: homeassistant/events/slave
 
 influxdb:
-  host: 192.168.1.4
+  host: 127.0.0.1
   database: openhab
   username: !env_var HA_INFLUXDB_USER
   password: !env_var HA_INFLUXDB_PASSWORD
+  default_measurement: 'hass.state'
+
+panel_custom:
+    - name: alarm
+      sidebar_title: Alarm
+      sidebar_icon: mdi:security-home
+      config:
+          alarmid: alarm_control_panel.house
+
 
 zwave:
   usb_path: /dev/ttyACM0

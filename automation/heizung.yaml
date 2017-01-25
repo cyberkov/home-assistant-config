@@ -56,10 +56,25 @@
       minutes: '/15'
       seconds: 0
   action:
-    service_template: >
-      {% if states.climate|sum(attribute="attributes.Valve")|float >= (20*3) %}
+    - service_template: >
+        {%- if (states.sensor.bad_heizung_valve.state | int +
+        states.sensor.barbara_heizung_valve.state | int +
+        states.sensor.dominik_heizung_valve.state | int +
+        states.sensor.esszimmer_heizung_valve.state | int +
+        states.sensor.hannes_heizung_valve.state | int +
+        states.sensor.kueche_heizung_valve.state | int +
+        states.sensor.sauna_heizung_valve.state | int +
+        states.sensor.schlafzimmer_links_heizung_valve.state | int +
+        states.sensor.schlafzimmer_rechts_heizung_valve.state | int + states.sensor.vorzimmer_heizung_valve.state | int + states.sensor.vorzimmerog_heizung_valve.state | int + states.sensor.windfang_heizung_valve.state | int + states.sensor.wohnzimmer_heizung_valve.state | int ) >= (20*3) -%}
         switch.turn_on
-      {% else %}
+        {%- else -%}
         switch.turn_off
-      {% endif %}
-    entity_id: switch.wirtschaftsraumtherme
+        {%- endif -%}
+      entity_id: switch.mqtt_wirtschaftsraum_therme
+    - service_template: >
+        {% if states.climate|rejectattr('state', 'equalto', 'unknown')|map(attribute='attributes.Valve')|map('int')|sum >= 20*3 %}
+          switch.turn_on
+        {% else %}
+          switch.turn_off
+        {% endif %}
+      entity_id: switch.wirtschaftsraumtherme

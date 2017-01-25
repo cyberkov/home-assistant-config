@@ -5,6 +5,8 @@
   condition:
    - condition: template
      value_template: '{% if states.automation.ha_startup.attributes.last_triggered  %} {{(as_timestamp(now())-as_timestamp(states.automation.ha_startup.attributes.last_triggered)) > 5*60 }}  {% else %}false{% endif %}'
+   - condition: template
+     value_template: '{{ states.sensor.external_ip.state != "unknown" }}'
   action:
     - service: notify.slack
       data_template:

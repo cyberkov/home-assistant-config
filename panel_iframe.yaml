@@ -1,0 +1,8 @@
+graph_dashboard:
+  title: Graph
+  url: 'https://graph.cyberkov.at/dashboard/db/haus?&theme=light'
+  icon: mdi:pulse
+temperature_dashboard:
+  title: Temperatur
+  url: 'https://graph.cyberkov.at/dashboard/db/temperature?theme=light'
+  icon: mdi:thermometer

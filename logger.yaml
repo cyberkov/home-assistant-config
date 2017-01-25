@@ -2,6 +2,7 @@ default: info
 logs:
   homeassistant.bootstrap: info
   homeassistant.components.device_tracker.ubus: warn
+  homeassistant.components.device_tracker.nmap_tracker: warn
   homeassistant.components.homematic: info
   homeassistant.components.http: warn
   homeassistant.components.influxdb: fatal
