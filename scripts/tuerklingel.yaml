@@ -1,0 +1,16 @@
+alias: Tuerklingel Notification
+sequence:
+  - service: notify.hannes
+    data_template:
+      message: >
+        Es hat geklingelt.
+  - service: script.announce
+    data:
+      where: wohnzimmer
+      message: 'Es hat geklingelt.'
+  - service: notify.slack
+    data_template:
+      message: >
+        Es hat geklingelt.
+  - delay:
+      seconds: 10

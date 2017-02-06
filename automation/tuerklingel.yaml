@@ -13,14 +13,4 @@
         channel: 4
         param: PRESS_LONG
   action:
-    - service: notify.hannes
-      data_template:
-        message: >
-          Es hat geklingelt.
-    - service: script.announce
-      data:
-        message: 'Es hat geklingelt.'
-    - service: notify.slack
-      data_template:
-        message: >
-          Es hat geklingelt.
+    - service: script.tuerklingel

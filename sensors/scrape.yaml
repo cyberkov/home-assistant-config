@@ -1,0 +1,8 @@
+- platform: scrape
+  resource: http://wetter.orf.at/m/wien/
+  name: Wetter heute
+  select: ".fulltextWrapper p:nth-of-type(1)"
+- platform: scrape
+  resource: http://wetter.orf.at/m/wien/
+  name: Wetter morgen
+  select: ".fulltextWrapper p:nth-of-type(2)"
