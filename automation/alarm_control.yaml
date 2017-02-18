@@ -1,0 +1,121 @@
+- alias: "Alarmananlage arm_away"
+  trigger:
+    # Handsender Abwesend
+    - platform: event
+      event_type: homematic.keypress
+      event_data:
+        name: Hannes.Handsender
+        channel: 2
+        param: PRESS_SHORT
+    - platform: event
+      event_type: homematic.keypress
+      event_data:
+        name: Hannes.Handsender
+        channel: 2
+        param: PRESS_LONG
+    - platform: event
+      event_type: homematic.keypress
+      event_data:
+        name: Barbara.Handsender
+        channel: 2
+        param: PRESS_SHORT
+    - platform: event
+      event_type: homematic.keypress
+      event_data:
+        name: Barbara.Handsender
+        channel: 2
+        param: PRESS_LONG
+#  condition:
+#    condition: or
+#    conditions:
+#      - condition: state
+#        entity_id: alarm_control_panel.alarm
+#        state: "disarmed"
+#      - condition: state
+#        entity_id: alarm_control_panel.alarm
+#        state: "armed_home"
+  action:
+    - service: alarm_control_panel.alarm_arm_away
+    - service: script.announce
+      data:
+        where: media_player.kuche
+        message: 'Alarmanlage extern scharf.'
+    - service: notify.slack
+      data_template:
+        message: >
+          Aktiviere Alarmanlage - extern.
+
+- alias: "Alarmananlage arm_home"
+  trigger:
+    # Handsender Abwesend
+    - platform: event
+      event_type: homematic.keypress
+      event_data:
+        name: Hannes.Handsender
+        channel: 1
+        param: PRESS_SHORT
+    - platform: event
+      event_type: homematic.keypress
+      event_data:
+        name: Hannes.Handsender
+        channel: 1
+        param: PRESS_LONG
+    - platform: event
+      event_type: homematic.keypress
+      event_data:
+        name: Barbara.Handsender
+        channel: 1
+        param: PRESS_SHORT
+    - platform: event
+      event_type: homematic.keypress
+      event_data:
+        name: Barbara.Handsender
+        channel: 1
+        param: PRESS_LONG
+  action:
+    - service: alarm_control_panel.alarm_arm_home
+    - service: script.announce
+      data:
+        where: media_player.kuche
+        message: 'Alarmanlage intern scharf.'
+    - service: notify.slack
+      data_template:
+        message: >
+          Aktiviere Alarmanlage - intern.
+- alias: "Alarmananlage disarm"
+  trigger:
+    # Handsender Abwesend
+    - platform: event
+      event_type: homematic.keypress
+      event_data:
+        name: Hannes.Handsender
+        channel: 4
+        param: PRESS_SHORT
+    - platform: event
+      event_type: homematic.keypress
+      event_data:
+        name: Hannes.Handsender
+        channel: 4
+        param: PRESS_LONG
+    - platform: event
+      event_type: homematic.keypress
+      event_data:
+        name: Barbara.Handsender
+        channel: 4
+        param: PRESS_SHORT
+    - platform: event
+      event_type: homematic.keypress
+      event_data:
+        name: Barbara.Handsender
+        channel: 4
+        param: PRESS_LONG
+  action:
+    - service: alarm_control_panel.alarm_disarm
+    - service: notify.slack
+      data_template:
+        message: >
+          Deaktiviere Alarmanlage.
+    - service: script.announce
+      data:
+        where: media_player.kuche
+        message: 'Alarmanlage unscharf.'

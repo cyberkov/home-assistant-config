@@ -12,6 +12,12 @@ homeassistant:
   time_zone: Europe/Vienna
   customize: !include_dir_merge_named customizations
 
+influxdb:
+  host: 127.0.0.1
+  database: homeassistant
+  port: '8086'
+  default_measurement: 'hass.state'
+
 #conversation:
 discovery:
 frontend:
@@ -88,6 +94,7 @@ switch: !include_dir_merge_list switches
 #weblink: !include weblink.yaml
 zone: !include_dir_merge_list zones
 proximity: !include proximity.yaml
+apiai: !include apiai.yaml
 
 #scene: !include_dir_merge_list scenes
 
@@ -109,12 +116,14 @@ mqtt:
 #  publish_topic: homeassistant/events/master
 #  subscribe_topic: homeassistant/events/slave
 
-influxdb:
-  host: 127.0.0.1
-  database: openhab
-  username: !env_var HA_INFLUXDB_USER
-  password: !env_var HA_INFLUXDB_PASSWORD
-  default_measurement: 'hass.state'
+mysensors:
+  gateways:
+    - device: mqtt
+      persistence_file: '/config/mysensors.json'
+      topic_in_prefix: 'mysensors/in'
+      topic_out_prefix: 'mysensors/out'
+  debug: true
+  version: 2.0
 
 panel_custom:
     - name: alarm
@@ -123,6 +132,9 @@ panel_custom:
       config:
           alarmid: alarm_control_panel.house
 
+google:
+  client_id: !env_var HA_GOOGLE_OAUTH_ID
+  client_secret: !env_var HA_GOOGLE_OAUTH_SECRET
 
 zwave:
   usb_path: /dev/ttyACM0

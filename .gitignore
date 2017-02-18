@@ -13,3 +13,6 @@ OZW_Log.txt
 known_devices.yaml
 docker-compose.yml
 /old
+automation/scotest.yaml
+binary_sensors/homematic.yaml
+/tts

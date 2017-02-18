@@ -1,0 +1,24 @@
+intents:
+  GetTemperature:
+    speech: We have {{ states.sensor.wohnzimmertemperatur_temperature }} degrees
+    async_action: False
+    action:
+      service: notify.slack
+      data_template:
+        message: Api.ai has sent a request
+  TurnLights:
+    speech: Schalte {{ Room }} Licht {{ OnOff }}
+    action:
+      - service: notify.slack
+        data_template:
+          message: Someone asked via apiai to turn {{ Room }} lights {{ OnOff }}
+      - service_template: >
+          {%- if OnOff == "on" -%}
+            switch.turn_on
+          {%- else -%}
+            switch.turn_off
+          {%- endif -%}
+        data_template:
+          entity_id: "switch.light_{{ Room | replace(' ', '_') }}"
+  GetWeather:
+    speech: "Das Wetter: {{states.sensor.wetter_heute.state}}"

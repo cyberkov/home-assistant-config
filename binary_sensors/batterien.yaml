@@ -1,0 +1,6 @@
+- platform: template
+  sensors:
+    climate_sauna_battery:
+      entity_id: climate.sauna_heizung
+      value_template: '{{ states.climate.sauna_heizung.attributes.Battery|float >= 2.3 }}'
+

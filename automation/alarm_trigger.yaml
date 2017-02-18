@@ -1,0 +1,48 @@
+- alias: "Alarm Trigger"
+  trigger:
+    - platform: state
+      entity_id: switch.alarm
+      from: "off"
+      to: "on"
+    - platform: state
+      entity_id: group.fenster
+      from: "off"
+      to: "on"
+    - platform: state
+      entity_id: group.bewegungsmelder
+      from: "off"
+      to: "on"
+    - platform: state
+      entity_id: group.sabotagekontakte
+      from: "off"
+      to: "on"
+  condition:
+    condition: or
+    conditions:
+      - condition: state
+        entity_id: alarm_control_panel.house
+        state: "armed_away"
+      - condition: state
+        entity_id: alarm_control_panel.house
+        state: "armed_home"
+  action:
+    - service: notify.slack
+      data_template:
+        message: >
+          ALARM - {{ trigger.to_state.attributes.friendly_name }} triggered it.
+#    - service: script.alarm_triggered
+- alias: "Alarm Warning"
+  trigger:
+    - platform: state
+      entity_id: switch.warning
+      from: "off"
+      to: "on"
+  action:
+    - service: script.announce
+      data:
+        where: media_player.kuche
+        message: 'Alarm ausgelöst.'
+    - service: notify.slack
+      data_template:
+        message: >
+          ALARM - Warnzeit aktiv.
