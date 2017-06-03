@@ -1,5 +1,5 @@
 entities:
   - device_tracker.barbara
-  - device_tracker.cyberkov_lgg3
+  - device_tracker.cyberkov
   - switch.guests
 

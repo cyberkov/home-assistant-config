@@ -1,4 +1,4 @@
 home:
   devices:
-    - device_tracker.cyberkov_lgg3
+    - device_tracker.cyberkov
   tolerance: 50

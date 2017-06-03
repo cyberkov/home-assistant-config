@@ -1,0 +1,14 @@
+- alias: 'wohnzimmer abendlicht'
+  trigger:
+    - platform: sun
+      event: sunset
+      offset: "-01:00:00"
+  condition:
+    - condition: state
+      entity_id: group.personen
+      state: 'home'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.fernsehlampe
+        brightness: 150

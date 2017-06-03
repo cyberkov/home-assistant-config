@@ -16,3 +16,6 @@ docker-compose.yml
 automation/scotest.yaml
 binary_sensors/homematic.yaml
 /tts
+.google.token
+.spotify-token-cache
+.uuid

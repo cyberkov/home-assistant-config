@@ -1,4 +1,8 @@
-- platform: rest
-  resource: http://ip.jsontest.com
-  name: External IP
-  value_template: '{{ value_json.ip }}'
+#- platform: rest
+#  resource: http://ip.jsontest.com
+#  name: External IP
+#  value_template: '{{ value_json.ip }}'
+- platform: dnsip
+  hostname: haus.cyberkov.at
+  resolver: 8.8.8.8
+

@@ -1,3 +1,10 @@
 #- platform: statistics
 #  entity_id: sensor.sauna_temperatur_humidity
 #  name: stats_sauna_humidity
+- platform: history_stats
+  name: Luftentfeuchter ON today
+  entity_id: switch.luftentfeuchter
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
+  end: '{{ now() }}'

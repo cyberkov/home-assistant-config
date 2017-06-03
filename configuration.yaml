@@ -20,13 +20,15 @@ influxdb:
 
 #conversation:
 discovery:
+config:
+
 frontend:
-#history:
-#  include:
-#    domains:
-#      - climate
-#      - switch
-#      - binary_sensor
+history:
+  include:
+    domains:
+      - climate
+      - switch
+      - binary_sensor
 http:
   cors_allowed_origins:
     - https://haus.cyberkov.at
@@ -36,7 +38,7 @@ http:
   base_url: haus.cyberkov.at
   use_x_forwarded_for: true
   api_password: !env_var HA_HTTP_LOGIN
-  ip_ban_enabled: true
+  ip_ban_enabled: false
   login_attempts_threshold: 3
   trusted_networks:
     - 127.0.0.1
@@ -48,9 +50,9 @@ http:
 #    domains:
 #      - sun
 #      - weblink
-#recorder:
-#  purge_days: 3
-#  db_url: !env_var HA_RECORDER_DB
+recorder:
+  purge_days: 3
+  db_url: !env_var HA_RECORDER_DB
 sun:
 updater:
 zeroconf:
@@ -68,10 +70,10 @@ homematic:
     rf:
       ip: '192.168.1.6'
       port: 2001
-      resolvenames: xml
-#      resolvenames: json
-#      username: !env_var HA_HOMEMATIC_LOGIN
-#      password: !env_var HA_HOMEMATIC_PASSWORD
+#      resolvenames: xml
+      resolvenames: json
+      username: !env_var HA_HOMEMATIC_LOGIN
+      password: !env_var HA_HOMEMATIC_PASSWORD
       primary: true
       variables: true
   local_ip: '192.168.1.4'
@@ -95,9 +97,12 @@ switch: !include_dir_merge_list switches
 zone: !include_dir_merge_list zones
 proximity: !include proximity.yaml
 apiai: !include apiai.yaml
+#alexa: !include alexa.yaml
 
 #scene: !include_dir_merge_list scenes
-
+emulated_hue:
+  advertise_ip: 192.168.1.4
+  expose_by_default: true
 rfxtrx:
   device: '/dev/ttyUSB0'
   debug: false
@@ -109,21 +114,20 @@ mqtt:
   protocol: 3.1
 #  broker: m21.cloudmqtt.com
 #  port: 27670
-#  username: !env_var HA_MQTT_LOGIN
-#  password: !env_var HA_MQTT_PASSWORD
+  username: !env_var HA_MQTT_LOGIN
+  password: !env_var HA_MQTT_PASSWORD
 
 #mqtt_eventstream:
 #  publish_topic: homeassistant/events/master
 #  subscribe_topic: homeassistant/events/slave
 
-mysensors:
-  gateways:
-    - device: mqtt
-      persistence_file: '/config/mysensors.json'
-      topic_in_prefix: 'mysensors/in'
-      topic_out_prefix: 'mysensors/out'
-  debug: true
-  version: 2.0
+#mysensors:
+#  gateways:
+#    - device: mqtt
+#      persistence_file: '/config/mysensors.json'
+#      topic_in_prefix: 'mysensors/in'
+#      topic_out_prefix: 'mysensors/out'
+#  version: 2.0
 
 panel_custom:
     - name: alarm
@@ -138,6 +142,6 @@ google:
 
 zwave:
   usb_path: /dev/ttyACM0
-  config_path: /usr/local/share/python-openzwave/config
+#  config_path: /usr/local/share/python-openzwave/config
 #  autoheal: false
 # polling_interval: 2000

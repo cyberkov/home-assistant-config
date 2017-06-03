@@ -2,55 +2,55 @@
   trigger:
     - platform: numeric_state
       entity_id: climate.badheizung
-      value_template: '{{ state.attributes.Valve }}'
+      value_template: '{{ state.attributes.valve }}'
       above: 15
     - platform: numeric_state
       entity_id: climate.barbaraheizung
-      value_template: '{{ state.attributes.Valve }}'
+      value_template: '{{ state.attributes.valve }}'
       above: 15
     - platform: numeric_state
       entity_id: climate.dominikheizung
-      value_template: '{{ state.attributes.Valve }}'
+      value_template: '{{ state.attributes.valve }}'
       above: 15
     - platform: numeric_state
       entity_id: climate.esszimmerheizung
-      value_template: '{{ state.attributes.Valve }}'
+      value_template: '{{ state.attributes.valve }}'
       above: 15
     - platform: numeric_state
       entity_id: climate.hannesheizung
-      value_template: '{{ state.attributes.Valve }}'
+      value_template: '{{ state.attributes.valve }}'
       above: 15
     - platform: numeric_state
       entity_id: climate.kuecheheizung
-      value_template: '{{ state.attributes.Valve }}'
+      value_template: '{{ state.attributes.valve }}'
       above: 15
     - platform: numeric_state
       entity_id: climate.sauna_heizung
-      value_template: '{{ state.attributes.Valve }}'
+      value_template: '{{ state.attributes.valve }}'
       above: 15
     - platform: numeric_state
       entity_id: climate.schlafzimmerheizunglinks
-      value_template: '{{ state.attributes.Valve }}'
+      value_template: '{{ state.attributes.valve }}'
       above: 15
     - platform: numeric_state
       entity_id: climate.schlafzimmerheizungrechts
-      value_template: '{{ state.attributes.Valve }}'
+      value_template: '{{ state.attributes.valve }}'
       above: 15
     - platform: numeric_state
       entity_id: climate.vorzimmerheizung
-      value_template: '{{ state.attributes.Valve }}'
+      value_template: '{{ state.attributes.valve }}'
       above: 15
     - platform: numeric_state
       entity_id: climate.vorzimmerogheizung
-      value_template: '{{ state.attributes.Valve }}'
+      value_template: '{{ state.attributes.valve }}'
       above: 15
     - platform: numeric_state
       entity_id: climate.windfangheizung
-      value_template: '{{ state.attributes.Valve }}'
+      value_template: '{{ state.attributes.valve }}'
       above: 15
     - platform: numeric_state
       entity_id: climate.wohnzimmerheizung
-      value_template: '{{ state.attributes.Valve }}'
+      value_template: '{{ state.attributes.valve }}'
       above: 15
     - platform: time
       minutes: '/15'
@@ -72,7 +72,7 @@
         {%- endif -%}
       entity_id: switch.mqtt_wirtschaftsraum_therme
     - service_template: >
-        {% if states.climate|rejectattr('state', 'equalto', 'unknown')|map(attribute='attributes.Valve')|map('int')|sum >= 20*3 %}
+        {% if states.climate|rejectattr('state', 'equalto', 'unknown')|map(attribute='attributes.valve')|map('int')|sum >= 20*3 %}
           switch.turn_on
         {% else %}
           switch.turn_off

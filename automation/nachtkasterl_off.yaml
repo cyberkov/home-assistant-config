@@ -1,0 +1,31 @@
+- alias: 'Nachtkasterl_off'
+  trigger:
+    - platform: event
+      event_type: homematic.keypress
+      event_data:
+        #name: Schlafzimmer.Taster
+        name: NEQ1543071
+        channel: 1
+        param: PRESS_SHORT
+    - platform: event
+      event_type: homematic.keypress
+      event_data:
+        name: Schlafzimmer.Taster
+        channel: 1
+        param: PRESS_SHORT
+    - platform: event
+      event_type: homematic.keypress
+      event_data:
+        name: Schlafzimmer.Taster
+        channel: 1
+        param: PRESS_LONG
+    - platform: mqtt
+      topic: hm/status/Schlafzimmer.Taster.unten/PRESS_SHORT
+    - platform: mqtt
+      topic: hm/status/Schlafzimmer.Taster.unten/PRESS_LONG
+  action:
+    - service: light.turn_off
+      data:
+        entity_id: light.nachtkasterl
+        #entity_id: light.fernsehlampe
+

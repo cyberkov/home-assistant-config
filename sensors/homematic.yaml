@@ -25,59 +25,59 @@
       entity_id: climate.sauna_heizung
       value_template: >
         {%- if states.climate.sauna_heizung.attributes is defined %}
-        {{ states.climate.sauna_heizung.attributes.Valve }}
+        {{ states.climate.sauna_heizung.attributes.valve }}
         {%- else %}
         0
         {%- endif %}
       unit_of_measurement: '%'
-#        '{{ states.climate.sauna_heizung.attributes.Valve }}'
+#        '{{ states.climate.sauna_heizung.attributes.valve }}'
     bad_heizung_valve:
       entity_id: climate.badheizung
-      value_template: '{{ states.climate.badheizung.attributes.Valve | default(0) }}'
+      value_template: '{{ states.climate.badheizung.attributes.valve | default(0) }}'
       unit_of_measurement: '%'
     barbara_heizung_valve:
       entity_id: climate.barbaraheizung
-      value_template: '{{ states.climate.barbaraheizung.attributes.Valve | default(0) }}'
+      value_template: '{{ states.climate.barbaraheizung.attributes.valve | default(0) }}'
       unit_of_measurement: '%'
     dominik_heizung_valve:
       entity_id: climate.dominikheizung
-      value_template: '{{ states.climate.dominikheizung.attributes.Valve | default(0) }}'
+      value_template: '{{ states.climate.dominikheizung.attributes.valve | default(0) }}'
       unit_of_measurement: '%'
     esszimmer_heizung_valve:
       entity_id: climate.esszimmerheizung
-      value_template: '{{ states.climate.esszimmerheizung.attributes.Valve | default(0) }}'
+      value_template: '{{ states.climate.esszimmerheizung.attributes.valve | default(0) }}'
       unit_of_measurement: '%'
     vorzimmerog_heizung_valve:
       entity_id: climate.vorzimmerogheizung
-      value_template: '{{ states.climate.vorzimmerogheizung.attributes.Valve | default(0) }}'
+      value_template: '{{ states.climate.vorzimmerogheizung.attributes.valve | default(0) }}'
       unit_of_measurement: '%'
     hannes_heizung_valve:
       entity_id: climate.hannesheizung
-      value_template: '{{ states.climate.hannesheizung.attributes.Valve | default(0) }}'
+      value_template: '{{ states.climate.hannesheizung.attributes.valve | default(0) }}'
       unit_of_measurement: '%'
     kueche_heizung_valve:
       entity_id: climate.kuecheheizung
-      value_template: '{{ states.climate.kuecheheizung.attributes.Valve | default(0) }}'
+      value_template: '{{ states.climate.kuecheheizung.attributes.valve | default(0) }}'
       unit_of_measurement: '%'
     schlafzimmer_links_heizung_valve:
       entity_id: climate.schlafzimmerheizunglinks
-      value_template: '{{ states.climate.schlafzimmerheizunglinks.attributes.Valve | default(0) }}'
+      value_template: '{{ states.climate.schlafzimmerheizunglinks.attributes.valve | default(0) }}'
       unit_of_measurement: '%'
     schlafzimmer_rechts_heizung_valve:
       entity_id: climate.schlafzimmerheizungrechts
-      value_template: '{{ states.climate.schlafzimmerheizungrechts.attributes.Valve | default(0) }}'
+      value_template: '{{ states.climate.schlafzimmerheizungrechts.attributes.valve | default(0) }}'
       unit_of_measurement: '%'
     vorzimmer_heizung_valve:
       entity_id: climate.vorzimmerheizung
-      value_template: '{{ states.climate.vorzimmerheizung.attributes.Valve | default(0) }}'
+      value_template: '{{ states.climate.vorzimmerheizung.attributes.valve | default(0) }}'
       unit_of_measurement: '%'
     windfang_heizung_valve:
       entity_id: climate.windfangheizung
-      value_template: '{{ states.climate.windfangheizung.attributes.Valve | default(0) }}'
+      value_template: '{{ states.climate.windfangheizung.attributes.valve | default(0) }}'
       unit_of_measurement: '%'
     wohnzimmer_heizung_valve:
       entity_id: climate.wohnzimmerheizung
-      value_template: '{{ states.climate.wohnzimmerheizung.attributes.Valve | default(0) }}'
+      value_template: '{{ states.climate.wohnzimmerheizung.attributes.valve | default(0) }}'
       unit_of_measurement: '%'
 - platform: template
   sensors:

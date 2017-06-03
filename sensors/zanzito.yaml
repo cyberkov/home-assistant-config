@@ -1,0 +1,10 @@
+- platform: mqtt
+  name: "Axon7 Battery"
+  state_topic: "zanzito/axon7/battery_level"
+  qos: 0
+  unit_of_measurement: "%"
+- platform: mqtt
+  name: "TF101 Battery"
+  state_topic: "zanzito/tf101/battery_level"
+  qos: 0
+  unit_of_measurement: "%"
