@@ -1,5 +1,5 @@
 - platform: sonarr
-  api_key: !env_var HA_SONARR_APIKEY
+  api_key: !secret HA_SONARR_APIKEY
   host: 192.168.1.4
   port: 8989
   monitored_conditions:

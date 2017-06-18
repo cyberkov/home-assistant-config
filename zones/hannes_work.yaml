@@ -1,5 +1,5 @@
 - name: Work
-  latitude: !env_var HA_HANNES_WORK_LATITUDE
-  longitude: !env_var HA_HANNES_WORK_LONGITUDE
+  latitude: !secret HA_HANNES_WORK_LATITUDE
+  longitude: !secret HA_HANNES_WORK_LONGITUDE
   radius: 1000
   icon: mdi:briefcase

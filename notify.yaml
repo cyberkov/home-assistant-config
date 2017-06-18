@@ -1,20 +1,20 @@
 - platform: pushover
   name: hannes
-  api_key: !env_var HA_PUSHOVER_TOKEN
-  user_key: !env_var HA_PUSHOVER_HANNES
+  api_key: !secret HA_PUSHOVER_TOKEN
+  user_key: !secret HA_PUSHOVER_HANNES
 - platform: pushover
   name: barbara
-  api_key: !env_var HA_PUSHOVER_TOKEN
-  user_key: !env_var HA_PUSHOVER_BARBARA
+  api_key: !secret HA_PUSHOVER_TOKEN
+  user_key: !secret HA_PUSHOVER_BARBARA
 - platform: pushover
   name: both
-  api_key: !env_var HA_PUSHOVER_TOKEN
-  user_key: !env_var HA_PUSHOVER_BOTH
+  api_key: !secret HA_PUSHOVER_TOKEN
+  user_key: !secret HA_PUSHOVER_BOTH
 - platform: slack
   name: slack
-  api_key: !env_var HA_SLACK_APIKEY
+  api_key: !secret HA_SLACK_APIKEY
   default_channel: '#haus'
 - name: browser
   platform: html5
-  gcm_api_key: !env_var HA_GCM_API_KEY
-  gcm_sender_id: !env_var HA_GCM_SENDER_ID
+  gcm_api_key: !secret HA_GCM_API_KEY
+  gcm_sender_id: !secret HA_GCM_SENDER_ID

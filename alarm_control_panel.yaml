@@ -1,6 +1,6 @@
 - platform: manual
   name: House
-  code: !env_var HA_ALARM_CODE
+  code: !secret HA_ALARM_CODE
   pending_time: 60
   trigger_time: 120
 
