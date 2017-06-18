@@ -1,4 +1,4 @@
 sequence:
 - service: alarm_control_panel.alarm_arm_home
   data:
-    code: !env_var HA_ALARM_CODE
+    code: !secret HA_ALARM_CODE

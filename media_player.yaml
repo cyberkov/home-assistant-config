@@ -13,8 +13,8 @@
 #    - 192.168.1.122
 #    - 192.168.1.123
 #- platform: spotify
-#  client_id: !env_var HA_SPOTIFY_CLIENTID
-#  client_secret: !env_var HA_SPOTIFY_CLIENTSECRET
+#  client_id: !secret HA_SPOTIFY_CLIENTID
+#  client_secret: !secret HA_SPOTIFY_CLIENTSECRET
 #- platform: sonos
 #  name: sonos_bad
 #  hosts: 192.168.1.120

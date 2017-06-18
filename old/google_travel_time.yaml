@@ -1,8 +1,8 @@
 - platform: google_travel_time
   name: Google Travel Time
-  api_key: !env_var HA_GOOGLE_API_KEY
-  origin: !env_var HA_HOME_LATLON
-  destination: !env_var HA_HANNES_WORK_LATLON
+  api_key: !secret HA_GOOGLE_API_KEY
+  origin: !secret HA_HOME_LATLON
+  destination: !secret HA_HANNES_WORK_LATLON
   options:
     departure_time: now
     mode: transit

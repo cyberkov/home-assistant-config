@@ -2,8 +2,8 @@ homeassistant:
   # Name of the location where Home Assistant is running
   name: Home
   # Location required to calculate the time the sun rises and sets
-  latitude: !env_var HA_HOME_LATITUDE
-  longitude: !env_var HA_HOME_LONGITUDE
+  latitude: !secret HA_HOME_LATITUDE
+  longitude: !secret HA_HOME_LONGITUDE
   # Impacts weather/sunrise data
   elevation: 169
   # C for Celsius, F for Fahrenheit
@@ -33,11 +33,11 @@ http:
   cors_allowed_origins:
     - https://haus.cyberkov.at
     - https://haus.cyberkov.lan
-  ssl_certificate: /etc/letsencrypt/live/graph.cyberkov.at/fullchain.pem
-  ssl_key: /etc/letsencrypt/live/graph.cyberkov.at/privkey.pem
+  ssl_certificate: !secret HA_HTTP_CERT
+  ssl_key: !secret HA_HTTP_KEY
   base_url: haus.cyberkov.at
   use_x_forwarded_for: true
-  api_password: !env_var HA_HTTP_LOGIN
+  api_password: !secret HA_HTTP_LOGIN
   ip_ban_enabled: false
   login_attempts_threshold: 3
   trusted_networks:
@@ -52,7 +52,7 @@ http:
 #      - weblink
 recorder:
   purge_days: 3
-  db_url: !env_var HA_RECORDER_DB
+  db_url: !secret HA_RECORDER_DB
 sun:
 updater:
 zeroconf:
@@ -62,7 +62,7 @@ tts:
     cache: true
     cache_dir: 'tts'
 #  - platform: voicerss
-#    api_key: !env_var HA_VOICERSS
+#    api_key: !secret HA_VOICERSS
 #    language: 'de-de'
 
 homematic:
@@ -72,8 +72,8 @@ homematic:
       port: 2001
 #      resolvenames: xml
       resolvenames: json
-      username: !env_var HA_HOMEMATIC_LOGIN
-      password: !env_var HA_HOMEMATIC_PASSWORD
+      username: !secret HA_HOMEMATIC_LOGIN
+      password: !secret HA_HOMEMATIC_PASSWORD
       primary: true
       variables: true
   local_ip: '192.168.1.4'
@@ -115,8 +115,8 @@ mqtt:
   protocol: 3.1
 #  broker: m21.cloudmqtt.com
 #  port: 27670
-  username: !env_var HA_MQTT_LOGIN
-  password: !env_var HA_MQTT_PASSWORD
+  username: !secret HA_MQTT_LOGIN
+  password: !secret HA_MQTT_PASSWORD
 
 #mqtt_eventstream:
 #  publish_topic: homeassistant/events/master
@@ -138,8 +138,8 @@ mqtt:
 #          alarmid: alarm_control_panel.house
 
 google:
-  client_id: !env_var HA_GOOGLE_OAUTH_ID
-  client_secret: !env_var HA_GOOGLE_OAUTH_SECRET
+  client_id: !secret HA_GOOGLE_OAUTH_ID
+  client_secret: !secret HA_GOOGLE_OAUTH_SECRET
 
 zwave:
   usb_path: /dev/ttyACM0
