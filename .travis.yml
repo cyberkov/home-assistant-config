@@ -8,7 +8,6 @@ notifications:
 
 before_install:
   - mv secrets_redacted.yaml secrets.yaml
-  - mkdir -p /etc/letsencrypt/live/graph.cyberkov.at && mv .travis/*.pem /etc/letsencrypt/live/graph.cyberkov.at/
 install:
   - pip3 install homeassistant
 script:
