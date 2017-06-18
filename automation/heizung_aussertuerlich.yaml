@@ -2,12 +2,15 @@
   trigger:
     - platform: state
       entity_id: group.personen
-      state: 'home'
+      to: 'home'
     - platform: numeric_state
       entity_id: sensor.wohnzimmertemperatur_temperature
       below: 21
   condition:
-    condition: time
+  - condition: state
+    entity_id: switch.heizsaison
+    state: 'on'
+  - condition: time
     after: '09:00:00'
     before: '16:00:00'
     weekday:

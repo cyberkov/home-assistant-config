@@ -7,3 +7,4 @@ entities:
   - switch.presence
   - switch.sleeping
   - switch.vacation
+  - switch.heizsaison

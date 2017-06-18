@@ -55,6 +55,10 @@
     - platform: time
       minutes: '/15'
       seconds: 0
+  condition:
+  - condition: state
+    entity_id: switch.heizsaison
+    state: 'on'
   action:
     - service_template: >
         {%- if (states.sensor.bad_heizung_valve.state | int +

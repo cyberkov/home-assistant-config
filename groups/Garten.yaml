@@ -1,3 +1,4 @@
 view: yes
 entities:
   - group.wetter
+  - group.misc

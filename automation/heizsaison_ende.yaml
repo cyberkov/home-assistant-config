@@ -1,0 +1,16 @@
+- alias: 'Heizsaison Ende'
+  trigger:
+    - platform: time
+      at: '19:00:00'
+  condition:
+  - condition: state
+    entity_id: switch.heizsaison
+    state: 'off'
+  action:
+    - service: climate.set_temperature
+      data:
+        operation_mode: "manual"
+        temperature: 30.5
+#    - service: climate.set_operation_mode
+#      data:
+#        operation_mode: "manual"

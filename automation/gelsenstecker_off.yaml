@@ -2,13 +2,13 @@
   trigger:
     - platform: state
       entity_id: binary_sensor.schlafzimmer_links_state
-      state: 'off'
+      to: 'off'
     - platform: state
       entity_id: binary_sensor.schlafzimmer_rechts_state
-      state: 'off'
+      to: 'off'
     - platform: state
       entity_id: sun.sun
-      state: 'above_horizon'
+      to: 'above_horizon'
   condition:
     - condition: state
       entity_id: switch.it_stecker_2

@@ -1,44 +1,94 @@
-- platform: template
-  sensors:
 # OG
-    barbara_fenster_sabotage:
-      entity_id: binary_sensor.barbarafenster_state
-      value_template: '{{ states.binary_sensor.barbarafenster_state.attributes.Sabotage | default("No") }}'
-    dominik_fenster_sabotage:
-      entity_id: binary_sensor.dominikfenster_state
-      value_template: '{{ states.binary_sensor.dominikfenster_state.attributes.Sabotage | default("No") }}'
-    schlafzimmer_links_sabotage:
-      entity_id: binary_sensor.schlafzimmer_links_state
-      value_template: '{{ states.binary_sensor.schlafzimmer_links_state.attributes.Sabotage | default("No") }}'
-    schlafzimmer_rechts_sabotage:
-      entity_id: binary_sensor.schlafzimmer_rechts_state
-      value_template: '{{ states.binary_sensor.schlafzimmer_rechts_state.attributes.Sabotage | default("No") }}'
-    og_bewegungsmelder_sabotage:
-      entity_id: binary_sensor.vorzimmerogbewegungsmelder_motion
-      value_template: '{{ states.binary_sensor.vorzimmerogbewegungsmelder_motion.attributes.Sabotage | default("No") }}'
-    og_fenster_sabotage:
-      entity_id: binary_sensor.vorzimmerogfenster_state
-      value_template: '{{ states.binary_sensor.vorzimmerogfenster_state.attributes.Sabotage | default("No") }}'
+- platform: mqtt
+  state_topic: hm/status/Barbara.Fenster/ERROR
+  name: Barbara Fenster Sabotage
+  payload_on: "SABOTAGE"
+  payload_off: "NO_ERROR"
+  device_class: opening
+  value_template: '{{ value_json.hm_enum }}'
+- platform: mqtt
+  state_topic: hm/status/Dominik.Fenster/ERROR
+  name: Dominik Fenster Sabotage
+  payload_on: "SABOTAGE"
+  payload_off: "NO_ERROR"
+  device_class: opening
+  value_template: '{{ value_json.hm_enum }}'
+- platform: mqtt
+  state_topic: "hm/status/Schlafzimmer links/ERROR"
+  name: Schlafzimmer links Sabotage
+  payload_on: "SABOTAGE"
+  payload_off: "NO_ERROR"
+  device_class: opening
+  value_template: '{{ value_json.hm_enum }}'
+- platform: mqtt
+  state_topic: "hm/status/Schlafzimmer rechts/ERROR"
+  name: Schlafzimmer rechts Sabotage
+  payload_on: "SABOTAGE"
+  payload_off: "NO_ERROR"
+  device_class: opening
+  value_template: '{{ value_json.hm_enum }}'
+- platform: mqtt
+  state_topic: hm/status/VorzimmerOG.Bewegungsmelder/ERROR
+  name: OG Bewegungsmelder Sabotage
+  payload_on: "SABOTAGE"
+  payload_off: "NO_ERROR"
+  device_class: opening
+  value_template: '{{ value_json.hm_enum }}'
+- platform: mqtt
+  state_topic: hm/status/VorzimmerOG.Fenster/ERROR
+  name: OG Fenster Sabotage
+  payload_on: "SABOTAGE"
+  payload_off: "NO_ERROR"
+  device_class: opening
+  value_template: '{{ value_json.hm_enum }}'
 # EG
-    esszimmer_bewegungsmelder_sabotage:
-      entity_id: binary_sensor.esszimmerbewegungsmelder_motion
-      value_template: '{{ states.binary_sensor.esszimmerbewegungsmelder_motion.attributes.Sabotage | default("No") }}'
-    kueche_fenster_sabotage:
-      entity_id: binary_sensor.kuechefenster_state
-      value_template: '{{ states.binary_sensor.kuechefenster_state.attributes.Sabotage | default("No") }}'
-    windfang_tuer_sabotage:
-      entity_id: binary_sensor.windfangtuer_state
-      value_template: '{{ states.binary_sensor.windfangtuer_state.attributes.Sabotage | default("No") }}'
-    wohnzimmer_tuer_sabotage:
-      entity_id: binary_sensor.wohnzimmertuer_state
-      value_template: '{{ states.binary_sensor.wohnzimmertuer_state.attributes.Sabotage | default("No") }}'
+- platform: mqtt
+  state_topic: hm/status/Esszimmer.Bewegungsmelder/ERROR
+  name: esszimmer bewegungsmelder sabotage
+  payload_on: "SABOTAGE"
+  payload_off: "NO_ERROR"
+  device_class: opening
+  value_template: '{{ value_json.hm_enum }}'
+- platform: mqtt
+  state_topic: hm/status/Kueche.Fenster/ERROR
+  name: kueche_fenster_sabotage
+  payload_on: "SABOTAGE"
+  payload_off: "NO_ERROR"
+  device_class: opening
+  value_template: '{{ value_json.hm_enum }}'
+- platform: mqtt
+  state_topic: hm/status/Windfang.Tuer/ERROR
+  name: windfang_tuer_sabotage
+  payload_on: "SABOTAGE"
+  payload_off: "NO_ERROR"
+  device_class: opening
+  value_template: '{{ value_json.hm_enum }}'
+- platform: mqtt
+  state_topic: hm/status/Wohnzimmer.Tuer/ERROR
+  name: wohnzimmer_tuer_sabotage
+  payload_on: "SABOTAGE"
+  payload_off: "NO_ERROR"
+  device_class: opening
+  value_template: '{{ value_json.hm_enum }}'
 # UG
-    hannes_bewegungsmelder_sabotage:
-      entity_id: binary_sensor.hannesbewegungsmelder_motion
-      value_template: '{{ states.binary_sensor.hannesbewegungsmelder_motion.attributes.Sabotage | default("No") }}'
-    hannes_fenster_sabotage:
-      entity_id: binary_sensor.hannesfenster_state
-      value_template: '{{ states.binary_sensor.hannesfenster_state.attributes.Sabotage | default("No") }}'
-    hannes_tuer_sabotage:
-      entity_id: binary_sensor.hannestuer_state
-      value_template: '{{ states.binary_sensor.hannestuer_state.attributes.Sabotage | default("No") }}'
+- platform: mqtt
+  state_topic: hm/status/Hannes.Fenster/ERROR
+  name: Hannes Fenster Sabotage
+  payload_on: "SABOTAGE"
+  payload_off: "NO_ERROR"
+  device_class: opening
+  value_template: '{{ value_json.hm_enum }}'
+- platform: mqtt
+  state_topic: hm/status/Hannes.Tuer/ERROR
+  name: Hannes Tuer Sabotage
+  payload_on: "SABOTAGE"
+  payload_off: "NO_ERROR"
+  device_class: opening
+  value_template: '{{ value_json.hm_enum }}'
+- platform: mqtt
+  state_topic: hm/status/Hannes.Bewegungsmelder/ERROR
+  name: Hannes Bewegungsmelder Sabotage
+  payload_on: "SABOTAGE"
+  payload_off: "NO_ERROR"
+  device_class: opening
+  value_template: '{{ value_json.hm_enum }}'

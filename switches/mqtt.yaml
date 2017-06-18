@@ -141,3 +141,13 @@
   payload_on: "ON"
   payload_off: "OFF"
   retain: true
+
+# Decides whether we need to enable the heating
+- platform: mqtt
+  name: "Heizsaison"
+  state_topic: "nfc/heizsaison"
+  command_topic: "nfc/heizsaison"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: true

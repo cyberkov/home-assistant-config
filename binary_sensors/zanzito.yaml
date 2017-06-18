@@ -1,0 +1,12 @@
+- platform: mqtt
+  name: "Axon7 status"
+  state_topic: "zanzito/axon7/status"
+  payload_on: "1"
+  payload_off: "0"
+  device_class: connectivity
+- platform: mqtt
+  name: "TF101 status"
+  state_topic: "zanzito/tf101/status"
+  payload_on: "1"
+  payload_off: "0"
+  device_class: connectivity

@@ -12,3 +12,5 @@ entities:
   - sensor.mold_sauna
   - switch.mqtt_sauna_luftentfeuchter
   - binary_sensor.luftentfeuchter_status
+  - sensor.luftentfeuchter_on_today
+  - automation.luftentfeuchter

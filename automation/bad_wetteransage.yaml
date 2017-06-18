@@ -1,0 +1,50 @@
+- alias: 'Wetteransage morgens - Barbara'
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.vorzimmerogbewegungsmelder_motion
+      to: 'on'
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        after: '05:00:00'
+        before: '06:30:00'
+        weekday:
+          - mon
+          - tue
+          - wed
+          - thu
+          - fri
+      - condition: template
+        value_template: '{% if states.binary_sensor.vorzimmerogbewegungsmelder_motion.last_changed  %}{{(as_timestamp(now())-as_timestamp(states.binary_sensor.vorzimmerogbewegungsmelder_motion.last_changed)) > 15*60 }}{% else %}false{% endif %}'
+  action:
+    - delay: 00:00:30
+    - service: script.wetteransage
+      data:
+        who: Barbara
+        where: bad
+- alias: 'Wetteransage morgens - Hannes'
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.vorzimmerogbewegungsmelder_motion
+      to: 'on'
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        after: '07:00:00'
+        before: '09:00:00'
+        weekday:
+          - mon
+          - tue
+          - wed
+          - thu
+          - fri
+      - condition: template
+        value_template: '{% if states.binary_sensor.vorzimmerogbewegungsmelder_motion.last_changed  %}{{(as_timestamp(now())-as_timestamp(states.binary_sensor.vorzimmerogbewegungsmelder_motion.last_changed)) > 15*60 }}{% else %}false{% endif %}'
+  action:
+    - delay: 00:01:00
+    - service: script.wetteransage
+      data:
+        who: Hannes
+        where: kuche

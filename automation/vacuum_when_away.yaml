@@ -33,7 +33,7 @@
   trigger:
     - platform: state
       entity_id: sensor.petsi_state
-      state: "Error"
+      to: "Error"
   action:
     - service: notify.slack
       data_template:

@@ -13,12 +13,6 @@
   name: "strom_power"
   unit_of_measurement: "W"
   value_template: "{{ value_json.val }}"
-- platform: mqtt
-  state_topic: "owntracks/cyberkov/lgg3"
-  name: "Battery LG G3"
-  unit_of_measurement: "%"
-  value_template: '{{ value_json.batt }}'
-
 - platform: template
   sensors:
     sauna_heizung_valve:

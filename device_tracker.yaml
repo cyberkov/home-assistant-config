@@ -2,15 +2,19 @@
   host: 192.168.1.1
   username: !env_var HA_ROUTER_USER
   password: !env_var HA_ROUTER_PASSWORD
-  interval_seconds: 12
+  interval_seconds: 30
   track_new_devices: yes
 #  consider_home: 180
-- platform: owntracks
-  max_gps_accuracy: 200
-  waypoint_whitelist:
-    - cyberkov
+#- platform: owntracks
+#  max_gps_accuracy: 200
+#  waypoint_whitelist:
+#    - cyberkov
 - platform: nmap_tracker
   hosts: 192.168.1.1/24
+  interval_seconds: 60
+- platform: mqtt_json
+  devices:
+    cyberkov: zanzito/axon7/location
 #- platform: bluetooth_tracker
 #- platform: bluetooth_le_tracker
 #- platform: snmp

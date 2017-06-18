@@ -2,12 +2,12 @@
   trigger:
     - platform: state
       entity_id: switch.wirtschaftsraumtherme
-      state: 'unavailable'
+      to: 'unavailable'
       for:
         minutes: 5
     - platform: state
       entity_id: switch.luftentfeuchter
-      state: 'unavailable'
+      to: 'unavailable'
       for:
         minutes: 5
   action:

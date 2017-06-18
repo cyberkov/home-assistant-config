@@ -7,4 +7,4 @@ entities:
   - group.nas
   - group.automatik
   - group.valves
-
+  - group.all_automations

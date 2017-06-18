@@ -33,3 +33,5 @@ switch.ccu:
   icon: mdi:radar
 switch.pangea:
   icon: mdi:desktop-tower
+switch.heizsaison:
+  icon: mdi:thermometer-lines

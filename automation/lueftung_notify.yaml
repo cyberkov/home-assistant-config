@@ -10,7 +10,7 @@
     above: 80
   condition:
     - condition: state
-      entity_id: device_tracker.cyberkov_lgg3
+      entity_id: device_tracker.cyberkov
       state: 'home'
     - condition: state
       entity_id: switch.sleeping

@@ -18,7 +18,7 @@ influxdb:
   port: '8086'
   default_measurement: 'hass.state'
 
-#conversation:
+conversation:
 discovery:
 config:
 
@@ -98,6 +98,7 @@ zone: !include_dir_merge_list zones
 proximity: !include proximity.yaml
 apiai: !include apiai.yaml
 #alexa: !include alexa.yaml
+shell_command: !include config/shell_command.yaml
 
 #scene: !include_dir_merge_list scenes
 emulated_hue:
@@ -129,12 +130,12 @@ mqtt:
 #      topic_out_prefix: 'mysensors/out'
 #  version: 2.0
 
-panel_custom:
-    - name: alarm
-      sidebar_title: Alarm
-      sidebar_icon: mdi:security-home
-      config:
-          alarmid: alarm_control_panel.house
+#panel_custom:
+#    - name: alarm
+#      sidebar_title: Alarm
+#      sidebar_icon: mdi:security-home
+#      config:
+#          alarmid: alarm_control_panel.house
 
 google:
   client_id: !env_var HA_GOOGLE_OAUTH_ID

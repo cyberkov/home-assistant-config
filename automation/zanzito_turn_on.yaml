@@ -1,0 +1,100 @@
+- alias: 'MQTT Switch'
+  trigger:
+    - platform: mqtt
+      topic: tonystark/switch/#
+    - platform: mqtt
+      topic: office/switch/#
+    - platform: mqtt
+      topic: livingroom/switch/#
+    - platform: mqtt
+      topic: bedroom/switch/#
+  action:
+    - service_template: >
+        homeassistant.{{ trigger.topic.split('/')[-1] }}
+      data_template:
+        entity_id: >-
+          {% set payload = trigger.payload %}
+          {% set devicename = trigger.topic.split('/')[-3] %}
+
+          {%- if payload == "everything" -%}
+            {%- if devicename == "office" -%}
+              group.office_all_switches
+
+            {%- elif devicename == "bedroom" -%}
+              group.masterbedroom_all_switches
+
+            {%- else -%}
+              group.all_items
+
+            {%- endif -%}
+
+          {%- elif payload == "lights" -%}
+            {%- if devicename == "office" -%}
+              switch.office_downlights
+
+            {%- elif devicename == "bedroom" -%}
+              group.masterbedroom_all_lights
+
+            {%- else -%}
+              group.livingroom_lights
+
+            {%- endif -%}
+
+          {%- elif payload == "dining" -%}
+            group.dining_lights_fan
+
+          {%- elif payload == "kitchen lights" or payload == "kitchen light" -%}
+            group.kitchen_lights
+
+          {%- elif payload == "play room" or payload == "playroom" -%}
+            group.playroom
+
+          {%- elif payload == "living room lights" -%}
+            group.livingroom_lights
+
+          {%- elif payload == "staircase lights" -%}
+            group.staircase_1_lights
+
+          {%- elif payload == "bedroom lights" -%}
+            group.masterbedroom_all_lights
+
+          {%- elif payload == "bedroom" -%}
+            group.masterbedroom_all_switches
+
+          {%- endif %}
+    - service: mqtt.publish
+      data_template:
+        topic: >-
+          zanzito/{{ trigger.topic.split('/')[-3] }}/notification
+        payload: >-
+          {% set payload = trigger.payload %}
+          {%- if 
+            payload == "everything" or
+            payload == "lights" or
+            payload == "dining" or
+            payload == "kitchen lights" or
+            payload == "kitchen light" or
+            payload == "play room" or
+            payload == "playroom" or
+            payload == "living room lights"
+          -%}
+            {% set responses = [
+            "OK",
+            "Sure",
+            "If you insist",
+            "Done",
+            "Alright",
+            "No worries",
+            "I can do that",
+            "Leave it to me",
+            "Consider it done",
+            "As you wish",
+            "By your command",
+            "Affirmative",
+            "No Problem"
+            ] %}
+            {% set rindex =  (range(0, (responses | length - 1) )|random) -%}
+            {{responses[rindex]}}
+          {%- else -%}
+            "I'm sorry. I cannot find the device named {{payload}} in the house."
+          {% endif %}

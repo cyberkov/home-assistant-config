@@ -4,6 +4,10 @@
       entity_id: switch.guests
       from: 'off'
       to: 'on'
+  condition:
+  - condition: state
+    entity_id: switch.heizsaison
+    state: 'on'
   action:
     - service: climate.set_temperature
       data:
@@ -16,6 +20,10 @@
       entity_id: switch.guests
       from: 'on'
       to: 'off'
+  condition:
+  - condition: state
+    entity_id: switch.heizsaison
+    state: 'on'
   action:
     - service: climate.set_operation_mode
       data:

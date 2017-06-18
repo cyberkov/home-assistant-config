@@ -1,5 +1,9 @@
 - alias: 'Nachtkasterl_off'
   trigger:
+    - platform: mqtt
+      topic: hm/status/Schlafzimmer.Taster.unten/PRESS_SHORT
+    - platform: mqtt
+      topic: hm/status/Schlafzimmer.Taster.unten/PRESS_LONG
     - platform: event
       event_type: homematic.keypress
       event_data:
@@ -19,10 +23,6 @@
         name: Schlafzimmer.Taster
         channel: 1
         param: PRESS_LONG
-    - platform: mqtt
-      topic: hm/status/Schlafzimmer.Taster.unten/PRESS_SHORT
-    - platform: mqtt
-      topic: hm/status/Schlafzimmer.Taster.unten/PRESS_LONG
   action:
     - service: light.turn_off
       data:

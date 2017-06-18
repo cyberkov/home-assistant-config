@@ -9,7 +9,7 @@
     - binary_sensor.esszimmerbewegungsmelder_motion
     - binary_sensor.hannesbewegungsmelder_motion
     - binary_sensor.vorzimmerogbewegungsmelder_motion
-    state: 'on'
+    to: 'on'
   condition:
   - condition: state
     entity_id: switch.detect_motion

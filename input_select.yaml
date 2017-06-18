@@ -5,3 +5,15 @@ who_cooks:
     - Barbara
   initial: Hannes
   icon: mdi:panda
+log_level:
+  name: Log Level
+  options:
+    - critical
+    - fatal
+    - error
+    - warning
+    - warn
+    - info
+    - debug
+    - notset
+  initial: info
