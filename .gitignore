@@ -17,8 +17,6 @@
 /old
 /tts
 OZW_Log.txt
-automation/scotest.yaml
-binary_sensors/homematic.yaml
 deps
 deps/*
 docker-compose.yml

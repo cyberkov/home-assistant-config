@@ -1,0 +1,7 @@
+- platform: mqtt
+  state_topic: "hm/status/SpareSCo/STATE"
+  name: "sco_spare"
+  value_template: '{{ value_json.val }}'
+  payload_on: 1
+  payload_off: 0
+  device_class: "moisture"

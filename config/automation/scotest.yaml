@@ -1,0 +1,66 @@
+- alias: 'sco_Test'
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.sco_spare
+      to: 'on'
+    - platform: state
+      entity_id: binary_sensor.sparesco_state
+      to: 'on'
+  action:
+    - service: notify.slack
+      data_template:
+        target: '@cyberkov'
+        message: >
+          SCotest has been triggered ON.
+    - service: notify.hannes
+      data_template:
+        message: >
+          {{ trigger.entity_id }} has been triggered to {{ trigger.to_state.state }}.
+    - service: homeassistant.turn_on
+      data:
+        entity_id: light.it_stecker_3
+    - delay:
+        seconds: 1
+    - service: homeassistant.turn_off
+      data:
+        entity_id: light.it_stecker_3
+    - delay:
+        seconds: 1
+    - service: homeassistant.turn_on
+      data:
+        entity_id: light.it_stecker_3
+    - delay:
+        seconds: 1
+    - service: homeassistant.turn_off
+      data:
+        entity_id: light.it_stecker_3
+    - delay:
+        seconds: 1
+    - service: homeassistant.turn_on
+      data:
+        entity_id: light.it_stecker_3
+    - delay:
+        seconds: 1
+    - service: homeassistant.turn_off
+      data:
+        entity_id: light.it_stecker_3
+- alias: 'sco_Test_off'
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.sco_spare
+      from: 'on'
+      to: 'off'
+    - platform: state
+      entity_id: binary_sensor.sparesco_state
+      from: 'on'
+      to: 'off'
+  action:
+    - service: notify.hannes
+      data_template:
+        message: >
+          {{ trigger.entity_id }} has been triggered to {{ trigger.to_state.state }}.
+    - service: notify.slack
+      data_template:
+        target: '@cyberkov'
+        message: >
+          SCotest has been triggered OFF.
