@@ -68,7 +68,7 @@
           zanzito/{{ trigger.topic.split('/')[-3] }}/notification
         payload: >-
           {% set payload = trigger.payload %}
-          {%- if 
+          {%- if
             payload == "everything" or
             payload == "lights" or
             payload == "dining" or

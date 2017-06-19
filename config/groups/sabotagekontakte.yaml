@@ -4,7 +4,7 @@ entities:
   - binary_sensor.schlafzimmer_links_sabotage
   - binary_sensor.schlafzimmer_rechts_sabotage
   - binary_sensor.og_bewegungsmelder_sabotage
-  - binary_sensor.og_fenster_sabotage 
+  - binary_sensor.og_fenster_sabotage
   - binary_sensor.esszimmer_bewegungsmelder_sabotage
   - binary_sensor.kueche_fenster_sabotage
   - binary_sensor.windfang_tuer_sabotage

@@ -40,7 +40,7 @@
       .summary {
         margin: 15px auto 0px;
         text-align: center;
-      } 
+      }
 
       .oksign {
         color: green;
@@ -79,7 +79,7 @@
             <template is='dom-if' if='[[!isdisarmed(alarm)]]'>
                 <paper-button on-tap='callService' data-call='alarm_disarm' raised>Disarm</paper-button>
             </template>
-   
+
             <div class='summary'>
               <template is='dom-if' if='[[issecure(allsensors)]]'>
                  <div class='oksign'>
@@ -134,7 +134,7 @@ Polymer({
   is: 'ha-panel-alarm',
 
   properties: {
-    // things that appear in all the other panels 
+    // things that appear in all the other panels
     hass:     { type: Object },
     panel:    { type: Object },
     narrow:   { type: Boolean, value: false },
@@ -152,7 +152,7 @@ Polymer({
   // Polymer observers definition
   observers: [ 'onPanelUpdate(hass, panel)', 'onAlarmUpdate(alarm)' ],
 
-  // Helpers to figure out what to display 
+  // Helpers to figure out what to display
   isdisarmed:  function(alarm) { return alarm.state == "disarmed"; },
   issecure:    function(all)   { return this.opensensors(all).length == 0; },
   opensensors: function(all)   { return all.filter(function (e) { return e.state == 'on' || e.state == 'unlocked'; }); },
@@ -213,8 +213,8 @@ Polymer({
   // Set the list of entities based on each current list of entity ids provided
   watchList: function(hass, alarm, key) {
     getter = [
-        this.hass.entityGetters.entityMap, 
-        function(map) { 
+        this.hass.entityGetters.entityMap,
+        function(map) {
            tocheck = alarm.attributes[key] || [];
            return map.valueSeq().filter(x => tocheck.indexOf(x.entityId) > -1).toArray();
         }.bind(this)

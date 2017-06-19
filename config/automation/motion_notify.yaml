@@ -1,7 +1,7 @@
   #  Alert if unexpected motion is detected. Motion
   #  is classified as unexpected if no tracked devices
   #  are home and guests aren't present.
-  
+
 - alias: Unexpected motion
   trigger:
   - platform: state
