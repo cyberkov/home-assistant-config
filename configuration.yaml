@@ -8,11 +8,6 @@ config:
 frontend:
 history: !include config/core/history.yaml
 http: !include config/core/http.yaml
-#logbook:
-#  exclude:
-#    domains:
-#      - sun
-#      - weblink
 recorder: !include config/core/recorder.yaml
 sun:
 updater:
@@ -23,13 +18,8 @@ tts:
     language: 'de'
     cache: true
     cache_dir: 'tts'
-#  - platform: voicerss
-#    api_key: !secret HA_VOICERSS
-#    language: 'de-de'
-
 homematic: !include config/core/homematic.yaml
 
-#alexa: !include alexa.yaml
 #input_select: !include input_select.yaml
 #weblink: !include weblink.yaml
 alarm_control_panel: !include config/alarm_control_panel.yaml
@@ -51,31 +41,9 @@ switch: !include_dir_merge_list config/devices/switches
 zone: !include_dir_merge_list config/zones
 
 #scene: !include_dir_merge_list scenes
-emulated_hue:
-  advertise_ip: 192.168.1.4
-  expose_by_default: true
 rfxtrx: !include config/core/rfxtrx.yaml
 
 mqtt: !include config/core/mqtt.yaml
-
-#mqtt_eventstream:
-#  publish_topic: homeassistant/events/master
-#  subscribe_topic: homeassistant/events/slave
-
-#mysensors:
-#  gateways:
-#    - device: mqtt
-#      persistence_file: '/config/mysensors.json'
-#      topic_in_prefix: 'mysensors/in'
-#      topic_out_prefix: 'mysensors/out'
-#  version: 2.0
-
-#panel_custom:
-#    - name: alarm
-#      sidebar_title: Alarm
-#      sidebar_icon: mdi:security-home
-#      config:
-#          alarmid: alarm_control_panel.house
 
 google:
   client_id: !secret HA_GOOGLE_OAUTH_ID
