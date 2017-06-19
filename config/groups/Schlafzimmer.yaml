@@ -8,3 +8,4 @@ entities:
   - climate.schlafzimmerheizungrechts
   - switch.it_stecker_2
   - light.nachtkasterl
+  - media_player.schlafzimmer
