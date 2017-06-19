@@ -1,17 +1,4 @@
-homeassistant:
-  # Name of the location where Home Assistant is running
-  name: Home
-  # Location required to calculate the time the sun rises and sets
-  latitude: !secret HA_HOME_LATITUDE
-  longitude: !secret HA_HOME_LONGITUDE
-  # Impacts weather/sunrise data
-  elevation: 169
-  # C for Celsius, F for Fahrenheit
-  unit_system: metric
-  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-  time_zone: Europe/Vienna
-  customize: !include_dir_merge_named customizations
-
+homeassistant: !include config/core/homeassistant.yaml
 influxdb:
   host: 127.0.0.1
   database: homeassistant
@@ -79,26 +66,26 @@ homematic:
   local_ip: '192.168.1.4'
   local_port: 8943
 
-alarm_control_panel: !include alarm_control_panel.yaml
-automation: !include_dir_merge_list automation
-#input_select: !include input_select.yaml
-script: !include_dir_named scripts
-device_tracker: !include device_tracker.yaml
-group: !include_dir_named groups
-light: !include_dir_merge_list lights
-logger: !include logger.yaml
-media_player: !include media_player.yaml
-notify: !include notify.yaml
-binary_sensor: !include_dir_merge_list binary_sensors
-panel_iframe: !include panel_iframe.yaml
-sensor: !include_dir_merge_list sensors
-switch: !include_dir_merge_list switches
-#weblink: !include weblink.yaml
-zone: !include_dir_merge_list zones
-proximity: !include proximity.yaml
-apiai: !include apiai.yaml
 #alexa: !include alexa.yaml
+#input_select: !include input_select.yaml
+#weblink: !include weblink.yaml
+alarm_control_panel: !include config/alarm_control_panel.yaml
+apiai: !include config/apiai.yaml
+automation: !include_dir_merge_list config/automation
+binary_sensor: !include_dir_merge_list config/devices/binary_sensors
+device_tracker: !include config/devices/device_tracker.yaml
+group: !include_dir_named config/groups
+light: !include_dir_merge_list config/devices/lights
+logger: !include config/core/logger.yaml
+media_player: !include config/devices/media_player.yaml
+notify: !include config/notify.yaml
+panel_iframe: !include panel_iframe.yaml
+proximity: !include config/proximity.yaml
+script: !include_dir_named config/scripts
+sensor: !include_dir_merge_list config/devices/sensors
 shell_command: !include config/shell_command.yaml
+switch: !include_dir_merge_list config/devices/switches
+zone: !include_dir_merge_list config/zones
 
 #scene: !include_dir_merge_list scenes
 emulated_hue:

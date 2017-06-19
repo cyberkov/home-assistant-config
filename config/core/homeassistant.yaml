@@ -1,0 +1,12 @@
+# Name of the location where Home Assistant is running
+name: Home
+# Location required to calculate the time the sun rises and sets
+latitude: !secret HA_HOME_LATITUDE
+longitude: !secret HA_HOME_LONGITUDE
+# Impacts weather/sunrise data
+elevation: 169
+# C for Celsius, F for Fahrenheit
+unit_system: metric
+# Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+time_zone: Europe/Vienna
+customize: !include_dir_merge_named ../customizations
