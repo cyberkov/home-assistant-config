@@ -1,0 +1,3 @@
+---
+device: '/dev/ttyUSB0'
+debug: false

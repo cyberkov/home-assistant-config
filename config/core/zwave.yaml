@@ -1,0 +1,6 @@
+---
+usb_path: /dev/ttyACM0
+new_entity_ids: true
+#  config_path: /usr/local/share/python-openzwave/config
+#  autoheal: false
+# polling_interval: 2000

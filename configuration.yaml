@@ -1,47 +1,22 @@
 homeassistant: !include config/core/homeassistant.yaml
-influxdb:
-  host: 127.0.0.1
-  database: homeassistant
-  port: '8086'
-  default_measurement: 'hass.state'
+influxdb: !include config/core/influxdb.yaml
 
 conversation:
 discovery:
 config:
 
 frontend:
-history:
-  include:
-    domains:
-      - climate
-      - switch
-      - binary_sensor
-http:
-  cors_allowed_origins:
-    - https://haus.cyberkov.at
-    - https://haus.cyberkov.lan
-  ssl_certificate: !secret HA_HTTP_CERT
-  ssl_key: !secret HA_HTTP_KEY
-  base_url: haus.cyberkov.at
-  use_x_forwarded_for: true
-  api_password: !secret HA_HTTP_LOGIN
-  ip_ban_enabled: false
-  login_attempts_threshold: 3
-  trusted_networks:
-    - 127.0.0.1
-    - ::1
-    - 172.17.0.0/24
-    - 192.168.1.0/25
+history: !include config/core/history.yaml
+http: !include config/core/http.yaml
 #logbook:
 #  exclude:
 #    domains:
 #      - sun
 #      - weblink
-recorder:
-  purge_days: 3
-  db_url: !secret HA_RECORDER_DB
+recorder: !include config/core/recorder.yaml
 sun:
 updater:
+  include_used_components: true
 zeroconf:
 tts:
   - platform: google
@@ -52,19 +27,7 @@ tts:
 #    api_key: !secret HA_VOICERSS
 #    language: 'de-de'
 
-homematic:
-  hosts:
-    rf:
-      ip: '192.168.1.6'
-      port: 2001
-#      resolvenames: xml
-      resolvenames: json
-      username: !secret HA_HOMEMATIC_LOGIN
-      password: !secret HA_HOMEMATIC_PASSWORD
-      primary: true
-      variables: true
-  local_ip: '192.168.1.4'
-  local_port: 8943
+homematic: !include config/core/homematic.yaml
 
 #alexa: !include alexa.yaml
 #input_select: !include input_select.yaml
@@ -91,19 +54,9 @@ zone: !include_dir_merge_list config/zones
 emulated_hue:
   advertise_ip: 192.168.1.4
   expose_by_default: true
-rfxtrx:
-  device: '/dev/ttyUSB0'
-  debug: false
+rfxtrx: !include config/core/rfxtrx.yaml
 
-mqtt:
-  broker: 192.168.1.4
-  port: 1883
-  client_id: home-assistant
-  protocol: 3.1
-#  broker: m21.cloudmqtt.com
-#  port: 27670
-  username: !secret HA_MQTT_LOGIN
-  password: !secret HA_MQTT_PASSWORD
+mqtt: !include config/core/mqtt.yaml
 
 #mqtt_eventstream:
 #  publish_topic: homeassistant/events/master
@@ -128,8 +81,4 @@ google:
   client_id: !secret HA_GOOGLE_OAUTH_ID
   client_secret: !secret HA_GOOGLE_OAUTH_SECRET
 
-zwave:
-  usb_path: /dev/ttyACM0
-#  config_path: /usr/local/share/python-openzwave/config
-#  autoheal: false
-# polling_interval: 2000
+zwave: !include config/core/zwave.yaml

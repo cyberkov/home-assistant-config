@@ -1,0 +1,13 @@
+---
+hosts:
+  rf:
+    ip: '192.168.1.6'
+    port: 2001
+#    resolvenames: xml
+    resolvenames: json
+    username: !secret HA_HOMEMATIC_LOGIN
+    password: !secret HA_HOMEMATIC_PASSWORD
+    primary: true
+    variables: true
+local_ip: '192.168.1.4'
+local_port: 8943

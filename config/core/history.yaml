@@ -1,0 +1,6 @@
+---
+include:
+  domains:
+    - climate
+    - switch
+    - binary_sensor

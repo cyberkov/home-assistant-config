@@ -1,0 +1,3 @@
+---
+purge_days: 3
+db_url: !secret HA_RECORDER_DB
