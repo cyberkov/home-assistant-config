@@ -12,9 +12,6 @@
   condition:
     condition: and
     conditions:
-      - condition: state
-        entity_id: switch.he_3
-        state: "off"
       - condition: numeric_state
         entity_id: sensor.gartentemperatur_temperature
         above: 16
@@ -27,17 +24,11 @@
             entity_id: binary_sensor.schlafzimmer_rechts_state
             state: 'on'
   action:
-    - service: homeassistant.turn_on
+    - service: switch.turn_on
       entity_id: switch.he_3
 
-- alias: 'Gelsenstecker off'
+- alias: 'Gelsenstecker off after 7h'
   trigger:
-    - platform: state
-      entity_id: binary_sensor.schlafzimmer_links_state
-      to: 'off'
-    - platform: state
-      entity_id: binary_sensor.schlafzimmer_rechts_state
-      to: 'off'
     - platform: time
       at: '07:00:00'
   condition:
@@ -45,5 +36,27 @@
       entity_id: switch.he_3
       state: "on"
   action:
-    - service: homeassistant.turn_off
+    - service: switch.turn_off
+      entity_id: switch.he_3
+
+- alias: 'Gelsenstecker off when all windows are closed'
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.schlafzimmer_links_state
+      to: 'off'
+    - platform: state
+      entity_id: binary_sensor.schlafzimmer_rechts_state
+      to: 'off'
+  condition:
+    - condition: state
+      entity_id: switch.he_3
+      state: "on"
+    - condition: state
+      entity_id: binary_sensor.schlafzimmer_links_state
+      state: 'off'
+    - condition: state
+      entity_id: binary_sensor.schlafzimmer_rechts_state
+      state: 'off'
+  action:
+    - service: switch.turn_off
       entity_id: switch.he_3

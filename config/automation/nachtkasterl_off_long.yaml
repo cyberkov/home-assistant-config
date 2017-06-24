@@ -1,0 +1,58 @@
+- alias: 'Nachtkasterl_off_long_play'
+  trigger:
+    - platform: mqtt
+      topic: hm/status/Schlafzimmer.Taster.unten/PRESS_LONG
+    - platform: event
+      event_type: homematic.keypress
+      event_data:
+        #name: Schlafzimmer.Taster
+        name: NEQ1543071
+        channel: 1
+        param: PRESS_LONG
+    - platform: event
+      event_type: homematic.keypress
+      event_data:
+        name: Schlafzimmer.Taster
+        channel: 1
+        param: PRESS_LONG
+  condition:
+    condition: or
+    conditions:
+      - condition: state
+        entity_id: media_player.schlafzimmer
+        state: 'paused'
+      - condition: state
+        entity_id: media_player.schlafzimmer
+        state: 'stopped'
+  action:
+    - service: media_player.select_source
+      data:
+        entity_id: media_player.schlafzimmer
+        source: 'Baby Klassik'
+
+- alias: 'Nachtkasterl_off_long_stop'
+  trigger:
+    - platform: mqtt
+      topic: hm/status/Schlafzimmer.Taster.unten/PRESS_LONG
+    - platform: event
+      event_type: homematic.keypress
+      event_data:
+        #name: Schlafzimmer.Taster
+        name: NEQ1543071
+        channel: 1
+        param: PRESS_LONG
+    - platform: event
+      event_type: homematic.keypress
+      event_data:
+        name: Schlafzimmer.Taster
+        channel: 1
+        param: PRESS_LONG
+  condition:
+    - condition: state
+      entity_id: media_player.schlafzimmer
+      state: 'playing'
+  action:
+    - service: media_player.media_play_pause
+      data:
+        entity_id: media_player.schlafzimmer
+
