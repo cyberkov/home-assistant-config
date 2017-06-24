@@ -6,23 +6,44 @@
     - platform: state
       entity_id: binary_sensor.schlafzimmer_rechts_state
       to: 'on'
-    - platform: state
-      entity_id: sun.sun
-      to: 'below_horizon'
+    - platform: sun
+      event: sunset
+      offset: '01:00:00'
   condition:
-    - condition: state
-      entity_id: switch.it_stecker_2
-      state: "off"
-    - condition: numeric_state
-      entity_id: sensor.gartentemperatur_temperature
-      above: 16
-    - condition: state
-      entity_id: binary_sensor.schlafzimmer_links_state
-      state: 'on'
-    - condition: state
-      entity_id: binary_sensor.schlafzimmer_rechts_state
-      state: 'on'
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: switch.he_3
+        state: "off"
+      - condition: numeric_state
+        entity_id: sensor.gartentemperatur_temperature
+        above: 16
+      - condition: or
+        conditions:
+          - condition: state
+            entity_id: binary_sensor.schlafzimmer_links_state
+            state: 'on'
+          - condition: state
+            entity_id: binary_sensor.schlafzimmer_rechts_state
+            state: 'on'
   action:
     - service: homeassistant.turn_on
-      entity_id: light.it_stecker_2
+      entity_id: switch.he_3
 
+- alias: 'Gelsenstecker off'
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.schlafzimmer_links_state
+      to: 'off'
+    - platform: state
+      entity_id: binary_sensor.schlafzimmer_rechts_state
+      to: 'off'
+    - platform: time
+      at: '07:00:00'
+  condition:
+    - condition: state
+      entity_id: switch.he_3
+      state: "on"
+  action:
+    - service: homeassistant.turn_off
+      entity_id: switch.he_3

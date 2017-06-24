@@ -1,8 +1,6 @@
 - platform: rfxtrx
   automatic_add: true
   devices:
-    0b11001d0001048804000060:
-      name: 'Nachtkasterl Lampe'
     0b11000800f2704203510f50:
       name: 'IT Stecker 3'
     0b11000c0001044202510f60:
