@@ -1,7 +1,7 @@
 switch.it_stecker_1:
   friendly_name: Internet
   icon: mdi:earth
-switch.he_3:
+switch.it_2:
   friendly_name: Gelsenstecker
   icon: mdi:bug
 switch.sleeping:

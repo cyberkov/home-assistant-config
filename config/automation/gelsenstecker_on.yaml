@@ -25,7 +25,7 @@
             state: 'on'
   action:
     - service: switch.turn_on
-      entity_id: switch.he_3
+      entity_id: switch.it_2
 
 - alias: 'Gelsenstecker off after 7h'
   trigger:
@@ -33,11 +33,11 @@
       at: '07:00:00'
   condition:
     - condition: state
-      entity_id: switch.he_3
+      entity_id: switch.it_2
       state: "on"
   action:
     - service: switch.turn_off
-      entity_id: switch.he_3
+      entity_id: switch.it_2
 
 - alias: 'Gelsenstecker off when all windows are closed'
   trigger:
@@ -49,7 +49,7 @@
       to: 'off'
   condition:
     - condition: state
-      entity_id: switch.he_3
+      entity_id: switch.it_2
       state: "on"
     - condition: state
       entity_id: binary_sensor.schlafzimmer_links_state
@@ -59,4 +59,4 @@
       state: 'off'
   action:
     - service: switch.turn_off
-      entity_id: switch.he_3
+      entity_id: switch.it_2

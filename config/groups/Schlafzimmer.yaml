@@ -6,6 +6,6 @@ entities:
   - sensor.schlafzimmertemperatur_temperature
   - climate.schlafzimmerheizunglinks
   - climate.schlafzimmerheizungrechts
-  - switch.he_3
+  - switch.it_2
   - light.nachtkasterl
   - media_player.schlafzimmer
