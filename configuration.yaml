@@ -26,13 +26,17 @@ alarm_control_panel: !include config/alarm_control_panel.yaml
 apiai: !include config/apiai.yaml
 automation: !include_dir_merge_list config/automation
 binary_sensor: !include_dir_merge_list config/devices/binary_sensors
+cover:
+  - platform: rfxtrx
+    automatic_add: True
 device_tracker: !include config/devices/device_tracker.yaml
 group: !include_dir_named config/groups
 light: !include_dir_merge_list config/devices/lights
 logger: !include config/core/logger.yaml
 media_player: !include config/devices/media_player.yaml
 notify: !include config/notify.yaml
-panel_iframe: !include panel_iframe.yaml
+panel_iframe: !include config/panel_iframe.yaml
+panel_custom: !include_dir_merge_list config/panel_custom
 proximity: !include config/proximity.yaml
 script: !include_dir_named config/scripts
 sensor: !include_dir_merge_list config/devices/sensors

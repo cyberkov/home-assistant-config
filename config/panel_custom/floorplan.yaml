@@ -1,0 +1,26 @@
+- name: floorplan
+  sidebar_title: Floorplan
+  sidebar_icon: mdi:home
+  url_path: floorplan
+#  config: !include floorplan.yaml
+  config:
+    name: Schallerburg
+    image: /local/custom_ui/floorplan/erdgeschoss.svg
+    stylesheet: /local/custom_ui/floorplan/floorplan.css
+
+    groups:
+        - name: Binary sensors
+          entities:
+            - binary_sensor.kuechefenster_state
+            - binary_sensor.windfangtuer_state
+            - binary_sensor.wohnzimmertuer_state
+          states:
+            - state: 'off'
+              class: 'info-background'
+            - state: 'on'
+              class: 'warning-background'
+          state_transitions:
+            - name: On to off
+              from_state: 'on'
+              to_state: 'off'
+              duration: 10
