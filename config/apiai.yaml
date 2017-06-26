@@ -92,10 +92,10 @@ intents:
             script.alarm_arm_away
           {%- endif -%}
   staubsauger.go_home:
-    speech: "Petsi ist derzeit {{ states.sensor.petsi_state }}. Schicke ihn nach Hause."
+    speech: "Petsi ist derzeit {{ states('sensor.petsi_state') }}. Schicke ihn nach Hause."
     action:
       - service: switch.turn_on
         entity_id: switch.petsi_dock
   staubsauger.status:
-    speech: "Petsi ist derzeit {{ states.sensor.petsi_state }}. Schicke ihn nach Hause."
+    speech: "Petsi ist derzeit {{ states('sensor.petsi_state') }}."
     async_action: false
