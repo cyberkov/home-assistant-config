@@ -1,4 +1,5 @@
 - alias: 'Gaestezimmer Heizung an'
+  initial_state: True
   trigger:
     - platform: state
       entity_id: switch.guests
@@ -15,6 +16,7 @@
         temperature: 19
         operation_mode: "manual"
 - alias: 'Gaestezimmer Heizung aus'
+  initial_state: True
   trigger:
     - platform: state
       entity_id: switch.guests

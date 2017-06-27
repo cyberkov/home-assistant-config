@@ -1,4 +1,5 @@
 - alias: 'Heizung bei Abwesenheit aus'
+  initial_state: True
   trigger:
     - platform: state
       entity_id: group.personen

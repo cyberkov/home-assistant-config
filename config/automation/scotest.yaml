@@ -1,4 +1,5 @@
 - alias: 'sco_Test'
+  initial_state: True
   trigger:
     - platform: state
       entity_id: binary_sensor.sco_spare
@@ -45,6 +46,7 @@
       data:
         entity_id: light.it_stecker_3
 - alias: 'sco_Test_off'
+  initial_state: True
   trigger:
     - platform: state
       entity_id: binary_sensor.sco_spare

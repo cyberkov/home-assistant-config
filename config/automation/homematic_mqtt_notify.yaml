@@ -1,5 +1,6 @@
 # Notify if mqtt connection to Homematic CCU is lost
 - alias: Homematic MQTT Notification
+  initial_state: True
   trigger:
   - platform: state
     entity_id: switch.hm_connected

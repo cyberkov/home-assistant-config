@@ -1,4 +1,5 @@
 - alias: 'Wetteransage morgens - Barbara'
+  initial_state: True
   trigger:
     - platform: state
       entity_id: binary_sensor.vorzimmerogbewegungsmelder_motion
@@ -24,6 +25,7 @@
         who: Barbara
         where: bad
 - alias: 'Wetteransage morgens - Hannes'
+  initial_state: True
   trigger:
     - platform: state
       entity_id: binary_sensor.vorzimmerogbewegungsmelder_motion

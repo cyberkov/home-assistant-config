@@ -1,4 +1,5 @@
 - alias: 'Gelsenstecker on'
+  initial_state: True
   trigger:
     - platform: state
       entity_id: binary_sensor.schlafzimmer_links_state
@@ -28,6 +29,7 @@
       entity_id: switch.it_2
 
 - alias: 'Gelsenstecker off after 7h'
+  initial_state: True
   trigger:
     - platform: time
       at: '07:00:00'
@@ -40,6 +42,7 @@
       entity_id: switch.it_2
 
 - alias: 'Gelsenstecker off when all windows are closed'
+  initial_state: True
   trigger:
     - platform: state
       entity_id: binary_sensor.schlafzimmer_links_state

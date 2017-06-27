@@ -1,4 +1,5 @@
 - alias: 'Luftentfeuchter'
+  initial_state: True
   trigger:
     - platform: numeric_state
       entity_id: sensor.sauna_temperatur_humidity

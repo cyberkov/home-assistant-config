@@ -1,4 +1,6 @@
 - alias: 'Nachtkasterl_off_long_play'
+#  hide_entity: True
+  initial_state: 'on'
   trigger:
     - platform: mqtt
       topic: hm/status/Schlafzimmer.Taster.unten/PRESS_LONG
@@ -31,6 +33,7 @@
         source: 'Baby Klassik'
 
 - alias: 'Nachtkasterl_off_long_stop'
+  initial_state: 'on'
   trigger:
     - platform: mqtt
       topic: hm/status/Schlafzimmer.Taster.unten/PRESS_LONG

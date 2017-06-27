@@ -3,6 +3,7 @@
   #  are home and guests aren't present.
 
 - alias: Unexpected motion
+  initial_state: True
   trigger:
   - platform: state
     entity_id:

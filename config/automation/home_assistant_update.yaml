@@ -1,4 +1,5 @@
 - alias: "Home Assistant Update"
+  initial_state: True
   trigger:
     - platform: state
       entity_id: updater.updater

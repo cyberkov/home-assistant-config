@@ -1,8 +1,9 @@
 # Set the Internet switch to on upon startup
 - alias: 'HA Startup'
+  initial_state: True
   trigger:
-    - platform: event
-      event_type: homeassistant_start
+    - platform: homeassistant
+      event: start
   action:
     - service: homeassistant.turn_on
       data:
@@ -11,3 +12,13 @@
       data_template:
         message: >
           Home Assistant starting up.
+- alias: 'HA Shutdown'
+  initial_state: True
+  trigger:
+    - platform: homeassistant
+      event: shutdown
+  action:
+    - service: notify.slack
+      data_template:
+        message: >
+          Home Assistant going down.

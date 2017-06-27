@@ -1,4 +1,5 @@
 - alias: 'Nachtkasterl_off'
+  initial_state: 'on'
   trigger:
     - platform: mqtt
       topic: hm/status/Schlafzimmer.Taster.unten/PRESS_SHORT

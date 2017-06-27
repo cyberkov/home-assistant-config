@@ -1,4 +1,5 @@
 - alias: "Alarmananlage arm_away"
+  initial_state: True
   trigger:
     # Handsender Abwesend
     - platform: event
@@ -46,6 +47,7 @@
           Aktiviere Alarmanlage - extern.
 
 - alias: "Alarmananlage arm_home"
+  initial_state: True
   trigger:
     # Handsender Abwesend
     - platform: event
@@ -83,6 +85,7 @@
         message: >
           Aktiviere Alarmanlage - intern.
 - alias: "Alarmananlage disarm"
+  initial_state: True
   trigger:
     # Handsender Abwesend
     - platform: event

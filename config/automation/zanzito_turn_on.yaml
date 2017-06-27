@@ -1,4 +1,5 @@
 - alias: 'MQTT Switch'
+  initial_state: True
   trigger:
     - platform: mqtt
       topic: tonystark/switch/#

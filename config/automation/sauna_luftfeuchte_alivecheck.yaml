@@ -1,4 +1,5 @@
 - alias: notify if sensor state unchanged
+  initial_state: True
   trigger:
     platform: template
     value_template: "{% if relative_time(states.sensor.sauna_temperatur_humidity.last_updated) == '20 minutes' %}true{% endif %}"

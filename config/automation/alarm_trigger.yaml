@@ -1,4 +1,5 @@
 - alias: "Alarm Trigger"
+  initial_state: True
   trigger:
     - platform: state
       entity_id: switch.alarm
@@ -32,6 +33,7 @@
           ALARM - {{ trigger.to_state.attributes.friendly_name }} triggered it.
 #    - service: script.alarm_triggered
 - alias: "Alarm Warning"
+  initial_state: True
   trigger:
     - platform: state
       entity_id: switch.warning

@@ -1,4 +1,5 @@
 - alias: 'Nachtkasterl_on_long'
+  initial_state: 'on'
   trigger:
     - platform: mqtt
       topic: hm/status/Schlafzimmer.Taster.oben/PRESS_LONG
