@@ -22,6 +22,8 @@ intents:
           entity_id: "switch.light_{{ Room | replace(' ', '_') }}"
   GetWeather:
     speech: "Das Wetter: {{states.sensor.wetter_heute.state}}"
+  weather.rain:
+    speech: "{%- if states('sensor.dark_sky_precip_probability.state')|int >= 40 %}Ja{%- else %}Nein{%- endif  %}. Es wird zu {{ states('sensor.dark_sky_precip_probability') }}% regnen."
 
 ### Music
   music_stop:

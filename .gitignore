@@ -34,5 +34,3 @@ plex.conf
 pyozw.sqlite
 secrets.yaml
 tts
-www
-www/*
