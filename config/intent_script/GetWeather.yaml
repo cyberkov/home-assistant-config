@@ -1,0 +1,7 @@
+GetWeather:
+  speech:
+    text: "Das Wetter: {{states.sensor.wetter_heute.state}}"
+weather.rain:
+  speech:
+    text: "{%- if states('sensor.dark_sky_precip_probability.state')|int >= 40 %}Ja{%- else %}Nein{%- endif  %}. Es wird zu {{ states('sensor.dark_sky_precip_probability') }}% regnen. DEV: {{ date }}"
+

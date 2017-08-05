@@ -8,3 +8,4 @@ entities:
   - sensor.mold_wohnzimmer
   - switch.it_stecker_1
   - light.fernsehlampe
+  - switch.wohnzimmer_tv

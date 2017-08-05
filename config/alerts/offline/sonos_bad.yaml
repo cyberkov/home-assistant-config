@@ -1,0 +1,8 @@
+---
+name: '`[ALERT]` Sonos Bad is offline'
+entity_id: sensor.sonos_bad
+state: 'offline'
+skip_first: True
+repeat: 5
+notifiers:
+ -slack

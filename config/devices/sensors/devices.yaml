@@ -1,0 +1,12 @@
+---
+- platform: template
+  sensors:
+    sonos_bad:
+      entity_id: device_tracker.firetv
+      value_template: >
+        {% if is_state('device_tracker.sonos_bad', 'home') %}
+          online
+        {% else %}
+          offline
+        {% endif %}
+      friendly_name: 'Sonos Bad'

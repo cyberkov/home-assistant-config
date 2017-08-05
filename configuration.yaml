@@ -22,27 +22,30 @@ homematic: !include config/core/homematic.yaml
 
 #input_select: !include input_select.yaml
 #weblink: !include weblink.yaml
+alert: !include_dir_named config/alerts
 alarm_control_panel: !include config/alarm_control_panel.yaml
-apiai: !include config/apiai.yaml
-automation: !include_dir_merge_list config/automation
-binary_sensor: !include_dir_merge_list config/devices/binary_sensors
+apiai:
+shopping_list:
+intent_script: !include_dir_merge_named config/intent_script/
+automation: !include_dir_merge_list config/automation/
+binary_sensor: !include_dir_merge_list config/devices/binary_sensors/
 cover:
   - platform: rfxtrx
     automatic_add: True
 device_tracker: !include config/devices/device_tracker.yaml
-group: !include_dir_named config/groups
-light: !include_dir_merge_list config/devices/lights
+group: !include_dir_named config/groups/
+light: !include_dir_merge_list config/devices/lights/
 logger: !include config/core/logger.yaml
 media_player: !include config/devices/media_player.yaml
 notify: !include config/notify.yaml
 panel_iframe: !include config/panel_iframe.yaml
-panel_custom: !include_dir_merge_list config/panel_custom
+panel_custom: !include_dir_merge_list config/panel_custom/
 proximity: !include config/proximity.yaml
-script: !include_dir_named config/scripts
-sensor: !include_dir_merge_list config/devices/sensors
+script: !include_dir_named config/scripts/
+sensor: !include_dir_merge_list config/devices/sensors/
 shell_command: !include config/shell_command.yaml
-switch: !include_dir_merge_list config/devices/switches
-zone: !include_dir_merge_list config/zones
+switch: !include_dir_merge_list config/devices/switches/
+zone: !include_dir_merge_list config/zones/
 
 #scene: !include_dir_merge_list scenes
 rfxtrx: !include config/core/rfxtrx.yaml

@@ -1,0 +1,8 @@
+GetTemperature:
+  speech:
+    text: We have {{ states.sensor.wohnzimmertemperatur_temperature }} degrees
+  async_action: False
+  action:
+    service: notify.slack
+    data_template:
+      message: Api.ai has sent a request

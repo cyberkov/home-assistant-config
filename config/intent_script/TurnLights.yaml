@@ -1,0 +1,16 @@
+TurnLights:
+  speech:
+    text: Schalte {{ Room }} Licht {{ OnOff }}
+  action:
+    - service: notify.slack
+      data_template:
+        message: Someone asked via apiai to turn {{ Room }} lights {{ OnOff }}
+    - service_template: >
+        {%- if OnOff == "on" -%}
+          switch.turn_on
+        {%- else -%}
+          switch.turn_off
+        {%- endif -%}
+      data_template:
+        entity_id: "switch.light_{{ Room | replace(' ', '_') }}"
+

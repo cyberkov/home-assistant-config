@@ -35,3 +35,5 @@ switch.pangea:
   icon: mdi:desktop-tower
 switch.heizsaison:
   icon: mdi:thermometer-lines
+switch.wohnzimmer_tv:
+  icon: mdi:television-classic

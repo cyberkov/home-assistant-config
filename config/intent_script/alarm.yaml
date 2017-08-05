@@ -1,0 +1,15 @@
+alarm:
+  speech:
+    text: Setting alarm to {{ AlarmState }}
+  async_action: true
+  action:
+    - service: notify.slack
+      data_template:
+        message: "[api.ai] {{ AlarmState }} alarm"
+    - service_template: >
+        {%- if AlarmState == "disarm" -%}
+          script.alarm_disarm
+        {%- else -%}
+          script.alarm_arm_away
+        {%- endif -%}
+

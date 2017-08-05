@@ -34,3 +34,6 @@ plex.conf
 pyozw.sqlite
 secrets.yaml
 tts
+homeassistant_id_rsa
+homeassistant_id_rsa.pub
+google_calendars.yaml

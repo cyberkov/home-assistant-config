@@ -2,25 +2,54 @@
   sidebar_title: Floorplan
   sidebar_icon: mdi:home
   url_path: floorplan
-#  config: !include floorplan.yaml
   config:
     name: Schallerburg
     image: /local/custom_ui/floorplan/erdgeschoss.svg
     stylesheet: /local/custom_ui/floorplan/floorplan.css
+    pan_zoom:
+    date_format: DD.MMM.YYYY
 
     groups:
-        - name: Binary sensors
-          entities:
-            - binary_sensor.kuechefenster_state
-            - binary_sensor.windfangtuer_state
-            - binary_sensor.wohnzimmertuer_state
-          states:
-            - state: 'off'
-              class: 'info-background'
-            - state: 'on'
-              class: 'warning-background'
-          state_transitions:
-            - name: On to off
-              from_state: 'on'
-              to_state: 'off'
-              duration: 10
+      - name: Binary sensors
+#        entities:
+          # - binary_sensor.kuechefenster_state
+          # - binary_sensor.windfangtuer_state
+          # - binary_sensor.wohnzimmertuer_state
+          # - binary_sensor.esszimmerbewegungsmelder_motion
+        groups:
+          - group.bewegungsmelder
+          - group.fenster
+        states:
+          - state: 'off'
+            class: 'info-background'
+          - state: 'on'
+            class: 'warning-background'
+        state_transitions:
+          - name: On to off
+            from_state: 'on'
+            to_state: 'off'
+            duration: 10
+      - name: Alarm Panel
+        entities:
+           - alarm_control_panel.house
+        states:
+          - state: 'armed_away'
+            class: 'alarm-armed'
+          - state: 'armed_home'
+            class: 'alarm-armed'
+          - state: 'disarmed'
+            class: 'alarm-disarmed'
+      - name: thermostat_temp
+        entities:
+          - sensor.badtemperatur_temperature
+          - sensor.badtemperatur_humidity
+          - sensor.gartentemperatur_humidity
+          - sensor.gartentemperatur_temperature
+          - sensor.kuechetemperatur_humidity
+          - sensor.kuechetemperatur_temperature
+          - sensor.sauna_temperatur_humidity
+          - sensor.sauna_temperatur_temperature
+          - sensor.schlafzimmertemperatur_humidity
+          - sensor.schlafzimmertemperatur_temperature
+          - sensor.wohnzimmertemperatur_humidity
+          - sensor.wohnzimmertemperatur_temperature

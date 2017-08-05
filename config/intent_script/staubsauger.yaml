@@ -1,0 +1,11 @@
+staubsauger.go_home:
+  speech:
+    text: "Petsi ist derzeit {{ states('sensor.petsi_state') }}. Schicke ihn nach Hause."
+  action:
+    - service: switch.turn_on
+      entity_id: switch.petsi_dock
+staubsauger.status:
+  speech:
+    text: "Petsi ist derzeit {{ states('sensor.petsi_state') }}."
+  async_action: false
+

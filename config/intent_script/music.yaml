@@ -1,0 +1,58 @@
+# Music
+music.stop:
+    async_action: True
+    action:
+      - service: media_player.media_pause
+        entity_id:
+          - media_player.wohnzimmer
+    speech:
+      text: !include ../voice_confirm.yaml
+music.play:
+  async_action: True
+  action:
+    - service: media_player.media_play
+      entity_id:
+        - media_player.wohnzimmer
+
+music.next:
+  async_action: True
+  action:
+    - service: media_player.media_next_track
+      entity_id:
+        - media_player.wohnzimmer
+music.previous:
+  async_action: True
+  action:
+    - service: media_player.media_previous_track
+      entity_id:
+        - media_player.wohnzimmer
+media.volume_set:
+  async_action: True
+  action:
+    - service: media_player.volume_set
+      entity_id:
+        - media_player.wohnzimmer
+      data_template:
+        volume_level: "{{ float(number) / 100.0 }}"
+media.volume_up:
+  async_action: True
+  action:
+    - service: media_player.volume_set
+      entity_id:
+        - media_player.wohnzimmer
+      data_template:
+        volume_level: "{{ float(states.media_player.wohnzimmer.attributes.volume_level) * 1.30 }}"
+media.volume_down:
+  async_action: True
+  action:
+    - service: media_player.volume_set
+      entity_id:
+        - media_player.wohnzimmer
+      data_template:
+        volume_level: "{{ float(states.media_player.wohnzimmer.attributes.volume_level) * 0.60 }}"
+
+media.track_query:
+  speech:
+    text: "Es spielt: {{ states.media_player.wohnzimmer.attributes.media_title }}, von {{ states.media_player.wohnzimmer.attributes.media_artist }}."
+  async_action: False
+
