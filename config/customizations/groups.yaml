@@ -1,0 +1,15 @@
+---
+group.uebersicht:
+  order: 1
+group.sicherheit:
+  order: 2
+group.erdgeschoss:
+  order: 3
+group.obergeschoss:
+  order: 4
+group.keller:
+  order: 5
+group.garten:
+  order: 6
+group.netzwerk:
+  order: 7

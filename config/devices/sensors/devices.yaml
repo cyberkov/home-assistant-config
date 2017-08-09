@@ -2,7 +2,7 @@
 - platform: template
   sensors:
     sonos_bad:
-      entity_id: device_tracker.firetv
+      entity_id: device_tracker.sonos_bad
       value_template: >
         {% if is_state('device_tracker.sonos_bad', 'home') %}
           online
@@ -10,3 +10,93 @@
           offline
         {% endif %}
       friendly_name: 'Sonos Bad'
+    sonos_wohnzimmer:
+      entity_id: device_tracker.sonos_wohnzimmer
+      value_template: >
+        {% if is_state('device_tracker.sonos_wohnzimmer', 'home') %}
+          online
+        {% else %}
+          offline
+        {% endif %}
+      friendly_name: 'Sonos wohnzimmer'
+    sonos_schlafzimmer:
+      entity_id: device_tracker.sonos_schlafzimmer
+      value_template: >
+        {% if is_state('device_tracker.sonos_schlafzimmer', 'home') %}
+          online
+        {% else %}
+          offline
+        {% endif %}
+      friendly_name: 'Sonos schlafzimmer'
+    sonos_kueche:
+      entity_id: device_tracker.sonos_kueche
+      value_template: >
+        {% if is_state('device_tracker.sonos_kueche', 'home') %}
+          online
+        {% else %}
+          offline
+        {% endif %}
+      friendly_name: 'Sonos kueche'
+    ccu:
+      entity_id: device_tracker.ccu
+      value_template: >
+        {% if is_state('device_tracker.ccu', 'home') %}
+          online
+        {% else %}
+          offline
+        {% endif %}
+      friendly_name: 'CCU'
+    philips_hue:
+      entity_id: device_tracker.philipshuecyberkovlan
+      value_template: >
+        {% if is_state('device_tracker.philipshuecyberkovlan', 'home') %}
+          online
+        {% else %}
+          offline
+        {% endif %}
+      friendly_name: 'philips hue bridge'
+    datastore:
+      entity_id: device_tracker.datastore
+      value_template: >
+        {% if is_state('device_tracker.datastore', 'home') %}
+          online
+        {% else %}
+          offline
+        {% endif %}
+      friendly_name: 'datastore'
+    osmc_hannes:
+      entity_id: device_tracker.rpi_hannes
+      value_template: >
+        {% if is_state('device_tracker.rpi_hannes', 'home') %}
+          online
+        {% else %}
+          offline
+        {% endif %}
+      friendly_name: 'osmc hannes'
+    osmc_wohnzimmer:
+      entity_id: device_tracker.rpi_wohnzimmer
+      value_template: >
+        {% if is_state('device_tracker.rpi_wohnzimmer', 'home') %}
+          online
+        {% else %}
+          offline
+        {% endif %}
+      friendly_name: 'osmc wohnzimmer'
+    grandstreamvoip:
+      entity_id: device_tracker.grandstreamvoip
+      value_template: >
+        {% if is_state('device_tracker.grandstreamvoip', 'home') %}
+          online
+        {% else %}
+          offline
+        {% endif %}
+      friendly_name: 'grandstreamvoip'
+    acedia:
+      entity_id: device_tracker.acedia
+      value_template: >
+        {% if is_state('device_tracker.acedia', 'home') %}
+          online
+        {% else %}
+          offline
+        {% endif %}
+      friendly_name: 'acedia'

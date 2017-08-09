@@ -3,6 +3,7 @@ entities:
   - sensor.geschirrspuler_energy_counter
   - sensor.geschirrspuler_power
   - sensor.geschirrspuler_voltage
+  - sensor.geschirrspuler_frequency
   - switch.geschirrspuler
   - binary_sensor.kuechefenster_state
   - climate.kuecheheizung

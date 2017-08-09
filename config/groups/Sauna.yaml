@@ -3,6 +3,7 @@ entities:
   - sensor.luftentfeuchter_energy_counter
   - sensor.luftentfeuchter_power
   - sensor.luftentfeuchter_voltage
+  - sensor.luftentfeuchter_frequency
   - switch.luftentfeuchter
   - sensor.stats_sauna_humidity_mean
   - climate.sauna_heizung

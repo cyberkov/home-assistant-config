@@ -8,3 +8,4 @@ entities:
   - group.automatik
   - group.valves
   - group.all_automations
+  - group.monitoring

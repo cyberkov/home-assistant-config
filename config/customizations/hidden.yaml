@@ -29,3 +29,5 @@ script.alarm_triggered:
   hidden: true
 group.all_devices:
   hidden: false
+group.auto_turnoff:
+  hidden: true

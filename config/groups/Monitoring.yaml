@@ -1,0 +1,12 @@
+entities:
+  - sensor.acedia
+  - sensor.ccu
+  - sensor.datastore
+  - sensor.grandstreamvoip
+  - sensor.osmc_hannes
+  - sensor.osmc_wohnzimmer
+  - sensor.philips_hue
+  - sensor.sonos_bad
+  - sensor.sonos_kueche
+  - sensor.sonos_schlafzimmer
+  - sensor.sonos_wohnzimmer

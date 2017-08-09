@@ -3,3 +3,7 @@ entities:
   - sensor.speedtest_download
   - sensor.speedtest_ping
   - sensor.speedtest_upload
+  - binary_sensor.axon7_status
+  - binary_sensor.tf101_status
+  - sensor.travis_build_label
+  - sensor.travis_status

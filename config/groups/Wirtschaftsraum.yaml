@@ -3,6 +3,7 @@ entities:
   - sensor.waschmaschine_energy_counter
   - sensor.waschmaschine_power
   - sensor.waschmaschine_voltage
+  - sensor.waschmaschine_frequency
   - switch.waschmaschine
   - switch.wirtschaftsraumtherme
   - sensor.gas_power
@@ -16,7 +17,5 @@ entities:
   - sensor.stromzaehler_gas_energy_counter
   - sensor.stromzaehler_gas_power
   - sensor.stromzaehler_power
-  - sensor.mysensors_20_humidity
-  - sensor.mysensors_20_temperature
   - switch.mqtt_wirtschaftsraum_therme
   - sensor.waschmaschine_status
