@@ -8,8 +8,7 @@
 *.pid
 *.sqlite
 *.xml
-.*
-.HA_VERSION
+#.*
 .google.token
 .spotify-token-cache
 .uuid
@@ -37,3 +36,4 @@ tts
 homeassistant_id_rsa
 homeassistant_id_rsa.pub
 google_calendars.yaml
+.shopping_list.json

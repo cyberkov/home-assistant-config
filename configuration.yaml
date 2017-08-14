@@ -14,10 +14,15 @@ updater:
   include_used_components: true
 zeroconf:
 tts:
-  - platform: google
-    language: 'de'
+  - platform: amazon_polly
+    aws_access_key_id: !secret AWS_ID
+    aws_secret_access_key: !secret AWS_KEY
+    text_type: text
+    region_name: eu-west-1
     cache: true
     cache_dir: 'tts'
+  - platform: google
+    language: 'de'
 homematic: !include config/core/homematic.yaml
 
 #input_select: !include input_select.yaml
@@ -46,8 +51,7 @@ sensor: !include_dir_merge_list config/devices/sensors/
 shell_command: !include config/shell_command.yaml
 switch: !include_dir_merge_list config/devices/switches/
 zone: !include_dir_merge_list config/zones/
-
-#scene: !include_dir_merge_list scenes
+scene: !include_dir_merge_list config/scenes
 rfxtrx: !include config/core/rfxtrx.yaml
 
 mqtt: !include config/core/mqtt.yaml

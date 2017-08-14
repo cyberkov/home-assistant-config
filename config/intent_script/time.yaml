@@ -1,0 +1,4 @@
+---
+hass.time:
+  speech:
+    text: Es ist {{ states.sensor.time.state }}.

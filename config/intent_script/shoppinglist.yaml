@@ -1,0 +1,8 @@
+---
+ShoppingList:
+  speech:
+    text: Ich habe {{ item }} zur Einkaufsliste hinzugefügt.
+  action:
+    - service: conversation.process
+      data_template:
+        text: "add {{ item }} to my shopping list"

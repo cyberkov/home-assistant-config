@@ -11,11 +11,11 @@
 
     groups:
       - name: Binary sensors
-#        entities:
-          # - binary_sensor.kuechefenster_state
-          # - binary_sensor.windfangtuer_state
-          # - binary_sensor.wohnzimmertuer_state
-          # - binary_sensor.esszimmerbewegungsmelder_motion
+        entities:
+           - binary_sensor.kuechefenster_state
+           - binary_sensor.windfangtuer_state
+           - binary_sensor.wohnzimmertuer_state
+           - binary_sensor.esszimmerbewegungsmelder_motion
         groups:
           - group.bewegungsmelder
           - group.fenster

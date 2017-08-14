@@ -6,7 +6,7 @@ music.stop:
         entity_id:
           - media_player.wohnzimmer
     speech:
-      text: !include ../voice_confirm.yaml
+      text: !include ../templates/voice_confirm.yaml
 music.play:
   async_action: True
   action:
