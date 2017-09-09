@@ -1,4 +1,4 @@
-icon: mdi:equal
+icon: mdi:page-layout-body
 view: yes
 entities:
   - group.esszimmer

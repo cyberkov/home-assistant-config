@@ -1,0 +1,6 @@
+---
+hass.status:
+  speech:
+    text: !include ../templates/briefing.yaml
+  async_action: false
+

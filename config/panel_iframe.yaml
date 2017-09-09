@@ -6,3 +6,7 @@ temperature_dashboard:
   title: Temperatur
   url: 'https://graph.cyberkov.at/dashboard/db/temperature?theme=light'
   icon: mdi:thermometer
+mdiindex:
+  title: MDI Icon Index
+  icon: mdi:vector-square
+  url: 'https://haus.cyberkov.at/local/home-assistant-mdi/home-assistant-mdi.html'

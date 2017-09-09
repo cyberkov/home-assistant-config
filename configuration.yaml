@@ -17,10 +17,11 @@ tts:
   - platform: amazon_polly
     aws_access_key_id: !secret AWS_ID
     aws_secret_access_key: !secret AWS_KEY
-    text_type: text
+    text_type: ssml
     region_name: eu-west-1
     cache: true
     cache_dir: 'tts'
+    voice: 'Marlene'
   - platform: google
     language: 'de'
 homematic: !include config/core/homematic.yaml

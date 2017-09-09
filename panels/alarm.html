@@ -1,0 +1,205 @@
+<dom-module id='ha-panel-alarm'>  
+	<template>
+		<style include="ha-style iron-flex iron-flex-factors">
+		  app-header-layout {
+			background-color: var(--primary-background-color);
+		  }
+		  
+		  #container ::slotted(.content) {
+			padding: 15px;
+		  }
+		  ha-label-badge {
+			--ha-label-badge-color: rgb(223, 76, 30);
+		  }
+		  :host ::slotted(.badge-container.ha-label-badge) {
+			margin: 0px 12px;
+		  }
+		  .actions {
+			margin-left: 20px;
+			min-width: 200px;
+			@apply(--layout-self-center);
+		  }
+		  .box {
+			max-width: 350px;
+			margin-bottom: 10px;
+			padding: 15px;
+			background-color: var(--paper-card-background-color);
+			border-radius: 3px;
+			@apply(--shadow-elevation-4dp);
+			opacity: var(--dark-primary-opacity);
+		  }
+		  .title {
+			#@apply(--paper-font-headline);
+			margin: 10px;
+		  }
+		  
+		  .summary {
+			margin: 15px auto 0px;
+			text-align: center;
+		  } 
+		  .oksign {
+			color: green;
+		  }
+		  .badsign {
+			color: red;
+		  }
+		  .tappable {
+			cursor: pointer;
+			margin-top: 2px;
+			font-size: 1.2em;
+		  }
+		</style>
+		  <app-header-layout has-scrolling-region>
+			<app-header slot="header" fixed>
+				<app-toolbar>
+					<ha-menu-button narrow='[[narrow]]' show-menu='[[showMenu]]'></ha-menu-button>
+					<div main-title>Alarm</div>
+				</app-toolbar>
+			</app-header>
+
+      <div class='content'>
+        <div class='box horizontal layout'>
+          <div class='vertical layout'>
+            <ha-label-badge icon='[[computeIcon(alarm.state)]]' label='[[computeLabel(alarm.state)]]' description='[[alarm.entityDisplay]]'></ha-label-badge>
+
+            <paper-input style="width:5em" label="code" id="code" type="password" tabindex="0" aria-disabled="false" style="" focused=""></paper-input>
+          </div>  
+          <div class='actions'>
+            <template is='dom-if' if='[[isdisarmed(alarm)]]'>
+                <paper-button on-tap='callService' data-call='alarm_arm_home' raised>Arm Home</paper-button>
+                <paper-button on-tap='callService' data-call='alarm_arm_away' raised>Arm Away</paper-button>
+            </template>
+            <template is='dom-if' if='[[!isdisarmed(alarm)]]'>
+                <paper-button on-tap='callService' data-call='alarm_disarm' raised>Disarm</paper-button>
+            </template>
+   
+            <div class='summary'>
+              <template is='dom-if' if='[[issecure(allsensors)]]'>
+                 <div class='oksign'>
+                   <iron-icon icon="mdi:checkbox-marked-circle" item-icon></iron-icon>
+                   Secured
+                 </div>
+              </template>
+              <template is='dom-if' if='[[!issecure(allsensors)]]'>
+                <div class='badsign'>
+                   <iron-icon icon="mdi:alert-circle" item-icon></iron-icon>
+                   Open Sensors
+                </div>
+                <template is='dom-repeat' items='[[opensensors(allsensors)]]' as='entity'>
+                  <div class='tappable' on-tap='entityTapped' data-entity$='[[entity.entity_id]]'>[[entity.attributes.friendly_name]]</div>
+                </template>
+              </template>
+            </div>
+          </div>
+        </div>
+
+       <div class='panels layout'>
+        <div class='box'>
+            <div class='title'>Delayed Alarms</div>
+            <template is='dom-repeat' items='[[delayed]]' as='entity'>
+              <state-card-display state-obj="[[entity]]" hass='[[hass]]'></state-card-display>
+            </template>
+        </div>
+
+        <div class='box'>
+            <div class='title'>Immediate Alarms</div>
+            <template is='dom-repeat' items='[[immediate]]' as='entity'>
+              <state-card-display state-obj="[[entity]]" hass='[[hass]]'></state-card-display>
+            </template>
+        </div>
+
+        <div class='box'>
+            <div class='title'>Inactive Sensors</div>
+            <template is='dom-repeat' items='[[ignored]]' as='entity'>
+              <state-card-display state-obj="[[entity]]" hass='[[hass]]'></state-card-display>
+            </template>
+        </div>
+       </div>
+      </div>
+
+      </app-header-layout>
+    </template>
+</dom-module>
+
+<script>
+Polymer({
+  is: 'ha-panel-alarm',
+  properties: {
+    // things that appear in all the other panels 
+    hass:     { type: Object },
+    panel:    { type: Object },
+    narrow:   { type: Boolean, value: false },
+    showMenu: { type: Boolean, value: false },
+    // things specific to this alarm panel
+    alarm:      { type: Object },
+    immediate:  { type: Array, computed: 'computeSensors(hass, alarm.attributes.immediate)' },
+    delayed:    { type: Array, computed: 'computeSensors(hass, alarm.attributes.delayed)' },
+    ignored:    { type: Array, computed: 'computeSensors(hass, alarm.attributes.ignored)' },
+    allsensors: { type: Array, computed: 'computeSensors(hass, alarm.attributes.allsensors)' },
+    // Hold our unobservers
+    cleanup:    { type: Array, value: [] },
+  },
+  // Polymer observers definition
+  observers: [ 'onPanelUpdate(hass, panel)' ],
+  wtf: function (e) { debugger; return e; },
+  // Helpers to figure out what to display 
+  isdisarmed:  function(alarm) { return alarm.state == "disarmed"; },
+  issecure:    function(all)   { return this.opensensors(all).length == 0; },
+  opensensors: function(all)   { 
+	if (all == false) {
+		return false;
+	} else {
+		ret = all.filter(function (e) { return ['on', 'open', 'detected', 'unlocked'].indexOf(e.state) > -1; }); 
+		return ret;
+	}
+  },
+  computeSensors: function(hass, ids) {
+	if (ids == undefined) {
+		// Control the exception when this.alarm is not ready
+		return false;
+	} else {
+		return ids.map(function (key) { return hass.states[key]; }).filter(function (e) { return e != undefined; });
+	}
+  },
+  computeIcon: function (state) {
+     switch (state) {
+        case 'disarmed':   return 'mdi:shield-outline';
+        case 'armed_away': return 'mdi:security-home';
+        case 'armed_home': return 'mdi:security-home';
+        case 'pending':    return 'mdi:walk';
+        case 'warning':    return 'mdi:run';
+        case 'triggered':  return 'mdi:alert-circle';
+     }
+     return 'mdi:help';
+  },
+  computeLabel: function (state) {
+     switch (state) {
+        case 'disarmed':   return 'off';
+        case 'armed_away': return 'away';
+        case 'armed_home': return 'home';
+        case 'pending':    return 'leave';
+        case 'warning':    return 'warn';
+        case 'triggered':  return 'alarm';
+     }
+     return state;
+  },
+  // Responding to user inputs
+  callService: function(ev) {
+    ev.stopPropagation();
+    var call = ev.target.getAttribute('data-call');
+    this.hass.callService('alarm_control_panel', call, {'entity_id': this.alarm.entityId,'code':this.$.code.value})
+  },
+  entityTapped: function (ev) {
+    ev.stopPropagation();
+    var entityId = ev.target.getAttribute('data-entity');
+    this.fire('hass-more-info', { entityId: entityId });
+  },
+  // Observer: polymer gaurantees that this won't be called util hass and panel are both defined
+  onPanelUpdate: function(hass, panel) {
+	//console.log('onPanelUpdate');
+    this.alarm = hass.states[panel.config.alarmid];
+    // this.$.code.value = '';
+	//console.log('Alarm is ', this.alarm);
+  },
+});
+</script>

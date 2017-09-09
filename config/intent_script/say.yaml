@@ -1,0 +1,4 @@
+---
+hass.say:
+  speech:
+    text: "{{ text }}"

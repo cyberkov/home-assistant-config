@@ -31,10 +31,12 @@ sequence:
     data_template:
       entity_id: "{{ 'media_player.' ~ where }}"
       volume_level: 0.70
-  - service: tts.google_say
+  #- service: tts.google_say
+  - service: tts.amazon_polly_say
     data_template:
       entity_id: "{{ 'media_player.' ~ where }}"
-      message: "{{ message }}"
+      message: "<speak>{{ message }}</speak>"
+      language: 'de-DE'
 # Workout the length of the media
   - delay:
       seconds: 1

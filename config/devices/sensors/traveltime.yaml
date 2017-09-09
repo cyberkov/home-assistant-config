@@ -1,0 +1,16 @@
+- platform: google_travel_time
+  api_key: !secret HA_GOOGLE_API_KEY
+  name: Hannes to home
+  origin: device_tracker.cyberkov
+  destination: zone.home
+  options:
+    mode: transit
+
+- platform: google_travel_time
+  api_key: !secret HA_GOOGLE_API_KEY
+  name: Hannes to work
+  origin: device_tracker.cyberkov
+  destination: zone.work
+  options:
+    mode: transit
+

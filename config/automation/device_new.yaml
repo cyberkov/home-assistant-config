@@ -1,0 +1,14 @@
+- id: device_new
+  alias: Notify for new devices
+  trigger:
+  - event_type: device_tracker_new_device
+    platform: event
+  action:
+  - alias: Notify Slack
+    data_template:
+      message: 
+        'New device: 
+        {{trigger.event.data.host_name}} 
+        ({{trigger.event.data.entity_id}})'
+      title: New device
+    service: notify.slack

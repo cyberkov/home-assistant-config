@@ -37,3 +37,11 @@ switch.heizsaison:
   icon: mdi:thermometer-lines
 switch.wohnzimmer_tv:
   icon: mdi:television-classic
+sensor.petsi_state:
+  icon: mdi:roomba
+switch.petsi_clean:
+  icon: mdi:roomba
+switch.petsi_dock:
+  icon: mdi:roomba
+switch.petsi_find:
+  icon: mdi:music

@@ -2,4 +2,6 @@ entities:
   - alarm_control_panel.house
   - switch.sirene_blitz
   - switch.sirene_sirene
+  - switch.warning
+  - switch.alarm
 
