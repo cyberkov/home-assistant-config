@@ -1,0 +1,31 @@
+- platform: attributes
+  friendly_name: "Batterie"
+  attribute: battery
+  unit_of_measurement: "V"
+  entities:
+    - climate.badheizung
+    - climate.barbaraheizung
+    - climate.dominikheizung
+    - climate.esszimmerheizung
+    - climate.hannesheizung
+    - climate.kuecheheizung
+    - climate.sauna_heizung
+    - climate.schlafzimmerheizunglinks
+    - climate.schlafzimmerheizungrechts
+    - climate.vorzimmerheizung
+    - climate.vorzimmerogheizung
+    - climate.windfangheizung
+    - climate.wohnzimmerheizung
+
+
+      #    - binary_sensor.barbarafenster_state
+      #    - binary_sensor.dominikfenster_state
+      #    - binary_sensor.hannesfenster_state
+      #    - binary_sensor.hannestuer_state
+      #    - binary_sensor.kuechefenster_state
+      #    - binary_sensor.schlafzimmer_links_state
+      #    - binary_sensor.schlafzimmer_rechts_state
+      #    - binary_sensor.sparesco_state
+      #    - binary_sensor.vorzimmerogfenster_state
+      #    - binary_sensor.windfangtuer_state
+      #    - binary_sensor.wohnzimmertuer_state

@@ -12,5 +12,5 @@ entities:
   - binary_sensor.sparesco_state
   - light.it_stecker_3
   - switch.hannesdeckenlicht
-  - light.hannes_1
-  - light.hannes_2
+  - light.p16tw_01
+  - light.p16tw_02

@@ -10,3 +10,5 @@
   mac_address: "00-1e-8c-45-8b-40"
   name: "pangea"
   host: "192.168.1.9"
+  turn_off:
+    service: shell_command.turn_off_pangea

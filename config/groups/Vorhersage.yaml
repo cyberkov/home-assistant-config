@@ -1,0 +1,6 @@
+entities:
+  - sensor.wetter_heute
+  - sensor.wetter_morgen
+  - sensor.dark_sky_daily_summary
+  - sensor.dark_sky_hourly_summary
+

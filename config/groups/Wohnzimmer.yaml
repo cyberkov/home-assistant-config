@@ -1,11 +1,10 @@
 entities:
-  - sensor.wohnzimmertemperatur_humidity
-  - sensor.wohnzimmertemperatur_temperature
   - binary_sensor.wohnzimmertuer_state
   - climate.wohnzimmerheizung
+  - light.fernsehlampe
   - media_player.kodi_wohnzimmer
   - media_player.wohnzimmer
   - sensor.mold_wohnzimmer
-  - switch.it_stecker_1
-  - light.fernsehlampe
+  - sensor.wohnzimmertemperatur_humidity
+  - sensor.wohnzimmertemperatur_temperature
   - switch.wohnzimmer_tv

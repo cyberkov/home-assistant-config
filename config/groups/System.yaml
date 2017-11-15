@@ -1,6 +1,7 @@
 entities:
-  - sensor.cpu_use
+  - sensor.cpu_used
   - sensor.ram_free
+  - sensor.ram_available
   - sensor.axon7_battery
   - sensor.tf101_battery
   - sensor.cerebro_sda

@@ -1,9 +1,12 @@
 entities:
+  - binary_sensor.wallpanel_status
   - climate.vorzimmerheizung
+  - device_tracker.petsi
   - sensor.petsi_battery
   - sensor.petsi_capacity
   - sensor.petsi_state
-  - device_tracker.petsi
+  - sensor.wallpanel_battery
+  - switch.it_stecker_1
   - switch.petsi_clean
   - switch.petsi_dock
   - switch.petsi_find

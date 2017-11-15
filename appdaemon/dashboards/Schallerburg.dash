@@ -1,0 +1,45 @@
+#
+# Main arguments, all optional
+#
+title: Schallerburg
+widget_dimensions: [120, 120]
+widget_margins: [5, 5]
+columns: 8
+global_parameters:
+  use_comma: 1
+  precision: 1
+  use_hass_icon: 1
+
+og:
+  widget_type: label
+  text: OG
+eg:
+  widget_type: label
+  text: EG
+ug:
+  widget_type: label
+  text: UG
+  
+layout:
+    - clock.clock(2x1), spacer, device_tracker.cyberkov, device_tracker.barbara, switch.guests, spacer(1x1), alarm_control_panel.house
+    - og, sensor.schlafzimmertemperatur_temperature, sensor.schlafzimmertemperatur_humidity, binary_sensor.schlafzimmer_links_state, binary_sensor.schlafzimmer_rechts_state, binary_sensor.dominikfenster_state, binary_sensor.barbarafenster_state, binary_sensor.vorzimmerogfenster_state
+    - eg, sensor.wohnzimmertemperatur_temperature, sensor.wohnzimmertemperatur_humidity, binary_sensor.wohnzimmertuer_state, binary_sensor.kuechefenster_state, binary_sensor.windfangtuer_state
+    - ug, sensor.sauna_temperatur_temperature, sensor.sauna_temperatur_humidity, binary_sensor.hannestuer_state, binary_sensor.hannesfenster_state
+
+#items:
+#cyberkov:
+#  widget_type: device_tracker
+#  title: Hannes
+#  device: cyberkov
+#barbara:
+#  widget_type: device_tracker
+#  title: Barbara
+#  device: barbara
+
+alarm_control_panel.house:
+  widget_type: alarm
+  entity: alarm_control_panel.house
+clock.clock:
+  widget_type: clock
+  time_format: 24hr
+#vim:ft=yaml

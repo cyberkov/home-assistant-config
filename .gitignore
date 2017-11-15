@@ -37,3 +37,6 @@ homeassistant_id_rsa
 homeassistant_id_rsa.pub
 google_calendars.yaml
 .shopping_list.json
+__pycache__
+__pycache__
+/appdaemon/compiled/

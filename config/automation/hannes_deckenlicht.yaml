@@ -1,0 +1,22 @@
+- alias: 'Hannes Deckenlicht an'
+  initial_state: True
+  trigger:
+    - platform: state
+      entity_id: light.p16tw_01
+      from: 'off'
+      to: 'on'
+  action:
+    - service: homeassistant.turn_on
+      data:
+        entity_id: switch.hannesdeckenlicht
+- alias: 'Hannes Deckenlicht aus'
+  initial_state: True
+  trigger:
+    - platform: state
+      entity_id: light.p16tw_01
+      from: 'on'
+      to: 'off'
+  action:
+    - service: homeassistant.turn_off
+      data:
+        entity_id: switch.hannesdeckenlicht

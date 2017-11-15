@@ -6,6 +6,7 @@ entities:
   - group.system
   - group.nas
   - group.automatik
+  - group.batterien
   - group.valves
   - group.all_automations
   - group.monitoring

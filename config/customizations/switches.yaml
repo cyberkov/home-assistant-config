@@ -1,5 +1,5 @@
 switch.it_stecker_1:
-  friendly_name: Internet
+  friendly_name: Wallpanel
   icon: mdi:earth
 switch.it_2:
   friendly_name: Gelsenstecker

@@ -5,3 +5,5 @@ entities:
   - sensor.transmission_up_speed
   - sensor.sonarr_queue
   - sensor.sonarr_upcoming
+  - sensor.radarr_upcoming
+  - sensor.radarr_status

@@ -17,45 +17,59 @@
         name: Schlafzimmer.Taster
         channel: 1
         param: PRESS_LONG
-  condition:
-    condition: or
-    conditions:
-      - condition: state
-        entity_id: media_player.schlafzimmer
-        state: 'paused'
-      - condition: state
-        entity_id: media_player.schlafzimmer
-        state: 'stopped'
   action:
-    - service: media_player.select_source
+    - service: notify.slack
+      data_template:
+        target: '@cyberkov'
+        message: >
+          Your aid is needed!
+    - service: notify.hannes
+      data_template:
+        message: >
+          Your aid is needed!
+    - service: homeassistant.turn_on
       data:
-        entity_id: media_player.schlafzimmer
-        source: 'Baby Klassik'
+        entity_id: light.it_stecker_3
+    - delay:
+        seconds: 1
+    - service: homeassistant.turn_off
+      data:
+        entity_id: light.it_stecker_3
+    - delay:
+        seconds: 1
+    - service: homeassistant.turn_on
+      data:
+        entity_id: light.it_stecker_3
+    - delay:
+        seconds: 1
+    - service: homeassistant.turn_off
+      data:
+        entity_id: light.it_stecker_3
 
-- alias: 'Nachtkasterl_off_long_stop'
-  initial_state: 'on'
-  trigger:
-    - platform: mqtt
-      topic: hm/status/Schlafzimmer.Taster.unten/PRESS_LONG
-    - platform: event
-      event_type: homematic.keypress
-      event_data:
-        #name: Schlafzimmer.Taster
-        name: NEQ1543071
-        channel: 1
-        param: PRESS_LONG
-    - platform: event
-      event_type: homematic.keypress
-      event_data:
-        name: Schlafzimmer.Taster
-        channel: 1
-        param: PRESS_LONG
-  condition:
-    - condition: state
-      entity_id: media_player.schlafzimmer
-      state: 'playing'
-  action:
-    - service: media_player.media_play_pause
-      data:
-        entity_id: media_player.schlafzimmer
+        #- alias: 'Nachtkasterl_off_long_stop'
+        #  initial_state: 'on'
+        #  trigger:
+        #    - platform: mqtt
+        #      topic: hm/status/Schlafzimmer.Taster.unten/PRESS_LONG
+        #    - platform: event
+        #      event_type: homematic.keypress
+        #      event_data:
+        #        #name: Schlafzimmer.Taster
+        #        name: NEQ1543071
+        #        channel: 1
+        #        param: PRESS_LONG
+        #    - platform: event
+        #      event_type: homematic.keypress
+        #      event_data:
+        #        name: Schlafzimmer.Taster
+        #        channel: 1
+        #        param: PRESS_LONG
+        #  condition:
+        #    - condition: state
+        #      entity_id: media_player.schlafzimmer
+        #      state: 'playing'
+        #  action:
+        #    - service: media_player.media_play_pause
+        #      data:
+        #        entity_id: media_player.schlafzimmer
 

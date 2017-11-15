@@ -1,1 +1,3 @@
+---
 update_homeassistant: /opt/scripts/update_homeassistant.sh
+turn_off_pangea: "ssh cyberkov@192.168.1.9 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -i /config/homeassistant_id_rsa 'sudo systemctl suspend'"

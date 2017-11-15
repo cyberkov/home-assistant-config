@@ -1,18 +1,16 @@
 - name: Hannes Movie
   entities:
-    light.hannes_1:
-      state: on
-      brightness: 30
-    light.hannes_2:
-      state: on
-      brightness: 30
+    light.p16tw_01:
+      state: off
+    light.p16tw_02:
+      state: off
     switch.hannesdeckenlicht: off
 - name: Hannes Normal
   entities:
-    light.hannes_1:
+    light.p16tw_01:
       state: on
       brightness: 100
-    light.hannes_2:
+    light.p16tw_02:
       state: on
       brightness: 100
     switch.hannesdeckenlicht: on
