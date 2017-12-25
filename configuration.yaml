@@ -5,6 +5,7 @@ prometheus:
 conversation:
 discovery:
 config:
+map:
 
 frontend:
 history: !include config/core/history.yaml
