@@ -1,7 +1,7 @@
 entities:
-  - climate.badheizung
-  - sensor.badtemperatur_humidity
-  - sensor.badtemperatur_temperature
-  - media_player.bad
-  - sensor.mold_bad
+  - climate.meq0233504
   - light.badezimmerlicht
+  - media_player.bad
+  - sensor.leq0122248_humidity
+  - sensor.leq0122248_temperature
+  - sensor.mold_bad

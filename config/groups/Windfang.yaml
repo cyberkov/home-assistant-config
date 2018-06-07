@@ -1,3 +1,3 @@
 entities:
-  - climate.windfangheizung
-  - binary_sensor.windfangtuer_state
+  - climate.meq0182100
+  - binary_sensor.leq1177637_state

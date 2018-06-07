@@ -5,4 +5,4 @@ state: 'offline'
 skip_first: True
 repeat: 5
 notifiers:
- -slack
+ - slack

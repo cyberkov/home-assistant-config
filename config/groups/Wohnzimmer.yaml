@@ -1,10 +1,10 @@
 entities:
-  - binary_sensor.wohnzimmertuer_state
-  - climate.wohnzimmerheizung
+  - binary_sensor.meq0186561_state
+  - climate.meq0182042
   - light.fernsehlampe
   - media_player.kodi_wohnzimmer
   - media_player.wohnzimmer
+  - sensor.leq0868616_humidity
+  - sensor.leq0868616_temperature
   - sensor.mold_wohnzimmer
-  - sensor.wohnzimmertemperatur_humidity
-  - sensor.wohnzimmertemperatur_temperature
   - switch.wohnzimmer_tv

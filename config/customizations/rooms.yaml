@@ -1,89 +1,150 @@
 ### OG ###
 # Bad
-sensor.badtemperatur_humidity:
-  icon: mdi:water-percent
+sensor.leq0122248_humidity:
+  #icon: mdi:water-percent
   friendly_name: Bad Luftfeuchte
-sensor.badtemperatur_temperature:
-  icon: mdi:thermometer
+sensor.leq0122248_temperature:
+  #icon: mdi:thermometer
   friendly_name: Bad Temperatur
+climate.meq0233504:
+  friendly_name: Bad Heizung
 # Barbara
+binary_sensor.meq0186563_state:
+  friendly_name: Barbara Fenster
+climate.meq0182655:
+  friendly_name: Barbara Heizung
 
 # Dominik
+binary_sensor.meq0186607_state:
+  friendly_name: Dominik Fenster
+climate.meq0182136:
+  friendly_name: Dominik Heizung
 
 # Gang
-binary_sensor.vorzimmerogbewegungsmelder_motion:
+climate.meq0182081:
+  friendly_name: VorzimmerOG Heizung
+binary_sensor.meq0537083_motion:
   friendly_name: OG Bewegungsmelder
-
-binary_sensor.vorzimmerogbewegungsmelder_brightness:
+sensor.meq0537083_brightness:
   friendly_name: OG Helligkeit
-  icon: mdi:brightness-6
+  #icon: mdi:brightness-6
+binary_sensor.meq0186720_state:
+  friendly_name: OG Fenster
 
 # Schlafzimmer
-sensor.schlafzimmertemperatur_humidity:
-  icon: mdi:water-percent
+sensor.leq0868021_humidity:
+  #icon: mdi:water-percent
   friendly_name: Schlafzimmer Luftfeuchte
-sensor.schlafzimmertemperatur_temperature:
-  icon: mdi:thermometer
+sensor.leq0868021_temperature:
+  #icon: mdi:thermometer
   friendly_name: Schlafzimmer Temperatur
+binary_sensor.meq0172089_state:
+  friendly_name: 'Schlafzimmer Tür links'
+binary_sensor.meq0186709_state:
+  friendly_name: 'Schlafzimmer Tür rechts'
+climate.meq0182106:
+  friendly_name: 'Schlafzimmer Heizung links'
+climate.meq0182137:
+  friendly_name: 'Schlafzimmer Heizung rechts'
+
 
 ### EG ###
 # Esszimmer
-binary_sensor.esszimmerbewegungsmelder_motion:
+binary_sensor.lab0091601_motion:
   friendly_name: Esszimmer Bewegungsmelder
-binary_sensor.esszimmerbewegungsmelder_brightness:
+sensor.lab0091601_brightness:
   friendly_name: Esszimmer Helligkeit
-  icon: mdi:brightness-6
+  #icon: mdi:brightness-6
+climate.meq0182064:
+  friendly_name: Esszimmer Heizung
 
 # Kueche
-sensor.kuechetemperatur_humidity:
-  icon: mdi:water-percent
+sensor.leq0867920_humidity:
+  #icon: mdi:water-percent
   friendly_name: 'Küche Luftfeuchte'
-sensor.kuechetemperatur_temperature:
-  icon: mdi:thermometer
+sensor.leq0867920_temperature:
+  #icon: mdi:thermometer
   friendly_name: 'Küche Temperatur'
-
-switch.geschirrspler:
+switch.leq0531373:
   icon: mdi:silverware-variant
   friendly_name: 'Geschirrspüler'
+binary_sensor.meq0186642_state:
+  friendly_name: 'Küche Fenster'
+climate.meq0182095:
+  friendly_name: 'Küche Heizung'
 
 # Vorzimmer
+climate.meq0182105:
+  friendly_name: 'Vorzimmer Heizung'
 
 # Windfang
+climate.meq0182100:
+  friendly_name: 'Windfang Heizung'
+binary_sensor.leq1177637_state:
+  friendly_name: 'Windfang Tür'
 
 # Wohnzimmer
-sensor.wohnzimmertemperatur_humidity:
-  icon: mdi:water-percent
+sensor.leq0868616_humidity:
+  #icon: mdi:water-percent
   friendly_name: Wohnzimmer Luftfeuchte
-sensor.wohnzimmertemperatur_temperature:
-  icon: mdi:thermometer
+sensor.leq0868616_temperature:
+  #icon: mdi:thermometer
   friendly_name: Wohnzimmer Temperatur
+binary_sensor.meq0186561_state:
+  friendly_name: 'Wohnzimmer Tür'
+climate.meq0182042:
+  friendly_name: Wohnzimmer Heizung
 
 ### UG ###
 # Hannes
-binary_sensor.hannesbewegungsmelder_motion:
+binary_sensor.meq0537387_motion:
   friendly_name: Hannes Bewegungsmelder
-binary_sensor.hannesbewegungsmelder_brightness:
+sensor.meq0537387_brightness:
   friendly_name: Hannes Helligkeit
-  icon: mdi:brightness-6
+  #icon: mdi:brightness-6
+binary_sensor.leq1085620_state:
+  friendly_name: 'Hannes Tür'
+binary_sensor.meq0186623_state:
+  friendly_name: 'Hannes Fenster'
 light.it_stecker_3:
   friendly_name: Lavalampe
+binary_sensor.meq0186547_state:
+  friendly_name: SpareSCO
+climate.meq0182097:
+  friendly_name: Hannes Heizung
+switch.meq0325581:
+  friendly_name: Hannes Deckenlicht
+  icon: mdi:ceiling-light
 
 # Sauna
-sensor.sauna_temperatur_humidity:
-  icon: mdi:water-percent
+sensor.leq0868600_humidity:
+  #icon: mdi:water-percent
   friendly_name: Sauna Luftfeuchte
-sensor.sauna_temperatur_temperature:
-  icon: mdi:thermometer
+sensor.leq0868600_temperature:
+  #icon: mdi:thermometer
   friendly_name: Sauna Temperatur
-switch.luftentfeuchter:
+switch.leq0531146:
   icon: mdi:air-conditioner
+  friendly_name: Luftentfeuchter
+climate.leq0584727:
+  friendly_name: Sauna Heizung
 
 # Wirtschaftsraum
-sensor.gas_power:
-  icon: mdi:counter
+sensor.meq0705863_gas_power:
+  #icon: mdi:counter
   friendly_name: 'Gas akt. Verbrauch'
-sensor.strom_power:
+sensor.meq0705859_power:
   icon: mdi:car-battery
   friendly_name: 'Strom akt. Verbrauch'
-switch.waschmaschine:
+switch.leq0574052:
   icon: mdi:stove
+  friendly_name: 'Waschmaschine'
+switch.meq0712568:
+  friendly_name: 'Wirtschaftsraum Therme'
+  icon: mdi:fire
+
+# Garten
+sensor.leq0798807_humidity:
+  friendly_name: Garten Luftfeuchte
+sensor.leq0798807_temperature:
+  friendly_name: Garten Temperatur

@@ -1,0 +1,8 @@
+---
+name: '`[ALERT]` Windfang Tür ist offen'
+entity_id: binary_sensor.leq1177637_state
+state: 'on'
+skip_first: True
+repeat: 5
+notifiers:
+ - hannes

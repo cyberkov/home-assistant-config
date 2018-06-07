@@ -40,3 +40,5 @@ google_calendars.yaml
 __pycache__
 __pycache__
 /appdaemon/compiled/
+.cloud/production_auth.json
+.config_entries.json

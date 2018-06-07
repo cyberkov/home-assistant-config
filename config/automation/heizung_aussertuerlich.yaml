@@ -23,12 +23,12 @@
   action:
     - service: climate.set_temperature
       data:
-        entity_id: climate.wohnzimmerheizung
+        entity_id: climate.meq0182042
         temperature: 21
         operation_mode: "manual"
     - service: climate.set_temperature
       data:
-        entity_id: climate.esszimmerheizung
+        entity_id: climate.meq0182064
         temperature: 21
         operation_mode: "manual"
     - service: notify.slack

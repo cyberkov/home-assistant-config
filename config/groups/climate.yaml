@@ -1,14 +1,14 @@
 entities:
-  - climate.badheizung
-  - climate.barbaraheizung
-  - climate.dominikheizung
-  - climate.esszimmerheizung
-  - climate.vorzimmerogheizung
-  - climate.hannesheizung
-  - climate.kuecheheizung
-  - climate.sauna_heizung
-  - climate.schlafzimmerheizunglinks
-  - climate.schlafzimmerheizungrechts
-  - climate.vorzimmerheizung
-  - climate.windfangheizung
-  - climate.wohnzimmerheizung
+  - climate.leq0584727
+  - climate.meq0182042
+  - climate.meq0182064
+  - climate.meq0182081
+  - climate.meq0182095
+  - climate.meq0182097
+  - climate.meq0182100
+  - climate.meq0182105
+  - climate.meq0182106
+  - climate.meq0182136
+  - climate.meq0182137
+  - climate.meq0182655
+  - climate.meq0233504

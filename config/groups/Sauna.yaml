@@ -1,17 +1,17 @@
 entities:
-  - sensor.luftentfeuchter_current
-  - sensor.luftentfeuchter_energy_counter
-  - sensor.luftentfeuchter_power
-  - sensor.luftentfeuchter_voltage
-  - sensor.luftentfeuchter_frequency
-  - switch.luftentfeuchter
-  - sensor.stats_sauna_humidity_mean
-  - climate.sauna_heizung
-  - sensor.sauna_temperatur_humidity
-  - sensor.sauna_temperatur_temperature
-  - media_player.sauna
-  - sensor.mold_sauna
-  - switch.mqtt_sauna_luftentfeuchter
-  - binary_sensor.luftentfeuchter_status
-  - sensor.luftentfeuchter_on_today
   - automation.luftentfeuchter
+  - binary_sensor.luftentfeuchter_status
+  - climate.leq0584727
+  - media_player.sauna
+  - sensor.leq0531146_current
+  - sensor.leq0531146_energy_counter
+  - sensor.leq0531146_frequency
+  - sensor.leq0531146_power
+  - sensor.leq0531146_voltage
+  - sensor.leq0868600_humidity
+  - sensor.leq0868600_temperature
+  - sensor.luftentfeuchter_on_today
+  - sensor.mold_sauna
+  - sensor.stats_sauna_humidity_mean
+  - switch.leq0531146
+  - switch.mqtt_sauna_luftentfeuchter

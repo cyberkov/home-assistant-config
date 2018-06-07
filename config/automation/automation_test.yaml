@@ -2,7 +2,7 @@
   initial_state: True
   trigger:
     - platform: state
-      entity_id: binary_sensor.hannesbewegungsmelder_motion
+      entity_id: binary_sensor.meq0537387_motion
       to: 'on'
   condition:
     - condition: state

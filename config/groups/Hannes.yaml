@@ -1,16 +1,16 @@
 entities:
-  - binary_sensor.hannesbewegungsmelder_motion
-  - binary_sensor.hannesfenster_state
-  - binary_sensor.hannestuer_state
-  - media_player.kodi_hannes
-  - sensor.hannesbewegungsmelder_brightness
-  - climate.hannesheizung
-  - switch.nas
-  - switch.pangea
-  - switch.ccu
+  - binary_sensor.leq1085620_state
+  - binary_sensor.meq0186547_state
+  - binary_sensor.meq0186623_state
+  - binary_sensor.meq0537387_motion
   - binary_sensor.sco_spare
-  - binary_sensor.sparesco_state
+  - climate.meq0182097
   - light.it_stecker_3
-  - switch.hannesdeckenlicht
   - light.p16tw_01
   - light.p16tw_02
+  - media_player.kodi_hannes
+  - sensor.meq0537387_brightness
+  - switch.ccu
+  - switch.meq0325581
+  - switch.nas
+  - switch.pangea

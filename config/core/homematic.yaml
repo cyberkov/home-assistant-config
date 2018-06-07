@@ -1,13 +1,35 @@
 ---
-hosts:
+interfaces:
   rf:
-    ip: '192.168.1.6'
-    port: 2001
-#    resolvenames: xml
-    resolvenames: json
+    host: '192.168.1.6'
+    #    resolvenames: json
     username: !secret HA_HOMEMATIC_LOGIN
     password: !secret HA_HOMEMATIC_PASSWORD
-    primary: true
-    variables: true
+    #    primary: true
+    #    variables: true
+  ip:
+    host: '192.168.1.6'
+    port: 2010
+  groups:
+    host: '192.168.1.6'
+    port: 9292
+    #    resolvenames: json
+    username: !secret HA_HOMEMATIC_LOGIN
+    password: !secret HA_HOMEMATIC_PASSWORD
+    path: '/groups'
+hosts:
+  ccu2:
+    host: '192.168.1.6'
+    username: !secret HA_HOMEMATIC_LOGIN
+    password: !secret HA_HOMEMATIC_PASSWORD
+#  rf:
+#    ip: '192.168.1.6'
+#    port: 2001
+##    resolvenames: xml
+#    resolvenames: json
+#    username: !secret HA_HOMEMATIC_LOGIN
+#    password: !secret HA_HOMEMATIC_PASSWORD
+#    primary: true
+#    variables: true
 local_ip: '192.168.1.4'
 local_port: 8943

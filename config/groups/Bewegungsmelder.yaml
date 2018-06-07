@@ -1,4 +1,4 @@
 entities:
-  - binary_sensor.esszimmerbewegungsmelder_motion
-  - binary_sensor.hannesbewegungsmelder_motion
-  - binary_sensor.vorzimmerogbewegungsmelder_motion
+  - binary_sensor.lab0091601_motion
+  - binary_sensor.meq0537083_motion
+  - binary_sensor.meq0537387_motion

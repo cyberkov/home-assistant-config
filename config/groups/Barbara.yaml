@@ -1,4 +1,4 @@
 entities:
-  - binary_sensor.barbarafenster_state
-  - climate.barbaraheizung
+  - binary_sensor.meq0186563_state
+  - climate.meq0182655
 

@@ -1,11 +1,11 @@
 entities:
-  - binary_sensor.schlafzimmer_links_state
-  - binary_sensor.schlafzimmer_rechts_state
-  - sensor.mold_schlafzimmer
-  - sensor.schlafzimmertemperatur_humidity
-  - sensor.schlafzimmertemperatur_temperature
-  - climate.schlafzimmerheizunglinks
-  - climate.schlafzimmerheizungrechts
-  - switch.it_2
+  - binary_sensor.meq0172089_state
+  - binary_sensor.meq0186709_state
+  - climate.meq0182106
+  - climate.meq0182137
   - light.nachtkasterl
   - media_player.schlafzimmer
+  - sensor.leq0868021_humidity
+  - sensor.leq0868021_temperature
+  - sensor.mold_schlafzimmer
+  - switch.it_2

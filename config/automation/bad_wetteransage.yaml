@@ -2,7 +2,7 @@
   initial_state: True
   trigger:
     - platform: state
-      entity_id: binary_sensor.vorzimmerogbewegungsmelder_motion
+      entity_id: binary_sensor.meq0537083_motion
       to: 'on'
   condition:
     condition: and
@@ -17,7 +17,7 @@
           - thu
           - fri
       - condition: template
-        value_template: '{% if states.binary_sensor.vorzimmerogbewegungsmelder_motion.last_changed  %}{{(as_timestamp(now())-as_timestamp(states.binary_sensor.vorzimmerogbewegungsmelder_motion.last_changed)) > 15*60 }}{% else %}false{% endif %}'
+        value_template: '{% if states.binary_sensor.meq0537083_motion.last_changed  %}{{(as_timestamp(now())-as_timestamp(states.binary_sensor.meq0537083_motion.last_changed)) > 15*60 }}{% else %}false{% endif %}'
   action:
     - delay: 00:00:30
     - service: script.wetteransage
@@ -28,7 +28,7 @@
   initial_state: True
   trigger:
     - platform: state
-      entity_id: binary_sensor.vorzimmerogbewegungsmelder_motion
+      entity_id: binary_sensor.meq0537083_motion
       to: 'on'
   condition:
     condition: and
@@ -43,7 +43,7 @@
           - thu
           - fri
       - condition: template
-        value_template: '{% if states.binary_sensor.vorzimmerogbewegungsmelder_motion.last_changed  %}{{(as_timestamp(now())-as_timestamp(states.binary_sensor.vorzimmerogbewegungsmelder_motion.last_changed)) > 15*60 }}{% else %}false{% endif %}'
+        value_template: '{% if states.binary_sensor.meq0537083_motion.last_changed  %}{{(as_timestamp(now())-as_timestamp(states.binary_sensor.meq0537083_motion.last_changed)) > 15*60 }}{% else %}false{% endif %}'
   action:
     - delay: 00:01:00
     - service: script.wetteransage

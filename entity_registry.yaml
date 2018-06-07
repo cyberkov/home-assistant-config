@@ -1,0 +1,48 @@
+media_player.wohnzimmer:
+  name:
+  platform: sonos
+  unique_id: RINCON_B8E937ED63BA01400
+media_player.dominik:
+  name:
+  platform: sonos
+  unique_id: RINCON_7828CA01E9BC01400
+media_player.sauna:
+  name:
+  platform: sonos
+  unique_id: RINCON_5CAAFD40EDB401400
+media_player.kuche:
+  name:
+  platform: sonos
+  unique_id: RINCON_B8E937E7B3DE01400
+media_player.bad:
+  name:
+  platform: sonos
+  unique_id: RINCON_5CAAFD40ED4001400
+media_player.lounge:
+  name:
+  platform: sonos
+  unique_id: RINCON_949F3EFAE97401400
+light.wenzhou_tkb_control_system_tz67_wall_plug_dimmer_level:
+  name:
+  platform: zwave
+  unique_id: 3-72057594093076481
+light.badezimmerlicht:
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:02:78:3c:95-0b
+light.nachtkasterl:
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:02:78:2c:00-0b
+light.fernsehlampe:
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:02:78:2c:b8-0b
+zwave.aeotec_zw090_zstick_gen5_eu:
+  name:
+  platform: zwave
+  unique_id: node-1
+zwave.wenzhou_tkb_control_system_tz67_wall_plug_dimmer:
+  name:
+  platform: zwave
+  unique_id: node-3

@@ -5,7 +5,7 @@
       entity_id: binary_sensor.sco_spare
       to: 'on'
     - platform: state
-      entity_id: binary_sensor.sparesco_state
+      entity_id: binary_sensor.meq0186547_state
       to: 'on'
   action:
     - service: notify.slack
@@ -53,7 +53,7 @@
       from: 'on'
       to: 'off'
     - platform: state
-      entity_id: binary_sensor.sparesco_state
+      entity_id: binary_sensor.meq0186547_state
       from: 'on'
       to: 'off'
   action:

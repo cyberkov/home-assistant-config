@@ -23,11 +23,11 @@
   action:
     - service: climate.set_operation_mode
       data:
-        entity_id: climate.wohnzimmerheizung
+        entity_id: climate.meq0182042
         operation_mode: "auto"
     - service: climate.set_operation_mode
       data:
-        entity_id: climate.esszimmerheizung
+        entity_id: climate.meq0182064
         operation_mode: "auto"
     - service: notify.slack
       data_template:

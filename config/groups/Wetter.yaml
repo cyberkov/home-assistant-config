@@ -1,16 +1,17 @@
 entities:
-  - sensor.gartentemperatur_temperature
-  - sensor.gartentemperatur_humidity
-  - sensor.dark_sky_summary
-  - sensor.weather_wind_speed
-  - sun.sun
+  - sensor.dark_sky_apparent_temperature
+  - sensor.dark_sky_humidity
   - sensor.dark_sky_icon
   - sensor.dark_sky_precip
   - sensor.dark_sky_precip_intensity
   - sensor.dark_sky_precip_probability
-  - sensor.dark_sky_wind_speed
-  - sensor.dark_sky_apparent_temperature
-  - sensor.dark_sky_humidity
   - sensor.dark_sky_pressure
+  - sensor.dark_sky_summary
   - sensor.dark_sky_temperature
   - sensor.dark_sky_wind_bearing
+  - sensor.dark_sky_wind_speed
+  - sensor.leq0798807_humidity
+  - sensor.leq0798807_temperature
+  - sensor.weather_wind_speed
+  - sun.sun
+  - sensor.season

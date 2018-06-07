@@ -2,21 +2,21 @@
   initial_state: True
   trigger:
     - platform: state
-      entity_id: light.p16tw_01
+      entity_id: switch.pangea
       from: 'off'
       to: 'on'
   action:
     - service: homeassistant.turn_on
       data:
-        entity_id: switch.hannesdeckenlicht
+        entity_id: switch.meq0325581
 - alias: 'Hannes Deckenlicht aus'
   initial_state: True
   trigger:
     - platform: state
-      entity_id: light.p16tw_01
+      entity_id: switch.pangea
       from: 'on'
       to: 'off'
   action:
     - service: homeassistant.turn_off
       data:
-        entity_id: switch.hannesdeckenlicht
+        entity_id: switch.meq0325581

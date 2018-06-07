@@ -12,7 +12,7 @@
   action:
     - service: climate.set_temperature
       data:
-        entity_id: climate.barbaraheizung
+        entity_id: climate.meq0182655
         temperature: 19
         operation_mode: "manual"
 - alias: 'Gaestezimmer Heizung aus'
@@ -29,5 +29,5 @@
   action:
     - service: climate.set_operation_mode
       data:
-        entity_id: climate.barbaraheizung
+        entity_id: climate.meq0182655
         operation_mode: "auto"

@@ -1,6 +1,6 @@
 entities:
-  - binary_sensor.vorzimmerogbewegungsmelder_motion
-  - sensor.vorzimmerogbewegungsmelder_brightness
-  - binary_sensor.vorzimmerogfenster_state
-  - climate.vorzimmerogheizung
+  - binary_sensor.meq0186720_state
+  - binary_sensor.meq0537083_motion
+  - climate.meq0182081
+  - sensor.meq0537083_brightness
 

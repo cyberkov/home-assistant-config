@@ -1,6 +1,6 @@
 entities:
   - binary_sensor.wallpanel_status
-  - climate.vorzimmerheizung
+  - climate.meq0182105
   - device_tracker.petsi
   - sensor.petsi_battery
   - sensor.petsi_capacity

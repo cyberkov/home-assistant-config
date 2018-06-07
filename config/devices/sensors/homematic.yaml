@@ -76,12 +76,12 @@
 - platform: template
   sensors:
     waschmaschine_status:
-      entity_id: sensor.waschmaschine_power
+      entity_id: sensor.leq0574052_power
       friendly_name: Waschmaschine
       value_template: >
-        {%- if states.sensor.waschmaschine_power.state|float > 5 -%}
+        {%- if states.sensor.leq0574052_power.state|float > 5 -%}
         Aktiv
-        {%- elif states.sensor.waschmaschine_power.state|float >= 1 -%}
+        {%- elif states.sensor.leq0574052_power.state|float >= 1 -%}
         Standby
         {%- else -%}
         Aus

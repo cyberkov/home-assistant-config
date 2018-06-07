@@ -1,14 +1,13 @@
 entities:
-  - sensor.geschirrspuler_current
-  - sensor.geschirrspuler_energy_counter
-  - sensor.geschirrspuler_power
-  - sensor.geschirrspuler_voltage
-  - sensor.geschirrspuler_frequency
-  - switch.geschirrspuler
-  - binary_sensor.kuechefenster_state
-  - climate.kuecheheizung
-  - sensor.kuechetemperatur_humidity
-  - sensor.kuechetemperatur_temperature
+  - binary_sensor.meq0186642_state
+  - climate.meq0182095
   - media_player.kuche
+  - sensor.leq0531373_current
+  - sensor.leq0531373_energy_counter
+  - sensor.leq0531373_frequency
+  - sensor.leq0531373_power
+  - sensor.leq0531373_voltage
+  - sensor.leq0867920_humidity
+  - sensor.leq0867920_temperature
   - sensor.mold_kueche
-
+  - switch.leq0531373

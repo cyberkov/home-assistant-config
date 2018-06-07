@@ -1,11 +1,11 @@
 entities:
-  - binary_sensor.barbarafenster_state
-  - binary_sensor.dominikfenster_state
-  - binary_sensor.hannesfenster_state
-  - binary_sensor.hannestuer_state
-  - binary_sensor.kuechefenster_state
-  - binary_sensor.schlafzimmer_links_state
-  - binary_sensor.schlafzimmer_rechts_state
-  - binary_sensor.vorzimmerogfenster_state
-  - binary_sensor.windfangtuer_state
-  - binary_sensor.wohnzimmertuer_state
+  - binary_sensor.leq1085620_state
+  - binary_sensor.leq1177637_state
+  - binary_sensor.meq0172089_state
+  - binary_sensor.meq0186561_state
+  - binary_sensor.meq0186563_state
+  - binary_sensor.meq0186607_state
+  - binary_sensor.meq0186623_state
+  - binary_sensor.meq0186642_state
+  - binary_sensor.meq0186709_state
+  - binary_sensor.meq0186720_state

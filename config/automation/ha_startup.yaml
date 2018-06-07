@@ -5,9 +5,6 @@
     - platform: homeassistant
       event: start
   action:
-    - service: homeassistant.turn_on
-      data:
-        entity_id: switch.it_stecker_1
     - service: notify.slack
       data_template:
         message: >

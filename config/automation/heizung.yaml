@@ -1,4 +1,5 @@
-- alias: 'Heizungssteuerung'
+#FIXME: Heizungen wurden umbenannt
+- alias: 'Heizungssteuerung FIXME'
   initial_state: True
   trigger:
     - platform: numeric_state
@@ -6,7 +7,7 @@
       value_template: '{{ state.attributes.valve }}'
       above: 15
     - platform: numeric_state
-      entity_id: climate.barbaraheizung
+      entity_id: climate.meq0182655
       value_template: '{{ state.attributes.valve }}'
       above: 15
     - platform: numeric_state

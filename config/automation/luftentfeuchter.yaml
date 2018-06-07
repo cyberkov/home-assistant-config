@@ -2,7 +2,7 @@
   initial_state: True
   trigger:
     - platform: numeric_state
-      entity_id: sensor.sauna_temperatur_humidity
+      entity_id: sensor.leq0868600_humidity
       above: 62
       below: 57
     - platform: numeric_state
@@ -11,8 +11,8 @@
       below: 70
     - platform: template
       value_template: >
-        {% if states.sensor.sauna_temperatur_humidity.state|float <= 57
-        or states.sensor.sauna_temperatur_humidity.state|float >= 62
+        {% if states.sensor.leq0868600_humidity.state|float <= 57
+        or states.sensor.leq0868600_humidity.state|float >= 62
         or states.sensor.mold_sauna.state|float <= 70
         or states.sensor.mold_sauna.state|float >= 80
          %}true{% endif %}
@@ -25,9 +25,9 @@
         {% set low_hum = 57  -%}
         {% set high_mold = 80 -%}
         {% set low_mold = 70 -%}
-        {% if states.sensor.sauna_temperatur_humidity.state|float <= low_hum -%}
+        {% if states.sensor.leq0868600_humidity.state|float <= low_hum -%}
         switch.turn_off
-        {% elif states.sensor.sauna_temperatur_humidity.state|float >= high_hum -%}
+        {% elif states.sensor.leq0868600_humidity.state|float >= high_hum -%}
         switch.turn_on
         {% endif -%}
-      entity_id: switch.luftentfeuchter
+      entity_id: switch.leq0531146

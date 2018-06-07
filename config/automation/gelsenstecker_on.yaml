@@ -2,10 +2,10 @@
   initial_state: True
   trigger:
     - platform: state
-      entity_id: binary_sensor.schlafzimmer_links_state
+      entity_id: binary_sensor.meq0172089_state
       to: 'on'
     - platform: state
-      entity_id: binary_sensor.schlafzimmer_rechts_state
+      entity_id: binary_sensor.meq0186709_state
       to: 'on'
     - platform: sun
       event: sunset
@@ -14,15 +14,15 @@
     condition: and
     conditions:
       - condition: numeric_state
-        entity_id: sensor.gartentemperatur_temperature
+        entity_id: sensor.leq0798807_temperature
         above: 16
       - condition: or
         conditions:
           - condition: state
-            entity_id: binary_sensor.schlafzimmer_links_state
+            entity_id: binary_sensor.meq0172089_state
             state: 'on'
           - condition: state
-            entity_id: binary_sensor.schlafzimmer_rechts_state
+            entity_id: binary_sensor.meq0186709_state
             state: 'on'
   action:
     - service: switch.turn_on
@@ -45,20 +45,20 @@
   initial_state: True
   trigger:
     - platform: state
-      entity_id: binary_sensor.schlafzimmer_links_state
+      entity_id: binary_sensor.meq0172089_state
       to: 'off'
     - platform: state
-      entity_id: binary_sensor.schlafzimmer_rechts_state
+      entity_id: binary_sensor.meq0186709_state
       to: 'off'
   condition:
     - condition: state
       entity_id: switch.it_2
       state: "on"
     - condition: state
-      entity_id: binary_sensor.schlafzimmer_links_state
+      entity_id: binary_sensor.meq0172089_state
       state: 'off'
     - condition: state
-      entity_id: binary_sensor.schlafzimmer_rechts_state
+      entity_id: binary_sensor.meq0186709_state
       state: 'off'
   action:
     - service: switch.turn_off
