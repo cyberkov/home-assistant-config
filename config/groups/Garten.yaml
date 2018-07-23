@@ -3,4 +3,5 @@ view: yes
 entities:
   - group.wetter
   - group.vorhersage
+  - group.auto
   - group.misc

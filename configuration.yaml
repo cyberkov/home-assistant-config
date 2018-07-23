@@ -28,6 +28,15 @@ tts:
   - platform: google
     language: 'de'
 homematic: !include config/core/homematic.yaml
+nissan_leaf:
+  username: !secret LEAF_USER
+  password: !secret LEAF_PASSWORD
+  nissan_connect: false
+  region: 'NE'
+  update_interval: 30
+  update_interval_charging: 15
+  update_interval_climate: 5
+  force_miles: false
 
 #input_select: !include input_select.yaml
 #weblink: !include weblink.yaml

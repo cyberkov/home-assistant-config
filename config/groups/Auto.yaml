@@ -1,0 +1,8 @@
+---
+entities:
+  - binary_sensor.leaf1wirc_plug_status
+  - sensor.leaf1wirc_charge
+  - sensor.leaf1wirc_range
+  - sensor.leaf1wirc_range_ac
+  - switch.leaf1wirc_charging_status
+  - switch.leaf1wirc_climate_control
