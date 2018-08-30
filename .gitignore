@@ -42,3 +42,4 @@ __pycache__
 /appdaemon/compiled/
 .cloud/production_auth.json
 .config_entries.json
+.storage

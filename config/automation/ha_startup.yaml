@@ -8,7 +8,7 @@
     - service: notify.slack
       data_template:
         message: >
-          Home Assistant starting up.
+          Home Assistant {{ states("sensor.current_version") }} starting up.
 - alias: 'HA Shutdown'
   initial_state: True
   trigger:
@@ -18,4 +18,4 @@
     - service: notify.slack
       data_template:
         message: >
-          Home Assistant going down.
+          Home Assistant {{ states("sensor.current_version") }} going down.

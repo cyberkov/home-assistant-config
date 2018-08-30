@@ -1,5 +1,5 @@
 homeassistant: !include config/core/homeassistant.yaml
-influxdb: !include config/core/influxdb.yaml
+#influxdb: !include config/core/influxdb.yaml
 prometheus:
 
 conversation:
