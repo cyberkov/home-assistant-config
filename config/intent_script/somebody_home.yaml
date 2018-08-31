@@ -4,11 +4,11 @@ hass.somebody_home:
     text: >
       {% if is_state("device_tracker.barbara", "home") or
       is_state("device_tracker.cyberkov", "home") or is_state("group.bewegungsmelder", "on") -%}
-      Ja. {% if is_state("device_tracker.barbara", "home") and 
+      Ja. {% if is_state("device_tracker.barbara", "home") and
       is_state("device_tracker.cyberkov", "home") -%}
-      Barbara und Hannes sind 
+      Barbara und Hannes sind
       {%- elif is_state("device_tracker.cyberkov", "home") -%}
-      Hannes ist 
+      Hannes ist
       {%- elif is_state("device_tracker.barbara", "home") -%}
       Barbara ist
       {%- endif %} zuhause.{%- else -%} Nein. {%- endif %}

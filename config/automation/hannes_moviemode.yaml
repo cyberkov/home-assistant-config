@@ -1,7 +1,7 @@
 - alias: 'Turn down lights when kodi plays'
   initial_state: True
   trigger:
-    - platform: state   
+    - platform: state
       entity_id: media_player.kodi_hannes
       to: 'playing'
   action:
@@ -10,7 +10,7 @@
 - alias: 'Turn on the lights back on pause'
   initial_state: True
   trigger:
-    - platform: state   
+    - platform: state
       entity_id: media_player.kodi_hannes
       from: 'playing'
       to: 'paused'
@@ -23,11 +23,11 @@
 - alias: 'Turn the lights back on film end'
   initial_state: True
   trigger:
-    - platform: state   
+    - platform: state
       entity_id: media_player.kodi_hannes
       from: 'playing'
       to: 'idle'
-    - platform: state   
+    - platform: state
       entity_id: media_player.kodi_hannes
       from: 'paused'
       to: 'idle'

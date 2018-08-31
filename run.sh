@@ -1,3 +1,4 @@
+#!/bin/bash
 /usr/bin/docker run --rm -t \
     -v /opt/ha/config:/config \
     -v /etc/localtime:/etc/localtime:ro \
