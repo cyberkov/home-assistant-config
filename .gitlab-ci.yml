@@ -1,0 +1,21 @@
+---
+stages:
+  - test
+  - deploy
+
+check-config:
+  stage: test
+  image: homeassistant/home-assistant:latest
+  before_script:
+    - cp $CI_PROJECT_DIR/secrets_redacted.yaml $CI_PROJECT_DIR/secrets.yaml
+    - mkdir -p /etc/letsencrypt/live && ln -s $CI_PROJECT_DIR/.travis /etc/letsencrypt/live/graph.cyberkov.at
+  script:
+    - cd /usr/src/app
+    - python -m homeassistant --config ${CI_PROJECT_DIR} --script check_config --info light
+
+.overcommit:
+  image: toughiq/overcommit:latest
+  before_script:
+    - overcommit -s
+  script:
+    - overcommit -r

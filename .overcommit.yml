@@ -38,8 +38,6 @@ PreCommit:
       - config/devices/binary_sensors/sabotagekontakte.yaml
   ShellCheck:
     enabled: true
-  TravisLint:
-    enabled: true
   YamlLint:
     enabled: true
 #
