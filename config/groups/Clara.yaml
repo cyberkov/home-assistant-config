@@ -1,4 +1,4 @@
 entities:
   - binary_sensor.meq0186563_state
   - climate.meq0182655
-
+  - light.hue_ambiance_spot_1

@@ -3,4 +3,5 @@ entities:
   - binary_sensor.meq0537083_motion
   - climate.meq0182081
   - sensor.meq0537083_brightness
-
+  - light.hue_ambiance_spot_1_3
+  - light.hue_ambiance_spot_2

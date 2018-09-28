@@ -1,4 +1,5 @@
 homeassistant: !include config/core/homeassistant.yaml
+hue: !include config/core/hue.yaml
 #influxdb: !include config/core/influxdb.yaml
 prometheus:
 

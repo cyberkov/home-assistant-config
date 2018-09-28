@@ -3,6 +3,6 @@ view: yes
 entities:
   - group.schlafzimmer
   - group.gang
-  - group.barbara
+  - group.clara
   - group.dominik
   - group.bad

@@ -1,0 +1,10 @@
+entities:
+  - light.fernsehlampe
+  - light.nachtkasterl
+  - light.hue_ambiance_spot_1_3
+  - light.badezimmerlicht
+  - light.hue_ambiance_spot_1
+  - light.hue_ambiance_spot_1_2
+  - light.it_stecker_3
+  - light.p16tw_01
+  - switch.meq0325581

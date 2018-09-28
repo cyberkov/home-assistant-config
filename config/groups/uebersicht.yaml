@@ -6,4 +6,4 @@ entities:
   - group.fenster
   - group.internet
   - group.climate
-
+  - group.licht

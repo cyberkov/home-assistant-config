@@ -1,0 +1,3 @@
+bridges:
+  - host: 192.168.1.140
+    allow_hue_groups: false
