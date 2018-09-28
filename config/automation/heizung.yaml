@@ -1,86 +1,23 @@
-#FIXME: Heizungen wurden umbenannt
-- alias: 'Heizungssteuerung FIXME'
-  initial_state: True
+---
+- alias: 'Heizungssteuerung'
+  initial_state: true
   trigger:
-    - platform: numeric_state
-      entity_id: climate.badheizung
-      value_template: '{{ state.attributes.valve }}'
-      above: 15
-    - platform: numeric_state
-      entity_id: climate.meq0182655
-      value_template: '{{ state.attributes.valve }}'
-      above: 15
-    - platform: numeric_state
-      entity_id: climate.dominikheizung
-      value_template: '{{ state.attributes.valve }}'
-      above: 15
-    - platform: numeric_state
-      entity_id: climate.esszimmerheizung
-      value_template: '{{ state.attributes.valve }}'
-      above: 15
-    - platform: numeric_state
-      entity_id: climate.hannesheizung
-      value_template: '{{ state.attributes.valve }}'
-      above: 15
-    - platform: numeric_state
-      entity_id: climate.kuecheheizung
-      value_template: '{{ state.attributes.valve }}'
-      above: 15
-    - platform: numeric_state
-      entity_id: climate.sauna_heizung
-      value_template: '{{ state.attributes.valve }}'
-      above: 15
-    - platform: numeric_state
-      entity_id: climate.schlafzimmerheizunglinks
-      value_template: '{{ state.attributes.valve }}'
-      above: 15
-    - platform: numeric_state
-      entity_id: climate.schlafzimmerheizungrechts
-      value_template: '{{ state.attributes.valve }}'
-      above: 15
-    - platform: numeric_state
-      entity_id: climate.vorzimmerheizung
-      value_template: '{{ state.attributes.valve }}'
-      above: 15
-    - platform: numeric_state
-      entity_id: climate.vorzimmerogheizung
-      value_template: '{{ state.attributes.valve }}'
-      above: 15
-    - platform: numeric_state
-      entity_id: climate.windfangheizung
-      value_template: '{{ state.attributes.valve }}'
-      above: 15
-    - platform: numeric_state
-      entity_id: climate.wohnzimmerheizung
-      value_template: '{{ state.attributes.valve }}'
-      above: 15
+    # This one triggers every time we go above 15% valve opening e.g. someone pressed the boost button
+    - platform: template
+      value_template: "{{ states.climate|rejectattr('state', 'equalto', 'unknown')|map(attribute='attributes.valve')|map('int')|sum >= 15 }}"
+      # This one mainly triggers to turn the heating off again.
     - platform: time
       minutes: '/15'
       seconds: 0
   condition:
-  - condition: state
-    entity_id: switch.heizsaison
-    state: 'on'
+    - condition: state
+      entity_id: switch.heizsaison
+      state: 'on'
   action:
-    - service_template: >
-        {%- if (states.sensor.bad_heizung_valve.state | int +
-        states.sensor.barbara_heizung_valve.state | int +
-        states.sensor.dominik_heizung_valve.state | int +
-        states.sensor.esszimmer_heizung_valve.state | int +
-        states.sensor.hannes_heizung_valve.state | int +
-        states.sensor.kueche_heizung_valve.state | int +
-        states.sensor.sauna_heizung_valve.state | int +
-        states.sensor.schlafzimmer_links_heizung_valve.state | int +
-        states.sensor.schlafzimmer_rechts_heizung_valve.state | int + states.sensor.vorzimmer_heizung_valve.state | int + states.sensor.vorzimmerog_heizung_valve.state | int + states.sensor.windfang_heizung_valve.state | int + states.sensor.wohnzimmer_heizung_valve.state | int ) >= (20*3) -%}
-        switch.turn_on
-        {%- else -%}
-        switch.turn_off
-        {%- endif -%}
-      entity_id: switch.mqtt_wirtschaftsraum_therme
     - service_template: >
         {% if states.climate|rejectattr('state', 'equalto', 'unknown')|map(attribute='attributes.valve')|map('int')|sum >= 20*3 %}
           switch.turn_on
         {% else %}
           switch.turn_off
         {% endif %}
-      entity_id: switch.wirtschaftsraumtherme
+      entity_id: switch.meq071256
