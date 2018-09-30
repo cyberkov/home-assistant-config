@@ -1,4 +1,7 @@
 entities:
+  - sensor.gas_energy_counter
+  - sensor.gas_power
+  - sensor.heizbedarf
   - sensor.leq0574052_current
   - sensor.leq0574052_energy_counter
   - sensor.leq0574052_frequency
@@ -14,10 +17,8 @@ entities:
   - sensor.meq0705863_gas_power
   - sensor.meq0705863_gas_power
   - sensor.meq0705863_power
+  - sensor.strom_power
   - sensor.waschmaschine_status
   - switch.leq0574052
   - switch.meq0712568
   - switch.mqtt_wirtschaftsraum_therme
-  - sensor.gas_energy_counter
-  - sensor.gas_power
-  - sensor.strom_power

@@ -1,6 +1,6 @@
 ---
 - alias: 'Heizungssteuerung'
-  initial_state: true
+  initial_state: false
   trigger:
     # This one triggers every time we go above 15% valve opening e.g. someone pressed the boost button
     - platform: template
@@ -20,4 +20,34 @@
         {% else %}
           switch.turn_off
         {% endif %}
-      entity_id: switch.meq071256
+      entity_id: switch.meq0712568
+
+- alias: 'Heizungssteuerung on'
+  initial_state: true
+  trigger:
+    # This one triggers every time we go above 60% valve opening e.g. someone pressed the boost button
+    - platform: numeric_state
+      entity_id: sensor.heizbedarf
+      above: 60
+  condition:
+    - condition: state
+      entity_id: switch.heizsaison
+      state: 'on'
+  action:
+    - service: switch.turn_on
+      entity_id: switch.meq0712568
+
+- alias: 'Heizungssteuerung off'
+  initial_state: true
+  trigger:
+    # This one triggers every time we go below 60% valve opening
+    - platform: numeric_state
+      entity_id: sensor.heizbedarf
+      below: 60
+  condition:
+    - condition: state
+      entity_id: switch.heizsaison
+      state: 'on'
+  action:
+    - service: switch.turn_off
+      entity_id: switch.meq0712568
