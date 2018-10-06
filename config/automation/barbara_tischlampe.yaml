@@ -1,5 +1,6 @@
-- alias: 'Lavalampe'
-  initial_state: True
+---
+- alias: 'Barbara Tischlampe'
+  initial_state: true
   trigger:
     - platform: event
       event_type: homematic.keypress
@@ -16,5 +17,4 @@
   action:
     - service: homeassistant.toggle
       data:
-        entity_id: light.it_stecker_3
-
+        entity_id: light.barbara_tischlampe

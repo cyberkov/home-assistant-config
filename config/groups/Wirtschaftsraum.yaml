@@ -2,6 +2,7 @@ entities:
   - sensor.gas_energy_counter
   - sensor.gas_power
   - sensor.heizbedarf
+  - sensor.heizung_on_today
   - sensor.leq0574052_current
   - sensor.leq0574052_energy_counter
   - sensor.leq0574052_frequency
