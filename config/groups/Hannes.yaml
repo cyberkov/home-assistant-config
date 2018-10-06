@@ -5,6 +5,7 @@ entities:
   - binary_sensor.meq0537387_motion
   - binary_sensor.sco_spare
   - climate.meq0182097
+  - light.barbara_tischlampe
   - light.it_stecker_3
   - light.p16tw_01
   - light.p16tw_02

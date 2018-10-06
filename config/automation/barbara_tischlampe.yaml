@@ -5,16 +5,26 @@
     - platform: event
       event_type: homematic.keypress
       event_data:
-        name: Hannes.Taster
+        # Hannes.Taster
+        name: MEQ0160125
         channel: 2
         param: PRESS_SHORT
-    - platform: event
-      event_type: homematic.keypress
-      event_data:
-        name: Hannes.Taster
-        channel: 2
-        param: PRESS_LONG
   action:
     - service: homeassistant.toggle
       data:
         entity_id: light.barbara_tischlampe
+- alias: 'Barbara Tischlampe press long'
+  initial_state: true
+  trigger:
+    - platform: event
+      event_type: homematic.keypress
+      event_data:
+        # Hannes.Taster
+        name: MEQ0160125
+        channel: 2
+        param: PRESS_LONG
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.barbara_tischlampe
+        brightness_pct: 100
