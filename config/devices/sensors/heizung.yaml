@@ -4,4 +4,5 @@
     heizbedarf:
       friendly_name: 'Heizbedarf'
       unit_of_measurement: '%'
+      entity_id: sensor.time
       value_template: "{{ states.climate|rejectattr('state', 'equalto', 'unknown')|map(attribute='attributes.valve')|map('int')|sum }}"
