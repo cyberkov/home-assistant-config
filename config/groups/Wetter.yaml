@@ -12,6 +12,5 @@ entities:
   - sensor.dark_sky_wind_speed
   - sensor.leq0798807_humidity
   - sensor.leq0798807_temperature
-  - sensor.weather_wind_speed
   - sun.sun
   - sensor.season

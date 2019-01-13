@@ -3,7 +3,6 @@ entities:
   - binary_sensor.meq0186547_state
   - binary_sensor.meq0186623_state
   - binary_sensor.meq0537387_motion
-  - binary_sensor.sco_spare
   - climate.meq0182097
   - light.barbara_tischlampe
   - light.it_stecker_3
@@ -11,7 +10,5 @@ entities:
   - light.p16tw_02
   - media_player.kodi_hannes
   - sensor.meq0537387_brightness
-  - switch.ccu
   - switch.meq0325581
-  - switch.nas
   - switch.pangea

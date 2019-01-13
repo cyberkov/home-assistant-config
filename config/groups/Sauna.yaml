@@ -1,3 +1,4 @@
+---
 entities:
   - automation.luftentfeuchter
   - binary_sensor.luftentfeuchter_status
@@ -14,4 +15,3 @@ entities:
   - sensor.mold_sauna
   - sensor.stats_sauna_humidity_mean
   - switch.leq0531146
-  - switch.mqtt_sauna_luftentfeuchter

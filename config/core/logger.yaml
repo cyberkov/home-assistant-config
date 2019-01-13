@@ -1,4 +1,6 @@
-default: info
+---
+#default: info
+default: debug
 logs:
   homeassistant.bootstrap: info
   homeassistant.components.device_tracker.ubus: warn

@@ -2,3 +2,15 @@
 purge_keep_days: 3
 purge_interval: 2
 db_url: !secret HA_RECORDER_DB
+exclude:
+  domains:
+    - automation
+    - weblink
+    - updater
+    - calendar
+    - group
+    - zone
+    - zwave
+  entities:
+    - sun.sun
+    - sensor.date
