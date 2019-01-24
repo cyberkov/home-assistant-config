@@ -6,7 +6,7 @@
     - platform: template
       value_template: "{{ states.climate|rejectattr('state', 'equalto', 'unknown')|map(attribute='attributes.valve')|map('int')|sum >= 15 }}"
       # This one mainly triggers to turn the heating off again.
-    - platform: time
+    - platform: time_pattern
       minutes: '/15'
       seconds: 0
   condition:

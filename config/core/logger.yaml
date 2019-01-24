@@ -6,6 +6,7 @@ logs:
   homeassistant.components.device_tracker.ubus: warn
   homeassistant.components.device_tracker.nmap_tracker: warn
   homeassistant.components.homematic: info
+  homeassistant.components.lightify: warn
   homeassistant.components.http: warn
   homeassistant.components.influxdb: fatal
   homeassistant.components.media_player: warn

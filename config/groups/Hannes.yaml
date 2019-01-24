@@ -1,3 +1,4 @@
+---
 entities:
   - binary_sensor.leq1085620_state
   - binary_sensor.meq0186547_state
@@ -12,3 +13,4 @@ entities:
   - sensor.meq0537387_brightness
   - switch.meq0325581
   - switch.pangea
+  - media_player.buro

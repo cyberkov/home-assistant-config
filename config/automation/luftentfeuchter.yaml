@@ -16,7 +16,7 @@
         or states.sensor.mold_sauna.state|float <= 70
         or states.sensor.mold_sauna.state|float >= 80
          %}true{% endif %}
-    - platform: time
+    - platform: time_pattern
       minutes: '/15'
       seconds: 0
   action:
