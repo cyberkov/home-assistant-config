@@ -1,14 +1,14 @@
-- alias: 'Homematic Switches died'
+- alias: "Homematic Switches died"
   initial_state: True
   trigger:
     - platform: state
       entity_id: switch.meq0712568
-      to: 'unavailable'
+      to: "unavailable"
       for:
         minutes: 5
     - platform: state
       entity_id: switch.leq0531146
-      to: 'unavailable'
+      to: "unavailable"
       for:
         minutes: 5
   action:

@@ -2,22 +2,22 @@
   automatic_add: false
   devices:
     0b11000000f2707601010f60:
-      name: 'IT 1'
+      name: "IT 1"
     0b11000300f2707602010f50:
-      name: 'IT 2'
-#    0b11000800f2707603010f50:
-#      name: 'IT 3'
+      name: "IT 2"
+    #    0b11000800f2707603010f50:
+    #      name: 'IT 3'
     0b11000c0001048802010f60:
-      name: 'HE 1'
+      name: "HE 1"
     0b11001b0001048803010f60:
-      name: 'HE 2'
+      name: "HE 2"
     0b11001d0001048804000060:
-      name: 'HE 3'
+      name: "HE 3"
     0b11001f0001048805000060:
-      name: 'HE 4'
+      name: "HE 4"
     0b11000000f2704201510f60:
-      name: 'IT Stecker 1'
+      name: "IT Stecker 1"
       fire_event: True
     0b11000300f2704202510f50:
-      name: 'IT Stecker 2'
+      name: "IT Stecker 2"
       fire_event: True

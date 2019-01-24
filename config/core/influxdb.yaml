@@ -1,5 +1,5 @@
 ---
 host: 127.0.0.1
 database: homeassistant
-port: '8086'
-default_measurement: 'hass.state'
+port: "8086"
+default_measurement: "hass.state"

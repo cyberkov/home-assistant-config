@@ -4,6 +4,6 @@
     wohnzimmer_tv:
       command_on: "ssh osmc@192.168.1.11 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -i /config/homeassistant_id_rsa 'echo on 0 | /usr/osmc/bin/cec-client -s -d 1'"
       command_off: "ssh osmc@192.168.1.11 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -i /config/homeassistant_id_rsa 'echo standby 0 | /usr/osmc/bin/cec-client -s -d 1'"
-      command_state: "tvstatus() { local RESULTS; RESULTS=$(ssh osmc@192.168.1.11 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -i /config/homeassistant_id_rsa \"echo pow 0 | /usr/osmc/bin/cec-client -s -d 1 | grep -q 'power status: on'\"); echo $?; }; tvstatus"
+      command_state: 'tvstatus() { local RESULTS; RESULTS=$(ssh osmc@192.168.1.11 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -i /config/homeassistant_id_rsa "echo pow 0 | /usr/osmc/bin/cec-client -s -d 1 | grep -q ''power status: on''"); echo $?; }; tvstatus'
       value_template: '{{ value == "0" }}'
       friendly_name: TV Wohnzimmer

@@ -13,7 +13,7 @@
 - platform: slack
   name: slack
   api_key: !secret HA_SLACK_APIKEY
-  default_channel: '#haus'
+  default_channel: "#haus"
 - name: browser
   platform: html5
   gcm_api_key: !secret HA_GCM_API_KEY

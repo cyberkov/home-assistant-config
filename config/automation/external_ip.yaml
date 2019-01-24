@@ -1,13 +1,13 @@
 - alias: "IP Address changed"
   initial_state: True
   trigger:
-   - platform: state
-     entity_id: sensor.hauscyberkovat
+    - platform: state
+      entity_id: sensor.hauscyberkovat
   condition:
-   - condition: template
-     value_template: '{% if states.automation.ha_startup.attributes.last_triggered  %} {{(as_timestamp(now())-as_timestamp(states.automation.ha_startup.attributes.last_triggered)) > 5*60 }}  {% else %}false{% endif %}'
-   - condition: template
-     value_template: '{{ states.sensor.hauscyberkovat.state != "unknown" }}'
+    - condition: template
+      value_template: "{% if states.automation.ha_startup.attributes.last_triggered  %} {{(as_timestamp(now())-as_timestamp(states.automation.ha_startup.attributes.last_triggered)) > 5*60 }}  {% else %}false{% endif %}"
+    - condition: template
+      value_template: '{{ states.sensor.hauscyberkovat.state != "unknown" }}'
   action:
     - service: notify.slack
       data_template:

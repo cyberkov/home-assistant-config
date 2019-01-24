@@ -7,4 +7,3 @@ entities:
   - sensor.status_smart_sda
   - sensor.status_smart_sdb
   - sensor.status_volume_1
-

@@ -5,42 +5,42 @@
   payload_on: "SABOTAGE"
   payload_off: "NO_ERROR"
   device_class: opening
-  value_template: '{{ value_json.hm_enum }}'
+  value_template: "{{ value_json.hm_enum }}"
 - platform: mqtt
   state_topic: hm/status/Dominik.Fenster/ERROR
   name: Dominik Fenster Sabotage
   payload_on: "SABOTAGE"
   payload_off: "NO_ERROR"
   device_class: opening
-  value_template: '{{ value_json.hm_enum }}'
+  value_template: "{{ value_json.hm_enum }}"
 - platform: mqtt
   state_topic: "hm/status/Schlafzimmer links/ERROR"
   name: Schlafzimmer links Sabotage
   payload_on: "SABOTAGE"
   payload_off: "NO_ERROR"
   device_class: opening
-  value_template: '{{ value_json.hm_enum }}'
+  value_template: "{{ value_json.hm_enum }}"
 - platform: mqtt
   state_topic: "hm/status/Schlafzimmer rechts/ERROR"
   name: Schlafzimmer rechts Sabotage
   payload_on: "SABOTAGE"
   payload_off: "NO_ERROR"
   device_class: opening
-  value_template: '{{ value_json.hm_enum }}'
+  value_template: "{{ value_json.hm_enum }}"
 - platform: mqtt
   state_topic: hm/status/VorzimmerOG.Bewegungsmelder/ERROR
   name: OG Bewegungsmelder Sabotage
   payload_on: "SABOTAGE"
   payload_off: "NO_ERROR"
   device_class: opening
-  value_template: '{{ value_json.hm_enum }}'
+  value_template: "{{ value_json.hm_enum }}"
 - platform: mqtt
   state_topic: hm/status/VorzimmerOG.Fenster/ERROR
   name: OG Fenster Sabotage
   payload_on: "SABOTAGE"
   payload_off: "NO_ERROR"
   device_class: opening
-  value_template: '{{ value_json.hm_enum }}'
+  value_template: "{{ value_json.hm_enum }}"
 # EG
 - platform: mqtt
   state_topic: hm/status/Esszimmer.Bewegungsmelder/ERROR
@@ -48,28 +48,28 @@
   payload_on: "SABOTAGE"
   payload_off: "NO_ERROR"
   device_class: opening
-  value_template: '{{ value_json.hm_enum }}'
+  value_template: "{{ value_json.hm_enum }}"
 - platform: mqtt
   state_topic: hm/status/Kueche.Fenster/ERROR
   name: kueche_fenster_sabotage
   payload_on: "SABOTAGE"
   payload_off: "NO_ERROR"
   device_class: opening
-  value_template: '{{ value_json.hm_enum }}'
+  value_template: "{{ value_json.hm_enum }}"
 - platform: mqtt
   state_topic: hm/status/Windfang.Tuer/ERROR
   name: windfang_tuer_sabotage
   payload_on: "SABOTAGE"
   payload_off: "NO_ERROR"
   device_class: opening
-  value_template: '{{ value_json.hm_enum }}'
+  value_template: "{{ value_json.hm_enum }}"
 - platform: mqtt
   state_topic: hm/status/Wohnzimmer.Tuer/ERROR
   name: wohnzimmer_tuer_sabotage
   payload_on: "SABOTAGE"
   payload_off: "NO_ERROR"
   device_class: opening
-  value_template: '{{ value_json.hm_enum }}'
+  value_template: "{{ value_json.hm_enum }}"
 # UG
 - platform: mqtt
   state_topic: hm/status/Hannes.Fenster/ERROR
@@ -77,18 +77,18 @@
   payload_on: "SABOTAGE"
   payload_off: "NO_ERROR"
   device_class: opening
-  value_template: '{{ value_json.hm_enum }}'
+  value_template: "{{ value_json.hm_enum }}"
 - platform: mqtt
   state_topic: hm/status/Hannes.Tuer/ERROR
   name: Hannes Tuer Sabotage
   payload_on: "SABOTAGE"
   payload_off: "NO_ERROR"
   device_class: opening
-  value_template: '{{ value_json.hm_enum }}'
+  value_template: "{{ value_json.hm_enum }}"
 - platform: mqtt
   state_topic: hm/status/Hannes.Bewegungsmelder/ERROR
   name: Hannes Bewegungsmelder Sabotage
   payload_on: "SABOTAGE"
   payload_off: "NO_ERROR"
   device_class: opening
-  value_template: '{{ value_json.hm_enum }}'
+  value_template: "{{ value_json.hm_enum }}"

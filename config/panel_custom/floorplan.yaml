@@ -12,33 +12,33 @@
     groups:
       - name: Binary sensors
         entities:
-           - binary_sensor.kuechefenster_state
-           - binary_sensor.windfangtuer_state
-           - binary_sensor.wohnzimmertuer_state
-           - binary_sensor.esszimmerbewegungsmelder_motion
+          - binary_sensor.kuechefenster_state
+          - binary_sensor.windfangtuer_state
+          - binary_sensor.wohnzimmertuer_state
+          - binary_sensor.esszimmerbewegungsmelder_motion
         groups:
           - group.bewegungsmelder
           - group.fenster
         states:
-          - state: 'off'
-            class: 'info-background'
-          - state: 'on'
-            class: 'warning-background'
+          - state: "off"
+            class: "info-background"
+          - state: "on"
+            class: "warning-background"
         state_transitions:
           - name: On to off
-            from_state: 'on'
-            to_state: 'off'
+            from_state: "on"
+            to_state: "off"
             duration: 10
       - name: Alarm Panel
         entities:
-           - alarm_control_panel.house
+          - alarm_control_panel.house
         states:
-          - state: 'armed_away'
-            class: 'alarm-armed'
-          - state: 'armed_home'
-            class: 'alarm-armed'
-          - state: 'disarmed'
-            class: 'alarm-disarmed'
+          - state: "armed_away"
+            class: "alarm-armed"
+          - state: "armed_home"
+            class: "alarm-armed"
+          - state: "disarmed"
+            class: "alarm-disarmed"
       - name: thermostat_temp
         entities:
           - sensor.badtemperatur_temperature

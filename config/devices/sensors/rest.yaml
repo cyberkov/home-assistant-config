@@ -5,4 +5,3 @@
 - platform: dnsip
   hostname: haus.cyberkov.at
   resolver: 8.8.8.8
-

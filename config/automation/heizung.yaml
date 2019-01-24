@@ -1,5 +1,5 @@
 ---
-- alias: 'Heizungssteuerung'
+- alias: "Heizungssteuerung"
   initial_state: false
   trigger:
     # This one triggers every time we go above 15% valve opening e.g. someone pressed the boost button
@@ -7,12 +7,12 @@
       value_template: "{{ states.climate|rejectattr('state', 'equalto', 'unknown')|map(attribute='attributes.valve')|map('int')|sum >= 15 }}"
       # This one mainly triggers to turn the heating off again.
     - platform: time_pattern
-      minutes: '/15'
+      minutes: "/15"
       seconds: 0
   condition:
     - condition: state
       entity_id: switch.heizsaison
-      state: 'on'
+      state: "on"
   action:
     - service_template: >
         {% if states.climate|rejectattr('state', 'equalto', 'unknown')|map(attribute='attributes.valve')|map('int')|sum >= 20*3 %}
@@ -22,7 +22,7 @@
         {% endif %}
       entity_id: switch.meq0712568
 
-- alias: 'Heizungssteuerung on'
+- alias: "Heizungssteuerung on"
   initial_state: true
   trigger:
     # This one triggers every time we go above 60% valve opening e.g. someone pressed the boost button
@@ -32,12 +32,12 @@
   condition:
     - condition: state
       entity_id: switch.heizsaison
-      state: 'on'
+      state: "on"
   action:
     - service: switch.turn_on
       entity_id: switch.meq0712568
 
-- alias: 'Heizungssteuerung off'
+- alias: "Heizungssteuerung off"
   initial_state: true
   trigger:
     # This one triggers every time we go below 60% valve opening
@@ -47,7 +47,7 @@
   condition:
     - condition: state
       entity_id: switch.heizsaison
-      state: 'on'
+      state: "on"
   action:
     - service: switch.turn_off
       entity_id: switch.meq0712568

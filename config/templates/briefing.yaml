@@ -1,319 +1,319 @@
-      >
-      {# Difference between dates in hours, roughly #}
-      {% macro hour_diff(first, second) -%}
-        {{((as_timestamp(first) - as_timestamp(second))/60.0/60.0)}}
-      {%- endmacro %}
+>
+  {# Difference between dates in hours, roughly #}
+  {% macro hour_diff(first, second) -%}
+    {{((as_timestamp(first) - as_timestamp(second))/60.0/60.0)}}
+  {%- endmacro %}
 
-      {# Day of week #}
-      {% macro day_of_week(timestamp) -%}
-        {{as_timestamp(timestamp)|timestamp_custom('%A', true)|lower}}
-      {%- endmacro %}
+  {# Day of week #}
+  {% macro day_of_week(timestamp) -%}
+    {{as_timestamp(timestamp)|timestamp_custom('%A', true)|lower}}
+  {%- endmacro %}
 
-      {# On a weekend #}
-      {% macro on_weekend(timestamp) -%}
-        {%- if
-          day_of_week(timestamp) == 'saturday' or
-          day_of_week(timestamp) == 'sunday'
-        -%}
-          true
+  {# On a weekend #}
+  {% macro on_weekend(timestamp) -%}
+    {%- if
+      day_of_week(timestamp) == 'saturday' or
+      day_of_week(timestamp) == 'sunday'
+    -%}
+      true
+    {%- else -%}
+      false
+    {%- endif %}
+  {%- endmacro %}
+
+  {# Is today #}
+  {% macro is_today(event) -%}
+    {%- if event.attributes.start_time[:10]== (now()|string)[:10] -%}
+      true
+    {%- else -%}
+      false
+    {%- endif %}
+  {%- endmacro %}
+
+  {# Friendly time #}
+  {% macro friendly_time(timestamp) -%}
+    {{as_timestamp(timestamp)|timestamp_custom('%-I', true)}}
+    {%- if as_timestamp(timestamp)|timestamp_custom('%-M', true) != '0' -%}
+      {{ ' ' }}{{as_timestamp(timestamp)|timestamp_custom('%-M', true)}}
+    {%- endif %}
+  {%- endmacro %}
+
+  {# Hours until a given event, approximately #}
+  {% macro hours_until(event) -%}
+    {{hour_diff(event.attributes.start_time, now())|float|round}}
+  {%- endmacro %}
+
+  {# Upcoming event #}
+  {% macro upcoming_event(event) -%}
+    {%- set start = event.attributes.start_time -%}
+    {%- if start and is_today(event) == 'true' -%}
+      {{event.attributes.message}} is today at {{friendly_time(start)}}
+    {%- elif start and on_weekend(start) == 'true' and day_of_week(now()) == 'friday' and hours_until(event)|int < 72 -%}
+      {{event.attributes.message}} is on {{day_of_week(start)}} at {{friendly_time(start)}}
+    {%- endif -%}
+  {%- endmacro %}
+
+  {# Household chore #}
+  {% macro chore_sentence(event, type, sentence) -%}
+    {%- if (event and
+            event.attributes.start_time and
+            is_today(event) == 'true' and
+            event.attributes.message|lower == type) -%}
+      {{sentence}}
+    {%- endif -%}
+  {%- endmacro %}
+
+  {# Holiday sentence #}
+  {% macro holiday_sentence() -%}
+    {%- if (states.calendar.holidays_in_united_states and
+            states.calendar.holidays_in_united_states.attributes.start_time and
+            is_today(states.calendar.holidays_in_united_states) == 'true') -%}
+      It is {{states.calendar.holidays_in_united_states.attributes.message}}.
+    {%- endif -%}
+  {%- endmacro %}
+
+  {# Event sentence #}
+  {% macro event_sentence(event, prefix, suffix) -%}
+    {%- if event -%}
+      {%- set event_string = upcoming_event(event) -%}
+      {% if event_string != '' -%}
+        {{prefix}}{{event_string}}{{suffix}}{{'.'}}
+      {%- endif %}
+    {%- endif -%}
+  {%- endmacro %}
+
+  {# Evening greeting sentence #}
+  {% macro evening_greeting_sentence(person) %}
+    {% set greetings = [
+      "Welcome home " ~ person ~ ".",
+      "Hey there " ~ person ~ ".",
+      person ~ "! You're home!",
+      "Welcome back " ~ person ~ ".",
+      "Welcome home " ~ person + ". I've missed you. Or at least the cats did."
+    ] %}
+    {{greetings|random}}
+  {% endmacro %}
+
+  {# Evening closing sentence #}
+  {% macro evening_closing_sentence(person) -%}
+    {% set closings = [
+      "Have a great evening!",
+      "Enjoy your night.",
+      "Take it easy this evening.",
+      "Have fun tonight!",
+    ] %}
+    {{closings|random}}
+  {% endmacro %}
+
+  {# Morning greeting sentence #}
+  {% macro morning_greeting_sentence(person) -%}
+    {% set greetings = [
+      "Good morning " ~ person ~ "!",
+      "Hey there, " ~ person ~ ", good to see you!",
+      "Ah, you're awake " ~ person ~ ".",
+      "I see you finally got up. The bed must have been comfortable.",
+      "Morning " ~ person ~ "."
+    ] %}
+    {{greetings|random}}
+  {%- endmacro %}
+
+  {# Morning closing sentence #}
+  {% macro morning_closing_sentence(person) -%}
+    {% set closings = [
+      "Have a great day!",
+      "Enjoy your day.",
+      "Have fun today!",
+      "Crush your enemies, salt their fields, umm, I mean, take it easy!",
+      "Go get 'em!"
+    ] %}
+    {{closings|random}}
+  {%- endmacro %}
+
+  {# Weather sentence #}
+  {% macro weather_sentence() -%}
+    It is {{states.sensor.dark_sky_summary.state.lower()}} and {{states.sensor.dark_sky_temperature.state|int|round}} degrees outside.
+    {{- ' ' -}}
+    {{- states.sensor.dark_sky_hourly_summary.state-}}
+  {%- endmacro %}
+
+  {# Get person's device #}
+  {% macro get_device(person) -%}
+    {% for device in states.device_tracker -%}
+     {% if device.name == person -%}
+        {{device.entity_id}}
+      {%- endif %}
+    {%- endfor %}
+  {%- endmacro %}
+
+  {# Get person's pronoun #}
+  {%- macro get_pronoun(device_entity) -%}
+    {{device_entity.split('.')[1].split('_')[0]}}
+  {%- endmacro -%}
+
+  {# How far away is a person #}
+  {% macro minutes_away(pronoun, part_of_day, max) -%}
+    {%- if max == 0 -%}
+      unknown
+    {%- else -%}
+      {{((states("proximity." ~ pronoun ~ "_home")|int / max|int) * states("sensor." ~ pronoun ~ "_" ~ part_of_day)|int)|int}}
+    {%- endif -%}
+  {%- endmacro %}
+
+  {# Who is the other person #}
+  {% macro get_other_person(person) -%}
+   {% for device in states.device_tracker -%}
+     {% if device.name != person -%}
+        {{device.name}}
+      {%- endif %}
+    {%- endfor %}
+  {%- endmacro %}
+
+  {# On My Way sentence #}
+  {%- macro omw_sentence(person) -%}
+    {%- set device_entity = get_device(person) -%}
+    {%- set pronoun = get_pronoun(device_entity) -%}
+    {%- set max = states.sensor[pronoun ~ "_distance_mean"].attributes.max_value|int -%}
+    {%- set mins = minutes_away(pronoun, "evening", max) -%}
+    {%- if states(device_entity) == 'not_home' and mins|int > 0 -%}
+      {{person}} is on {{pronoun}} way home, about {{mins}} minutes out.
+    {%- elif states(device_entity) == 'not_home' -%}
+      {{person}} is still out and about.
+    {%- elif states(device_entity) != 'home' -%}
+      {{person}} is still at {{states(device_entity)}}.
+    {%- endif -%}
+  {%- endmacro -%}
+
+  {% macro commute_sentence(person) -%}
+    {%- set device_entity = get_device(person) -%}
+    {%- set pronoun = get_pronoun(device_entity) -%}
+    It will take you {{states.sensor[pronoun ~ "_morning_commute"].state}} minutes to get to work if you leave soon.
+    It's {{friendly_time(now())}} now.
+  {%- endmacro %}
+
+  {# Horoscope #}
+  {% macro horoscope_sentence(person) -%}
+    {%- set device_entity = get_device(person) -%}
+    {%- set pronoun = get_pronoun(device_entity) -%}
+    {{states.sensor[pronoun ~ "_horoscope"].state}}
+  {%- endmacro -%}
+
+  {# Battery sentence #}
+  {% macro battery_sentence(person) -%}
+    {%- set device_entity = get_device(person) -%}
+    {%- set pronoun = get_pronoun(device_entity) -%}
+    {%- set percent = states("sensor." ~ pronoun ~ "_phone_battery") -%}
+    {% if percent|int < 50 %}
+      Remember to plug in your phone, it's at {{percent}} percent.
+    {% endif %}
+  {%- endmacro %}
+
+  {# Deliveries #}
+  {% macro deliveries_sentence() -%}
+    {% if states.sensor.deliveries_today.state|int > 0 -%}
+      {{states.sensor.deliveries_today.state}}{{' '}}
+      {%- if states.sensor.deliveries_today.state|int == 1 -%}
+        package was
+      {%- else -%}
+        packages were
+      {%- endif -%}
+      {{' '}}delivered today.
+    {%- endif %}
+  {%- endmacro %}
+
+  {# Moon sentence #}
+  {% macro moon_sentence() -%}
+    {%- if states.sensor.moon.state == 'Full moon' -%}
+      Check out the full moon tonight!
+    {%- endif -%}
+  {%- endmacro %}
+
+  {# Quote sentence #}
+  {% macro quote_sentence() -%}
+    {% if states.sensor.quote.state != 'unknown' %}
+      A parting thought: {{states.sensor.quote.state}}
+    {% endif %}
+  {%- endmacro %}
+
+  {# Market sentence #}
+  {# `DIA` is a standin until Yahoo Finance sensor supports indexes. #}
+  {% macro market_sentence() -%}
+    The market is
+    {%- if states.sensor.dia.attributes.Change|float < 0 -%}
+      {{' down '}}
+    {%- else -%}
+      {{' up '}}
+    {%- endif -%}
+    {{(states.sensor.dia.attributes.Change|float|abs * 100)|int}} points.
+  {%- endmacro %}
+
+  {# Pollen sentence #}
+  {% macro pollen_sentence() -%}
+    {%- if states.sensor.pollen.state|float > 7.2 -%}
+      High pollen levels today.
+    {%- endif -%}
+  {%- endmacro %}
+
+  {# Cold/Flue sentence #}
+  {% macro cold_flu_sentence() -%}
+    {%- if states.sensor.cold_flu.state|float > 7.2 -%}
+      High risk for airborne sickness today. Be careful!
+    {%- endif -%}
+  {%- endmacro %}
+
+  {# Validate requested person #}
+  {% macro validate_and_brief(person) -%}
+    {% if person -%}
+      {%- set caps = person|capitalize -%}
+      {%- set device = get_device(caps) -%}
+      {%- if device -%}
+        {{briefing(caps)}}
+      {%- else -%}
+        {{caps}} doesn't live here.
+      {%- endif %}
+    {%- else -%}
+      Specify a person.
+    {%- endif %}
+  {%- endmacro %}
+
+  {# Morning briefing #}
+  {% macro morning_briefing(person) -%}
+    {{morning_greeting_sentence(person)}}
+    {{weather_sentence()}}
+    {{pollen_sentence()}}
+    {{cold_flu_sentence()}}
+    {{commute_sentence(person)}}
+    {{horoscope_sentence(person)}}
+    {{morning_closing_sentence(person)}}
+  {% endmacro %}
+
+  {# Evening briefing #}
+  {% macro evening_briefing(person) -%}
+    {%- set other_person = get_other_person(person) %}
+    {{evening_greeting_sentence(person)}}
+    {{holiday_sentence()}}
+    {{battery_sentence(person)}}
+    {{weather_sentence()}}
+    {{omw_sentence(other_person)}}
+    {{deliveries_sentence()}}
+    {{market_sentence()}}
+    {{chore_sentence(states.calendar.general, 'trash', 'Remember to take out the trash. It is trash day.')}}
+    {{chore_sentence(states.calendar.general, 'recycling', 'Remember to take out the recycling. It is recycling day.')}}
+    {#{{event_sentence(states.calendar.facebook)}}#}
+    {{event_sentence(states.calendar.sca, '', ', get prepared')}}
+    {{event_sentence(states.calendar.combat_docket_mma_calendar, 'Oh yeah, and ')}}
+    {{moon_sentence()}}
+    {{quote_sentence()}}
+    {{evening_closing_sentence(person)}}
+  {% endmacro %}
+
+  {# Output the briefing #}
+  {% macro briefing(person) -%}
+    {%- if as_timestamp(now())|timestamp_custom("%H", true)|int < 12 -%}
+      {{morning_briefing(person)}}
         {%- else -%}
-          false
-        {%- endif %}
-      {%- endmacro %}
+      {{evening_briefing(person)}}
+    {%- endif -%}
+  {% endmacro %}
 
-      {# Is today #}
-      {% macro is_today(event) -%}
-        {%- if event.attributes.start_time[:10]== (now()|string)[:10] -%}
-          true
-        {%- else -%}
-          false
-        {%- endif %}
-      {%- endmacro %}
-
-      {# Friendly time #}
-      {% macro friendly_time(timestamp) -%}
-        {{as_timestamp(timestamp)|timestamp_custom('%-I', true)}}
-        {%- if as_timestamp(timestamp)|timestamp_custom('%-M', true) != '0' -%}
-          {{ ' ' }}{{as_timestamp(timestamp)|timestamp_custom('%-M', true)}}
-        {%- endif %}
-      {%- endmacro %}
-
-      {# Hours until a given event, approximately #}
-      {% macro hours_until(event) -%}
-        {{hour_diff(event.attributes.start_time, now())|float|round}}
-      {%- endmacro %}
-
-      {# Upcoming event #}
-      {% macro upcoming_event(event) -%}
-        {%- set start = event.attributes.start_time -%}
-        {%- if start and is_today(event) == 'true' -%}
-          {{event.attributes.message}} is today at {{friendly_time(start)}}
-        {%- elif start and on_weekend(start) == 'true' and day_of_week(now()) == 'friday' and hours_until(event)|int < 72 -%}
-          {{event.attributes.message}} is on {{day_of_week(start)}} at {{friendly_time(start)}}
-        {%- endif -%}
-      {%- endmacro %}
-
-      {# Household chore #}
-      {% macro chore_sentence(event, type, sentence) -%}
-        {%- if (event and
-                event.attributes.start_time and
-                is_today(event) == 'true' and
-                event.attributes.message|lower == type) -%}
-          {{sentence}}
-        {%- endif -%}
-      {%- endmacro %}
-
-      {# Holiday sentence #}
-      {% macro holiday_sentence() -%}
-        {%- if (states.calendar.holidays_in_united_states and
-                states.calendar.holidays_in_united_states.attributes.start_time and
-                is_today(states.calendar.holidays_in_united_states) == 'true') -%}
-          It is {{states.calendar.holidays_in_united_states.attributes.message}}.
-        {%- endif -%}
-      {%- endmacro %}
-
-      {# Event sentence #}
-      {% macro event_sentence(event, prefix, suffix) -%}
-        {%- if event -%}
-          {%- set event_string = upcoming_event(event) -%}
-          {% if event_string != '' -%}
-            {{prefix}}{{event_string}}{{suffix}}{{'.'}}
-          {%- endif %}
-        {%- endif -%}
-      {%- endmacro %}
-
-      {# Evening greeting sentence #}
-      {% macro evening_greeting_sentence(person) %}
-        {% set greetings = [
-          "Welcome home " ~ person ~ ".",
-          "Hey there " ~ person ~ ".",
-          person ~ "! You're home!",
-          "Welcome back " ~ person ~ ".",
-          "Welcome home " ~ person + ". I've missed you. Or at least the cats did."
-        ] %}
-        {{greetings|random}}
-      {% endmacro %}
-
-      {# Evening closing sentence #}
-      {% macro evening_closing_sentence(person) -%}
-        {% set closings = [
-          "Have a great evening!",
-          "Enjoy your night.",
-          "Take it easy this evening.",
-          "Have fun tonight!",
-        ] %}
-        {{closings|random}}
-      {% endmacro %}
-
-      {# Morning greeting sentence #}
-      {% macro morning_greeting_sentence(person) -%}
-        {% set greetings = [
-          "Good morning " ~ person ~ "!",
-          "Hey there, " ~ person ~ ", good to see you!",
-          "Ah, you're awake " ~ person ~ ".",
-          "I see you finally got up. The bed must have been comfortable.",
-          "Morning " ~ person ~ "."
-        ] %}
-        {{greetings|random}}
-      {%- endmacro %}
-
-      {# Morning closing sentence #}
-      {% macro morning_closing_sentence(person) -%}
-        {% set closings = [
-          "Have a great day!",
-          "Enjoy your day.",
-          "Have fun today!",
-          "Crush your enemies, salt their fields, umm, I mean, take it easy!",
-          "Go get 'em!"
-        ] %}
-        {{closings|random}}
-      {%- endmacro %}
-
-      {# Weather sentence #}
-      {% macro weather_sentence() -%}
-        It is {{states.sensor.dark_sky_summary.state.lower()}} and {{states.sensor.dark_sky_temperature.state|int|round}} degrees outside.
-        {{- ' ' -}}
-        {{- states.sensor.dark_sky_hourly_summary.state-}}
-      {%- endmacro %}
-
-      {# Get person's device #}
-      {% macro get_device(person) -%}
-        {% for device in states.device_tracker -%}
-         {% if device.name == person -%}
-            {{device.entity_id}}
-          {%- endif %}
-        {%- endfor %}
-      {%- endmacro %}
-
-      {# Get person's pronoun #}
-      {%- macro get_pronoun(device_entity) -%}
-        {{device_entity.split('.')[1].split('_')[0]}}
-      {%- endmacro -%}
-
-      {# How far away is a person #}
-      {% macro minutes_away(pronoun, part_of_day, max) -%}
-        {%- if max == 0 -%}
-          unknown
-        {%- else -%}
-          {{((states("proximity." ~ pronoun ~ "_home")|int / max|int) * states("sensor." ~ pronoun ~ "_" ~ part_of_day)|int)|int}}
-        {%- endif -%}
-      {%- endmacro %}
-
-      {# Who is the other person #}
-      {% macro get_other_person(person) -%}
-       {% for device in states.device_tracker -%}
-         {% if device.name != person -%}
-            {{device.name}}
-          {%- endif %}
-        {%- endfor %}
-      {%- endmacro %}
-
-      {# On My Way sentence #}
-      {%- macro omw_sentence(person) -%}
-        {%- set device_entity = get_device(person) -%}
-        {%- set pronoun = get_pronoun(device_entity) -%}
-        {%- set max = states.sensor[pronoun ~ "_distance_mean"].attributes.max_value|int -%}
-        {%- set mins = minutes_away(pronoun, "evening", max) -%}
-        {%- if states(device_entity) == 'not_home' and mins|int > 0 -%}
-          {{person}} is on {{pronoun}} way home, about {{mins}} minutes out.
-        {%- elif states(device_entity) == 'not_home' -%}
-          {{person}} is still out and about.
-        {%- elif states(device_entity) != 'home' -%}
-          {{person}} is still at {{states(device_entity)}}.
-        {%- endif -%}
-      {%- endmacro -%}
-
-      {% macro commute_sentence(person) -%}
-        {%- set device_entity = get_device(person) -%}
-        {%- set pronoun = get_pronoun(device_entity) -%}
-        It will take you {{states.sensor[pronoun ~ "_morning_commute"].state}} minutes to get to work if you leave soon.
-        It's {{friendly_time(now())}} now.
-      {%- endmacro %}
-
-      {# Horoscope #}
-      {% macro horoscope_sentence(person) -%}
-        {%- set device_entity = get_device(person) -%}
-        {%- set pronoun = get_pronoun(device_entity) -%}
-        {{states.sensor[pronoun ~ "_horoscope"].state}}
-      {%- endmacro -%}
-
-      {# Battery sentence #}
-      {% macro battery_sentence(person) -%}
-        {%- set device_entity = get_device(person) -%}
-        {%- set pronoun = get_pronoun(device_entity) -%}
-        {%- set percent = states("sensor." ~ pronoun ~ "_phone_battery") -%}
-        {% if percent|int < 50 %}
-          Remember to plug in your phone, it's at {{percent}} percent.
-        {% endif %}
-      {%- endmacro %}
-
-      {# Deliveries #}
-      {% macro deliveries_sentence() -%}
-        {% if states.sensor.deliveries_today.state|int > 0 -%}
-          {{states.sensor.deliveries_today.state}}{{' '}}
-          {%- if states.sensor.deliveries_today.state|int == 1 -%}
-            package was
-          {%- else -%}
-            packages were
-          {%- endif -%}
-          {{' '}}delivered today.
-        {%- endif %}
-      {%- endmacro %}
-
-      {# Moon sentence #}
-      {% macro moon_sentence() -%}
-        {%- if states.sensor.moon.state == 'Full moon' -%}
-          Check out the full moon tonight!
-        {%- endif -%}
-      {%- endmacro %}
-
-      {# Quote sentence #}
-      {% macro quote_sentence() -%}
-        {% if states.sensor.quote.state != 'unknown' %}
-          A parting thought: {{states.sensor.quote.state}}
-        {% endif %}
-      {%- endmacro %}
-
-      {# Market sentence #}
-      {# `DIA` is a standin until Yahoo Finance sensor supports indexes. #}
-      {% macro market_sentence() -%}
-        The market is
-        {%- if states.sensor.dia.attributes.Change|float < 0 -%}
-          {{' down '}}
-        {%- else -%}
-          {{' up '}}
-        {%- endif -%}
-        {{(states.sensor.dia.attributes.Change|float|abs * 100)|int}} points.
-      {%- endmacro %}
-
-      {# Pollen sentence #}
-      {% macro pollen_sentence() -%}
-        {%- if states.sensor.pollen.state|float > 7.2 -%}
-          High pollen levels today.
-        {%- endif -%}
-      {%- endmacro %}
-
-      {# Cold/Flue sentence #}
-      {% macro cold_flu_sentence() -%}
-        {%- if states.sensor.cold_flu.state|float > 7.2 -%}
-          High risk for airborne sickness today. Be careful!
-        {%- endif -%}
-      {%- endmacro %}
-
-      {# Validate requested person #}
-      {% macro validate_and_brief(person) -%}
-        {% if person -%}
-          {%- set caps = person|capitalize -%}
-          {%- set device = get_device(caps) -%}
-          {%- if device -%}
-            {{briefing(caps)}}
-          {%- else -%}
-            {{caps}} doesn't live here.
-          {%- endif %}
-        {%- else -%}
-          Specify a person.
-        {%- endif %}
-      {%- endmacro %}
-
-      {# Morning briefing #}
-      {% macro morning_briefing(person) -%}
-        {{morning_greeting_sentence(person)}}
-        {{weather_sentence()}}
-        {{pollen_sentence()}}
-        {{cold_flu_sentence()}}
-        {{commute_sentence(person)}}
-        {{horoscope_sentence(person)}}
-        {{morning_closing_sentence(person)}}
-      {% endmacro %}
-
-      {# Evening briefing #}
-      {% macro evening_briefing(person) -%}
-        {%- set other_person = get_other_person(person) %}
-        {{evening_greeting_sentence(person)}}
-        {{holiday_sentence()}}
-        {{battery_sentence(person)}}
-        {{weather_sentence()}}
-        {{omw_sentence(other_person)}}
-        {{deliveries_sentence()}}
-        {{market_sentence()}}
-        {{chore_sentence(states.calendar.general, 'trash', 'Remember to take out the trash. It is trash day.')}}
-        {{chore_sentence(states.calendar.general, 'recycling', 'Remember to take out the recycling. It is recycling day.')}}
-        {#{{event_sentence(states.calendar.facebook)}}#}
-        {{event_sentence(states.calendar.sca, '', ', get prepared')}}
-        {{event_sentence(states.calendar.combat_docket_mma_calendar, 'Oh yeah, and ')}}
-        {{moon_sentence()}}
-        {{quote_sentence()}}
-        {{evening_closing_sentence(person)}}
-      {% endmacro %}
-
-      {# Output the briefing #}
-      {% macro briefing(person) -%}
-        {%- if as_timestamp(now())|timestamp_custom("%H", true)|int < 12 -%}
-          {{morning_briefing(person)}}
-            {%- else -%}
-          {{evening_briefing(person)}}
-        {%- endif -%}
-      {% endmacro %}
-
-      {# ... And, run the briefing #}
-      {{validate_and_brief(states.sensor.briefing_target.state)}}
+  {# ... And, run the briefing #}
+  {{validate_and_brief(states.sensor.briefing_target.state)}}

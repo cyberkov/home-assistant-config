@@ -1,18 +1,18 @@
-- alias: 'Vacuum: Starte Staubsauger bei Abwesenheit'
+- alias: "Vacuum: Starte Staubsauger bei Abwesenheit"
   initial_state: True
   trigger:
     - platform: state
       entity_id: group.personen
-      from: 'home'
-      to: 'not_home'
+      from: "home"
+      to: "not_home"
       for:
         minutes: 20
   condition:
     condition: and
     conditions:
       - condition: time
-        after: '09:00:00'
-        before: '16:00:00'
+        after: "09:00:00"
+        before: "16:00:00"
         weekday:
           - mon
           - tue
@@ -30,7 +30,7 @@
     - service: homeassistant.turn_on
       data:
         entity_id: switch.petsi_clean
-- alias: 'Vacuum: Notify on errors'
+- alias: "Vacuum: Notify on errors"
   initial_state: True
   trigger:
     - platform: state
@@ -41,7 +41,7 @@
       data_template:
         message: >
           Petsi had an error. It got lost in action.
-- alias: 'Vacuum: Notify on success'
+- alias: "Vacuum: Notify on success"
   initial_state: True
   trigger:
     - platform: state

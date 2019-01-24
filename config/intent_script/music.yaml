@@ -1,12 +1,12 @@
 # Music
 music.stop:
-    async_action: True
-    action:
-      - service: media_player.media_pause
-        entity_id:
-          - media_player.wohnzimmer
-    speech:
-      text: !include ../templates/voice_confirm.yaml
+  async_action: True
+  action:
+    - service: media_player.media_pause
+      entity_id:
+        - media_player.wohnzimmer
+  speech:
+    text: !include ../templates/voice_confirm.yaml
 music.play:
   async_action: True
   action:
@@ -55,4 +55,3 @@ media.track_query:
   speech:
     text: "Es spielt: {{ states.media_player.wohnzimmer.attributes.media_title }}, von {{ states.media_player.wohnzimmer.attributes.media_artist }}."
   async_action: False
-

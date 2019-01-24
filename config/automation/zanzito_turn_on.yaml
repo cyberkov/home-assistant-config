@@ -1,4 +1,4 @@
-- alias: 'MQTT Switch'
+- alias: "MQTT Switch"
   initial_state: True
   trigger:
     - platform: mqtt

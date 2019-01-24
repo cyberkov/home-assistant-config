@@ -1,12 +1,12 @@
 - platform: mqtt
   name: moodlight
-  command_topic: 'mysensors/out/9/1/1/1/40'
-  rgb_state_topic: 'mysensors/out/9/1/1/1/40'
-  rgb_command_topic: 'mysensors/in/9/1/1/1/40'
-  brightness_state_topic: 'mysensors/out/9/1/1/1/3'
-  brightness_command_topic: 'mysensors/in/9/1/1/1/3'
+  command_topic: "mysensors/out/9/1/1/1/40"
+  rgb_state_topic: "mysensors/out/9/1/1/1/40"
+  rgb_command_topic: "mysensors/in/9/1/1/1/40"
+  brightness_state_topic: "mysensors/out/9/1/1/1/3"
+  brightness_command_topic: "mysensors/in/9/1/1/1/3"
   brightness_scale: 100
-  payload_off: '000000'
-  payload_on: 'ffffff'
+  payload_off: "000000"
+  payload_on: "ffffff"
   rgb_value_template: "{{ value_json.rgb | join(',') }}"
 # {{ '%x' | format(255) }} --- %x machts hexadezimal

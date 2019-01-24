@@ -2,10 +2,10 @@
   automatic_add: true
   devices:
     0b11000800f2704203510f50:
-      name: 'IT Stecker 3'
+      name: "IT Stecker 3"
     0b11000c0001044202510f60:
-      name: 'HE Stecker 1'
+      name: "HE Stecker 1"
     0b11001b0001044203510f60:
-      name: 'HE Stecker 2'
+      name: "HE Stecker 2"
     0b11001f0001044205500060:
-      name: 'HE Stecker 4'
+      name: "HE Stecker 4"

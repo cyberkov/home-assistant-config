@@ -1,6 +1,6 @@
-- alias: 'Nachtkasterl_off_long_play'
-#  hide_entity: True
-  initial_state: 'on'
+- alias: "Nachtkasterl_off_long_play"
+  #  hide_entity: True
+  initial_state: "on"
   trigger:
     - platform: mqtt
       topic: hm/status/Schlafzimmer.Taster.unten/PRESS_LONG
@@ -20,7 +20,7 @@
   action:
     - service: notify.slack
       data_template:
-        target: '@cyberkov'
+        target: "@cyberkov"
         message: >
           Your aid is needed!
     - service: notify.hannes
@@ -45,7 +45,6 @@
     - service: homeassistant.turn_off
       data:
         entity_id: light.it_stecker_3
-
         #- alias: 'Nachtkasterl_off_long_stop'
         #  initial_state: 'on'
         #  trigger:
@@ -72,4 +71,3 @@
         #    - service: media_player.media_play_pause
         #      data:
         #        entity_id: media_player.schlafzimmer
-

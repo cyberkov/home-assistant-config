@@ -2,12 +2,12 @@
   state_topic: "hm/status/Gaszaehler/GAS_POWER"
   name: "gas_power"
   unit_of_measurement: "m3"
-  value_template: '{{ value_json.val }}'
+  value_template: "{{ value_json.val }}"
 - platform: mqtt
   state_topic: "hm/status/Gaszaehler/GAS_ENERGY_COUNTER"
   name: "gas_energy_counter"
   unit_of_measurement: "m3"
-  value_template: '{{ value_json.val }}'
+  value_template: "{{ value_json.val }}"
 - platform: template
   sensors:
     waschmaschine_status:

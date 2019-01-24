@@ -1,29 +1,29 @@
-  #  Alert if unexpected motion is detected. Motion
-  #  is classified as unexpected if no tracked devices
-  #  are home and guests aren't present.
+#  Alert if unexpected motion is detected. Motion
+#  is classified as unexpected if no tracked devices
+#  are home and guests aren't present.
 
 - alias: Unexpected motion
   initial_state: True
   trigger:
-  - platform: state
-    entity_id:
-    - binary_sensor.lab0091601_motion
-    - binary_sensor.meq0537083_motion
-    - binary_sensor.meq0537387_motion
-    to: 'on'
+    - platform: state
+      entity_id:
+        - binary_sensor.lab0091601_motion
+        - binary_sensor.meq0537083_motion
+        - binary_sensor.meq0537387_motion
+      to: "on"
   condition:
-  - condition: state
-    entity_id: switch.detect_motion
-    state: 'on'
-  - condition: state
-    entity_id: switch.alert_motion
-    state: 'on'
-  - condition: state
-    entity_id: switch.guests
-    state: 'off'
-  - condition: state
-    entity_id: group.personen
-    state: 'not_home'
+    - condition: state
+      entity_id: switch.detect_motion
+      state: "on"
+    - condition: state
+      entity_id: switch.alert_motion
+      state: "on"
+    - condition: state
+      entity_id: switch.guests
+      state: "off"
+    - condition: state
+      entity_id: group.personen
+      state: "not_home"
   action:
     service: notify.hannes
     data_template:

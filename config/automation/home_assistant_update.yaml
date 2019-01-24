@@ -4,6 +4,6 @@
     - platform: state
       entity_id: updater.updater
   action:
-      service: notify.hannes
-      data:
-        message: "New version {{ states.updater.updater.state }} of Home Assistant is available."
+    service: notify.hannes
+    data:
+      message: "New version {{ states.updater.updater.state }} of Home Assistant is available."

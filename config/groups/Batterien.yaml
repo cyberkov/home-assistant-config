@@ -1,15 +1,14 @@
 entities:
-    - sensor.badheizung_battery
-    - sensor.barbaraheizung_battery
-    - sensor.dominikheizung_battery
-    - sensor.esszimmerheizung_battery
-    - sensor.hannesheizung_battery
-    - sensor.kuecheheizung_battery
-    - sensor.sauna_heizung_battery
-    - sensor.schlafzimmerheizunglinks_battery
-    - sensor.schlafzimmerheizungrechts_battery
-    - sensor.vorzimmerheizung_battery
-    - sensor.vorzimmerogheizung_battery
-    - sensor.windfangheizung_battery
-    - sensor.wohnzimmerheizung_battery
-
+  - sensor.badheizung_battery
+  - sensor.barbaraheizung_battery
+  - sensor.dominikheizung_battery
+  - sensor.esszimmerheizung_battery
+  - sensor.hannesheizung_battery
+  - sensor.kuecheheizung_battery
+  - sensor.sauna_heizung_battery
+  - sensor.schlafzimmerheizunglinks_battery
+  - sensor.schlafzimmerheizungrechts_battery
+  - sensor.vorzimmerheizung_battery
+  - sensor.vorzimmerogheizung_battery
+  - sensor.windfangheizung_battery
+  - sensor.wohnzimmerheizung_battery

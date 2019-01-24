@@ -1,16 +1,16 @@
-- alias: 'sco_Test'
+- alias: "sco_Test"
   initial_state: True
   trigger:
     - platform: state
       entity_id: binary_sensor.sco_spare
-      to: 'on'
+      to: "on"
     - platform: state
       entity_id: binary_sensor.meq0186547_state
-      to: 'on'
+      to: "on"
   action:
     - service: notify.slack
       data_template:
-        target: '@cyberkov'
+        target: "@cyberkov"
         message: >
           SCotest has been triggered ON.
     - service: notify.hannes
@@ -45,17 +45,17 @@
     - service: homeassistant.turn_off
       data:
         entity_id: light.it_stecker_3
-- alias: 'sco_Test_off'
+- alias: "sco_Test_off"
   initial_state: True
   trigger:
     - platform: state
       entity_id: binary_sensor.sco_spare
-      from: 'on'
-      to: 'off'
+      from: "on"
+      to: "off"
     - platform: state
       entity_id: binary_sensor.meq0186547_state
-      from: 'on'
-      to: 'off'
+      from: "on"
+      to: "off"
   action:
     - service: notify.hannes
       data_template:
@@ -63,6 +63,6 @@
           {{ trigger.entity_id }} has been triggered to {{ trigger.to_state.state }}.
     - service: notify.slack
       data_template:
-        target: '@cyberkov'
+        target: "@cyberkov"
         message: >
           SCotest has been triggered OFF.

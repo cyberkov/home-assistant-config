@@ -12,7 +12,7 @@ sequence:
       entity_id: "media_player.{{ where }}"
       message: "Guten Morgen {{ who }}. Das Wetter heute: {{ states('sensor.wetter_heute') }}"
       cache: false
-  - delay: '00:00:{{ states.media_player[where].attributes.media_duration | int }}'
+  - delay: "00:00:{{ states.media_player[where].attributes.media_duration | int }}"
   - service: media_player.sonos_restore
     data_template:
       entity_id: "media_player.{{ where }}"

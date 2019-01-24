@@ -1,4 +1,4 @@
 sequence:
-- service: alarm_control_panel.alarm_arm_home
-  data:
-    code: !secret HA_ALARM_CODE
+  - service: alarm_control_panel.alarm_arm_home
+    data:
+      code: !secret HA_ALARM_CODE

@@ -1,4 +1,4 @@
-- alias: 'wohnzimmer abendlicht'
+- alias: "wohnzimmer abendlicht"
   initial_state: True
   trigger:
     - platform: sun
@@ -7,7 +7,7 @@
   condition:
     - condition: state
       entity_id: group.personen
-      state: 'home'
+      state: "home"
   action:
     - service: light.turn_on
       data:

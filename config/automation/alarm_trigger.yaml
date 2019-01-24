@@ -4,7 +4,7 @@
     - platform: state
       entity_id:
         - alarm_control_panel.house
-      to: 'triggered'
+      to: "triggered"
   action:
     - service: notify.hannes
       data_template:
@@ -71,12 +71,12 @@
     - platform: state
       entity_id:
         - alarm_control_panel.house
-      to: 'pending'
+      to: "pending"
   action:
     - service: script.announce
       data:
         where: kuche
-        message: 'Achtung! Alarmanlage wird in einer Minute aktiviert.'
+        message: "Achtung! Alarmanlage wird in einer Minute aktiviert."
     - service: notify.slack
       data_template:
         message: >
@@ -88,12 +88,12 @@
     - platform: state
       entity_id:
         - alarm_control_panel.house
-      to: 'disarmed'
+      to: "disarmed"
   action:
     - service: script.announce
       data:
         where: kuche
-        message: 'Alarmanlage deaktiviert.'
+        message: "Alarmanlage deaktiviert."
     - service: notify.slack
       data_template:
         message: >

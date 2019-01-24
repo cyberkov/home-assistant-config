@@ -1,12 +1,12 @@
 graph_dashboard:
   title: Graph
-  url: 'https://graph.cyberkov.at/dashboard/db/haus?&theme=light'
+  url: "https://graph.cyberkov.at/dashboard/db/haus?&theme=light"
   icon: mdi:pulse
 temperature_dashboard:
   title: Temperatur
-  url: 'https://graph.cyberkov.at/dashboard/db/temperature?theme=light'
+  url: "https://graph.cyberkov.at/dashboard/db/temperature?theme=light"
   icon: mdi:thermometer
 mdiindex:
   title: MDI Icon Index
   icon: mdi:vector-square
-  url: 'https://haus.cyberkov.at/local/home-assistant-mdi/home-assistant-mdi.html'
+  url: "https://haus.cyberkov.at/local/home-assistant-mdi/home-assistant-mdi.html"

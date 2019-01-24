@@ -1,5 +1,5 @@
 ---
-- alias: 'Barbara Tischlampe'
+- alias: "Barbara Tischlampe"
   initial_state: true
   trigger:
     - platform: event
@@ -13,7 +13,7 @@
     - service: homeassistant.toggle
       data:
         entity_id: light.barbara_tischlampe
-- alias: 'Barbara Tischlampe press long'
+- alias: "Barbara Tischlampe press long"
   initial_state: true
   trigger:
     - platform: event

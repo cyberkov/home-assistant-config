@@ -12,7 +12,7 @@ switch.vacation:
   friendly_name: Urlaub
 switch.guests:
   icon: mdi:human-male-female
-  friendly_name: 'Gaeste anwesend'
+  friendly_name: "Gaeste anwesend"
 switch.presence:
   icon: mdi:account-multiple
   friendly_name: Detect Presence
@@ -26,7 +26,7 @@ switch.nightlights:
   friendly_name: Nachtlicht
 switch.alert_motion:
   icon: mdi:walk
-  friendly_name: 'Alarmautomatik'
+  friendly_name: "Alarmautomatik"
 switch.nas:
   icon: mdi:harddisk
 switch.ccu:

@@ -1,15 +1,15 @@
-- alias: 'Gelsenstecker on'
+- alias: "Gelsenstecker on"
   initial_state: True
   trigger:
     - platform: state
       entity_id: binary_sensor.meq0172089_state
-      to: 'on'
+      to: "on"
     - platform: state
       entity_id: binary_sensor.meq0186709_state
-      to: 'on'
+      to: "on"
     - platform: sun
       event: sunset
-      offset: '01:00:00'
+      offset: "01:00:00"
   condition:
     condition: and
     conditions:
@@ -20,19 +20,19 @@
         conditions:
           - condition: state
             entity_id: binary_sensor.meq0172089_state
-            state: 'on'
+            state: "on"
           - condition: state
             entity_id: binary_sensor.meq0186709_state
-            state: 'on'
+            state: "on"
   action:
     - service: switch.turn_on
       entity_id: switch.it_2
 
-- alias: 'Gelsenstecker off after 7h'
+- alias: "Gelsenstecker off after 7h"
   initial_state: True
   trigger:
     - platform: time
-      at: '07:00:00'
+      at: "07:00:00"
   condition:
     - condition: state
       entity_id: switch.it_2
@@ -41,25 +41,25 @@
     - service: switch.turn_off
       entity_id: switch.it_2
 
-- alias: 'Gelsenstecker off when all windows are closed'
+- alias: "Gelsenstecker off when all windows are closed"
   initial_state: True
   trigger:
     - platform: state
       entity_id: binary_sensor.meq0172089_state
-      to: 'off'
+      to: "off"
     - platform: state
       entity_id: binary_sensor.meq0186709_state
-      to: 'off'
+      to: "off"
   condition:
     - condition: state
       entity_id: switch.it_2
       state: "on"
     - condition: state
       entity_id: binary_sensor.meq0172089_state
-      state: 'off'
+      state: "off"
     - condition: state
       entity_id: binary_sensor.meq0186709_state
-      state: 'off'
+      state: "off"
   action:
     - service: switch.turn_off
       entity_id: switch.it_2

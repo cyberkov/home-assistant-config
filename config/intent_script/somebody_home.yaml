@@ -15,5 +15,3 @@ hass.somebody_home:
       {%- if is_state("switch.guests", "on") %}Wir haben derzeit Gäste im Haus.{%- endif %}
       Die Alarmanlage ist derzeit {{ states.alarm_control_panel.house.state }}.
   async_action: false
-
-

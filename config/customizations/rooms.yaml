@@ -39,14 +39,13 @@ sensor.leq0868021_temperature:
   #icon: mdi:thermometer
   friendly_name: Schlafzimmer Temperatur
 binary_sensor.meq0172089_state:
-  friendly_name: 'Schlafzimmer Tür links'
+  friendly_name: "Schlafzimmer Tür links"
 binary_sensor.meq0186709_state:
-  friendly_name: 'Schlafzimmer Tür rechts'
+  friendly_name: "Schlafzimmer Tür rechts"
 climate.meq0182106:
-  friendly_name: 'Schlafzimmer Heizung links'
+  friendly_name: "Schlafzimmer Heizung links"
 climate.meq0182137:
-  friendly_name: 'Schlafzimmer Heizung rechts'
-
+  friendly_name: "Schlafzimmer Heizung rechts"
 
 ### EG ###
 # Esszimmer
@@ -61,27 +60,27 @@ climate.meq0182064:
 # Kueche
 sensor.leq0867920_humidity:
   #icon: mdi:water-percent
-  friendly_name: 'Küche Luftfeuchte'
+  friendly_name: "Küche Luftfeuchte"
 sensor.leq0867920_temperature:
   #icon: mdi:thermometer
-  friendly_name: 'Küche Temperatur'
+  friendly_name: "Küche Temperatur"
 switch.leq0531373:
   icon: mdi:silverware-variant
-  friendly_name: 'Geschirrspüler'
+  friendly_name: "Geschirrspüler"
 binary_sensor.meq0186642_state:
-  friendly_name: 'Küche Fenster'
+  friendly_name: "Küche Fenster"
 climate.meq0182095:
-  friendly_name: 'Küche Heizung'
+  friendly_name: "Küche Heizung"
 
 # Vorzimmer
 climate.meq0182105:
-  friendly_name: 'Vorzimmer Heizung'
+  friendly_name: "Vorzimmer Heizung"
 
 # Windfang
 climate.meq0182100:
-  friendly_name: 'Windfang Heizung'
+  friendly_name: "Windfang Heizung"
 binary_sensor.leq1177637_state:
-  friendly_name: 'Windfang Tür'
+  friendly_name: "Windfang Tür"
 
 # Wohnzimmer
 sensor.leq0868616_humidity:
@@ -91,7 +90,7 @@ sensor.leq0868616_temperature:
   #icon: mdi:thermometer
   friendly_name: Wohnzimmer Temperatur
 binary_sensor.meq0186561_state:
-  friendly_name: 'Wohnzimmer Tür'
+  friendly_name: "Wohnzimmer Tür"
 climate.meq0182042:
   friendly_name: Wohnzimmer Heizung
 
@@ -103,9 +102,9 @@ sensor.meq0537387_brightness:
   friendly_name: Hannes Helligkeit
   #icon: mdi:brightness-6
 binary_sensor.leq1085620_state:
-  friendly_name: 'Hannes Tür'
+  friendly_name: "Hannes Tür"
 binary_sensor.meq0186623_state:
-  friendly_name: 'Hannes Fenster'
+  friendly_name: "Hannes Fenster"
 light.it_stecker_3:
   friendly_name: Lavalampe
 binary_sensor.meq0186547_state:
@@ -132,15 +131,15 @@ climate.leq0584727:
 # Wirtschaftsraum
 sensor.meq0705863_gas_power:
   #icon: mdi:counter
-  friendly_name: 'Gas akt. Verbrauch'
+  friendly_name: "Gas akt. Verbrauch"
 sensor.meq0705859_power:
   icon: mdi:car-battery
-  friendly_name: 'Strom akt. Verbrauch'
+  friendly_name: "Strom akt. Verbrauch"
 switch.leq0574052:
   icon: mdi:stove
-  friendly_name: 'Waschmaschine'
+  friendly_name: "Waschmaschine"
 switch.meq0712568:
-  friendly_name: 'Wirtschaftsraum Therme'
+  friendly_name: "Wirtschaftsraum Therme"
   icon: mdi:fire
 
 # Garten

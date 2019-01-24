@@ -1,20 +1,20 @@
-  # If current between 30 and 45, washing mashine is in standby
+# If current between 30 and 45, washing mashine is in standby
 - alias: Waschmaschine fertig notify
   initial_state: True
   trigger:
-  - platform: state
-    entity_id: sensor.waschmaschine_status
-    from: 'Aktiv'
-    to: 'Standby'
-    for:
-      minutes: 3
+    - platform: state
+      entity_id: sensor.waschmaschine_status
+      from: "Aktiv"
+      to: "Standby"
+      for:
+        minutes: 3
   condition:
     - condition: state
       entity_id: device_tracker.cyberkov
-      state: 'home'
+      state: "home"
     - condition: state
       entity_id: switch.sleeping
-      state: 'off'
+      state: "off"
   action:
     service: notify.hannes
     data_template:

@@ -2,10 +2,10 @@
 - alias: Homematic MQTT Notification
   initial_state: True
   trigger:
-  - platform: state
-    entity_id: switch.hm_connected
-    from: 'on'
-    to: 'off'
+    - platform: state
+      entity_id: switch.hm_connected
+      from: "on"
+      to: "off"
   action:
     service: notify.hannes
     data_template:

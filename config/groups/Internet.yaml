@@ -1,6 +1,6 @@
 ---
 entities:
-#  - sensor.hauscyberkovat
+  #  - sensor.hauscyberkovat
   - sensor.speedtest_download
   - sensor.speedtest_ping
   - sensor.speedtest_upload

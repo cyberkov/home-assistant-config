@@ -1,24 +1,24 @@
-  # Notify me if it makes sense to open a window
+# Notify me if it makes sense to open a window
 - alias: Lueftung notify
   initial_state: True
   trigger:
-  - platform: numeric_state
-    entity_id:
-      - sensor.mold_bad
-      - sensor.mold_kueche
-      - sensor.mold_schlafzimmer
-      - sensor.mold_wohnzimmer
-    above: 80
+    - platform: numeric_state
+      entity_id:
+        - sensor.mold_bad
+        - sensor.mold_kueche
+        - sensor.mold_schlafzimmer
+        - sensor.mold_wohnzimmer
+      above: 80
   condition:
     - condition: state
       entity_id: device_tracker.cyberkov
-      state: 'home'
+      state: "home"
     - condition: state
       entity_id: switch.sleeping
-      state: 'off'
+      state: "off"
     - condition: state
       entity_id: switch.alert_lueftung
-      state: 'on'
+      state: "on"
   action:
     service: notify.hannes
     data_template:

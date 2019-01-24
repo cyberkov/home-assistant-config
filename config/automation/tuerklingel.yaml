@@ -1,4 +1,4 @@
-- alias: 'Tuerklingel'
+- alias: "Tuerklingel"
   initial_state: True
   trigger:
     - platform: event

@@ -1,5 +1,5 @@
 # Set the Internet switch to on upon startup
-- alias: 'HA Startup'
+- alias: "HA Startup"
   initial_state: True
   trigger:
     - platform: homeassistant
@@ -9,7 +9,7 @@
       data_template:
         message: >
           Home Assistant {{ states("sensor.current_version") }} starting up.
-- alias: 'HA Shutdown'
+- alias: "HA Shutdown"
   initial_state: True
   trigger:
     - platform: homeassistant

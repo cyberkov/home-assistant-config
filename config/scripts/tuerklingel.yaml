@@ -7,7 +7,7 @@ sequence:
   - service: script.announce
     data:
       where: wohnzimmer
-      message: 'Es hat geklingelt.'
+      message: "Es hat geklingelt."
   - service: notify.slack
     data_template:
       message: >

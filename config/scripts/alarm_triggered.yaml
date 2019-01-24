@@ -1,15 +1,15 @@
 sequence:
-- service: notify.hannes
-  data:
-    message: "ALARM - Motion detected."
-- service: notify.hannes
-  data_template:
-    message: >
-      ALARM - {{ trigger.to_state.attributes.changed_by }}
-- service: notify.slack
-  data_template:
-    message: >
-      ALARM - {{ trigger.to_state.attributes.changed_by }}
-- service: script.announce
-  data:
-    message: 'Alarmanlage wurde ausgelöst.'
+  - service: notify.hannes
+    data:
+      message: "ALARM - Motion detected."
+  - service: notify.hannes
+    data_template:
+      message: >
+        ALARM - {{ trigger.to_state.attributes.changed_by }}
+  - service: notify.slack
+    data_template:
+      message: >
+        ALARM - {{ trigger.to_state.attributes.changed_by }}
+  - service: script.announce
+    data:
+      message: "Alarmanlage wurde ausgelöst."

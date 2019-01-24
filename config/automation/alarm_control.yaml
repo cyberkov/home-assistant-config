@@ -26,21 +26,21 @@
         name: Barbara.Handsender
         channel: 2
         param: PRESS_LONG
-#  condition:
-#    condition: or
-#    conditions:
-#      - condition: state
-#        entity_id: alarm_control_panel.alarm
-#        state: "disarmed"
-#      - condition: state
-#        entity_id: alarm_control_panel.alarm
-#        state: "armed_home"
+  #  condition:
+  #    condition: or
+  #    conditions:
+  #      - condition: state
+  #        entity_id: alarm_control_panel.alarm
+  #        state: "disarmed"
+  #      - condition: state
+  #        entity_id: alarm_control_panel.alarm
+  #        state: "armed_home"
   action:
     - service: alarm_control_panel.alarm_arm_away
     - service: script.announce
       data:
         where: media_player.kuche
-        message: 'Alarmanlage extern scharf.'
+        message: "Alarmanlage extern scharf."
     - service: notify.slack
       data_template:
         message: >
@@ -79,7 +79,7 @@
     - service: script.announce
       data:
         where: media_player.kuche
-        message: 'Alarmanlage intern scharf.'
+        message: "Alarmanlage intern scharf."
     - service: notify.slack
       data_template:
         message: >
@@ -121,4 +121,4 @@
     - service: script.announce
       data:
         where: media_player.kuche
-        message: 'Alarmanlage unscharf.'
+        message: "Alarmanlage unscharf."

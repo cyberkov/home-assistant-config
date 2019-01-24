@@ -1,25 +1,25 @@
-- alias: 'Heizung bei Abwesenheit aus'
+- alias: "Heizung bei Abwesenheit aus"
   initial_state: True
   trigger:
     - platform: state
       entity_id: group.personen
-      from: 'home'
-      to: 'not_home'
+      from: "home"
+      to: "not_home"
       for:
         minutes: 20
   condition:
-  - condition: state
-    entity_id: switch.heizsaison
-    state: 'on'
-  - condition: time
-    after: '09:00:00'
-    before: '16:00:00'
-    weekday:
-      - mon
-      - tue
-      - wed
-      - thu
-      - fri
+    - condition: state
+      entity_id: switch.heizsaison
+      state: "on"
+    - condition: time
+      after: "09:00:00"
+      before: "16:00:00"
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
   action:
     - service: climate.set_operation_mode
       data:

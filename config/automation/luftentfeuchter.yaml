@@ -1,4 +1,4 @@
-- alias: 'Luftentfeuchter'
+- alias: "Luftentfeuchter"
   initial_state: True
   trigger:
     - platform: numeric_state
@@ -17,7 +17,7 @@
         or states.sensor.mold_sauna.state|float >= 80
          %}true{% endif %}
     - platform: time_pattern
-      minutes: '/15'
+      minutes: "/15"
       seconds: 0
   action:
     - service_template: >

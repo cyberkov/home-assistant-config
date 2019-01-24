@@ -1,31 +1,31 @@
-- alias: 'Gaestezimmer Heizung an'
+- alias: "Gaestezimmer Heizung an"
   initial_state: True
   trigger:
     - platform: state
       entity_id: switch.guests
-      from: 'off'
-      to: 'on'
+      from: "off"
+      to: "on"
   condition:
-  - condition: state
-    entity_id: switch.heizsaison
-    state: 'on'
+    - condition: state
+      entity_id: switch.heizsaison
+      state: "on"
   action:
     - service: climate.set_temperature
       data:
         entity_id: climate.meq0182655
         temperature: 19
         operation_mode: "manual"
-- alias: 'Gaestezimmer Heizung aus'
+- alias: "Gaestezimmer Heizung aus"
   initial_state: True
   trigger:
     - platform: state
       entity_id: switch.guests
-      from: 'on'
-      to: 'off'
+      from: "on"
+      to: "off"
   condition:
-  - condition: state
-    entity_id: switch.heizsaison
-    state: 'on'
+    - condition: state
+      entity_id: switch.heizsaison
+      state: "on"
   action:
     - service: climate.set_operation_mode
       data:

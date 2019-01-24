@@ -12,4 +12,3 @@ alarm:
         {%- else -%}
           script.alarm_arm_away
         {%- endif -%}
-

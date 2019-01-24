@@ -9,7 +9,7 @@
         {% else %}
           offline
         {% endif %}
-      friendly_name: 'Sonos Bad'
+      friendly_name: "Sonos Bad"
     sonos_wohnzimmer:
       entity_id: device_tracker.sonos_wohnzimmer
       value_template: >
@@ -18,7 +18,7 @@
         {% else %}
           offline
         {% endif %}
-      friendly_name: 'Sonos wohnzimmer'
+      friendly_name: "Sonos wohnzimmer"
     sonos_schlafzimmer:
       entity_id: device_tracker.sonos_schlafzimmer
       value_template: >
@@ -27,7 +27,7 @@
         {% else %}
           offline
         {% endif %}
-      friendly_name: 'Sonos schlafzimmer'
+      friendly_name: "Sonos schlafzimmer"
     sonos_kueche:
       entity_id: device_tracker.sonos_kueche
       value_template: >
@@ -36,7 +36,7 @@
         {% else %}
           offline
         {% endif %}
-      friendly_name: 'Sonos kueche'
+      friendly_name: "Sonos kueche"
     ccu:
       entity_id: device_tracker.ccu
       value_template: >
@@ -45,7 +45,7 @@
         {% else %}
           offline
         {% endif %}
-      friendly_name: 'CCU'
+      friendly_name: "CCU"
     philips_hue:
       entity_id: device_tracker.philipshuecyberkovlan
       value_template: >
@@ -54,7 +54,7 @@
         {% else %}
           offline
         {% endif %}
-      friendly_name: 'philips hue bridge'
+      friendly_name: "philips hue bridge"
     datastore:
       entity_id: device_tracker.datastore
       value_template: >
@@ -63,7 +63,7 @@
         {% else %}
           offline
         {% endif %}
-      friendly_name: 'datastore'
+      friendly_name: "datastore"
     osmc_hannes:
       entity_id: device_tracker.rpi_hannes
       value_template: >
@@ -72,7 +72,7 @@
         {% else %}
           offline
         {% endif %}
-      friendly_name: 'osmc hannes'
+      friendly_name: "osmc hannes"
     osmc_wohnzimmer:
       entity_id: device_tracker.rpi_wohnzimmer
       value_template: >
@@ -81,7 +81,7 @@
         {% else %}
           offline
         {% endif %}
-      friendly_name: 'osmc wohnzimmer'
+      friendly_name: "osmc wohnzimmer"
     grandstreamvoip:
       entity_id: device_tracker.grandstreamvoip
       value_template: >
@@ -90,7 +90,7 @@
         {% else %}
           offline
         {% endif %}
-      friendly_name: 'grandstreamvoip'
+      friendly_name: "grandstreamvoip"
     acedia:
       entity_id: device_tracker.acedia
       value_template: >
@@ -99,4 +99,4 @@
         {% else %}
           offline
         {% endif %}
-      friendly_name: 'acedia'
+      friendly_name: "acedia"

@@ -17,9 +17,9 @@
 # > SONOS TTS
 alias: SONOS TTS
 sequence:
-#  - service: media_player.sonos_group_players
-#    data:
-#      entity_id: "{{ 'media_player.' ~ where }}"
+  #  - service: media_player.sonos_group_players
+  #    data:
+  #      entity_id: "{{ 'media_player.' ~ where }}"
   - service: media_player.sonos_snapshot
     data_template:
       entity_id: "{{ 'media_player.' ~ where }}"
@@ -36,8 +36,8 @@ sequence:
     data_template:
       entity_id: "{{ 'media_player.' ~ where }}"
       message: "<speak>{{ message }}</speak>"
-      language: 'de-DE'
-# Workout the length of the media
+      language: "de-DE"
+  # Workout the length of the media
   - delay:
       seconds: 1
   - delay: >-

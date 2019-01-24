@@ -1,4 +1,4 @@
-- alias: 'Update config if travis build is successfull'
+- alias: "Update config if travis build is successfull"
   initial_state: True
   trigger:
     platform: state
@@ -6,7 +6,7 @@
   condition:
     - condition: state
       entity_id: sensor.travis_status
-      state: 'Success'
+      state: "Success"
   action:
     # TODO: This script needs to be written somehow...
     - service: script.get_latest_config

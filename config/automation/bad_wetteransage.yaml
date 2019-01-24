@@ -1,15 +1,15 @@
-- alias: 'Wetteransage morgens - Barbara'
+- alias: "Wetteransage morgens - Barbara"
   initial_state: True
   trigger:
     - platform: state
       entity_id: binary_sensor.meq0537083_motion
-      to: 'on'
+      to: "on"
   condition:
     condition: and
     conditions:
       - condition: time
-        after: '05:00:00'
-        before: '06:30:00'
+        after: "05:00:00"
+        before: "06:30:00"
         weekday:
           - mon
           - tue
@@ -17,25 +17,25 @@
           - thu
           - fri
       - condition: template
-        value_template: '{% if states.binary_sensor.meq0537083_motion.last_changed  %}{{(as_timestamp(now())-as_timestamp(states.binary_sensor.meq0537083_motion.last_changed)) > 15*60 }}{% else %}false{% endif %}'
+        value_template: "{% if states.binary_sensor.meq0537083_motion.last_changed  %}{{(as_timestamp(now())-as_timestamp(states.binary_sensor.meq0537083_motion.last_changed)) > 15*60 }}{% else %}false{% endif %}"
   action:
     - delay: 00:00:30
     - service: script.wetteransage
       data:
         who: Barbara
         where: bad
-- alias: 'Wetteransage morgens - Hannes'
+- alias: "Wetteransage morgens - Hannes"
   initial_state: True
   trigger:
     - platform: state
       entity_id: binary_sensor.meq0537083_motion
-      to: 'on'
+      to: "on"
   condition:
     condition: and
     conditions:
       - condition: time
-        after: '07:00:00'
-        before: '09:00:00'
+        after: "07:00:00"
+        before: "09:00:00"
         weekday:
           - mon
           - tue
@@ -43,7 +43,7 @@
           - thu
           - fri
       - condition: template
-        value_template: '{% if states.binary_sensor.meq0537083_motion.last_changed  %}{{(as_timestamp(now())-as_timestamp(states.binary_sensor.meq0537083_motion.last_changed)) > 15*60 }}{% else %}false{% endif %}'
+        value_template: "{% if states.binary_sensor.meq0537083_motion.last_changed  %}{{(as_timestamp(now())-as_timestamp(states.binary_sensor.meq0537083_motion.last_changed)) > 15*60 }}{% else %}false{% endif %}"
   action:
     - delay: 00:01:00
     - service: script.wetteransage
