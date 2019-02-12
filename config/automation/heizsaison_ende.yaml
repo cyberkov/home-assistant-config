@@ -12,6 +12,8 @@
       data:
         operation_mode: "manual"
         temperature: 30.5
+        entity_id: all
     - service: climate.set_operation_mode
       data:
         operation_mode: "manual"
+        entity_id: all

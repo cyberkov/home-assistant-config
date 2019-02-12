@@ -11,6 +11,7 @@
     - service: climate.set_operation_mode
       data:
         operation_mode: "auto"
+        entity_id: all
     - service: notify.slack
       data_template:
         message: >

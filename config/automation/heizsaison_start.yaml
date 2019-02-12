@@ -1,0 +1,12 @@
+- alias: "Heizsaison Start"
+  initial_state: true
+  trigger:
+    - platform: state
+      entity_id: switch.heizsaison
+      from: "off"
+      to: "on"
+  action:
+    - service: climate.set_operation_mode
+      data:
+        operation_mode: "auto"
+        entity_id: all

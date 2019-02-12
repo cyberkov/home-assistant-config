@@ -1,0 +1,16 @@
+---
+# no really. In winter i am pretty sure I want to have my heating turned on.
+# Unfortunately my mqtt bus seems to forget this every now and then.
+- alias: "Heizsaison ensure"
+  initial_state: true
+  trigger:
+    - platform: homeassistant
+      event: start
+  condition:
+    - condition: state
+      entity_id: sensor.season
+      state: "winter"
+  action:
+    - service: homeassistant.turn_on
+      data:
+        entity_id: switch.heizsaison
