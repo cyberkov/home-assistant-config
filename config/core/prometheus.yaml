@@ -1,0 +1,8 @@
+---
+exclude:
+  domains:
+    - group
+    - script
+    - automation
+    - calendar
+    - persistent_notification

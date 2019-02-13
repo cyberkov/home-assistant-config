@@ -3,10 +3,9 @@
 default: debug
 logs:
   homeassistant.bootstrap: info
-  homeassistant.components.device_tracker.ubus: warn
   homeassistant.components.device_tracker.nmap_tracker: warn
+  homeassistant.components.device_tracker.ubus: warn
   homeassistant.components.homematic: info
-  homeassistant.components.lightify: warn
   homeassistant.components.http: warn
   homeassistant.components.influxdb: fatal
   homeassistant.components.media_player: warn
@@ -14,9 +13,11 @@ logs:
   homeassistant.components.rfxtrx: warn
   homeassistant.components.sensor.mold_indicator: fatal
   homeassistant.components.sensor: warn
+  homeassistant.components.switch.command_line: warn
   homeassistant.components: info
   homeassistant.core: warn
   homeassistant.loader: warn
+  lightify: warn
   openzwave: info
   pyhomematic: warn
   requests.packages.urllib3.connectionpool: warn
