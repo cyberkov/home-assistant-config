@@ -9,11 +9,6 @@ use_x_forwarded_for: true
 api_password: !secret HA_HTTP_LOGIN
 ip_ban_enabled: false
 login_attempts_threshold: 3
-trusted_networks:
-  - 127.0.0.1
-  - ::1
-  - 172.17.0.0/24
-  - 192.168.1.0/25
 trusted_proxies:
   - 127.0.0.1
   - ::1

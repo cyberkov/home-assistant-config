@@ -1,0 +1,6 @@
+---
+- name: Hannes
+  id: hannes
+  device_trackers:
+    - device_tracker.cyberkov
+    - device_tracker.iphone_von_hannes

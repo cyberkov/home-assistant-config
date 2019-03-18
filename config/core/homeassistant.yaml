@@ -1,3 +1,4 @@
+---
 # Name of the location where Home Assistant is running
 name: Home
 # Location required to calculate the time the sun rises and sets
@@ -10,6 +11,14 @@ unit_system: metric
 # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 time_zone: Europe/Vienna
 customize: !include_dir_merge_named ../customizations
+packages: !include_dir_named ../packages
+whitelist_external_dirs:
+  - /tmp
 auth_providers:
   - type: homeassistant
   - type: trusted_networks
+    trusted_networks:
+      - 127.0.0.1
+      - ::1
+      - 172.17.0.0/24
+      - 192.168.1.0/25

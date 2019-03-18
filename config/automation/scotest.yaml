@@ -1,5 +1,6 @@
+---
 - alias: "sco_Test"
-  initial_state: True
+  initial_state: true
   trigger:
     - platform: state
       entity_id: binary_sensor.sco_spare
@@ -20,6 +21,9 @@
     - service: homeassistant.turn_on
       data:
         entity_id: light.it_stecker_3
+    - service: homeassistant.toggle
+      data:
+        entity_id: switch.meq0325581
     - delay:
         seconds: 1
     - service: homeassistant.turn_off
@@ -32,6 +36,9 @@
         entity_id: light.it_stecker_3
     - delay:
         seconds: 1
+    - service: homeassistant.toggle
+      data:
+        entity_id: switch.meq0325581
     - service: homeassistant.turn_off
       data:
         entity_id: light.it_stecker_3
@@ -46,7 +53,7 @@
       data:
         entity_id: light.it_stecker_3
 - alias: "sco_Test_off"
-  initial_state: True
+  initial_state: true
   trigger:
     - platform: state
       entity_id: binary_sensor.sco_spare
@@ -66,3 +73,11 @@
         target: "@cyberkov"
         message: >
           SCotest has been triggered OFF.
+    - service: homeassistant.toggle
+      data:
+        entity_id: switch.meq0325581
+    - delay:
+        seconds: 3
+    - service: homeassistant.toggle
+      data:
+        entity_id: switch.meq0325581

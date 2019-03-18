@@ -1,0 +1,180 @@
+---
+# This file is based on the ideas from https://www.youtube.com/watch?v=tqQd9GnnsYI
+sensor:
+  #- platform: command_line
+  #  name: goecharger_temp
+  #  command: 'curl -s -S http://go-eCharger.cyberkov.lan/status | tee /config/tmp/goecharger.json'
+  #  value_template: '{{ value_json.tmp }}'
+  #  unit_of_measurement: '°C'
+  - platform: file
+    name: 'goecharger Phase 1'
+    value_template: '{{ value_json.nrg[0] }}'
+    file_path: '/config/tmp/goecharger.json'
+    unit_of_measurement: 'V'
+  - platform: file
+    name: 'goecharger Phase 2'
+    file_path: '/config/tmp/goecharger.json'
+    value_template: '{{ value_json.nrg[1] }}'
+    unit_of_measurement: 'V'
+  - platform: file
+    name: 'goecharger Phase 3'
+    file_path: '/config/tmp/goecharger.json'
+    value_template: '{{ value_json.nrg[2] }}'
+    unit_of_measurement: 'V'
+  - platform: file
+    name: 'goecharger Car'
+    file_path: '/config/tmp/goecharger.json'
+    value_template: >
+      {% if  value_json.car == '1' %}
+      Ladestation bereit, kein Fahrzeug
+      {% elif value_json.car == '2' %}
+      Fahrzeug lädt
+      {% elif value_json.car == '3' %}
+      Warte auf Fahrzeug
+      {% elif value_json.car == '4' %}
+      Ladung beendet, Fahrzeug noch verbunden
+      {% endif %}
+  - platform: file
+    name: 'goecharger Ampere'
+    file_path: '/config/tmp/goecharger.json'
+    value_template: '{{ value_json.amp }}'
+    unit_of_measurement: 'A'
+  - platform: file
+    name: 'goecharger Geladene Energiemenge'
+    file_path: '/config/tmp/goecharger.json'
+    value_template: '{{ value_json.dws }}'
+    unit_of_measurement: 'dWs'
+  - platform: file
+    name: 'goecharger Gesamt geladene Energiemenge'
+    file_path: '/config/tmp/goecharger.json'
+    value_template: '{{ value_json.eto }}'
+    unit_of_measurement: 'kWh'
+  - platform: file
+    name: 'goecharger Firmwareversion'
+    file_path: '/config/tmp/goecharger.json'
+    value_template: '{{ value_json.fwv }}'
+  - platform: file
+    name: 'goecharger Seriennummer'
+    file_path: '/config/tmp/goecharger.json'
+    value_template: '{{ value_json.sse }}'
+
+switch:
+  - platform: command_line
+    switches:
+      goecharger:
+        command_on: 'curl -s -S http://go-eCharger.cyberkov.lan/mqtt?payload=alw=1 | tee /config/tmp/goecharger.json'
+        command_off: 'curl -s -S http://go-eCharger.cyberkov.lan/mqtt?payload=alw=0 | tee /config/tmp/goecharger.json'
+        command_state: 'cat /config/tmp/goecharger.json'
+        value_template: >
+          {% if value_json.alw == '0' %}
+          false
+          {% elif value_json.alw == '1' %}
+          true
+          {% endif %}
+
+# {
+#   "version": "B",
+#   "tme": "1103192113",
+#   "rbc": "7",
+#   "rbt": "4272151",
+#   "car": "1",
+#   "amp": "10",
+#   "err": "0",
+#   "ast": "0",
+#   "alw": "1",
+#   "stp": "0",
+#   "cbl": "0",
+#   "pha": "8",
+#   "tmp": "35",
+#   "dws": "0",
+#   "dwo": "0",
+#   "adi": "1",
+#   "uby": "0",
+#   "eto": "0",
+#   "wst": "0",
+#   "nrg": [
+#     1,
+#     0,
+#     0,
+#     219,
+#     0,
+#     0,
+#     0,
+#     0,
+#     0,
+#     0,
+#     0,
+#     0,
+#     0,
+#     0,
+#     0,
+#     0
+#     ],
+#   "fwv": "025.1",
+#   "sse": "004401",
+#   "wss": "42-2",
+#   "wke": "********",
+#   "wen": "1",
+#   "cdi": "1",
+#   "tof": "101",
+#   "tds": "1",
+#   "lbr": "100",
+#   "aho": "3",
+#   "afi": "7",
+#   "ama": "32",
+#   "al1": "10",
+#   "al2": "16",
+#   "al3": "20",
+#   "al4": "24",
+#   "al5": "32",
+#   "cid": "13303808",
+#   "cch": "65280",
+#   "cfi": "16711935",
+#   "lse": "1",
+#   "ust": "0",
+#   "wak": "499237a48a",
+#   "r1x": "3",
+#   "dto": "0",
+#   "nmo": "0",
+#   "sch": "AAAAAAAAAAAAAAAA",
+#   "sdp": "0",
+#   "eca": "0",
+#   "ecr": "0",
+#   "ecd": "0",
+#   "ec4": "0",
+#   "ec5": "0",
+#   "ec6": "0",
+#   "ec7": "0",
+#   "ec8": "0",
+#   "ec9": "0",
+#   "ec1": "0",
+#   "rca": "19D97348",
+#   "rcr": "",
+#   "rcd": "",
+#   "rc4": "",
+#   "rc5": "",
+#   "rc6": "",
+#   "rc7": "",
+#   "rc8": "",
+#   "rc9": "",
+#   "rc1": "",
+#   "rna": "",
+#   "rnm": "",
+#   "rne": "",
+#   "rn4": "",
+#   "rn5": "",
+#   "rn6": "",
+#   "rn7": "",
+#   "rn8": "",
+#   "rn9": "",
+#   "rn1": "",
+#   "loe": 0,
+#   "lot": 0,
+#   "lom": 0,
+#   "lop": 0,
+#   "log": "",
+#   "lon": 0,
+#   "lof": 0,
+#   "loa": 0,
+#   "lch": 0
+#   }

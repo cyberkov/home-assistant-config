@@ -4,7 +4,7 @@ entities:
   - climate.meq0182106
   - climate.meq0182137
   - light.nachtkasterl
-  - media_player.schlafzimmer
+  - media_player.lounge
   - sensor.leq0868021_humidity
   - sensor.leq0868021_temperature
   - sensor.mold_schlafzimmer

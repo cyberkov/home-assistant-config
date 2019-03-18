@@ -1,0 +1,5 @@
+---
+- name: Barbara
+  id: barbara
+  device_trackers:
+    - device_tracker.barbara

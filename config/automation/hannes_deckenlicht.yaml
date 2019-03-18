@@ -1,5 +1,6 @@
+---
 - alias: "Hannes Deckenlicht an"
-  initial_state: True
+  initial_state: true
   trigger:
     - platform: state
       entity_id: switch.pangea
@@ -10,12 +11,14 @@
       data:
         entity_id: switch.meq0325581
 - alias: "Hannes Deckenlicht aus"
-  initial_state: True
+  initial_state: true
   trigger:
     - platform: state
       entity_id: switch.pangea
       from: "on"
       to: "off"
+      for:
+        minutes: 2
   action:
     - service: homeassistant.turn_off
       data:

@@ -4,6 +4,5 @@ entities:
   - group.alarmanlage
   - group.personen
   - group.fenster
-  - group.internet
   - group.climate
   - group.licht

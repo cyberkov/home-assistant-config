@@ -4,11 +4,6 @@
   qos: 0
   unit_of_measurement: "%"
 - platform: mqtt
-  name: "TF101 Battery"
-  state_topic: "zanzito/tf101/battery_level"
-  qos: 0
-  unit_of_measurement: "%"
-- platform: mqtt
   name: "Wallpanel Battery"
   state_topic: "zanzito/wallpanel/battery_level"
   qos: 0

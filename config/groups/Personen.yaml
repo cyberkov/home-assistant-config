@@ -1,5 +1,5 @@
 entities:
-  - device_tracker.barbara
-  - device_tracker.cyberkov
+  - person.barbara
+  - person.hannes
   - switch.guests
   - device_tracker.nissan_leaf_leaf1wirc
