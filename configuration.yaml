@@ -6,6 +6,7 @@ prometheus: !include config/core/prometheus.yaml
 lovelace:
   mode: yaml
 
+default_config:
 conversation:
 discovery:
 config:

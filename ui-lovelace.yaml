@@ -463,5 +463,11 @@ views:
           - sensor.dark_sky_wind_speed
           - sensor.dark_sky_apparent_temperature
 # Exclude entities from "Unused entities" view
-# excluded_entities:
+excluded_entities:
+  - group.alarmanlage
+  - group.auto
+  - group.automatik
+  - group.bad
+  - group.calendar
+  - group.bewegungsmelder
 #   - alert.windfang_tuer
