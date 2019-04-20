@@ -13,7 +13,7 @@ time_zone: Europe/Vienna
 customize: !include_dir_merge_named ../customizations
 packages: !include_dir_named ../packages
 whitelist_external_dirs:
-  - /tmp
+  - /config/tmp
 auth_providers:
   - type: homeassistant
   - type: trusted_networks

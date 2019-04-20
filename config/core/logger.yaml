@@ -17,7 +17,9 @@ logs:
   homeassistant.components: info
   homeassistant.core: warn
   homeassistant.loader: warn
+  botocore: warn
   lightify: warn
   openzwave: info
+  libopenzwave: info
   pyhomematic: warn
   requests.packages.urllib3.connectionpool: warn

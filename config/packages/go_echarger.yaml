@@ -1,11 +1,11 @@
 ---
 # This file is based on the ideas from https://www.youtube.com/watch?v=tqQd9GnnsYI
 sensor:
-  #- platform: command_line
-  #  name: goecharger_temp
-  #  command: 'curl -s -S http://go-eCharger.cyberkov.lan/status | tee /config/tmp/goecharger.json'
-  #  value_template: '{{ value_json.tmp }}'
-  #  unit_of_measurement: '°C'
+  - platform: command_line
+    name: goecharger_temp
+    command: 'curl -s -S http://go-eCharger.cyberkov.lan/status | tee /config/tmp/goecharger.json'
+    value_template: '{{ value_json.tmp }}'
+    unit_of_measurement: '°C'
   - platform: file
     name: 'goecharger Phase 1'
     value_template: '{{ value_json.nrg[0] }}'
