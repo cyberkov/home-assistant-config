@@ -1,0 +1,135 @@
+title: Netzwerk
+icon: mdi:lan-connect
+cards:
+  - type: entities
+    title: Internet
+    show_header_toggle: true
+    entities:
+      - sensor.speedtest_ping
+      - sensor.travis_status
+      - sensor.speedtest_upload
+      - binary_sensor.axon7_status
+      - sensor.travis_build_label
+      - sensor.speedtest_download
+  - type: entities
+    title: all automations
+    show_header_toggle: true
+    entities:
+      - automation.gelsenstecker_on
+      - automation.charge_wallpanel_when_battery_is_low
+      - automation.heizung_bei_abwesenheit_aus
+      - automation.alarm_pending
+      - automation.gaestezimmer_heizung_aus
+      - automation.nachtkasterl_on_long
+      - automation.heizung_daily_reset
+      - automation.heizungssteuerung
+      - automation.lueftung_notify
+      - automation.alarmananlage_arm_home
+      - automation.turn_down_lights_when_kodi_plays
+      - automation.notify_for_new_devices
+      - automation.hannes_deckenlicht_aus
+      - automation.ip_address_changed
+      - automation.nachtkasterl_off
+      - automation.alarm_tripped_bwalarm
+      - automation.notify_if_sensor_state_unchanged
+      - automation.homematic_mqtt_notification
+      - automation.barbara_tischlampe
+      - automation.nachtkasterl_off_long_play
+      - automation.log_level
+      - automation.heizung_bei_anwesenheit_an
+      - automation.ha_shutdown
+      - automation.turn_on_the_lights_back_on_pause
+      - automation.luftentfeuchter
+      - automation.wetteransage_morgens_hannes
+      - automation.mqtt_switch
+      - automation.heizungssteuerung_on
+      - automation.gaestezimmer_heizung_an
+      - automation.wetteransage_morgens_barbara
+      - automation.wohnzimmer_abendlicht
+      - automation.vacuum_notify_on_success
+      - automation.nachtkasterl_on
+      - automation.homematic_switches_died
+      - automation.alarm_trigger
+      - automation.automation_test
+      - automation.turn_off_wallpanel_charger_when_battery_is_full
+      - automation.tuerklingel
+      - automation.unexpected_motion
+      - automation.alarmananlage_disarm
+      - automation.heizsaison_ende
+      - automation.update_config_if_travis_build_is_successfull
+      - automation.heizsaison_start
+      - automation.gelsenstecker_off_after_7h
+      - automation.vacuum_starte_staubsauger_bei_abwesenheit
+      - automation.heizsaison_ensure
+      - automation.alarm_warning
+      - automation.vacuum_notify_on_errors
+      - automation.hannes_deckenlicht_an
+      - automation.heizungssteuerung_off
+      - automation.waschmaschine_fertig_notify
+      - automation.sco_test
+      - automation.barbara_tischlampe_press_long
+      - automation.sco_test_off
+      - automation.ha_startup
+      - automation.alarm_disarmed
+      - automation.alarmananlage_arm_away
+      - automation.gelsenstecker_off_when_all_windows_are_closed
+      - automation.turn_the_lights_back_on_film_end
+      - automation.home_assistant_update
+  - type: entities
+    title: Automatik
+    show_header_toggle: true
+    entities:
+      - switch.nightlights
+      - switch.sleeping
+      - switch.alert_motion
+      - switch.presence
+      - switch.guests
+      - switch.alert_lueftung
+      - switch.vacation
+      - switch.detect_motion
+      - switch.heizsaison
+  - type: entities
+    title: Monitoring
+    show_header_toggle: true
+    entities:
+      - sensor.acedia
+      - sensor.ccu
+      - sensor.datastore
+      - sensor.sonos_wohnzimmer
+      - sensor.sonos_kueche
+      - sensor.osmc_wohnzimmer
+      - sensor.philips_hue
+      - sensor.sonos_bad
+      - sensor.grandstreamvoip
+      - sensor.sonos_schlafzimmer
+      - sensor.osmc_hannes
+  - type: entities
+    title: NAS
+    show_header_toggle: true
+    entities:
+      - sensor.status_smart_sda
+      - sensor.status_sdb
+      - sensor.status_sda
+      - sensor.status_volume_1
+      - sensor.status_smart_sdb
+      - sensor.cpu_load_total
+      - sensor.network_up
+      - sensor.memory_usage_real
+  - type: entities
+    title: torrent
+    show_header_toggle: true
+    entities:
+      - sensor.transmission_up_speed
+      - sensor.sonarr_queue
+      - sensor.transmission_down_speed
+      - sensor.radarr_upcoming
+      - sensor.transmission_status
+      - sensor.sonarr_upcoming
+      - sensor.radarr_status
+  - type: entities
+    title: System
+    show_header_toggle: true
+    entities:
+      - sensor.axon7_battery
+      - sensor.memory_free
+      - sensor.processor_use

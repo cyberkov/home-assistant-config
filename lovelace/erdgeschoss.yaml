@@ -1,0 +1,56 @@
+title: Erdgeschoss
+icon: mdi:page-layout-body
+cards:
+  - type: entities
+    title: Windfang
+    show_header_toggle: true
+    entities:
+      - binary_sensor.leq1177637_state
+      - climate.meq0182100
+  - type: entities
+    title: Wohnzimmer
+    show_header_toggle: true
+    entities:
+      - binary_sensor.meq0186561_state
+      - switch.wohnzimmer_tv
+      - light.fernsehlampe
+      - sensor.mold_wohnzimmer
+      - sensor.leq0868616_humidity
+      - sensor.leq0868616_temperature
+      - climate.meq0182042
+  - type: media-control
+    entity: media_player.wohnzimmer
+  - type: media-control
+    entity: media_player.kodi_wohnzimmer
+  - type: entities
+    title: Kueche
+    show_header_toggle: true
+    entities:
+      - switch.leq0531373
+      - climate.meq0182095
+      - sensor.leq0867920_temperature
+      - sensor.leq0867920_humidity
+      - sensor.leq0531373_frequency
+      - sensor.mold_kueche
+      - sensor.leq0531373_current
+      - sensor.leq0531373_power
+      - sensor.leq0531373_energy_counter
+      - sensor.leq0531373_voltage
+      - binary_sensor.meq0186642_state
+  - type: media-control
+    entity: media_player.kuche
+  - type: entities
+    title: Esszimmer
+    show_header_toggle: true
+    entities:
+      - climate.meq0182064
+      - sensor.lab0091601_brightness
+      - binary_sensor.lab0091601_motion
+  - type: entities
+    title: Vorzimmer
+    show_header_toggle: true
+    entities:
+      - binary_sensor.wallpanel_status
+      - sensor.wallpanel_battery
+      - switch.it_stecker_1
+      - climate.meq0182105

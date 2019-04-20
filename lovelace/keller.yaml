@@ -1,0 +1,59 @@
+title: Keller
+icon: mdi:page-layout-footer
+cards:
+  - type: entities
+    title: Sauna
+    show_header_toggle: true
+    entities:
+      - sensor.leq0531146_energy_counter
+      - sensor.leq0531146_voltage
+      - sensor.leq0531146_current
+      - automation.luftentfeuchter
+      - sensor.mold_sauna
+      - switch.leq0531146
+      - sensor.luftentfeuchter_on_today
+      - climate.leq0584727
+      - sensor.leq0531146_frequency
+      - sensor.leq0868600_humidity
+      - sensor.leq0531146_power
+      - sensor.leq0868600_temperature
+  - type: media-control
+    entity: media_player.sauna
+  - type: entities
+    title: Hannes
+    show_header_toggle: true
+    entities:
+      - sensor.meq0537387_brightness
+      - light.barbara_tischlampe
+      - binary_sensor.meq0537387_motion
+      - light.p16tw_01
+      - light.p16tw_02
+      - switch.pangea
+      - binary_sensor.meq0186547_state
+      - light.it_stecker_3
+      - climate.meq0182097
+      - switch.meq0325581
+      - binary_sensor.leq1085620_state
+      - binary_sensor.meq0186623_state
+  - type: media-control
+    entity: media_player.kodi_hannes
+  - type: entities
+    title: Wirtschaftsraum
+    show_header_toggle: true
+    entities:
+      - sensor.gas_power
+      - sensor.leq0574052_frequency
+      - sensor.leq0574052_voltage
+      - sensor.waschmaschine_status
+      - sensor.gas_energy_counter
+      - switch.leq0574052
+      - sensor.meq0705863_energy_counter
+      - sensor.meq0705863_gas_power
+      - sensor.heizung_on_today
+      - sensor.leq0574052_energy_counter
+      - sensor.meq0705863_power
+      - sensor.leq0574052_current
+      - sensor.leq0574052_power
+      - switch.meq0712568
+      - sensor.heizbedarf
+      - sensor.meq0705863_gas_energy_counter

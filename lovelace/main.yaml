@@ -1,0 +1,18 @@
+---
+title: Schallerburg
+views:
+  - !include uebersicht.yaml
+  - !include sicherheit.yaml
+  - !include erdgeschoss.yaml
+  - !include obergeschoss.yaml
+  - !include keller.yaml
+  - !include garten.yaml
+  - !include netzwerk.yaml
+
+excluded_entities:
+  - group.alarmanlage
+  - group.auto
+  - group.automatik
+  - group.bad
+  - group.calendar
+  - group.bewegungsmelder

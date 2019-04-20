@@ -1,0 +1,3 @@
+[submodule "lovelace-gen"]
+	path = lovelace-gen
+	url = https://github.com/thomasloven/homeassistant-lovelace-gen.git

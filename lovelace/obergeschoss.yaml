@@ -1,0 +1,55 @@
+title: Obergeschoss
+icon: mdi:page-layout-header
+cards:
+  - type: entities
+    title: Bad
+    show_header_toggle: true
+    entities:
+      - sensor.leq0122248_temperature
+      - sensor.leq0122248_humidity
+      - climate.meq0233504
+      - sensor.mold_bad
+      - light.badezimmerlicht
+  - type: media-control
+    entity: media_player.bad
+  - type: entities
+    title: Gang
+    show_header_toggle: true
+    entities:
+      - light.hue_ambiance_spot_2
+      - binary_sensor.meq0537083_motion
+      - climate.meq0182081
+      - light.hue_ambiance_spot_1_3
+      - binary_sensor.meq0186720_state
+      - sensor.meq0537083_brightness
+  - type: entities
+    title: Schlafzimmer
+    show_header_toggle: true
+    entities:
+      - light.nachtkasterl
+      - sensor.mold_schlafzimmer
+      - binary_sensor.meq0186709_state
+      - binary_sensor.meq0172089_state
+      - sensor.leq0868021_humidity
+      - switch.it_2
+      - climate.meq0182137
+      - climate.meq0182106
+      - sensor.leq0868021_temperature
+  - type: media-control
+    entity: media_player.lounge
+  - type: entities
+    title: Dominik
+    show_header_toggle: true
+    entities:
+      - climate.meq0182136
+      - binary_sensor.meq0186607_state
+      - light.hue_ambiance_spot_1_2
+  - type: media-control
+    entity: media_player.dominik
+  - type: entities
+    title: Clara
+    show_header_toggle: true
+    entities:
+      - light.hue_ambiance_spot_1
+      - climate.meq0182655
+      - binary_sensor.meq0186563_state

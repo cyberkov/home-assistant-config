@@ -1,0 +1,64 @@
+title: Sicherheit
+icon: mdi:lock
+cards:
+  - type: alarm-panel
+    entity: alarm_control_panel.house
+  - type: entity-filter
+    state_filter:
+      - 'on'
+    card:
+      type: glance
+      title: Bewegungsmelder
+    entities:
+      - binary_sensor.meq0537387_motion
+      - binary_sensor.meq0537083_motion
+      - binary_sensor.lab0091601_motion
+  - type: entity-filter
+    state_filter:
+      - 'on'
+    card:
+      type: entities
+      title: Fenster
+      show_header_toggle: false
+    entities:
+      - binary_sensor.leq1177637_state
+      - binary_sensor.meq0186563_state
+      - binary_sensor.meq0172089_state
+      - binary_sensor.meq0186607_state
+      - binary_sensor.meq0186709_state
+      - binary_sensor.meq0186561_state
+      - binary_sensor.meq0186720_state
+      - binary_sensor.meq0186642_state
+      - binary_sensor.leq1085620_state
+      - binary_sensor.meq0186623_state
+  - type: entities
+    title: Alarmanlage
+    show_header_toggle: true
+    entities:
+      - alarm_control_panel.house
+      - switch.warning
+      - switch.alarm
+      - switch.sirene_blitz
+      - switch.sirene_sirene
+  - type: entity-filter
+    state_filter:
+      - 'on'
+    show_empty: false
+    card:
+      type: entities
+      show_header_toggle: false
+      title: Sabotagekontakte
+    entities:
+      - binary_sensor.hannes_tuer_sabotage
+      - binary_sensor.schlafzimmer_rechts_sabotage
+      - binary_sensor.dominik_fenster_sabotage
+      - binary_sensor.og_fenster_sabotage
+      - binary_sensor.hannes_fenster_sabotage
+      - binary_sensor.wohnzimmer_tuer_sabotage
+      - binary_sensor.hannes_bewegungsmelder_sabotage
+      - binary_sensor.barbara_fenster_sabotage
+      - binary_sensor.kueche_fenster_sabotage
+      - binary_sensor.schlafzimmer_links_sabotage
+      - binary_sensor.esszimmer_bewegungsmelder_sabotage
+      - binary_sensor.windfang_tuer_sabotage
+      - binary_sensor.og_bewegungsmelder_sabotage
