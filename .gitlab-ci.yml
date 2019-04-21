@@ -9,6 +9,7 @@ check-config:
   before_script:
     - cp $CI_PROJECT_DIR/secrets_redacted.yaml $CI_PROJECT_DIR/secrets.yaml
     - mkdir -p /etc/letsencrypt/live && ln -s $CI_PROJECT_DIR/.travis /etc/letsencrypt/live/graph.cyberkov.at
+    - mkdir tmp && touch tmp/goecharger.json
   script:
     - cd /usr/src/app
     - python -m homeassistant --config ${CI_PROJECT_DIR} --script check_config --info light
