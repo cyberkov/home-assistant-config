@@ -6,7 +6,6 @@ ssl_certificate: !secret HA_HTTP_CERT
 ssl_key: !secret HA_HTTP_KEY
 base_url: haus.cyberkov.at
 use_x_forwarded_for: true
-api_password: !secret HA_HTTP_LOGIN
 ip_ban_enabled: false
 login_attempts_threshold: 3
 trusted_proxies:
