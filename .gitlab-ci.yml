@@ -2,6 +2,7 @@
 stages:
   - test
   - deploy
+  - notify
 
 check-config:
   stage: test
@@ -13,6 +14,46 @@ check-config:
   script:
     - cd /usr/src/app
     - python -m homeassistant --config ${CI_PROJECT_DIR} --script check_config --info light
+
+.deploy:
+  stage: deploy
+  only:
+    - master
+  before_script:
+    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - echo "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+  script:
+    - ssh $DEPLOY_USER@$DEPLOY_HOST "cd '$DEPLOY_PATH'; git pull; rancher restart home-assistant"
+
+.rancher-deploy:
+  stage: deploy
+  only:
+    - master
+  script:
+    - "curl -u '${RANCHER_ACCESS_KEY}:${RANCHER_SECRET_KEY}' -H 'Accept: application/json' -H 'Content-Type: application/json' -d '{}' -X POST 'https://${RANCHER_URL}/v2-beta/projects/${PROJECT_ID}/containers/${ID}?action=restart'"
+
+notify_success:
+  stage: notify
+  allow_failure: true
+  only:
+    - master
+  script:
+    - curl -s --form-string "token=$PUSHOVER_API_TOKEN" --form-string "user=$PUSHOVER_USER_TOKEN" --form-string "message=New Hass config deployed successfully!" https://api.pushover.net/1/messages.json
+
+notify_fail:
+  stage: notify
+  allow_failure: true
+  only:
+    - master
+  when: on_failure
+  script:
+    - curl -s --form-string "token=$PUSHOVER_API_TOKEN" --form-string "user=$PUSHOVER_USER_TOKEN" --form-string "message=New Hass config failed. Please check for errors" https://api.pushover.net/1/messages.json
+
 
 .overcommit:
   image: toughiq/overcommit:latest
