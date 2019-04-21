@@ -27,6 +27,8 @@ PreCommit:
     enabled: true
   HardTabs:
     enabled: true
+    exclude:
+      - Makefile
   ExecutePermissions:
     enabled: true
     exclude:
