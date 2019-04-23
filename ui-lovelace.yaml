@@ -34,7 +34,7 @@ views:
     card:
       type: entities
       title: Heizungen
-      show_header_toggle: true
+      show_header_toggle: false
       entities:
       - climate.meq0182095
       - climate.meq0182136
@@ -525,6 +525,24 @@ views:
     - sensor.axon7_battery
     - sensor.memory_free
     - sensor.processor_use
+  - type: entities
+    title: Heizungen
+    show_header_toggle: false
+    entities:
+    - entity: climate.meq0182095
+      secondary_info: valve
+    - climate.meq0182136
+    - climate.meq0182100
+    - climate.meq0182097
+    - climate.meq0182042
+    - climate.meq0182064
+    - climate.leq0584727
+    - climate.meq0182081
+    - climate.meq0182105
+    - climate.meq0233504
+    - climate.meq0182655
+    - climate.meq0182137
+    - climate.meq0182106
 excluded_entities:
 - group.alarmanlage
 - group.auto

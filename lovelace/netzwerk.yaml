@@ -3,7 +3,7 @@ icon: mdi:lan-connect
 cards:
   - type: entities
     title: Internet
-    show_header_toggle: true
+    show_header_toggle: false
     entities:
       - sensor.speedtest_ping
       - sensor.travis_status
@@ -13,7 +13,7 @@ cards:
       - sensor.speedtest_download
   - type: entities
     title: all automations
-    show_header_toggle: true
+    show_header_toggle: false
     entities:
       - automation.gelsenstecker_on
       - automation.charge_wallpanel_when_battery_is_low
@@ -77,7 +77,7 @@ cards:
       - automation.home_assistant_update
   - type: entities
     title: Automatik
-    show_header_toggle: true
+    show_header_toggle: false
     entities:
       - switch.nightlights
       - switch.sleeping
@@ -90,7 +90,7 @@ cards:
       - switch.heizsaison
   - type: entities
     title: Monitoring
-    show_header_toggle: true
+    show_header_toggle: false
     entities:
       - sensor.acedia
       - sensor.ccu
@@ -105,7 +105,7 @@ cards:
       - sensor.osmc_hannes
   - type: entities
     title: NAS
-    show_header_toggle: true
+    show_header_toggle: false
     entities:
       - sensor.status_smart_sda
       - sensor.status_sdb
@@ -117,7 +117,7 @@ cards:
       - sensor.memory_usage_real
   - type: entities
     title: torrent
-    show_header_toggle: true
+    show_header_toggle: false
     entities:
       - sensor.transmission_up_speed
       - sensor.sonarr_queue
@@ -128,8 +128,25 @@ cards:
       - sensor.radarr_status
   - type: entities
     title: System
-    show_header_toggle: true
+    show_header_toggle: false
     entities:
       - sensor.axon7_battery
       - sensor.memory_free
       - sensor.processor_use
+  - type: entities
+    title: Heizungen
+    show_header_toggle: false
+    entities:
+      - climate.meq0182095
+      - climate.meq0182136
+      - climate.meq0182100
+      - climate.meq0182097
+      - climate.meq0182042
+      - climate.meq0182064
+      - climate.leq0584727
+      - climate.meq0182081
+      - climate.meq0182105
+      - climate.meq0233504
+      - climate.meq0182655
+      - climate.meq0182137
+      - climate.meq0182106

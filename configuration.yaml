@@ -1,7 +1,6 @@
 ---
 homeassistant: !include config/core/homeassistant.yaml
 hue: !include config/core/hue.yaml
-#influxdb: !include config/core/influxdb.yaml
 prometheus: !include config/core/prometheus.yaml
 lovelace:
   mode: yaml
@@ -20,7 +19,6 @@ sun:
 updater:
   include_used_components: true
 zeroconf:
-cloud:
 tts:
   - platform: amazon_polly
     aws_access_key_id: !secret AWS_ID
@@ -37,7 +35,7 @@ nissan_leaf:
   username: !secret LEAF_USER
   password: !secret LEAF_PASSWORD
   nissan_connect: true
-  region: 'NE'
+  region: "NE"
 #  update_interval: 30
 #  update_interval_charging: 15
 #  update_interval_climate: 5

@@ -8,20 +8,20 @@ cards:
 
   - type: entities
     title: Alarm Control Panel
-    show_header_toggle: true
+    show_header_toggle: false
     entities:
       - alarm_control_panel.house
 
   - type: entities
     title: Alerts
-    show_header_toggle: true
+    show_header_toggle: false
     entities:
       - alert.sonos_bad
       - alert.windfang_tuer
 
   - type: entities
     title: Automations
-    show_header_toggle: true
+    show_header_toggle: false
     entities:
       - automation.alarm_disarmed
       - automation.alarm_pending
@@ -86,7 +86,7 @@ cards:
 
   - type: entities
     title: Binary Sensors
-    show_header_toggle: true
+    show_header_toggle: false
     entities:
       - binary_sensor.axon7_status
       - binary_sensor.barbara_fenster_sabotage
@@ -124,7 +124,7 @@ cards:
 
   - type: entities
     title: Calendars
-    show_header_toggle: true
+    show_header_toggle: false
     entities:
       - calendar.apa
       - calendar.barbarabeinsteingmailcom
@@ -137,7 +137,7 @@ cards:
 
   - type: entities
     title: Climates
-    show_header_toggle: true
+    show_header_toggle: false
     entities:
       - climate.int0000001
       - climate.int0000002
@@ -158,7 +158,7 @@ cards:
 
   - type: entity-filter
     title: Device Trackers
-    show_header_toggle: true
+    show_header_toggle: false
     entities:
       - device_tracker.00127b24f231
       - device_tracker.0028f8a24761
@@ -212,15 +212,14 @@ cards:
       - device_tracker.stellacyberkovlan
       - device_tracker.xubuntu
     state_filter:
-      - 'home'
+      - "home"
     card:
       type: glance
       title: My Device Trackers
 
-
   - type: entities
     title: Groups
-    show_header_toggle: true
+    show_header_toggle: false
     entities:
       - group.alarmanlage
       - group.all_automations
@@ -269,13 +268,13 @@ cards:
 
   - type: entities
     title: Homematic
-    show_header_toggle: true
+    show_header_toggle: false
     entities:
       - homematic.ccu2
 
   - type: entities
     title: Lights
-    show_header_toggle: true
+    show_header_toggle: false
     entities:
       - light.a60rgbw_01
       - light.badezimmerlicht
@@ -298,33 +297,33 @@ cards:
 
   - type: entities
     title: Persistent Notification
-    show_header_toggle: true
+    show_header_toggle: false
     entities:
       - persistent_notification.cloud_subscription_expired
 
   - type: entities
     title: Persons
-    show_header_toggle: true
+    show_header_toggle: false
     entities:
       - person.barbara
       - person.hannes
 
   - type: entities
     title: Proximity
-    show_header_toggle: true
+    show_header_toggle: false
     entities:
       - proximity.home
 
   - type: entities
     title: Scenes
-    show_header_toggle: true
+    show_header_toggle: false
     entities:
       - scene.hannes_movie
       - scene.hannes_normal
 
   - type: entities
     title: Scripts
-    show_header_toggle: true
+    show_header_toggle: false
     entities:
       - script.alarm_away
       - script.alarm_home
@@ -336,7 +335,7 @@ cards:
 
   - type: entities
     title: Sensors
-    show_header_toggle: true
+    show_header_toggle: false
     entities:
       - sensor.acedia
       - sensor.axon7_battery
@@ -446,13 +445,13 @@ cards:
 
   - type: entities
     title: Sun
-    show_header_toggle: true
+    show_header_toggle: false
     entities:
       - sun.sun
 
   - type: entities
     title: Switchs
-    show_header_toggle: true
+    show_header_toggle: false
     entities:
       - switch.alarm
       - switch.alert_lueftung
@@ -492,20 +491,20 @@ cards:
 
   - type: entities
     title: Updater
-    show_header_toggle: true
+    show_header_toggle: false
     entities:
       - updater.updater
 
   - type: entities
     title: Zones
-    show_header_toggle: true
+    show_header_toggle: false
     entities:
       - zone.home
       - zone.work
 
   - type: entities
     title: Zwaves
-    show_header_toggle: true
+    show_header_toggle: false
     entities:
       - zwave.aeotec_zw090_zstick_gen5_eu
       - zwave.wenzhou_tkb_control_system_tz67_wall_plug_dimmer

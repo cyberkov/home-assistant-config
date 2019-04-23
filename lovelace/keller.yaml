@@ -3,7 +3,7 @@ icon: mdi:page-layout-footer
 cards:
   - type: entities
     title: Sauna
-    show_header_toggle: true
+    show_header_toggle: false
     entities:
       - sensor.leq0531146_energy_counter
       - sensor.leq0531146_voltage
@@ -21,7 +21,7 @@ cards:
     entity: media_player.sauna
   - type: entities
     title: Hannes
-    show_header_toggle: true
+    show_header_toggle: false
     entities:
       - sensor.meq0537387_brightness
       - light.barbara_tischlampe
@@ -39,7 +39,7 @@ cards:
     entity: media_player.kodi_hannes
   - type: entities
     title: Wirtschaftsraum
-    show_header_toggle: true
+    show_header_toggle: false
     entities:
       - sensor.gas_power
       - sensor.leq0574052_frequency

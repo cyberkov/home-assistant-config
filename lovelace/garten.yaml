@@ -3,13 +3,13 @@ icon: mdi:tree
 cards:
   - type: entities
     title: Vorhersage
-    show_header_toggle: true
+    show_header_toggle: false
     entities:
       - sensor.dark_sky_daily_summary
       - sensor.dark_sky_hourly_summary
   - type: entities
     title: Auto
-    show_header_toggle: true
+    show_header_toggle: false
     entities:
       - switch.leaf1wirc_climate_control
       - switch.leaf1wirc_charging_status
@@ -30,7 +30,7 @@ cards:
       - sensor.goecharger_temp
   - type: entities
     title: Wetter
-    show_header_toggle: true
+    show_header_toggle: false
     entities:
       - sensor.dark_sky_precip_intensity
       - sensor.leq0798807_temperature

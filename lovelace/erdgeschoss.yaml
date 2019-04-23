@@ -3,13 +3,13 @@ icon: mdi:page-layout-body
 cards:
   - type: entities
     title: Windfang
-    show_header_toggle: true
+    show_header_toggle: false
     entities:
       - binary_sensor.leq1177637_state
       - climate.meq0182100
   - type: entities
     title: Wohnzimmer
-    show_header_toggle: true
+    show_header_toggle: false
     entities:
       - binary_sensor.meq0186561_state
       - switch.wohnzimmer_tv
@@ -24,7 +24,7 @@ cards:
     entity: media_player.kodi_wohnzimmer
   - type: entities
     title: Kueche
-    show_header_toggle: true
+    show_header_toggle: false
     entities:
       - switch.leq0531373
       - climate.meq0182095
@@ -41,14 +41,14 @@ cards:
     entity: media_player.kuche
   - type: entities
     title: Esszimmer
-    show_header_toggle: true
+    show_header_toggle: false
     entities:
       - climate.meq0182064
       - sensor.lab0091601_brightness
       - binary_sensor.lab0091601_motion
   - type: entities
     title: Vorzimmer
-    show_header_toggle: true
+    show_header_toggle: false
     entities:
       - binary_sensor.wallpanel_status
       - sensor.wallpanel_battery

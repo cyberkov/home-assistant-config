@@ -18,17 +18,17 @@ cards:
   - type: sensor
     name: Garten
     entity: sensor.leq0798807_temperature
-    graph: line
-
-        # sensor.leq0868616_humidity Wohnzimmer
+    graph:
+      line
+      # sensor.leq0868616_humidity Wohnzimmer
   - type: conditional
     conditions:
       - entity: switch.heizsaison
-        state: 'on'
+        state: "on"
     card:
       type: entities
       title: Heizungen
-      show_header_toggle: true
+      show_header_toggle: false
       entities:
         - climate.meq0182095
         - climate.meq0182136
@@ -45,7 +45,7 @@ cards:
         - climate.meq0182106
   - type: entity-filter
     state_filter:
-      - 'on'
+      - "on"
     card:
       type: entities
       title: Fenster
@@ -63,8 +63,8 @@ cards:
       - binary_sensor.meq0186623_state
   - type: entity-filter
     state_filter:
-      - 'on'
-      - 'off'
+      - "on"
+      - "off"
     card:
       type: entities
       show_header_toggle: false
@@ -83,7 +83,7 @@ cards:
     cards:
       - type: entities
         title: Personen
-        show_header_toggle: true
+        show_header_toggle: false
         entities:
           - switch.guests
           - person.barbara

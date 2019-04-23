@@ -1,0 +1,11 @@
+- alias: "Lovelace rebuild"
+  initial_state: true
+  trigger:
+    - platform: time
+      at: "20:00:00"
+  condition:
+    - condition: state
+      entity_id: switch.vacation
+      state: "off"
+  action:
+    - service: shell_command.lovelace_gen

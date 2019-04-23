@@ -3,7 +3,7 @@ icon: mdi:page-layout-header
 cards:
   - type: entities
     title: Bad
-    show_header_toggle: true
+    show_header_toggle: false
     entities:
       - sensor.leq0122248_temperature
       - sensor.leq0122248_humidity
@@ -14,7 +14,7 @@ cards:
     entity: media_player.bad
   - type: entities
     title: Gang
-    show_header_toggle: true
+    show_header_toggle: false
     entities:
       - light.hue_ambiance_spot_2
       - binary_sensor.meq0537083_motion
@@ -24,7 +24,7 @@ cards:
       - sensor.meq0537083_brightness
   - type: entities
     title: Schlafzimmer
-    show_header_toggle: true
+    show_header_toggle: false
     entities:
       - light.nachtkasterl
       - sensor.mold_schlafzimmer
@@ -39,7 +39,7 @@ cards:
     entity: media_player.lounge
   - type: entities
     title: Dominik
-    show_header_toggle: true
+    show_header_toggle: false
     entities:
       - climate.meq0182136
       - binary_sensor.meq0186607_state
@@ -48,7 +48,7 @@ cards:
     entity: media_player.dominik
   - type: entities
     title: Clara
-    show_header_toggle: true
+    show_header_toggle: false
     entities:
       - light.hue_ambiance_spot_1
       - climate.meq0182655
