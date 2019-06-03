@@ -45,3 +45,9 @@ switch.petsi_dock:
   icon: mdi:roomba
 switch.petsi_find:
   icon: mdi:music
+switch.meq0727791_1:
+  friendly_name: Sirene Sirene
+  icon: mdi:volume-high
+switch.meq0727791_2:
+  friendly_name: Sirene Blitz
+  icon: mdi:alarm-light-outline

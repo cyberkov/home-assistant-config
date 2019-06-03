@@ -38,8 +38,8 @@ cards:
       - alarm_control_panel.house
       - switch.warning
       - switch.alarm
-      - switch.sirene_blitz
-      - switch.sirene_sirene
+      - switch.meq0727791_1
+      - switch.meq0727791_2
   - type: entity-filter
     state_filter:
       - "on"

@@ -28,7 +28,7 @@ tts:
     cache: true
     cache_dir: "tts"
     voice: "Marlene"
-  - platform: google
+  - platform: google_translate
     language: "de"
 homematic: !include config/core/homematic.yaml
 nissan_leaf:
@@ -44,7 +44,6 @@ nissan_leaf:
 #input_select: !include input_select.yaml
 #weblink: !include weblink.yaml
 alert: !include_dir_named config/alerts
-alarm_control_panel: !include config/alarm_control_panel.yaml
 dialogflow:
 system_health:
 intent_script: !include_dir_merge_named config/intent_script/

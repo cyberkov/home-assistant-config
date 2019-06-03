@@ -1,3 +1,4 @@
+---
 - alias: "Luftentfeuchter"
   initial_state: True
   trigger:
@@ -19,6 +20,10 @@
     - platform: time_pattern
       minutes: "/15"
       seconds: 0
+  condition:
+    - condition: state
+      entity_id: switch.pangea
+      state: "off"
   action:
     - service_template: >
         {% set high_hum = 62 -%}

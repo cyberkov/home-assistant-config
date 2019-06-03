@@ -1,5 +1,6 @@
+---
 - alias: "Alarmananlage arm_away"
-  initial_state: True
+  initial_state: true
   trigger:
     # Handsender Abwesend
     - platform: event
