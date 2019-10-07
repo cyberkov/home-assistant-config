@@ -1,3 +1,4 @@
+---
 ### OG ###
 # Bad
 sensor.leq0122248_humidity:
@@ -127,6 +128,10 @@ switch.leq0531146:
   friendly_name: Luftentfeuchter
 climate.leq0584727:
   friendly_name: Sauna Heizung
+sensor.oeq1304703_humidity:
+  friendly_name: Stiegenkammerl Luftfeuchte
+sensor.oeq1304703_temperature:
+  friendly_name: Stiegenkammerl Temperatur
 
 # Wirtschaftsraum
 sensor.meq0705863_gas_power:

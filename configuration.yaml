@@ -34,7 +34,7 @@ homematic: !include config/core/homematic.yaml
 nissan_leaf:
   username: !secret LEAF_USER
   password: !secret LEAF_PASSWORD
-  nissan_connect: true
+  # nissan_connect: true
   region: "NE"
 #  update_interval: 30
 #  update_interval_charging: 15
@@ -49,6 +49,7 @@ system_health:
 intent_script: !include_dir_merge_named config/intent_script/
 automation: !include_dir_merge_list config/automation/
 binary_sensor: !include_dir_merge_list config/devices/binary_sensors/
+camera: !include_dir_merge_list config/devices/cameras/
 cover:
   - platform: rfxtrx
     automatic_add: true
@@ -78,5 +79,5 @@ mqtt: !include config/core/mqtt.yaml
 google:
   client_id: !secret HA_GOOGLE_OAUTH_ID
   client_secret: !secret HA_GOOGLE_OAUTH_SECRET
-
+weather: !include_dir_merge_list config/devices/weather
 zwave: !include config/core/zwave.yaml

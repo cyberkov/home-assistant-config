@@ -1,0 +1,37 @@
+---
+- alias: "Alarm Trigger - away"
+  initial_state: true
+  trigger:
+    - platform: state
+      entity_id:
+        - binary_sensor.leq1085620_state
+        - binary_sensor.leq1177637_state
+        - binary_sensor.meq0172089_state
+        - binary_sensor.meq0186561_state
+        - binary_sensor.meq0186563_state
+        - binary_sensor.meq0186607_state
+        - binary_sensor.meq0186623_state
+        - binary_sensor.meq0186642_state
+        - binary_sensor.meq0186709_state
+        - binary_sensor.meq0186720_state
+      from: "off"
+      to: "on"
+    - platform: state
+      entity_id:
+        - binary_sensor.lab0091601_motion
+        - binary_sensor.meq0537083_motion
+        - binary_sensor.meq0537387_motion
+      from: "off"
+      to: "on"
+  condition:
+    - condition: state
+      entity_id: alarm_control_panel.house
+      state: "armed_away"
+  action:
+    - service: alarm_control_panel.alarm_trigger
+      data:
+        entity_id: alarm_control_panel.house
+    - service: notify.slack
+      data_template:
+        message: >
+          ALARM - {{ trigger.to_state.attributes.friendly_name }} triggered it.

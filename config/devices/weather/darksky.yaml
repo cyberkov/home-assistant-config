@@ -1,0 +1,4 @@
+---
+- platform: darksky
+  api_key: !secret HA_FORECAST_API
+  mode: daily

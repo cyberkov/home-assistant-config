@@ -1,8 +1,6 @@
 title: Sicherheit
 icon: mdi:lock
 cards:
-  - type: alarm-panel
-    entity: alarm_control_panel.house
   - type: entity-filter
     state_filter:
       - "on"
@@ -31,6 +29,8 @@ cards:
       - binary_sensor.meq0186642_state
       - binary_sensor.leq1085620_state
       - binary_sensor.meq0186623_state
+  - type: alarm-panel
+    entity: alarm_control_panel.house
   - type: entities
     title: Alarmanlage
     show_header_toggle: false
@@ -62,3 +62,8 @@ cards:
       - binary_sensor.esszimmer_bewegungsmelder_sabotage
       - binary_sensor.windfang_tuer_sabotage
       - binary_sensor.og_bewegungsmelder_sabotage
+  - type: picture-entity
+    title: Vorzimmer
+    show_header_toggle: false
+    entity: camera.wallpanel_camera
+    camera_view: live

@@ -2,17 +2,6 @@ title: Obergeschoss
 icon: mdi:page-layout-header
 cards:
   - type: entities
-    title: Bad
-    show_header_toggle: false
-    entities:
-      - sensor.leq0122248_temperature
-      - sensor.leq0122248_humidity
-      - climate.meq0233504
-      - sensor.mold_bad
-      - light.badezimmerlicht
-  - type: media-control
-    entity: media_player.bad
-  - type: entities
     title: Gang
     show_header_toggle: false
     entities:
@@ -22,6 +11,15 @@ cards:
       - light.hue_ambiance_spot_1_3
       - binary_sensor.meq0186720_state
       - sensor.meq0537083_brightness
+  - type: entities
+    title: Bad
+    show_header_toggle: false
+    entities:
+      - sensor.leq0122248_temperature
+      - sensor.leq0122248_humidity
+      - climate.meq0233504
+      - sensor.mold_bad
+      - light.badezimmerlicht
   - type: entities
     title: Schlafzimmer
     show_header_toggle: false
@@ -35,8 +33,6 @@ cards:
       - climate.meq0182137
       - climate.meq0182106
       - sensor.leq0868021_temperature
-  - type: media-control
-    entity: media_player.lounge
   - type: entities
     title: Dominik
     show_header_toggle: false
@@ -44,8 +40,6 @@ cards:
       - climate.meq0182136
       - binary_sensor.meq0186607_state
       - light.hue_ambiance_spot_1_2
-  - type: media-control
-    entity: media_player.dominik
   - type: entities
     title: Clara
     show_header_toggle: false
@@ -53,3 +47,9 @@ cards:
       - light.hue_ambiance_spot_1
       - climate.meq0182655
       - binary_sensor.meq0186563_state
+  - type: media-control
+    entity: media_player.bad
+  - type: media-control
+    entity: media_player.lounge
+  - type: media-control
+    entity: media_player.dominik

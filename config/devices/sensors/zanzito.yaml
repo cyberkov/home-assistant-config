@@ -3,8 +3,3 @@
   state_topic: "zanzito/axon7/battery_level"
   qos: 0
   unit_of_measurement: "%"
-- platform: mqtt
-  name: "Wallpanel Battery"
-  state_topic: "zanzito/wallpanel/battery_level"
-  qos: 0
-  unit_of_measurement: "%"

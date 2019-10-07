@@ -1,0 +1,15 @@
+---
+- alias: "Luftentfeuchter off when pangea starts"
+  initial_state: true
+  trigger:
+    - plattform: state
+      entity_id: switch.pangea
+      state: "on"
+  condition:
+    - condition: state
+      entity_id: switch.leq0531146
+      state: "on"
+  action:
+    - service: homeassistant.turn_off
+      data:
+        entity_id: switch.leq0531146

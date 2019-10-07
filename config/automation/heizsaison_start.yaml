@@ -6,7 +6,7 @@
       from: "off"
       to: "on"
   action:
-    - service: climate.set_operation_mode
+    - service: climate.set_hvac_mode
       data:
-        operation_mode: "auto"
+        hvac_mode: "auto"
         entity_id: all

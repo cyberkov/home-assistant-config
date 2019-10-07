@@ -107,8 +107,6 @@ views:
 - title: Sicherheit
   icon: mdi:lock
   cards:
-  - type: alarm-panel
-    entity: alarm_control_panel.house
   - type: entity-filter
     state_filter:
     - "on"
@@ -137,6 +135,8 @@ views:
     - binary_sensor.meq0186642_state
     - binary_sensor.leq1085620_state
     - binary_sensor.meq0186623_state
+  - type: alarm-panel
+    entity: alarm_control_panel.house
   - type: entities
     title: Alarmanlage
     show_header_toggle: false
@@ -168,9 +168,21 @@ views:
     - binary_sensor.esszimmer_bewegungsmelder_sabotage
     - binary_sensor.windfang_tuer_sabotage
     - binary_sensor.og_bewegungsmelder_sabotage
+  - type: picture-entity
+    title: Vorzimmer
+    show_header_toggle: false
+    entity: camera.wallpanel_camera
+    camera_view: live
 - title: Erdgeschoss
   icon: mdi:page-layout-body
   cards:
+  - type: entities
+    title: Esszimmer
+    show_header_toggle: false
+    entities:
+    - climate.meq0182064
+    - sensor.lab0091601_brightness
+    - binary_sensor.lab0091601_motion
   - type: entities
     title: Windfang
     show_header_toggle: false
@@ -188,10 +200,6 @@ views:
     - sensor.leq0868616_humidity
     - sensor.leq0868616_temperature
     - climate.meq0182042
-  - type: media-control
-    entity: media_player.wohnzimmer
-  - type: media-control
-    entity: media_player.kodi_wohnzimmer
   - type: entities
     title: Kueche
     show_header_toggle: false
@@ -207,15 +215,6 @@ views:
     - sensor.leq0531373_energy_counter
     - sensor.leq0531373_voltage
     - binary_sensor.meq0186642_state
-  - type: media-control
-    entity: media_player.kuche
-  - type: entities
-    title: Esszimmer
-    show_header_toggle: false
-    entities:
-    - climate.meq0182064
-    - sensor.lab0091601_brightness
-    - binary_sensor.lab0091601_motion
   - type: entities
     title: Vorzimmer
     show_header_toggle: false
@@ -224,20 +223,15 @@ views:
     - sensor.wallpanel_battery
     - switch.it_stecker_1
     - climate.meq0182105
+  - type: media-control
+    entity: media_player.kuche
+  - type: media-control
+    entity: media_player.wohnzimmer
+  - type: media-control
+    entity: media_player.kodi_wohnzimmer
 - title: Obergeschoss
   icon: mdi:page-layout-header
   cards:
-  - type: entities
-    title: Bad
-    show_header_toggle: false
-    entities:
-    - sensor.leq0122248_temperature
-    - sensor.leq0122248_humidity
-    - climate.meq0233504
-    - sensor.mold_bad
-    - light.badezimmerlicht
-  - type: media-control
-    entity: media_player.bad
   - type: entities
     title: Gang
     show_header_toggle: false
@@ -248,6 +242,15 @@ views:
     - light.hue_ambiance_spot_1_3
     - binary_sensor.meq0186720_state
     - sensor.meq0537083_brightness
+  - type: entities
+    title: Bad
+    show_header_toggle: false
+    entities:
+    - sensor.leq0122248_temperature
+    - sensor.leq0122248_humidity
+    - climate.meq0233504
+    - sensor.mold_bad
+    - light.badezimmerlicht
   - type: entities
     title: Schlafzimmer
     show_header_toggle: false
@@ -261,8 +264,6 @@ views:
     - climate.meq0182137
     - climate.meq0182106
     - sensor.leq0868021_temperature
-  - type: media-control
-    entity: media_player.lounge
   - type: entities
     title: Dominik
     show_header_toggle: false
@@ -270,8 +271,6 @@ views:
     - climate.meq0182136
     - binary_sensor.meq0186607_state
     - light.hue_ambiance_spot_1_2
-  - type: media-control
-    entity: media_player.dominik
   - type: entities
     title: Clara
     show_header_toggle: false
@@ -279,9 +278,59 @@ views:
     - light.hue_ambiance_spot_1
     - climate.meq0182655
     - binary_sensor.meq0186563_state
+  - type: media-control
+    entity: media_player.bad
+  - type: media-control
+    entity: media_player.lounge
+  - type: media-control
+    entity: media_player.dominik
 - title: Keller
   icon: mdi:page-layout-footer
   cards:
+  - type: entities
+    title: Hannes
+    show_header_toggle: false
+    entities:
+    - binary_sensor.meq0537387_motion
+    - sensor.meq0537387_brightness
+    - climate.meq0182097
+    - light.barbara_tischlampe
+    - switch.pangea
+    - binary_sensor.meq0186547_state
+    - light.it_stecker_3
+    - switch.meq0325581
+    - binary_sensor.leq1085620_state
+    - binary_sensor.meq0186623_state
+    - light.p16tw_01
+    - light.p16tw_02
+  - type: entities
+    title: Wirtschaftsraum
+    show_header_toggle: false
+    entities:
+    - sensor.fibaro_system_fgsd001_co_sensor_temperature
+    - switch.meq0712568
+    - sensor.heizbedarf
+    - sensor.heizung_on_today
+    - sensor.gas_power
+    - sensor.leq0574052_frequency
+    - sensor.leq0574052_voltage
+    - sensor.waschmaschine_status
+    - sensor.gas_energy_counter
+    - switch.leq0574052
+    - sensor.meq0705863_energy_counter
+    - sensor.meq0705863_gas_power
+    - sensor.leq0574052_energy_counter
+    - sensor.meq0705863_power
+    - sensor.leq0574052_current
+    - sensor.leq0574052_power
+    - sensor.meq0705863_gas_energy_counter
+    - binary_sensor.fibaro_system_fgsd001_co_sensor_sensor
+    - sensor.fibaro_system_fgsd001_co_sensor_alarm_level
+    - sensor.fibaro_system_fgsd001_co_sensor_alarm_type
+    - sensor.fibaro_system_fgsd001_co_sensor_carbon_monoxide
+    - sensor.fibaro_system_fgsd001_co_sensor_carbon_monoxide_2
+    - sensor.fibaro_system_fgsd001_co_sensor_co_level
+    - sensor.fibaro_system_fgsd001_co_sensor_general
   - type: entities
     title: Sauna
     show_header_toggle: false
@@ -298,46 +347,22 @@ views:
     - sensor.leq0868600_humidity
     - sensor.leq0531146_power
     - sensor.leq0868600_temperature
+  - type: entities
+    title: Poolraum
+    show_header_toggle: false
+    entities:
+    - sensor.fibaro_system_fgfs101_zwave_flood_sensor_temperature
+    - binary_sensor.fibaro_system_fgfs101_zwave_flood_sensor_sensor
+  - type: entities
+    title: Stiegenkammerl
+    show_header_toggle: false
+    entities:
+    - sensor.oeq1304703_humidity
+    - sensor.oeq1304703_temperature
   - type: media-control
     entity: media_player.sauna
-  - type: entities
-    title: Hannes
-    show_header_toggle: false
-    entities:
-    - sensor.meq0537387_brightness
-    - light.barbara_tischlampe
-    - binary_sensor.meq0537387_motion
-    - light.p16tw_01
-    - light.p16tw_02
-    - switch.pangea
-    - binary_sensor.meq0186547_state
-    - light.it_stecker_3
-    - climate.meq0182097
-    - switch.meq0325581
-    - binary_sensor.leq1085620_state
-    - binary_sensor.meq0186623_state
   - type: media-control
     entity: media_player.kodi_hannes
-  - type: entities
-    title: Wirtschaftsraum
-    show_header_toggle: false
-    entities:
-    - sensor.gas_power
-    - sensor.leq0574052_frequency
-    - sensor.leq0574052_voltage
-    - sensor.waschmaschine_status
-    - sensor.gas_energy_counter
-    - switch.leq0574052
-    - sensor.meq0705863_energy_counter
-    - sensor.meq0705863_gas_power
-    - sensor.heizung_on_today
-    - sensor.leq0574052_energy_counter
-    - sensor.meq0705863_power
-    - sensor.leq0574052_current
-    - sensor.leq0574052_power
-    - switch.meq0712568
-    - sensor.heizbedarf
-    - sensor.meq0705863_gas_energy_counter
 - title: Garten
   icon: mdi:tree
   cards:

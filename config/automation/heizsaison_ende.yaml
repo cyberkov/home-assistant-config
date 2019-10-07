@@ -10,10 +10,10 @@
   action:
     - service: climate.set_temperature
       data:
-        operation_mode: "manual"
+        hvac_mode: "manual"
         temperature: 30.5
         entity_id: all
-    - service: climate.set_operation_mode
+    - service: climate.set_hvac_mode
       data:
-        operation_mode: "manual"
+        hvac_mode: "manual"
         entity_id: all

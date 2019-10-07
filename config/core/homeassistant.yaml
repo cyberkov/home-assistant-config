@@ -11,6 +11,8 @@ unit_system: metric
 # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 time_zone: Europe/Vienna
 customize: !include_dir_merge_named ../customizations
+customize_domain: !include ../customizations_domain.yaml
+customize_glob: !include ../customizations_glob.yaml
 packages: !include_dir_named ../packages
 whitelist_external_dirs:
   - /config/tmp

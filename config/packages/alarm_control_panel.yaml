@@ -7,12 +7,142 @@ alarm_control_panel:
     code: !secret HA_ALARM_CODE
     pending_time: 60
     trigger_time: 120
-    delay_time: 30
+    disarm_after_trigger: false
+    delay_time: 60
     disarmed:
       trigger_time: 0
     armed_home:
       pending_time: 0
-      delay_time: 0
+      delay_time: 60
+    armed_away:
+      pending_time: 60
+      delay_time: 60
     triggered:
       pending_time: 0
-#automation:
+automation:
+  - alias: MQTT Weather
+    initial_state: true
+    trigger:
+      - minutes: /30
+        platform: time_pattern
+    action:
+      - data:
+          payload_template: "{'weather':{{states.weather.dark_sky.attributes}}}"
+          retain: true
+          topic: alarmpanel/command
+        service: mqtt.publish
+  - alias: MQTT Sun
+    initial_state: true
+    trigger:
+      - minutes: '/30'
+        platform: time_pattern
+    action:
+      - data:
+          payload_template: "{'sun':'{{states('sun.sun')}}'}"
+          retain: true
+          topic: alarmpanel/command
+        service: mqtt.publish
+### Announcements ###
+  - alias: "Alarm pending"
+    initial_state: true
+    trigger:
+      - platform: state
+        entity_id:
+          - alarm_control_panel.house
+        from: "disarmed"
+        to: "pending"
+    action:
+      - data:
+          payload_template: "{'speak':'Achtung! Alarmanlage wird in einer Minute aktiviert.'}"
+          retain: false
+          topic: alarmpanel/command
+        service: mqtt.publish
+      - service: notify.slack
+        data_template:
+          message: >
+            Alarmanlage aktiviert.
+  - alias: "Alarm disarmed"
+    initial_state: true
+    trigger:
+      - platform: state
+        entity_id:
+          - alarm_control_panel.house
+        to: "disarmed"
+    action:
+      - data:
+          payload_template: "{'speak':'Alarmanlage deaktiviert.'}"
+          retain: false
+          topic: alarmpanel/command
+        service: mqtt.publish
+      - service: notify.slack
+        data_template:
+          message: >
+            Alarmanlage deaktiviert.
+  - alias: "Alarm arm_away"
+    initial_state: true
+    trigger:
+      - platform: state
+        entity_id:
+          - alarm_control_panel.house
+        to: "armed_away"
+    action:
+      - data:
+          payload_template: "{'speak':'Alarmanlage extern scharf'}"
+          retain: false
+          topic: alarmpanel/command
+        service: mqtt.publish
+      - service: notify.slack
+        data_template:
+          message: >
+            Aktiviere Alarmanlage - extern.
+  - alias: "Alarm arm_home"
+    initial_state: true
+    trigger:
+      - platform: state
+        entity_id:
+          - alarm_control_panel.house
+        to: "armed_home"
+    action:
+      - data:
+          payload_template: "{'speak':'Alarmanlage intern scharf'}"
+          retain: false
+          topic: alarmpanel/command
+        service: mqtt.publish
+      - service: notify.slack
+        data_template:
+          message: >
+            Aktiviere Alarmanlage - intern.
+binary_sensor:
+  - platform: mqtt
+    state_topic: "alarmpanel/sensor/motion"
+    name: "Vorzimmer Bewegungsmelder"
+    payload_on: '{"value":true}'
+    payload_off: '{"value":false}'
+    device_class: motion
+  - platform: mqtt
+    state_topic: "alarmpanel/sensor/face"
+    name: "Vorzimmer Face Detected"
+    payload_on: '{"value":true}'
+    payload_off: '{"value":false}'
+    device_class: motion
+#  - platform: mqtt
+#    state_topic: "alarmpanel/sensor/qrcode"
+#    name: "QR Code"
+#    value_template: ''
+  - platform: mqtt
+    name: "Wallpanel charging"
+    state_topic: "alarmpanel/sensor/battery"
+    value_template: '{{ value_json.charging }}'
+    payload_on: "true"
+    payload_off: "false"
+sensor:
+  - platform: mqtt
+    name: "Wallpanel Battery"
+    state_topic: "alarmpanel/sensor/battery"
+    value_template: '{{ value_json.value }}'
+    qos: 0
+    unit_of_measurement: "%"
+camera:
+  - platform: mjpeg
+    mjpeg_url: http://192.168.1.12:2971/camera/stream
+    name: wallpanel camera

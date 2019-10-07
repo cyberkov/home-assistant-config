@@ -1,5 +1,6 @@
 - platform: darksky
   api_key: !secret HA_FORECAST_API
+  language: de
   monitored_conditions:
     - summary
     - icon

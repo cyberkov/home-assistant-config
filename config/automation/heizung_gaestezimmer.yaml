@@ -14,7 +14,7 @@
       data:
         entity_id: climate.meq0182655
         temperature: 19
-        operation_mode: "manual"
+        hvac_mode: "manual"
 - alias: "Gaestezimmer Heizung aus"
   initial_state: True
   trigger:
@@ -27,7 +27,7 @@
       entity_id: switch.heizsaison
       state: "on"
   action:
-    - service: climate.set_operation_mode
+    - service: climate.set_hvac_mode
       data:
         entity_id: climate.meq0182655
-        operation_mode: "auto"
+        hvac_mode: "auto"

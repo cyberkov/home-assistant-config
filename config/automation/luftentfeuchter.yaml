@@ -1,6 +1,6 @@
 ---
 - alias: "Luftentfeuchter"
-  initial_state: True
+  initial_state: true
   trigger:
     - platform: numeric_state
       entity_id: sensor.leq0868600_humidity

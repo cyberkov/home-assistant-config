@@ -2,6 +2,13 @@ title: Erdgeschoss
 icon: mdi:page-layout-body
 cards:
   - type: entities
+    title: Esszimmer
+    show_header_toggle: false
+    entities:
+      - climate.meq0182064
+      - sensor.lab0091601_brightness
+      - binary_sensor.lab0091601_motion
+  - type: entities
     title: Windfang
     show_header_toggle: false
     entities:
@@ -18,10 +25,6 @@ cards:
       - sensor.leq0868616_humidity
       - sensor.leq0868616_temperature
       - climate.meq0182042
-  - type: media-control
-    entity: media_player.wohnzimmer
-  - type: media-control
-    entity: media_player.kodi_wohnzimmer
   - type: entities
     title: Kueche
     show_header_toggle: false
@@ -37,15 +40,6 @@ cards:
       - sensor.leq0531373_energy_counter
       - sensor.leq0531373_voltage
       - binary_sensor.meq0186642_state
-  - type: media-control
-    entity: media_player.kuche
-  - type: entities
-    title: Esszimmer
-    show_header_toggle: false
-    entities:
-      - climate.meq0182064
-      - sensor.lab0091601_brightness
-      - binary_sensor.lab0091601_motion
   - type: entities
     title: Vorzimmer
     show_header_toggle: false
@@ -54,3 +48,9 @@ cards:
       - sensor.wallpanel_battery
       - switch.it_stecker_1
       - climate.meq0182105
+  - type: media-control
+    entity: media_player.kuche
+  - type: media-control
+    entity: media_player.wohnzimmer
+  - type: media-control
+    entity: media_player.kodi_wohnzimmer

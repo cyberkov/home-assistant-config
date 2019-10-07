@@ -1,5 +1,6 @@
+---
 - alias: "Alarm tripped - bwalarm"
-  initial_state: True
+  initial_state: false
   trigger:
     - platform: state
       entity_id:
@@ -15,86 +16,15 @@
         message: >
           ALARM - {{ trigger.to_state.attributes.changed_by }} triggered it.
 
-- alias: "Alarm Trigger"
-  initial_state: False
-  trigger:
-    - platform: state
-      entity_id: switch.alarm
-      from: "off"
-      to: "on"
-    - platform: state
-      entity_id: group.fenster
-      from: "off"
-      to: "on"
-    - platform: state
-      entity_id: group.bewegungsmelder
-      from: "off"
-      to: "on"
-    - platform: state
-      entity_id: group.sabotagekontakte
-      from: "off"
-      to: "on"
-  condition:
-    condition: or
-    conditions:
-      - condition: state
-        entity_id: alarm_control_panel.house
-        state: "armed_away"
-      - condition: state
-        entity_id: alarm_control_panel.house
-        state: "armed_home"
-  action:
-    - service: notify.slack
-      data_template:
-        message: >
-          ALARM - {{ trigger.to_state.attributes.friendly_name }} triggered it.
-#    - service: script.alarm_triggered
 - alias: "Alarm Warning"
-  initial_state: True
+  initial_state: false
   trigger:
     - platform: state
       entity_id: switch.warning
       from: "off"
       to: "on"
   action:
-    #- service: script.announce
-    #  data:
-    #    where: media_player.kuche
-    #    message: 'Alarm ausgelöst.'
     - service: notify.slack
       data_template:
         message: >
           ALARM - Warnzeit aktiv. Alarmanlage ist {{ states("alarm_control_panel.house") }}.
-- alias: "Alarm pending"
-  initial_state: True
-  trigger:
-    - platform: state
-      entity_id:
-        - alarm_control_panel.house
-      to: "pending"
-  action:
-    - service: script.announce
-      data:
-        where: kuche
-        message: "Achtung! Alarmanlage wird in einer Minute aktiviert."
-    - service: notify.slack
-      data_template:
-        message: >
-          Alarmanlage aktiviert.
-
-- alias: "Alarm disarmed"
-  initial_state: True
-  trigger:
-    - platform: state
-      entity_id:
-        - alarm_control_panel.house
-      to: "disarmed"
-  action:
-    - service: script.announce
-      data:
-        where: kuche
-        message: "Alarmanlage deaktiviert."
-    - service: notify.slack
-      data_template:
-        message: >
-          Alarmanlage deaktiviert.

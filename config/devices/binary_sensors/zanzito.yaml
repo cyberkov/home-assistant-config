@@ -4,9 +4,3 @@
   payload_on: "1"
   payload_off: "0"
   device_class: connectivity
-- platform: mqtt
-  name: "Wallpanel status"
-  state_topic: "zanzito/wallpanel/status"
-  payload_on: "1"
-  payload_off: "0"
-  device_class: connectivity

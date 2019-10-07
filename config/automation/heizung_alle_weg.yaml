@@ -21,14 +21,14 @@
         - thu
         - fri
   action:
-    - service: climate.set_operation_mode
+    - service: climate.set_hvac_mode
       data:
         entity_id: climate.meq0182042
-        operation_mode: "auto"
-    - service: climate.set_operation_mode
+        hvac_mode: "auto"
+    - service: climate.set_hvac_mode
       data:
         entity_id: climate.meq0182064
-        operation_mode: "auto"
+        hvac_mode: "auto"
     - service: notify.slack
       data_template:
         message: >
