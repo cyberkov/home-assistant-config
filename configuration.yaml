@@ -59,7 +59,6 @@ person: !include_dir_merge_list config/people/
 light: !include_dir_merge_list config/devices/lights/
 logger: !include config/core/logger.yaml
 media_player: !include config/devices/media_player.yaml
-googlehome: !include config/devices/googlehome.yaml
 notify: !include config/notify.yaml
 panel_iframe: !include config/panel_iframe.yaml
 panel_custom: !include_dir_merge_list config/panel_custom/
