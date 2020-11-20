@@ -48,6 +48,13 @@ views:
       - climate.meq0182655
       - climate.meq0182137
       - climate.meq0182106
+  - type: conditional
+    conditions:
+    - entity: switch.heizsaison
+      state: "on"
+    card:
+      type: thermostat
+      entity: climate.wohnzimmer
   - type: entity-filter
     state_filter:
     - "on"
@@ -117,6 +124,8 @@ views:
     - binary_sensor.meq0537387_motion
     - binary_sensor.meq0537083_motion
     - binary_sensor.lab0091601_motion
+    - binary_sensor.peq1325863_motion
+    - binary_sensor.haustur_motion
   - type: entity-filter
     state_filter:
     - "on"
@@ -169,9 +178,19 @@ views:
     - binary_sensor.windfang_tuer_sabotage
     - binary_sensor.og_bewegungsmelder_sabotage
   - type: picture-entity
+    title: Poolraum
+    show_header_toggle: false
+    entity: camera.pool_camera
+    camera_view: live
+  - type: picture-entity
     title: Vorzimmer
     show_header_toggle: false
-    entity: camera.wallpanel_camera
+    entity: camera.haustur
+    camera_view: live
+  - type: picture-entity
+    title: Wohnzimmer
+    show_header_toggle: false
+    entity: camera.raspi_camera
     camera_view: live
 - title: Erdgeschoss
   icon: mdi:page-layout-body
@@ -183,12 +202,22 @@ views:
     - climate.meq0182064
     - sensor.lab0091601_brightness
     - binary_sensor.lab0091601_motion
+    - sensor.petsi_battery
+    - switch.petsi_clean
+    - switch.petsi_dock
+    - sensor.petsi_state
   - type: entities
     title: Windfang
     show_header_toggle: false
     entities:
     - binary_sensor.leq1177637_state
     - climate.meq0182100
+    - sensor.haustur_battery
+    - binary_sensor.haustur_motion
+    - sensor.haustur_last_ding
+    - binary_sensor.haustur_ding
+    - switch.leq0230481_1
+    - switch.leq0230481_2
   - type: entities
     title: Wohnzimmer
     show_header_toggle: false
@@ -204,23 +233,15 @@ views:
     title: Kueche
     show_header_toggle: false
     entities:
-    - switch.leq0531373
     - climate.meq0182095
     - sensor.leq0867920_temperature
     - sensor.leq0867920_humidity
-    - sensor.leq0531373_frequency
     - sensor.mold_kueche
-    - sensor.leq0531373_current
-    - sensor.leq0531373_power
-    - sensor.leq0531373_energy_counter
-    - sensor.leq0531373_voltage
     - binary_sensor.meq0186642_state
   - type: entities
     title: Vorzimmer
     show_header_toggle: false
     entities:
-    - binary_sensor.wallpanel_status
-    - sensor.wallpanel_battery
     - switch.it_stecker_1
     - climate.meq0182105
   - type: media-control
@@ -236,10 +257,10 @@ views:
     title: Gang
     show_header_toggle: false
     entities:
-    - light.hue_ambiance_spot_2
     - binary_sensor.meq0537083_motion
     - climate.meq0182081
-    - light.hue_ambiance_spot_1_3
+    - light.schrankraum_1
+    - light.schrankraum_2
     - binary_sensor.meq0186720_state
     - sensor.meq0537083_brightness
   - type: entities
@@ -251,6 +272,8 @@ views:
     - climate.meq0233504
     - sensor.mold_bad
     - light.badezimmerlicht
+    - sensor.ventilator_0_power
+    - switch.bad_ventilator
   - type: entities
     title: Schlafzimmer
     show_header_toggle: false
@@ -270,12 +293,14 @@ views:
     entities:
     - climate.meq0182136
     - binary_sensor.meq0186607_state
-    - light.hue_ambiance_spot_1_2
   - type: entities
     title: Clara
     show_header_toggle: false
     entities:
-    - light.hue_ambiance_spot_1
+    - light.clara_1
+    - light.clara_2
+    - light.clara_3
+    - light.clara_4
     - climate.meq0182655
     - binary_sensor.meq0186563_state
   - type: media-control
@@ -301,8 +326,8 @@ views:
     - switch.meq0325581
     - binary_sensor.leq1085620_state
     - binary_sensor.meq0186623_state
-    - light.p16tw_01
-    - light.p16tw_02
+    - light.color_temperature_light_1
+    - light.color_temperature_light_1_2
   - type: entities
     title: Wirtschaftsraum
     show_header_toggle: false
@@ -351,8 +376,21 @@ views:
     title: Poolraum
     show_header_toggle: false
     entities:
+    - binary_sensor.peq1325863_motion
     - sensor.fibaro_system_fgfs101_zwave_flood_sensor_temperature
     - binary_sensor.fibaro_system_fgfs101_zwave_flood_sensor_sensor
+    - switch.leq0531373
+    - sensor.leq0531373_power
+    - sensor.leq0531373_energy_counter
+    - binary_sensor.pool_heizung
+    - sensor.pool_heizung_on_today
+    - binary_sensor.pool_pumpe
+    - sensor.pool_pumpe_on_today
+  - type: picture-entity
+    title: Poolraum
+    show_header_toggle: false
+    entity: camera.pool_camera
+    camera_view: live
   - type: entities
     title: Stiegenkammerl
     show_header_toggle: false
@@ -422,10 +460,8 @@ views:
     show_header_toggle: false
     entities:
     - sensor.speedtest_ping
-    - sensor.travis_status
     - sensor.speedtest_upload
     - binary_sensor.axon7_status
-    - sensor.travis_build_label
     - sensor.speedtest_download
   - type: entities
     title: all automations
@@ -465,14 +501,12 @@ views:
     - automation.vacuum_notify_on_success
     - automation.nachtkasterl_on
     - automation.homematic_switches_died
-    - automation.alarm_trigger
     - automation.automation_test
     - automation.turn_off_wallpanel_charger_when_battery_is_full
     - automation.tuerklingel
     - automation.unexpected_motion
     - automation.alarmananlage_disarm
     - automation.heizsaison_ende
-    - automation.update_config_if_travis_build_is_successfull
     - automation.heizsaison_start
     - automation.gelsenstecker_off_after_7h
     - automation.vacuum_starte_staubsauger_bei_abwesenheit
@@ -523,30 +557,38 @@ views:
     title: NAS
     show_header_toggle: false
     entities:
-    - sensor.status_smart_sda
-    - sensor.status_sdb
-    - sensor.status_sda
-    - sensor.status_volume_1
-    - sensor.status_smart_sdb
-    - sensor.cpu_load_total
-    - sensor.network_up
-    - sensor.memory_usage_real
+    - sensor.synology_dsm_cpu_load_total
+    - sensor.synology_dsm_memory_usage_real
+    - sensor.synology_dsm_network_up
+    - sensor.synology_dsm_status_sda
+    - sensor.synology_dsm_status_sdb
+    - sensor.synology_dsm_status_sdc
+    - sensor.synology_dsm_status_sdd
+    - sensor.synology_dsm_status_smart_sda
+    - sensor.synology_dsm_status_smart_sdb
+    - sensor.synology_dsm_status_smart_sdc
+    - sensor.synology_dsm_status_smart_sdd
+    - sensor.synology_dsm_status_volume_1
   - type: entities
     title: torrent
     show_header_toggle: false
     entities:
-    - sensor.transmission_up_speed
-    - sensor.sonarr_queue
-    - sensor.transmission_down_speed
-    - sensor.radarr_upcoming
-    - sensor.transmission_status
-    - sensor.sonarr_upcoming
     - sensor.radarr_status
+    - sensor.radarr_upcoming
+    - sensor.sonarr_queue
+    - sensor.sonarr_upcoming
+    - sensor.transmission_down_speed
+    - sensor.transmission_status
+    - sensor.transmission_up_speed
+    - sensor.transmission_active_torrents
+    - sensor.transmission_completed_torrents
+    - sensor.transmission_paused_torrents
+    - sensor.transmission_started_torrents
+    - switch.transmission_switch
   - type: entities
     title: System
     show_header_toggle: false
     entities:
-    - sensor.axon7_battery
     - sensor.memory_free
     - sensor.processor_use
   - type: entities
@@ -566,6 +608,23 @@ views:
     - climate.meq0182655
     - climate.meq0182137
     - climate.meq0182106
+  - type: entities
+    title: Heizungen Valves
+    show_header_toggle: false
+    entities:
+    - sensor.valve_climate_meq0182095
+    - sensor.valve_climate_meq0182136
+    - sensor.valve_climate_meq0182100
+    - sensor.valve_climate_meq0182097
+    - sensor.valve_climate_meq0182042
+    - sensor.valve_climate_meq0182064
+    - sensor.valve_climate_leq0584727
+    - sensor.valve_climate_meq0182081
+    - sensor.valve_climate_meq0182105
+    - sensor.valve_climate_meq0233504
+    - sensor.valve_climate_meq0182655
+    - sensor.valve_climate_meq0182137
+    - sensor.valve_climate_meq0182106
 excluded_entities:
 - group.alarmanlage
 - group.auto

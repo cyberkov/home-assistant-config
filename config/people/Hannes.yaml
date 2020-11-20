@@ -4,3 +4,6 @@
   device_trackers:
     - device_tracker.cyberkov
     - device_tracker.iphone_von_hannes
+    - device_tracker.dsvitec210h_cyberkov_lan
+    - device_tracker.galaxy_a70_cyberkov_lan
+    - device_tracker.sm_a705fn

@@ -15,6 +15,7 @@ frontend:
 history: !include config/core/history.yaml
 http: !include config/core/http.yaml
 recorder: !include config/core/recorder.yaml
+alexa: !include config/core/alexa.yaml
 sun:
 updater:
   include_used_components: true
@@ -45,7 +46,6 @@ nissan_leaf:
 #input_select: !include input_select.yaml
 #weblink: !include weblink.yaml
 alert: !include_dir_named config/alerts
-dialogflow:
 system_health:
 automation: !include_dir_merge_list config/automation/
 binary_sensor: !include_dir_merge_list config/devices/binary_sensors/

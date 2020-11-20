@@ -15,3 +15,17 @@
   type: time
   start: "{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}"
   end: "{{ now() }}"
+- platform: history_stats
+  name: Pool Heizung ON today
+  entity_id: binary_sensor.pool_heizung
+  state: "on"
+  type: time
+  start: "{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}"
+  end: "{{ now() }}"
+- platform: history_stats
+  name: Pool Pumpe ON today
+  entity_id: binary_sensor.pool_pumpe
+  state: "on"
+  type: time
+  start: "{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}"
+  end: "{{ now() }}"

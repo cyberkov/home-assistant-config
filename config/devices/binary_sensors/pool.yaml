@@ -1,0 +1,12 @@
+- platform: template
+  sensors:
+    pool_pumpe:
+      friendly_name: "Pool Pumpe"
+      value_template: >-
+        {{ states('sensor.oeq1975649_power')|int > 30 }}
+      entity_id: sensor.oeq1975649_power
+    pool_heizung:
+      friendly_name: "Pool Heizung"
+      value_template: >-
+        {{ states('sensor.oeq1975649_power')|int > 1500 }}
+      entity_id: sensor.oeq1975649_power

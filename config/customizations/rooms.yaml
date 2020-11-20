@@ -65,9 +65,6 @@ sensor.leq0867920_humidity:
 sensor.leq0867920_temperature:
   #icon: mdi:thermometer
   friendly_name: "Küche Temperatur"
-switch.leq0531373:
-  icon: mdi:silverware-variant
-  friendly_name: "Geschirrspüler"
 binary_sensor.meq0186642_state:
   friendly_name: "Küche Fenster"
 climate.meq0182095:
@@ -115,6 +112,8 @@ climate.meq0182097:
 switch.meq0325581:
   friendly_name: Hannes Deckenlicht
   icon: mdi:ceiling-light
+switch.leq0531373:
+  friendly_name: "Barbara Tischlampe"
 
 # Sauna
 sensor.leq0868600_humidity:
@@ -150,6 +149,8 @@ switch.meq0712568:
 # Poolraum
 binary_sensor.peq1325863_motion:
   friendly_name: Pool Bewegungsmelder
+switch.oeq1975649:
+  friendly_name: "Poolpumpe"
 
 # Garten
 sensor.leq0798807_humidity:

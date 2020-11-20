@@ -135,7 +135,6 @@ cards:
     title: System
     show_header_toggle: false
     entities:
-      - sensor.axon7_battery
       - sensor.memory_free
       - sensor.processor_use
   - type: entities

@@ -7,7 +7,7 @@
 #  name: "CCU"
 #  host: "192.168.1.6"
 - platform: wake_on_lan
-  mac_address: "00-1e-8c-45-8b-40"
+  mac: "94:c6:91:5f:da:d9"
   name: "pangea"
   host: "192.168.1.9"
   turn_off:

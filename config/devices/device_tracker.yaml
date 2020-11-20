@@ -1,5 +1,5 @@
 - platform: ubus
-  host: 192.168.1.1
+  host: 192.168.1.2
   username: !secret HA_ROUTER_USER
   password: !secret HA_ROUTER_PASSWORD
   interval_seconds: 30
@@ -15,8 +15,13 @@
 - platform: mqtt_json
   devices:
     cyberkov: zanzito/axon7/location
-#- platform: bluetooth_tracker
-#- platform: bluetooth_le_tracker
+- platform: netgear
+  host: 192.168.1.1
+  port: 80
+  password: !secret HA_NETGEAR_PASSWORD
+- platform: bluetooth_le_tracker
+  track_battery: true
+- platform: bluetooth_tracker
 #- platform: snmp
 #  host: 192.168.1.1
 #  community: !secret HA_ROUTER_SNMPPWD

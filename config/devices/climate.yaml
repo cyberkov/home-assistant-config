@@ -1,0 +1,11 @@
+---
+- platform: generic_thermostat
+  name: Wohnzimmer
+  heater: switch.meq0712568
+  target_sensor: sensor.leq0868616_temperature
+  min_temp: 12
+  max_temp: 31.5
+  target_temp: 21.5
+  min_cycle_duration: "00:30:00"
+  precision: 0.1
+  away_temp: 17

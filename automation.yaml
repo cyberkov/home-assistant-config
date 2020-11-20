@@ -17,3 +17,6 @@
 
 # Update check
 - !include automation/home_assistant_update.yaml
+
+# GUI
+- !include automations.yaml

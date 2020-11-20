@@ -3,3 +3,5 @@
   id: barbara
   device_trackers:
     - device_tracker.barbara
+    - device_tracker.pixel_4a
+    - device_tracker.4c4e0318a0bb

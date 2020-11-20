@@ -13,5 +13,23 @@
         name: Tuerklingel
         channel: 4
         param: PRESS_LONG
+    - platform: state
+      entity_id: binary_sensor.haustur_ding
+      to: "on"
   action:
+    - service: switch.turn_on
+      entity_id: switch.leq0230481_2
+    - service: switch.turn_on
+      entity_id: switch.leq0230481_1
     - service: script.tuerklingel
+- alias: "Tuer wird geoeffnet"
+  initial_state: True
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.leq1177637_state
+      to: "on"
+  action:
+    - service: switch.turn_off
+      entity_id: switch.leq0230481_2
+    - service: switch.turn_off
+      entity_id: switch.leq0230481_1

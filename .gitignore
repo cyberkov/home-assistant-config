@@ -44,3 +44,4 @@ __pycache__
 .config_entries.json
 .storage
 /appdaemon
+alarm_log.json

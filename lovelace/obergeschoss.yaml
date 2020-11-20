@@ -5,10 +5,10 @@ cards:
     title: Gang
     show_header_toggle: false
     entities:
-      - light.hue_ambiance_spot_2
       - binary_sensor.meq0537083_motion
       - climate.meq0182081
-      - light.hue_ambiance_spot_1_3
+      - light.schrankraum_1
+      - light.schrankraum_2
       - binary_sensor.meq0186720_state
       - sensor.meq0537083_brightness
   - type: entities
@@ -21,7 +21,7 @@ cards:
       - sensor.mold_bad
       - light.badezimmerlicht
       - sensor.ventilator_0_power
-      - switch.ventilator_relay_0
+      - switch.bad_ventilator
   - type: entities
     title: Schlafzimmer
     show_header_toggle: false
@@ -41,12 +41,14 @@ cards:
     entities:
       - climate.meq0182136
       - binary_sensor.meq0186607_state
-      - light.hue_ambiance_spot_1_2
   - type: entities
     title: Clara
     show_header_toggle: false
     entities:
-      - light.hue_ambiance_spot_1
+      - light.clara_1
+      - light.clara_2
+      - light.clara_3
+      - light.clara_4
       - climate.meq0182655
       - binary_sensor.meq0186563_state
   - type: media-control

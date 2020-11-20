@@ -1,0 +1,24 @@
+---
+smart_home:
+  locale: de-DE
+  endpoint: https://api.eu.amazonalexa.com/v3/events
+  client_id: !secret ALEXA_CLIENT_ID
+  client_secret: !secret ALEXA_CLIENT_SECRET
+  filter:
+    exclude_domains:
+      - device_tracker
+      - automation
+      - group
+      - script
+      - alert
+  entity_config:
+    alarm_control_panel.house:
+      name: Alarmanlage
+      display_categories: SECURITY_PANEL,SECURITY_SYSTEM
+    switch.petsi_clean:
+      display_categories: VACUUM_CLEANER
+    sensor.leq0868616_temperature:
+      display_categories: TEMPERATURE_SENSOR
+    binary_sensor.haustur_ding:
+      name: "Eingangstür"
+      display_categories: DOORBELL

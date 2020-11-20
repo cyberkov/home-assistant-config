@@ -1,0 +1,9 @@
+- platform: mqtt
+  name: "bad_ventilator"
+  state_topic: "shellies/bad_ventilator/relay/0"
+  command_topic: "shellies/bad_ventilator/relay/0/command"
+  #availability_topic: "shellies/bad_ventilator/online"
+  qos: 1
+  payload_on: "on"
+  payload_off: "off"
+  retain: false

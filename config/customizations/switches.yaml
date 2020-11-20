@@ -51,3 +51,6 @@ switch.meq0727791_1:
 switch.meq0727791_2:
   friendly_name: Sirene Blitz
   icon: mdi:alarm-light-outline
+switch.bad_ventilator:
+  icon: mdi:fan
+  friendly_name: Bad Ventilator

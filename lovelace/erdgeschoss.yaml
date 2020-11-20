@@ -9,6 +9,10 @@ cards:
       - climate.meq0182064
       - sensor.lab0091601_brightness
       - binary_sensor.lab0091601_motion
+      - sensor.petsi_battery
+      - switch.petsi_clean
+      - switch.petsi_dock
+      - sensor.petsi_state
   - type: entities
     title: Windfang
     show_header_toggle: false
