@@ -11,6 +11,8 @@ cards:
       - binary_sensor.meq0537387_motion
       - binary_sensor.meq0537083_motion
       - binary_sensor.lab0091601_motion
+      - binary_sensor.peq1325863_motion
+      - binary_sensor.haustur_motion
   - type: entity-filter
     state_filter:
       - "on"
@@ -63,7 +65,17 @@ cards:
       - binary_sensor.windfang_tuer_sabotage
       - binary_sensor.og_bewegungsmelder_sabotage
   - type: picture-entity
+    title: Poolraum
+    show_header_toggle: false
+    entity: camera.pool_camera
+    camera_view: live
+  - type: picture-entity
     title: Vorzimmer
     show_header_toggle: false
-    entity: camera.wallpanel_camera
+    entity: camera.haustur
+    camera_view: live
+  - type: picture-entity
+    title: Wohnzimmer
+    show_header_toggle: false
+    entity: camera.raspi_camera
     camera_view: live

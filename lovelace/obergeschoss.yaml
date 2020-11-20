@@ -20,6 +20,8 @@ cards:
       - climate.meq0233504
       - sensor.mold_bad
       - light.badezimmerlicht
+      - sensor.ventilator_0_power
+      - switch.ventilator_relay_0
   - type: entities
     title: Schlafzimmer
     show_header_toggle: false

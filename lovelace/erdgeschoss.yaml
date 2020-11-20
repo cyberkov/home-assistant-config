@@ -1,3 +1,4 @@
+---
 title: Erdgeschoss
 icon: mdi:page-layout-body
 cards:
@@ -14,6 +15,12 @@ cards:
     entities:
       - binary_sensor.leq1177637_state
       - climate.meq0182100
+      - sensor.haustur_battery
+      - binary_sensor.haustur_motion
+      - sensor.haustur_last_ding
+      - binary_sensor.haustur_ding
+      - switch.leq0230481_1
+      - switch.leq0230481_2
   - type: entities
     title: Wohnzimmer
     show_header_toggle: false
@@ -29,23 +36,15 @@ cards:
     title: Kueche
     show_header_toggle: false
     entities:
-      - switch.leq0531373
       - climate.meq0182095
       - sensor.leq0867920_temperature
       - sensor.leq0867920_humidity
-      - sensor.leq0531373_frequency
       - sensor.mold_kueche
-      - sensor.leq0531373_current
-      - sensor.leq0531373_power
-      - sensor.leq0531373_energy_counter
-      - sensor.leq0531373_voltage
       - binary_sensor.meq0186642_state
   - type: entities
     title: Vorzimmer
     show_header_toggle: false
     entities:
-      - binary_sensor.wallpanel_status
-      - sensor.wallpanel_battery
       - switch.it_stecker_1
       - climate.meq0182105
   - type: media-control

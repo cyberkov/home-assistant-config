@@ -43,6 +43,13 @@ cards:
         - climate.meq0182655
         - climate.meq0182137
         - climate.meq0182106
+  - type: conditional
+    conditions:
+      - entity: switch.heizsaison
+        state: "on"
+    card:
+      type: thermostat
+      entity: climate.wohnzimmer
   - type: entity-filter
     state_filter:
       - "on"

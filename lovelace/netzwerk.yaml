@@ -6,10 +6,8 @@ cards:
     show_header_toggle: false
     entities:
       - sensor.speedtest_ping
-      - sensor.travis_status
       - sensor.speedtest_upload
       - binary_sensor.axon7_status
-      - sensor.travis_build_label
       - sensor.speedtest_download
   - type: entities
     title: all automations
@@ -49,14 +47,12 @@ cards:
       - automation.vacuum_notify_on_success
       - automation.nachtkasterl_on
       - automation.homematic_switches_died
-      - automation.alarm_trigger
       - automation.automation_test
       - automation.turn_off_wallpanel_charger_when_battery_is_full
       - automation.tuerklingel
       - automation.unexpected_motion
       - automation.alarmananlage_disarm
       - automation.heizsaison_ende
-      - automation.update_config_if_travis_build_is_successfull
       - automation.heizsaison_start
       - automation.gelsenstecker_off_after_7h
       - automation.vacuum_starte_staubsauger_bei_abwesenheit
@@ -107,25 +103,34 @@ cards:
     title: NAS
     show_header_toggle: false
     entities:
-      - sensor.status_smart_sda
-      - sensor.status_sdb
-      - sensor.status_sda
-      - sensor.status_volume_1
-      - sensor.status_smart_sdb
-      - sensor.cpu_load_total
-      - sensor.network_up
-      - sensor.memory_usage_real
+      - sensor.synology_dsm_cpu_load_total
+      - sensor.synology_dsm_memory_usage_real
+      - sensor.synology_dsm_network_up
+      - sensor.synology_dsm_status_sda
+      - sensor.synology_dsm_status_sdb
+      - sensor.synology_dsm_status_sdc
+      - sensor.synology_dsm_status_sdd
+      - sensor.synology_dsm_status_smart_sda
+      - sensor.synology_dsm_status_smart_sdb
+      - sensor.synology_dsm_status_smart_sdc
+      - sensor.synology_dsm_status_smart_sdd
+      - sensor.synology_dsm_status_volume_1
   - type: entities
     title: torrent
     show_header_toggle: false
     entities:
-      - sensor.transmission_up_speed
-      - sensor.sonarr_queue
-      - sensor.transmission_down_speed
-      - sensor.radarr_upcoming
-      - sensor.transmission_status
-      - sensor.sonarr_upcoming
       - sensor.radarr_status
+      - sensor.radarr_upcoming
+      - sensor.sonarr_queue
+      - sensor.sonarr_upcoming
+      - sensor.transmission_down_speed
+      - sensor.transmission_status
+      - sensor.transmission_up_speed
+      - sensor.transmission_active_torrents
+      - sensor.transmission_completed_torrents
+      - sensor.transmission_paused_torrents
+      - sensor.transmission_started_torrents
+      - switch.transmission_switch
   - type: entities
     title: System
     show_header_toggle: false
@@ -150,3 +155,20 @@ cards:
       - climate.meq0182655
       - climate.meq0182137
       - climate.meq0182106
+  - type: entities
+    title: Heizungen Valves
+    show_header_toggle: false
+    entities:
+      - sensor.valve_climate_meq0182095
+      - sensor.valve_climate_meq0182136
+      - sensor.valve_climate_meq0182100
+      - sensor.valve_climate_meq0182097
+      - sensor.valve_climate_meq0182042
+      - sensor.valve_climate_meq0182064
+      - sensor.valve_climate_leq0584727
+      - sensor.valve_climate_meq0182081
+      - sensor.valve_climate_meq0182105
+      - sensor.valve_climate_meq0233504
+      - sensor.valve_climate_meq0182655
+      - sensor.valve_climate_meq0182137
+      - sensor.valve_climate_meq0182106

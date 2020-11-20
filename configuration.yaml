@@ -19,6 +19,7 @@ sun:
 updater:
   include_used_components: true
 zeroconf:
+stream:
 tts:
   - platform: amazon_polly
     aws_access_key_id: !secret AWS_ID
@@ -46,37 +47,32 @@ nissan_leaf:
 alert: !include_dir_named config/alerts
 dialogflow:
 system_health:
-intent_script: !include_dir_merge_named config/intent_script/
 automation: !include_dir_merge_list config/automation/
 binary_sensor: !include_dir_merge_list config/devices/binary_sensors/
 camera: !include_dir_merge_list config/devices/cameras/
-cover:
-  - platform: rfxtrx
-    automatic_add: true
+climate: !include config/devices/climate.yaml
 device_tracker: !include config/devices/device_tracker.yaml
 group: !include_dir_named config/groups/
-person: !include_dir_merge_list config/people/
+intent_script: !include_dir_merge_named config/intent_script/
 light: !include_dir_merge_list config/devices/lights/
 logger: !include config/core/logger.yaml
 media_player: !include config/devices/media_player.yaml
 notify: !include config/notify.yaml
-panel_iframe: !include config/panel_iframe.yaml
 panel_custom: !include_dir_merge_list config/panel_custom/
+panel_iframe: !include config/panel_iframe.yaml
+person: !include_dir_merge_list config/people/
 proximity: !include config/proximity.yaml
+rfxtrx: !include config/core/rfxtrx.yaml
+scene: !include_dir_merge_list config/scenes
 script: !include_dir_named config/scripts/
 sensor: !include_dir_merge_list config/devices/sensors/
-speedtestdotnet: !include config/devices/speedtest.yaml
 shell_command: !include config/shell_command.yaml
+speedtestdotnet: !include config/devices/speedtest.yaml
 switch: !include_dir_merge_list config/devices/switches/
 transmission: !include config/devices/components/transmission.yaml
 zone: !include_dir_merge_list config/zones/
-scene: !include_dir_merge_list config/scenes
-rfxtrx: !include config/core/rfxtrx.yaml
 
 mqtt: !include config/core/mqtt.yaml
 
-google:
-  client_id: !secret HA_GOOGLE_OAUTH_ID
-  client_secret: !secret HA_GOOGLE_OAUTH_SECRET
 weather: !include_dir_merge_list config/devices/weather
 zwave: !include config/core/zwave.yaml

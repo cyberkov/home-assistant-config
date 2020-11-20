@@ -12,5 +12,6 @@
   user_key: !secret HA_PUSHOVER_BOTH
 - platform: slack
   name: slack
+  username: home
   api_key: !secret HA_SLACK_APIKEY
   default_channel: "#haus"

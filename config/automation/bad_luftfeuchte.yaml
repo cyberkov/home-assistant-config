@@ -1,0 +1,19 @@
+---
+- alias: "Bad Ventilator on"
+  initial_state: true
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.leq0122248_humidity
+      above: 62
+  action:
+    - service: switch.turn_on
+      entity_id: switch.ventilator_relay_0
+- alias: "Bad Ventilator off"
+  initial_state: true
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.leq0122248_humidity
+      below: 57
+  action:
+    - service: switch.turn_off
+      entity_id: switch.ventilator_relay_0

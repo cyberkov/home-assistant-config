@@ -16,8 +16,8 @@ cards:
       - switch.meq0325581
       - binary_sensor.leq1085620_state
       - binary_sensor.meq0186623_state
-      - light.p16tw_01
-      - light.p16tw_02
+      - light.color_temperature_light_1
+      - light.color_temperature_light_1_2
   - type: entities
     title: Wirtschaftsraum
     show_header_toggle: false
@@ -66,8 +66,21 @@ cards:
     title: Poolraum
     show_header_toggle: false
     entities:
+      - binary_sensor.peq1325863_motion
       - sensor.fibaro_system_fgfs101_zwave_flood_sensor_temperature
       - binary_sensor.fibaro_system_fgfs101_zwave_flood_sensor_sensor
+      - switch.leq0531373
+      - sensor.leq0531373_power
+      - sensor.leq0531373_energy_counter
+      - binary_sensor.pool_heizung
+      - sensor.pool_heizung_on_today
+      - binary_sensor.pool_pumpe
+      - sensor.pool_pumpe_on_today
+  - type: picture-entity
+    title: Poolraum
+    show_header_toggle: false
+    entity: camera.pool_camera
+    camera_view: live
   - type: entities
     title: Stiegenkammerl
     show_header_toggle: false

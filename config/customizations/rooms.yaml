@@ -147,6 +147,10 @@ switch.meq0712568:
   friendly_name: "Wirtschaftsraum Therme"
   icon: mdi:fire
 
+# Poolraum
+binary_sensor.peq1325863_motion:
+  friendly_name: Pool Bewegungsmelder
+
 # Garten
 sensor.leq0798807_humidity:
   friendly_name: Garten Luftfeuchte
