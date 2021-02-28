@@ -9,20 +9,23 @@ cards:
       - binary_sensor.meq0537387_motion
       - sensor.meq0537387_brightness
       - climate.meq0182097
-      - light.barbara_tischlampe
+      - switch.leq0531373
       - switch.pangea
       - binary_sensor.meq0186547_state
       - light.it_stecker_3
       - switch.meq0325581
       - binary_sensor.leq1085620_state
       - binary_sensor.meq0186623_state
-      - light.color_temperature_light_1
-      - light.color_temperature_light_1_2
+      - light.hannes_1
+      - light.hannes_2
+      - switch.it_stecker_1
   - type: entities
     title: Wirtschaftsraum
     show_header_toggle: false
     entities:
-      - sensor.fibaro_system_fgsd001_co_sensor_temperature
+      - sensor.fibaro_system_fgsd001_co_sensor_temperature_2
+      - sensor.cosensor_temperatur
+      - sensor.fibaro_system_fgsd001_co_sensor_co_level_2
       - switch.meq0712568
       - sensor.heizbedarf
       - sensor.heizung_on_today
@@ -32,20 +35,11 @@ cards:
       - sensor.waschmaschine_status
       - sensor.gas_energy_counter
       - switch.leq0574052
-      - sensor.meq0705863_energy_counter
       - sensor.meq0705863_gas_power
-      - sensor.leq0574052_energy_counter
       - sensor.meq0705863_power
       - sensor.leq0574052_current
       - sensor.leq0574052_power
       - sensor.meq0705863_gas_energy_counter
-      - binary_sensor.fibaro_system_fgsd001_co_sensor_sensor
-      - sensor.fibaro_system_fgsd001_co_sensor_alarm_level
-      - sensor.fibaro_system_fgsd001_co_sensor_alarm_type
-      - sensor.fibaro_system_fgsd001_co_sensor_carbon_monoxide
-      - sensor.fibaro_system_fgsd001_co_sensor_carbon_monoxide_2
-      - sensor.fibaro_system_fgsd001_co_sensor_co_level
-      - sensor.fibaro_system_fgsd001_co_sensor_general
   - type: entities
     title: Sauna
     show_header_toggle: false
@@ -53,7 +47,6 @@ cards:
       - sensor.leq0531146_energy_counter
       - sensor.leq0531146_voltage
       - sensor.leq0531146_current
-      - automation.luftentfeuchter
       - sensor.mold_sauna
       - switch.leq0531146
       - sensor.luftentfeuchter_on_today
@@ -66,16 +59,17 @@ cards:
     title: Poolraum
     show_header_toggle: false
     entities:
+      - sensor.fibaro_system_fgfs101_zwave_flood_sensor_temperature_2
+      - sensor.wassersensor_temperatur
       - binary_sensor.peq1325863_motion
-      - sensor.fibaro_system_fgfs101_zwave_flood_sensor_temperature
-      - binary_sensor.fibaro_system_fgfs101_zwave_flood_sensor_sensor
-      - switch.leq0531373
-      - sensor.leq0531373_power
-      - sensor.leq0531373_energy_counter
+      - binary_sensor.wassersensor_flood
       - binary_sensor.pool_heizung
-      - sensor.pool_heizung_on_today
       - binary_sensor.pool_pumpe
+      - sensor.pool_heizung_on_today
       - sensor.pool_pumpe_on_today
+      - switch.oeq1975649
+      - sensor.oeq1975649_power
+      - sensor.peq1325863_brightness
   - type: picture-entity
     title: Poolraum
     show_header_toggle: false

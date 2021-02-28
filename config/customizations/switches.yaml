@@ -1,5 +1,5 @@
 switch.it_stecker_1:
-  friendly_name: Wallpanel
+  friendly_name: 3D-Drucker
   icon: mdi:earth
 switch.it_2:
   friendly_name: Gelsenstecker

@@ -1,0 +1,12 @@
+---
+- alias: Flood detection
+  initial_state: true
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.fibaro_system_fgfs101_zwave_flood_sensor_sensor
+      to: "on"
+  action:
+    service: notify.hannes
+    data_template:
+      message: >
+        ALARM! You are drowning!
