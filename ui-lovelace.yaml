@@ -202,10 +202,9 @@ views:
     - climate.meq0182064
     - sensor.lab0091601_brightness
     - binary_sensor.lab0091601_motion
-    - sensor.petsi_battery
-    - switch.petsi_clean
-    - switch.petsi_dock
-    - sensor.petsi_state
+    - vacuum.lena
+    - sensor.lena_battery_level
+    - binary_sensor.lena_bin_full
   - type: entities
     title: Windfang
     show_header_toggle: false
@@ -242,7 +241,6 @@ views:
     title: Vorzimmer
     show_header_toggle: false
     entities:
-    - switch.it_stecker_1
     - climate.meq0182105
   - type: media-control
     entity: media_player.kuche
@@ -319,20 +317,24 @@ views:
     - binary_sensor.meq0537387_motion
     - sensor.meq0537387_brightness
     - climate.meq0182097
-    - light.barbara_tischlampe
+    - switch.leq0531373
     - switch.pangea
+    - switch.it_stecker_1
     - binary_sensor.meq0186547_state
     - light.it_stecker_3
     - switch.meq0325581
     - binary_sensor.leq1085620_state
     - binary_sensor.meq0186623_state
-    - light.color_temperature_light_1
-    - light.color_temperature_light_1_2
+    - light.hannes_1
+    - light.hannes_2
+    - switch.it_stecker_1
   - type: entities
     title: Wirtschaftsraum
     show_header_toggle: false
     entities:
-    - sensor.fibaro_system_fgsd001_co_sensor_temperature
+    - sensor.fibaro_system_fgsd001_co_sensor_temperature_2
+    - sensor.cosensor_temperatur
+    - sensor.fibaro_system_fgsd001_co_sensor_co_level_2
     - switch.meq0712568
     - sensor.heizbedarf
     - sensor.heizung_on_today
@@ -342,20 +344,11 @@ views:
     - sensor.waschmaschine_status
     - sensor.gas_energy_counter
     - switch.leq0574052
-    - sensor.meq0705863_energy_counter
     - sensor.meq0705863_gas_power
-    - sensor.leq0574052_energy_counter
     - sensor.meq0705863_power
     - sensor.leq0574052_current
     - sensor.leq0574052_power
     - sensor.meq0705863_gas_energy_counter
-    - binary_sensor.fibaro_system_fgsd001_co_sensor_sensor
-    - sensor.fibaro_system_fgsd001_co_sensor_alarm_level
-    - sensor.fibaro_system_fgsd001_co_sensor_alarm_type
-    - sensor.fibaro_system_fgsd001_co_sensor_carbon_monoxide
-    - sensor.fibaro_system_fgsd001_co_sensor_carbon_monoxide_2
-    - sensor.fibaro_system_fgsd001_co_sensor_co_level
-    - sensor.fibaro_system_fgsd001_co_sensor_general
   - type: entities
     title: Sauna
     show_header_toggle: false
@@ -363,7 +356,6 @@ views:
     - sensor.leq0531146_energy_counter
     - sensor.leq0531146_voltage
     - sensor.leq0531146_current
-    - automation.luftentfeuchter
     - sensor.mold_sauna
     - switch.leq0531146
     - sensor.luftentfeuchter_on_today
@@ -376,16 +368,17 @@ views:
     title: Poolraum
     show_header_toggle: false
     entities:
+    - sensor.fibaro_system_fgfs101_zwave_flood_sensor_temperature_2
+    - sensor.wassersensor_temperatur
     - binary_sensor.peq1325863_motion
-    - sensor.fibaro_system_fgfs101_zwave_flood_sensor_temperature
-    - binary_sensor.fibaro_system_fgfs101_zwave_flood_sensor_sensor
-    - switch.leq0531373
-    - sensor.leq0531373_power
-    - sensor.leq0531373_energy_counter
+    - binary_sensor.wassersensor_flood
     - binary_sensor.pool_heizung
-    - sensor.pool_heizung_on_today
     - binary_sensor.pool_pumpe
+    - sensor.pool_heizung_on_today
     - sensor.pool_pumpe_on_today
+    - switch.oeq1975649
+    - sensor.oeq1975649_power
+    - sensor.peq1325863_brightness
   - type: picture-entity
     title: Poolraum
     show_header_toggle: false
@@ -397,6 +390,32 @@ views:
     entities:
     - sensor.oeq1304703_humidity
     - sensor.oeq1304703_temperature
+  - type: entities
+    title: Drucker
+    show_header_toggle: false
+    entities:
+    - switch.it_stecker_1
+    - sensor.octoprint_bed_target
+    - sensor.octoprint_bed_temperature
+    - switch.octoprint_cancel_print
+    - binary_sensor.octoprint_connected
+    - sensor.octoprint_current_z
+    - switch.octoprint_emergency_stop
+    - sensor.octoprint_last_event
+    - switch.octoprint_pause_print
+    - sensor.octoprint_print_estimated_time
+    - sensor.octoprint_print_file
+    - sensor.octoprint_print_progress
+    - sensor.octoprint_print_status
+    - sensor.octoprint_print_time
+    - sensor.octoprint_print_time_left
+    - binary_sensor.octoprint_printing
+    - switch.octoprint_shutdown_system
+    - sensor.octoprint_slicing_file
+    - sensor.octoprint_slicing_progress
+    - sensor.octoprint_soc_temperature
+    - sensor.octoprint_tool_0_target
+    - sensor.octoprint_tool_0_temperature
   - type: media-control
     entity: media_player.sauna
   - type: media-control

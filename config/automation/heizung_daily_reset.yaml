@@ -1,5 +1,6 @@
+---
 - alias: "Heizung daily reset"
-  initial_state: True
+  initial_state: false
   trigger:
     - platform: time
       at: "19:00:00"

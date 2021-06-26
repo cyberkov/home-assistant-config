@@ -1,0 +1,21 @@
+---
+daily_energy_channel_a:
+  source: sensor.shellyem3_channel_a_energy
+  cycle: daily
+monthly_energy_channel_a:
+  source: sensor.shellyem3_channel_a_energy
+  cycle: monthly
+
+daily_energy_channel_b:
+  source: sensor.shellyem3_channel_b_energy
+  cycle: daily
+monthly_energy_channel_b:
+  source: sensor.shellyem3_channel_b_energy
+  cycle: monthly
+
+daily_energy_channel_c:
+  source: sensor.shellyem3_channel_c_energy
+  cycle: daily
+monthly_energy_channel_c:
+  source: sensor.shellyem3_channel_c_energy
+  cycle: monthly

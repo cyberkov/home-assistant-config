@@ -6,6 +6,3 @@
   host: 192.168.1.10
   port: 8080
   name: kodi_hannes
-- platform: spotify
-  client_id: !secret HA_SPOTIFY_CLIENTID
-  client_secret: !secret HA_SPOTIFY_CLIENTSECRET

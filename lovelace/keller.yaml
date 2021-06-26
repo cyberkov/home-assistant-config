@@ -11,6 +11,7 @@ cards:
       - climate.meq0182097
       - switch.leq0531373
       - switch.pangea
+      - switch.it_stecker_1
       - binary_sensor.meq0186547_state
       - light.it_stecker_3
       - switch.meq0325581
@@ -81,6 +82,32 @@ cards:
     entities:
       - sensor.oeq1304703_humidity
       - sensor.oeq1304703_temperature
+  - type: entities
+    title: Drucker
+    show_header_toggle: false
+    entities:
+      - switch.it_stecker_1
+      - sensor.octoprint_bed_target
+      - sensor.octoprint_bed_temperature
+      - switch.octoprint_cancel_print
+      - binary_sensor.octoprint_connected
+      - sensor.octoprint_current_z
+      - switch.octoprint_emergency_stop
+      - sensor.octoprint_last_event
+      - switch.octoprint_pause_print
+      - sensor.octoprint_print_estimated_time
+      - sensor.octoprint_print_file
+      - sensor.octoprint_print_progress
+      - sensor.octoprint_print_status
+      - sensor.octoprint_print_time
+      - sensor.octoprint_print_time_left
+      - binary_sensor.octoprint_printing
+      - switch.octoprint_shutdown_system
+      - sensor.octoprint_slicing_file
+      - sensor.octoprint_slicing_progress
+      - sensor.octoprint_soc_temperature
+      - sensor.octoprint_tool_0_target
+      - sensor.octoprint_tool_0_temperature
   - type: media-control
     entity: media_player.sauna
   - type: media-control

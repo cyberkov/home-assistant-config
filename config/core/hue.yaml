@@ -1,4 +1,4 @@
 bridges:
-  - host: 192.168.1.140
+  - host: 192.168.1.2
     allow_hue_groups: false
     allow_unreachable: true

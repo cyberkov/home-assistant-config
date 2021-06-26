@@ -5,6 +5,6 @@ entities:
   - light.badezimmerlicht
   - light.hue_ambiance_spot_1
   - light.hue_ambiance_spot_1_2
-  - light.it_stecker_3
+  - switch.lavalampe
   - light.p16tw_01
   - switch.meq0325581

@@ -2,9 +2,6 @@
   api_key: !secret HA_SONARR_APIKEY
   host: 192.168.1.4
   port: 8989
-  monitored_conditions:
-    - upcoming
-    - queue
 - platform: radarr
   api_key: !secret HA_RADARR_APIKEY
   host: 192.168.1.4

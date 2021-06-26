@@ -1,29 +1,95 @@
 ---
 # This file is based on the ideas from https://www.youtube.com/watch?v=tqQd9GnnsYI
+# API Specs: https://github.com/goecharger/go-eCharger-API-v1/
 sensor:
   - platform: command_line
     name: goecharger_temp
-    command: 'curl -s -S http://go-eCharger.cyberkov.lan/status | tee /config/tmp/goecharger.json'
-    value_template: '{{ value_json.tmp }}'
-    unit_of_measurement: '°C'
+    command: "curl -s -S http://192.168.1.186/status | tee /config/tmp/goecharger.json"
+    value_template: "{{ value_json.tmp }}"
+    unit_of_measurement: "°C"
   - platform: file
-    name: 'goecharger Phase 1'
-    value_template: '{{ value_json.nrg[0] }}'
-    file_path: '/config/tmp/goecharger.json'
-    unit_of_measurement: 'V'
+    name: "goecharger Phase 1 VOLTAGE"
+    value_template: "{{ value_json.nrg[0] }}"
+    file_path: "/config/tmp/goecharger.json"
+    unit_of_measurement: "V"
   - platform: file
-    name: 'goecharger Phase 2'
-    file_path: '/config/tmp/goecharger.json'
-    value_template: '{{ value_json.nrg[1] }}'
-    unit_of_measurement: 'V'
+    name: "goecharger Phase 2 VOLTAGE"
+    file_path: "/config/tmp/goecharger.json"
+    value_template: "{{ value_json.nrg[1] }}"
+    unit_of_measurement: "V"
   - platform: file
-    name: 'goecharger Phase 3'
-    file_path: '/config/tmp/goecharger.json'
-    value_template: '{{ value_json.nrg[2] }}'
-    unit_of_measurement: 'V'
+    name: "goecharger Phase 3 VOLTAGE"
+    file_path: "/config/tmp/goecharger.json"
+    value_template: "{{ value_json.nrg[2] }}"
+    unit_of_measurement: "V"
   - platform: file
-    name: 'goecharger Car'
-    file_path: '/config/tmp/goecharger.json'
+    name: "goecharger N VOLTAGE"
+    file_path: "/config/tmp/goecharger.json"
+    value_template: "{{ value_json.nrg[3] }}"
+    unit_of_measurement: "V"
+  - platform: file
+    name: "goecharger Phase 1 Ampere"
+    file_path: "/config/tmp/goecharger.json"
+    value_template: "{{ value_json.nrg[4] }}"
+    unit_of_measurement: "A"
+  - platform: file
+    name: "goecharger Phase 2 Ampere"
+    file_path: "/config/tmp/goecharger.json"
+    value_template: "{{ value_json.nrg[5] }}"
+    unit_of_measurement: "A"
+  - platform: file
+    name: "goecharger Phase 3 Ampere"
+    file_path: "/config/tmp/goecharger.json"
+    value_template: "{{ value_json.nrg[6] }}"
+    unit_of_measurement: "A"
+  - platform: file
+    name: "goecharger Phase 1 POWER"
+    value_template: "{{ value_json.nrg[7] * 10 }}"
+    file_path: "/config/tmp/goecharger.json"
+    unit_of_measurement: "W"
+  - platform: file
+    name: "goecharger Phase 2 POWER"
+    file_path: "/config/tmp/goecharger.json"
+    value_template: "{{ value_json.nrg[8] * 10 }}"
+    unit_of_measurement: "W"
+  - platform: file
+    name: "goecharger Phase 3 POWER"
+    file_path: "/config/tmp/goecharger.json"
+    value_template: "{{ value_json.nrg[9] * 10 }}"
+    unit_of_measurement: "W"
+  - platform: file
+    name: "goecharger N POWER"
+    file_path: "/config/tmp/goecharger.json"
+    value_template: "{{ value_json.nrg[10] * 10 }}"
+    unit_of_measurement: "W"
+  - platform: file
+    name: "goecharger Total POWER"
+    file_path: "/config/tmp/goecharger.json"
+    value_template: "{{ value_json.nrg[11] * 10 }}"
+    unit_of_measurement: "W"
+  - platform: file
+    name: "goecharger Phase 1 POWER FACTOR"
+    file_path: "/config/tmp/goecharger.json"
+    value_template: "{{ value_json.nrg[12] }}"
+    unit_of_measurement: "%"
+  - platform: file
+    name: "goecharger Phase 2 POWER FACTOR"
+    file_path: "/config/tmp/goecharger.json"
+    value_template: "{{ value_json.nrg[13] }}"
+    unit_of_measurement: "%"
+  - platform: file
+    name: "goecharger Phase 3 POWER FACTOR"
+    file_path: "/config/tmp/goecharger.json"
+    value_template: "{{ value_json.nrg[14] }}"
+    unit_of_measurement: "%"
+  - platform: file
+    name: "goecharger N POWER FACTOR"
+    file_path: "/config/tmp/goecharger.json"
+    value_template: "{{ value_json.nrg[15] }}"
+    unit_of_measurement: "%"
+  - platform: file
+    name: "goecharger Car"
+    file_path: "/config/tmp/goecharger.json"
     value_template: >
       {% if  value_json.car == '1' %}
       Ladestation bereit, kein Fahrzeug
@@ -35,36 +101,36 @@ sensor:
       Ladung beendet, Fahrzeug noch verbunden
       {% endif %}
   - platform: file
-    name: 'goecharger Ampere'
-    file_path: '/config/tmp/goecharger.json'
-    value_template: '{{ value_json.amp }}'
-    unit_of_measurement: 'A'
+    name: "goecharger Ampere"
+    file_path: "/config/tmp/goecharger.json"
+    value_template: "{{ value_json.amp }}"
+    unit_of_measurement: "A"
   - platform: file
-    name: 'goecharger Geladene Energiemenge'
-    file_path: '/config/tmp/goecharger.json'
-    value_template: '{{ value_json.dws }}'
-    unit_of_measurement: 'dWs'
+    name: "goecharger Geladene Energiemenge"
+    file_path: "/config/tmp/goecharger.json"
+    value_template: "{{ value_json.dws }}"
+    unit_of_measurement: "dWs"
   - platform: file
-    name: 'goecharger Gesamt geladene Energiemenge'
-    file_path: '/config/tmp/goecharger.json'
-    value_template: '{{ value_json.eto }}'
-    unit_of_measurement: 'kWh'
+    name: "goecharger Gesamt geladene Energiemenge"
+    file_path: "/config/tmp/goecharger.json"
+    value_template: "{{ value_json.eto }}"
+    unit_of_measurement: "kWh"
   - platform: file
-    name: 'goecharger Firmwareversion'
-    file_path: '/config/tmp/goecharger.json'
-    value_template: '{{ value_json.fwv }}'
+    name: "goecharger Firmwareversion"
+    file_path: "/config/tmp/goecharger.json"
+    value_template: "{{ value_json.fwv }}"
   - platform: file
-    name: 'goecharger Seriennummer'
-    file_path: '/config/tmp/goecharger.json'
-    value_template: '{{ value_json.sse }}'
+    name: "goecharger Seriennummer"
+    file_path: "/config/tmp/goecharger.json"
+    value_template: "{{ value_json.sse }}"
 
 switch:
   - platform: command_line
     switches:
       goecharger:
-        command_on: 'curl -s -S http://go-eCharger.cyberkov.lan/mqtt?payload=alw=1 | tee /config/tmp/goecharger.json'
-        command_off: 'curl -s -S http://go-eCharger.cyberkov.lan/mqtt?payload=alw=0 | tee /config/tmp/goecharger.json'
-        command_state: 'cat /config/tmp/goecharger.json'
+        command_on: "curl -s -S http://192.168.1.186/mqtt?payload=alw=1 | tee /config/tmp/goecharger.json"
+        command_off: "curl -s -S http://192.168.1.186/mqtt?payload=alw=0 | tee /config/tmp/goecharger.json"
+        command_state: "cat /config/tmp/goecharger.json"
         value_template: >
           {% if value_json.alw == '0' %}
           false

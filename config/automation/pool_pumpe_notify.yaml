@@ -1,0 +1,13 @@
+- alias: Poolpumpe aus Notification
+  id: poolpumpe_aus_notification
+  initial_state: True
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.pool_pumpe
+      from: "on"
+      to: "off"
+      for: "00:30:00"
+  action:
+    service: notify.hannes
+    data_template:
+      message: Poolpumpe ist ausgegangen.

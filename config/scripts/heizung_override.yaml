@@ -1,0 +1,10 @@
+alias: Heizung Override
+sequence:
+  - service: climate.set_preset_mode
+    data:
+      entity_id:
+        - climate.meq0182095
+        - climate.meq0182097
+        - climate.meq0182042
+        - climate.meq0182064
+      hvac_mode: "comfort"

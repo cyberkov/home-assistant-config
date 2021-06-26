@@ -1,5 +1,4 @@
 icon: mdi:tree
-view: yes
 entities:
   - group.wetter
   - group.vorhersage

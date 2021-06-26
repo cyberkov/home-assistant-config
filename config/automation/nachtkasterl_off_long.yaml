@@ -29,22 +29,22 @@
           Your aid is needed!
     - service: homeassistant.turn_on
       data:
-        entity_id: light.it_stecker_3
+        entity_id: switch.lavalampe
     - delay:
         seconds: 1
     - service: homeassistant.turn_off
       data:
-        entity_id: light.it_stecker_3
+        entity_id: switch.lavalampe
     - delay:
         seconds: 1
     - service: homeassistant.turn_on
       data:
-        entity_id: light.it_stecker_3
+        entity_id: switch.lavalampe
     - delay:
         seconds: 1
     - service: homeassistant.turn_off
       data:
-        entity_id: light.it_stecker_3
+        entity_id: switch.lavalampe
         #- alias: 'Nachtkasterl_off_long_stop'
         #  initial_state: 'on'
         #  trigger:

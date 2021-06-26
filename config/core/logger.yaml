@@ -1,11 +1,11 @@
 ---
 default: info
-#default: debug
+# default: debug
 logs:
   homeassistant.bootstrap: info
   homeassistant.components.device_tracker.nmap_tracker: warn
   homeassistant.components.device_tracker.ubus: warn
-  homeassistant.components.homematic: debug
+  homeassistant.components.homematic: warn
   homeassistant.components.http: warn
   homeassistant.components.influxdb: fatal
   homeassistant.components.media_player: warn
@@ -21,7 +21,7 @@ logs:
   lightify: warn
   openzwave: info
   libopenzwave: info
-  pyhomematic: debug
+  pyhomematic: warn
   requests.packages.urllib3.connectionpool: warn
   pysonos.discovery: warn
   pysonos.services: info

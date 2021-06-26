@@ -1,6 +1,6 @@
 entities:
   - light.fernsehlampe
-  - light.it_stecker_3
+  - switch.lavalampe
   - light.badezimmerlicht
   - switch.hannesdeckenlicht
   - switch.wohnzimmer_tv

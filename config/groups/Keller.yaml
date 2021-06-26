@@ -1,5 +1,4 @@
 icon: mdi:page-layout-footer
-view: yes
 entities:
   - group.hannes
   - group.sauna

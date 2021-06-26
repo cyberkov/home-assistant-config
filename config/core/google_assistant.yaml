@@ -1,0 +1,16 @@
+---
+project_id: !secret HA_GOOGLE_PROJECT_ID
+service_account: !secret HA_GOOGLE_SERVICE_ACCOUNT
+secure_devices_pin: !secret HA_ALARM_CODE_STRING
+report_state: true
+exposed_domains:
+  - alarm_control_panel
+  - binary_sensor
+  - camera
+  - climate
+  - light
+  - media_player
+  - person
+  - sensor
+  - switch
+  - vacuum

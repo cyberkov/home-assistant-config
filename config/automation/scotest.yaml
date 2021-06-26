@@ -20,7 +20,7 @@
           {{ trigger.entity_id }} has been triggered to {{ trigger.to_state.state }}.
     - service: homeassistant.turn_on
       data:
-        entity_id: light.it_stecker_3
+        entity_id: switch.lavalampe
     - service: homeassistant.toggle
       data:
         entity_id: switch.meq0325581
@@ -28,12 +28,12 @@
         seconds: 1
     - service: homeassistant.turn_off
       data:
-        entity_id: light.it_stecker_3
+        entity_id: switch.lavalampe
     - delay:
         seconds: 1
     - service: homeassistant.turn_on
       data:
-        entity_id: light.it_stecker_3
+        entity_id: switch.lavalampe
     - delay:
         seconds: 1
     - service: homeassistant.toggle
@@ -41,17 +41,17 @@
         entity_id: switch.meq0325581
     - service: homeassistant.turn_off
       data:
-        entity_id: light.it_stecker_3
+        entity_id: switch.lavalampe
     - delay:
         seconds: 1
     - service: homeassistant.turn_on
       data:
-        entity_id: light.it_stecker_3
+        entity_id: switch.lavalampe
     - delay:
         seconds: 1
     - service: homeassistant.turn_off
       data:
-        entity_id: light.it_stecker_3
+        entity_id: switch.lavalampe
 - alias: "sco_Test_off"
   initial_state: true
   trigger:

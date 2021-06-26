@@ -8,3 +8,7 @@ sensor.mold_kueche:
   friendly_name: "Lueftungseffizienz"
 sensor.mold_wohnzimmer:
   friendly_name: "Lueftungseffizienz"
+sensor.fibaro_system_fgfs101_zwave_flood_sensor_temperature_2:
+  device_class: temperature
+sensor.fibaro_system_fgsd001_co_sensor_temperature_2:
+  device_class: temperature

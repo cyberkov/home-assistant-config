@@ -6,7 +6,7 @@ entities:
   - binary_sensor.meq0537387_motion
   - climate.meq0182097
   - light.barbara_tischlampe
-  - light.it_stecker_3
+  - switch.lavalampe
   - light.p16tw_01
   - light.p16tw_02
   - media_player.kodi_hannes

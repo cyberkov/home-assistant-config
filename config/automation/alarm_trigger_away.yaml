@@ -21,6 +21,7 @@
         - binary_sensor.lab0091601_motion
         - binary_sensor.meq0537083_motion
         - binary_sensor.meq0537387_motion
+        - binary_sensor.peq1325863_motion
       from: "off"
       to: "on"
   condition:

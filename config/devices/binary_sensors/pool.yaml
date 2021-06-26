@@ -10,3 +10,13 @@
       value_template: >-
         {{ states('sensor.oeq1975649_power')|int > 1500 }}
       entity_id: sensor.oeq1975649_power
+    wassersensor_flood:
+      device_class: moisture
+      friendly_name: "Pool Wassersensor Alarm"
+      entity_id: sensor.fibaro_system_fgfs101_zwave_flood_sensor_alarm_level_2
+      value_template: >-
+        {%- if states("sensor.fibaro_system_fgfs101_zwave_flood_sensor_alarm_level_2") | int > 2 -%}
+        true
+        {%- else -%}
+        false
+        {%- endif -%}

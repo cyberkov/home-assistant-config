@@ -45,3 +45,4 @@ __pycache__
 .storage
 /appdaemon
 alarm_log.json
+/core

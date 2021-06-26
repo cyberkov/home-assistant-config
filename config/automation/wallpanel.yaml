@@ -1,6 +1,6 @@
 ---
 - alias: "charge Wallpanel when battery is low"
-  initial_state: true
+  initial_state: false
   trigger:
     - platform: numeric_state
       entity_id: sensor.wallpanel_battery
@@ -12,7 +12,7 @@
     - service_template: switch.turn_on
       entity_id: switch.it_stecker_1
 - alias: "turn off Wallpanel charger when battery is full"
-  initial_state: true
+  initial_state: false
   trigger:
     - platform: numeric_state
       entity_id: sensor.wallpanel_battery

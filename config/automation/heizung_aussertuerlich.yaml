@@ -1,5 +1,6 @@
+---
 - alias: "Heizung bei Anwesenheit an"
-  initial_state: True
+  initial_state: false
   trigger:
     - platform: state
       entity_id: group.personen

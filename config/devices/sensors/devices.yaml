@@ -1,6 +1,16 @@
 ---
 - platform: template
   sensors:
+    wassersensor_temperatur:
+      device_class: temperature
+      entity_id: sensor.fibaro_system_fgfs101_zwave_flood_sensor_temperature_2
+      value_template: '{{ states("sensor.fibaro_system_fgfs101_zwave_flood_sensor_temperature_2") | float }}'
+    cosensor_temperatur:
+      device_class: temperature
+      entity_id: sensor.fibaro_system_fgsd001_co_sensor_temperature_2
+      value_template: '{{ states("sensor.fibaro_system_fgsd001_co_sensor_temperature_2") | float }}'
+- platform: template
+  sensors:
     sonos_bad:
       entity_id: device_tracker.sonos_bad
       value_template: >

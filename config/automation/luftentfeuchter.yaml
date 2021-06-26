@@ -1,38 +1,23 @@
 ---
-- alias: "Luftentfeuchter"
+- alias: "Luftentfeuchter on"
   initial_state: true
   trigger:
     - platform: numeric_state
       entity_id: sensor.leq0868600_humidity
       above: 62
-      below: 57
-    - platform: numeric_state
-      entity_id: sensor.mold_sauna
-      above: 80
-      below: 70
-    - platform: template
-      value_template: >
-        {% if states.sensor.leq0868600_humidity.state|float <= 57
-        or states.sensor.leq0868600_humidity.state|float >= 62
-        or states.sensor.mold_sauna.state|float <= 70
-        or states.sensor.mold_sauna.state|float >= 80
-         %}true{% endif %}
-    - platform: time_pattern
-      minutes: "/15"
-      seconds: 0
   condition:
     - condition: state
       entity_id: switch.pangea
       state: "off"
   action:
-    - service_template: >
-        {% set high_hum = 62 -%}
-        {% set low_hum = 57  -%}
-        {% set high_mold = 80 -%}
-        {% set low_mold = 70 -%}
-        {% if states.sensor.leq0868600_humidity.state|float <= low_hum -%}
-        switch.turn_off
-        {% elif states.sensor.leq0868600_humidity.state|float >= high_hum -%}
-        switch.turn_on
-        {% endif -%}
+    - service: switch.turn_on
+      entity_id: switch.leq0531146
+- alias: "Luftentfeuchter off"
+  initial_state: true
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.leq0868600_humidity
+      below: 57
+  action:
+    - service: switch.turn_off
       entity_id: switch.leq0531146

@@ -1,0 +1,3 @@
+---
+client_id: !secret HA_SPOTIFY_CLIENTID
+client_secret: !secret HA_SPOTIFY_CLIENTSECRET

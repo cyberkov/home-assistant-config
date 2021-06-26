@@ -103,7 +103,7 @@ binary_sensor.leq1085620_state:
   friendly_name: "Hannes Tür"
 binary_sensor.meq0186623_state:
   friendly_name: "Hannes Fenster"
-light.it_stecker_3:
+switch.lavalampe:
   friendly_name: Lavalampe
 binary_sensor.meq0186547_state:
   friendly_name: SpareSCO

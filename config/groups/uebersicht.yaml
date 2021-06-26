@@ -1,5 +1,4 @@
 icon: mdi:home-variant
-view: yes
 entities:
   - group.alarmanlage
   - group.personen

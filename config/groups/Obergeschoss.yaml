@@ -1,5 +1,4 @@
 icon: mdi:page-layout-header
-view: yes
 entities:
   - group.schlafzimmer
   - group.gang

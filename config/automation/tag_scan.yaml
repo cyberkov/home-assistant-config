@@ -1,0 +1,71 @@
+---
+- id: handle_tag_scan
+  alias: "Handle Tag Scan"
+  mode: single
+  # Hide warnings when triggered while in delay.
+  max_exceeded: silent
+  variables:
+    # Map scanner device ID to media player entity ID
+    media_players:
+      # Tonibox
+      75db69c28e4def7e36f9fb88f78c9240: media_player.dominik
+      cc411ed84f007aee598020770c2c5262: media_player.lounge
+    # Map tag ID to content
+    tags:
+      04-21-DE-01-97-34-03:
+        media_content_id: https://open.spotify.com/playlist/37i9dQZF1E37u2NVWn0Agp?si=746f865a525b45db
+        media_content_type: music
+      04-21-BC-01-16-34-03:
+        media_content_id: https://open.spotify.com/playlist/37i9dQZF1EuKEfFSrENz8T?si=38ebbf33d1ee4a04
+        media_content_type: music
+      43-33-BD-04:  # Bibi Blocksberg Karte
+        media_content_id: |
+          {{ [ 
+            "https://open.spotify.com/album/5nygx26FcoDjDwQt84wmJB?si=8F-n8qyVRd6EWazZ4MBX4A",
+            "https://open.spotify.com/album/6pHuh1UxL2SDBjsd6MxfCr?si=29ae9a85feae440d"
+            "https://open.spotify.com/album/3axhlalFLU2684Ffm0u0Rp?si=PUcIaTeESmSOCtvB7d87EA",
+            "https://open.spotify.com/album/1xdobvCo2gCgsPybqQo4kP?si=cWJbvbkYRmm8BaU5tQ0ezQ",
+            "https://open.spotify.com/album/49zMhdaThDGD3YdlpWU6ld?si=mFP0aI9uQgOgkqxNkMUY5w",
+            "https://open.spotify.com/album/5XGOUZGOQGIgeGmsVfwVzA?si=HTZK-gJ_TT6sdaMDvQs4xg",
+            "https://open.spotify.com/album/3KDqhf6L5aRlMiMKJyobV1?si=5ldElZpFQ12VKtiNd5PWgQ",
+            "https://open.spotify.com/album/3wT6JhGI0wcOr7EyTc2m2a?si=fSsPBdYYS3mzlBubgwVFUQ",
+            "https://open.spotify.com/album/4BbDgXrHhanWUpd8essOOo?si=pH4w64l7Qy6bj1B-4DsMcA",
+            "https://open.spotify.com/album/5erPQX1yxlnMesKnHIHdaD?si=MyUhJ_IZT6mvN8o1FGHhMg",
+            "https://open.spotify.com/album/5erPQX1yxlnMesKnHIHdaD?si=MyUhJ_IZT6mvN8o1FGHhMg"
+          ] | random }}
+        media_content_type: music
+      82-42-8D-E9:
+        media_content_id: https://open.spotify.com/playlist/37i9dQZF1Egq14ZrDGNCGI?si=970f1cf0ff064615
+        media_content_type: music
+      04-11-E5-6A-EC-6B-81:  # Monika
+        media_content_id: https://open.spotify.com/playlist/5MqzXZyVA5ys6l8KdYWQ0s?si=63a51b102f7c4e61
+        media_content_type: music
+
+
+  trigger:
+    platform: event
+    event_type: tag_scanned
+  condition:
+    # Test that we support this device and tag"
+    - "{{ trigger.event.data.tag_id in tags }}"
+    - "{{ trigger.event.data.device_id in media_players }}"
+  action:
+    - variables:
+        media_player_entity_id: "{{ media_players[trigger.event.data.device_id] }}"
+        media_content_id: "{{ tags[trigger.event.data.tag_id].media_content_id }}"
+        media_content_type: "{{ tags[trigger.event.data.tag_id].media_content_type }}"
+    - service: sonos.unjoin
+      target:
+        entity_id: "{{ media_player_entity_id }}"
+        #    - service: media_player.volume_set
+        #      data:
+        #        volume_level: 0.8
+        #      target:
+        #        entity_id: "{{ media_player_entity_id }}"
+    - service: media_player.play_media
+      target:
+        entity_id: "{{ media_player_entity_id }}"
+      data:
+        media_content_id: "{{ media_content_id }}"
+        media_content_type: "{{ media_content_type }}"
+    - delay: 5 # timeout before we allow processing next scan

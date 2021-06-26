@@ -1,4 +1,3 @@
-view: yes
 icon: mdi:lock
 entities:
   - group.alarmanlage

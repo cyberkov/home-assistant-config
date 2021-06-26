@@ -1,0 +1,90 @@
+- alias: "Dominik Taster 1"
+  initial_state: "on"
+  trigger:
+    - platform: event
+      event_type: homematic.keypress
+      event_data:
+        name: Dominik.Taster
+        channel: 1
+        param: PRESS_SHORT
+  action:
+    - service: media_player.play_media
+      data:
+        media_content_type: music
+        media_content_id: https://open.spotify.com/playlist/37i9dQZF1ELWmbaH2DrsAt?si=jDr_1KaCSpWo23QgQ7EqOg
+        entity_id: media_player.sauna
+- alias: "Dominik Taster 2"
+  initial_state: "on"
+  trigger:
+    - platform: event
+      event_type: homematic.keypress
+      event_data:
+        name: Dominik.Taster
+        channel: 2
+        param: PRESS_SHORT
+  action:
+    - service: media_player.play_media
+      data:
+        media_content_type: music
+        media_content_id: https://open.spotify.com/playlist/37i9dQZF1DX3bH0P2uDnWA?si=1osi9ibFSjinZGMc2t1pyQ
+        entity_id: media_player.sauna
+- alias: "Dominik Taster 3"
+  initial_state: "on"
+  trigger:
+    - platform: event
+      event_type: homematic.keypress
+      event_data:
+        name: Dominik.Taster
+        channel: 3
+        param: PRESS_SHORT
+  action:
+    - service: media_player.play_media
+      data:
+        media_content_type: music
+        media_content_id: https://open.spotify.com/playlist/37i9dQZF1DX3bH0P2uDnWA?si=1osi9ibFSjinZGMc2t1pyQ
+        entity_id: media_player.sauna
+- alias: "Dominik Taster 4"
+  initial_state: "on"
+  trigger:
+    - platform: event
+      event_type: homematic.keypress
+      event_data:
+        name: Dominik.Taster
+        channel: 4
+        param: PRESS_SHORT
+  action:
+    - service: media_player.play_media
+      data:
+        media_content_type: music
+        media_content_id: https://open.spotify.com/playlist/37i9dQZF1DX3bH0P2uDnWA?si=1osi9ibFSjinZGMc2t1pyQ
+        entity_id: media_player.sauna
+- alias: "Dominik Taster 5"
+  initial_state: "on"
+  trigger:
+    - platform: event
+      event_type: homematic.keypress
+      event_data:
+        name: Dominik.Taster
+        channel: 5
+        param: PRESS_SHORT
+  action:
+    - service: media_player.play_media
+      data:
+        media_content_type: music
+        media_content_id: https://open.spotify.com/playlist/37i9dQZF1DX3bH0P2uDnWA?si=1osi9ibFSjinZGMc2t1pyQ
+        entity_id: media_player.sauna
+- alias: "Dominik Taster 6"
+  initial_state: "on"
+  trigger:
+    - platform: event
+      event_type: homematic.keypress
+      event_data:
+        name: Dominik.Taster
+        channel: 6
+        param: PRESS_SHORT
+  action:
+    - service: media_player.play_media
+      data:
+        media_content_type: music
+        media_content_id: https://open.spotify.com/playlist/37i9dQZF1DX3bH0P2uDnWA?si=1osi9ibFSjinZGMc2t1pyQ
+        entity_id: media_player.sauna

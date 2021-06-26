@@ -5,6 +5,7 @@ alarm_control_panel:
     state_topic: home/alarm
     command_topic: home/alarm/set
     code: !secret HA_ALARM_CODE
+    code_arm_required: false
     pending_time: 60
     trigger_time: 120
     disarm_after_trigger: false
@@ -34,7 +35,7 @@ automation:
   - alias: MQTT Sun
     initial_state: true
     trigger:
-      - minutes: '/30'
+      - minutes: "/30"
         platform: time_pattern
     action:
       - data:
@@ -42,7 +43,7 @@ automation:
           retain: true
           topic: alarmpanel/command
         service: mqtt.publish
-### Announcements ###
+  ### Announcements ###
   - alias: "Alarm pending"
     initial_state: true
     trigger:
@@ -129,20 +130,20 @@ binary_sensor:
 #    state_topic: "alarmpanel/sensor/qrcode"
 #    name: "QR Code"
 #    value_template: ''
-  - platform: mqtt
-    name: "Wallpanel charging"
-    state_topic: "alarmpanel/sensor/battery"
-    value_template: '{{ value_json.charging }}'
-    payload_on: "true"
-    payload_off: "false"
+#  - platform: mqtt
+#    name: "Wallpanel charging"
+#    state_topic: "alarmpanel/sensor/battery"
+#    value_template: '{{ value_json.charging }}'
+#    payload_on: "true"
+#    payload_off: "false"
 sensor:
   - platform: mqtt
     name: "Wallpanel Battery"
     state_topic: "alarmpanel/sensor/battery"
-    value_template: '{{ value_json.value }}'
+    value_template: "{{ value_json.value }}"
     qos: 0
     unit_of_measurement: "%"
-camera:
-  - platform: mjpeg
-    mjpeg_url: http://192.168.1.12:2971/camera/stream
-    name: wallpanel camera
+#camera:
+#  - platform: mjpeg
+#    mjpeg_url: http://192.168.1.12:2971/camera/stream
+#    name: wallpanel camera

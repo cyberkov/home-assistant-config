@@ -1,5 +1,6 @@
 ---
-usb_path: /dev/ttyACM0
+usb_path: /dev/serial/by-id/usb-0658_0200-if00
+network_key: !secret ZWAVE_NETWORK_KEY
 #  config_path: /usr/local/share/python-openzwave/config
 #  autoheal: false
 # polling_interval: 2000

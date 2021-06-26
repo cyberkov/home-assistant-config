@@ -9,10 +9,9 @@ cards:
       - climate.meq0182064
       - sensor.lab0091601_brightness
       - binary_sensor.lab0091601_motion
-      - sensor.petsi_battery
-      - switch.petsi_clean
-      - switch.petsi_dock
-      - sensor.petsi_state
+      - vacuum.lena
+      - sensor.lena_battery_level
+      - binary_sensor.lena_bin_full
   - type: entities
     title: Windfang
     show_header_toggle: false
@@ -49,7 +48,6 @@ cards:
     title: Vorzimmer
     show_header_toggle: false
     entities:
-      - switch.it_stecker_1
       - climate.meq0182105
   - type: media-control
     entity: media_player.kuche
